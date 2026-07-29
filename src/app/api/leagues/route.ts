@@ -1,0 +1,30 @@
+import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  const leagues = await prisma.league.findMany({ include: { seasons: true }, orderBy: { name: "asc" } });
+  return NextResponse.json(leagues);
+}
+
+export async function POST(req: NextRequest) {
+  const body = await req.json();
+  const league = await prisma.league.create({ data: body });
+  return NextResponse.json(league, { status: 201 });
+}
+
+export async function PUT(req: NextRequest) {
+  const body = await req.json();
+  const { id, ...data } = body;
+  const league = await prisma.league.update({ where: { id }, data });
+  return NextResponse.json(league);
+}
+
+export async function DELETE(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get("id");
+  if (!id) return NextResponse.json({ error: "ID required" }, { status: 400 });
+  await prisma.league.delete({ where: { id } });
+  return NextResponse.json({ success: true });
+}

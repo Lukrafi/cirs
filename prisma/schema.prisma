@@ -1,0 +1,302 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Club {
+  id           String   @id @default(cuid())
+  name         String   @unique
+  city         String
+  country      String
+  founded      String
+  emblem       String   @default("")
+  primaryKit   String   @default("")
+  secondaryKit String   @default("")
+  attack       Int      @default(50)
+  midfield     Int      @default(50)
+  defense      Int      @default(50)
+  goalkeeper   Int      @default(50)
+  chemistry    Int      @default(50)
+  form         Int      @default(50)
+  morale       Int      @default(50)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  stadiumRel  Stadium?    @relation("ClubStadium")
+  coach       Coach?
+  players     Player[]
+  homeMatches Match[]     @relation("HomeTeam")
+  awayMatches Match[]     @relation("AwayTeam")
+  standings   Standing[]
+  awards      Award[]
+  news        News[]
+  sponsors    Sponsor[]
+  matchStats  MatchStat[]
+}
+
+model Coach {
+  id          String   @id @default(cuid())
+  name        String
+  nationality String
+  age         Int
+  clubId      String   @unique
+  club        Club?    @relation(fields: [clubId], references: [id])
+  overall     Int      @default(50)
+  photo       String   @default("")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  awards      Award[]
+}
+
+model Player {
+  id              String   @id @default(cuid())
+  name            String
+  age             Int
+  nationality     String
+  clubId          String?
+  club            Club?    @relation(fields: [clubId], references: [id])
+  position        String
+  number          Int
+  dominantFoot    String
+  height          Float
+  weight          Float
+  overall         Int      @default(50)
+  pace            Int      @default(50)
+  shooting        Int      @default(50)
+  passing         Int      @default(50)
+  dribbling       Int      @default(50)
+  defending       Int      @default(50)
+  physical        Int      @default(50)
+  goalkeeperStats Int      @default(50)
+  photo           String   @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  matchStats MatchStat[]
+  awards     Award[]
+  seasons    SeasonStat[]
+}
+
+model Referee {
+  id          String   @id @default(cuid())
+  name        String
+  nationality String
+  age         Int
+  photo       String   @default("")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Stadium {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  city      String
+  country   String
+  capacity  Int
+  image     String   @default("")
+  clubId    String?  @unique
+  club      Club?    @relation("ClubStadium", fields: [clubId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model League {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  logo      String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  seasons   Season[]
+}
+
+model Season {
+  id           String        @id @default(cuid())
+  name         String
+  leagueId     String?
+  league       League?       @relation(fields: [leagueId], references: [id])
+  startDate    DateTime
+  endDate      DateTime
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  competitions Competition[]
+  awards       Award[]
+  stats        SeasonStat[]
+}
+
+model Competition {
+  id         String   @id @default(cuid())
+  name       String
+  type       String
+  logo       String   @default("")
+  seasonId   String?
+  season     Season?  @relation(fields: [seasonId], references: [id])
+  isKnockout Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  groups     Group[]
+}
+
+model Group {
+  id            String       @id @default(cuid())
+  name          String
+  competitionId String?
+  competition   Competition? @relation(fields: [competitionId], references: [id])
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  standings     Standing[]
+  matches       Match[]
+}
+
+model Standing {
+  id           String   @id @default(cuid())
+  groupId      String?
+  group        Group?   @relation(fields: [groupId], references: [id])
+  clubId       String?
+  club         Club?    @relation(fields: [clubId], references: [id])
+  points       Int      @default(0)
+  played       Int      @default(0)
+  wins         Int      @default(0)
+  draws        Int      @default(0)
+  losses       Int      @default(0)
+  goalsFor     Int      @default(0)
+  goalsAgainst Int      @default(0)
+  goalsDiff    Int      @default(0)
+  position     Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Match {
+  id          String      @id @default(cuid())
+  groupId     String?
+  group       Group?      @relation(fields: [groupId], references: [id])
+  homeTeamId  String?
+  homeTeam    Club?       @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeamId  String?
+  awayTeam    Club?       @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  homeScore   Int?
+  awayScore   Int?
+  round       String?
+  matchDate   DateTime?
+  status      String      @default("scheduled")
+  isKnockout  Boolean     @default(false)
+  isSimulated Boolean     @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  matchStats  MatchStat[]
+}
+
+model MatchStat {
+  id            String   @id @default(cuid())
+  matchId       String?
+  match         Match?   @relation(fields: [matchId], references: [id])
+  playerId      String?
+  player        Player?  @relation(fields: [playerId], references: [id])
+  clubId        String?
+  club          Club?    @relation(fields: [clubId], references: [id])
+  goals         Int      @default(0)
+  assists       Int      @default(0)
+  powerShots    Int      @default(0)
+  shots         Int      @default(0)
+  shotsOnTarget Int      @default(0)
+  passes        Int      @default(0)
+  passAccuracy  Int      @default(0)
+  tackles       Int      @default(0)
+  interceptions Int      @default(0)
+  saves         Int      @default(0)
+  cleanSheet    Boolean  @default(false)
+  yellowCards   Int      @default(0)
+  redCards      Int      @default(0)
+  minutesPlayed Int      @default(0)
+  mvp           Boolean  @default(false)
+  rating        Float    @default(6.0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model SeasonStat {
+  id            String   @id @default(cuid())
+  playerId      String?
+  player        Player?  @relation(fields: [playerId], references: [id])
+  seasonId      String?
+  season        Season?  @relation(fields: [seasonId], references: [id])
+  matches       Int      @default(0)
+  goals         Int      @default(0)
+  assists       Int      @default(0)
+  powerShots    Int      @default(0)
+  mvpCount      Int      @default(0)
+  yellowCards   Int      @default(0)
+  redCards      Int      @default(0)
+  minPlayed     Int      @default(0)
+  averageRating Float    @default(0)
+  cleanSheets   Int      @default(0)
+  saves         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Award {
+  id        String   @id @default(cuid())
+  title     String
+  category  String
+  playerId  String?
+  player    Player?  @relation(fields: [playerId], references: [id])
+  clubId    String?
+  club      Club?    @relation(fields: [clubId], references: [id])
+  coachId   String?
+  coach     Coach?   @relation(fields: [coachId], references: [id])
+  seasonId  String?
+  season    Season?  @relation(fields: [seasonId], references: [id])
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Sponsor {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  logo      String   @default("")
+  category  String   @default("")
+  clubId    String?
+  club      Club?    @relation(fields: [clubId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model News {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  image     String   @default("")
+  category  String
+  author    String
+  clubId    String?
+  club      Club?    @relation(fields: [clubId], references: [id])
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MapFile {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  fileUrl     String
+  category    String   @default("map")
+  version     String   @default("1.0")
+  downloads   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
