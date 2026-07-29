@@ -40,7 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# prisma generated client (ignore locally, but allow vercel build to regenerate)
-/src/generated/prisma
-
-!prisma/schema.prisma
+# database
+prisma/*.db
+prisma/*.db-journal
