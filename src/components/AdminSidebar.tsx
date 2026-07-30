@@ -19,6 +19,7 @@ const links = [
   { href: "/admin/patrocinadores", label: "Patrocinadores", icon: "💰" },
   { href: "/admin/noticias", label: "Notícias", icon: "📰" },
   { href: "/admin/downloads", label: "Downloads", icon: "📦" },
+  { href: "/admin/logs", label: "Logs", icon: "📜" },
 ];
 
 export default function AdminSidebar() {
