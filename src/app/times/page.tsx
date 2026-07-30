@@ -38,7 +38,7 @@ export default async function TimesPage() {
                 )}
                 <div>
                   <h3 className="text-lg font-bold group-hover:text-gold transition-colors">{club.name}</h3>
-                  <p className="text-xs text-muted">{club.city}, {club.country}</p>
+                  <p className="text-xs text-muted">{club.city}{club.countryId ? `, ${(club as { country?: { name: string } }).country?.name || ""}` : ""}</p>
                 </div>
               </div>
               <div className="mt-3 text-center">

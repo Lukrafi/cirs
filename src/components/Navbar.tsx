@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/", label: "Início" },
   { href: "/campeonatos", label: "Campeonatos" },
   { href: "/ligas", label: "Ligas" },
+  { href: "/temporadas", label: "Temporadas" },
   { href: "/ranking", label: "Ranking" },
   { href: "/estatisticas", label: "Estatísticas" },
   { href: "/times", label: "Times" },

@@ -16,17 +16,22 @@ model Admin {
 }
 
 model Club {
-  id           String   @id @default(cuid())
-  name         String   @unique
-  city         String
-  country      String
-  founded      String
-  emblem       String   @default("")
-  primaryKit   String   @default("")
-  secondaryKit String   @default("")
-  strength     Float    @default(5.0)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id            String   @id @default(cuid())
+  name          String   @unique
+  city          String
+  countryId     String?
+  country       Country? @relation(fields: [countryId], references: [id])
+  associationId String?
+  association   NationalAssociation? @relation(fields: [associationId], references: [id])
+  divisionId    String?
+  division      Division? @relation(fields: [divisionId], references: [id])
+  founded       String
+  emblem        String   @default("")
+  primaryKit    String   @default("")
+  secondaryKit  String   @default("")
+  strength      Float    @default(5.0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
   stadiumRel  Stadium?    @relation("ClubStadium")
   coach       Coach?
@@ -108,21 +113,103 @@ model Stadium {
 }
 
 model League {
+  id           String        @id @default(cuid())
+  name         String        @unique
+  logo         String        @default("")
+  countryId    String?
+  country      Country?      @relation(fields: [countryId], references: [id])
+  divisionId   String?
+  division     Division?     @relation(fields: [divisionId], references: [id])
+  confederationId String?
+  confederation Confederation? @relation(fields: [confederationId], references: [id])
+  isInternational Boolean   @default(false)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  seasons      Season[]
+}
+
+model Confederation {
   id        String   @id @default(cuid())
   name      String   @unique
+  code      String   @unique
   logo      String   @default("")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  seasons   Season[]
+  countries Country[]
+  leagues   League[]
+  associations NationalAssociation[]
+  nationalTeams NationalTeam[]
+}
+
+model Country {
+  id               String   @id @default(cuid())
+  name             String   @unique
+  code             String   @unique
+  flag             String   @default("")
+  confederationId  String?
+  confederation    Confederation? @relation(fields: [confederationId], references: [id])
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  associations     NationalAssociation[]
+  clubs            Club[]
+  leagues          League[]
+  divisions        Division[]
+  nationalTeams    NationalTeam[]
+}
+
+model NationalAssociation {
+  id              String   @id @default(cuid())
+  name            String   @unique
+  code            String   @unique
+  countryId       String?
+  country         Country? @relation(fields: [countryId], references: [id])
+  confederationId String?
+  confederation   Confederation? @relation(fields: [confederationId], references: [id])
+  logo            String   @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  clubs           Club[]
+  teams           NationalTeam[]
+}
+
+model NationalTeam {
+  id              String   @id @default(cuid())
+  name            String   @unique
+  countryId         String?
+  country         Country? @relation(fields: [countryId], references: [id])
+  associationId   String?
+  association     NationalAssociation? @relation(fields: [associationId], references: [id])
+  confederationId String?
+  confederation   Confederation? @relation(fields: [confederationId], references: [id])
+  emblem          String   @default("")
+  flag            String   @default("")
+  primaryKit      String   @default("")
+  secondaryKit    String   @default("")
+  strength        Float    @default(5.0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Division {
+  id        String   @id @default(cuid())
+  name      String
+  countryId   String?
+  country   Country? @relation(fields: [countryId], references: [id])
+  level     Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  clubs     Club[]
+  leagues   League[]
 }
 
 model Season {
   id           String        @id @default(cuid())
   name         String
+  year         Int           @default(2026)
   leagueId     String?
   league       League?       @relation(fields: [leagueId], references: [id])
-  startDate    DateTime
-  endDate      DateTime
+  startDate    DateTime      @default(now())
+  endDate      DateTime      @default(now())
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
   competitions Competition[]
@@ -168,7 +255,7 @@ model Group {
   competition   Competition? @relation(fields: [competitionId], references: [id])
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
-  standings    Standing[]
+  standings     Standing[]
   matches       Match[]
 }
 
@@ -236,8 +323,8 @@ model MatchStat {
   minutesPlayed Int      @default(0)
   mvp           Boolean  @default(false)
   rating        Float    @default(6.0)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
 model SeasonStat {
@@ -257,8 +344,8 @@ model SeasonStat {
   averageRating Float    @default(0)
   cleanSheets   Int      @default(0)
   saves         Int      @default(0)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
 model Award {

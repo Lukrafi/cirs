@@ -7,7 +7,7 @@ type Competition = {
   name: string;
   format: string;
   numTeams: number;
-  groups: { id: string; name: string; matches: Match[] }[];
+  seasonId?: string | null;
 };
 
 type Match = {
@@ -18,17 +18,20 @@ type Match = {
   status: string;
   homeScore?: number;
   awayScore?: number;
-  isKnockout: boolean;
+  matchDate?: string;
 };
 
 export default function AdminSimulador() {
   const [competitions, setCompetitions] = useState<Competition[]>([]);
-  const [selectedComp, setSelectedComp] = useState<string>("");
+  const [selectedComp, setSelectedComp] = useState("");
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [simulating, setSimulating] = useState(false);
-  const [result, setResult] = useState<{ simulated: number; message: string } | null>(null);
+  const [result, setResult] = useState<string | null>(null);
   const [simulateMatchId, setSimulateMatchId] = useState<string | null>(null);
+  const [maxRound, setMaxRound] = useState("");
+  const [dataLimite, setDataLimite] = useState("");
+  const [seasonId, setSeasonId] = useState("");
 
   useEffect(() => {
     fetch("/api/competitions")
@@ -44,91 +47,85 @@ export default function AdminSimulador() {
     setResult(null);
     const res = await fetch("/api/matches");
     const allMatches = await res.json();
-    const compMatches = allMatches.filter(
-      (m: Match & { group?: { competitionId: string } }) =>
-        m.group?.competitionId === compId
+    setMatches(
+      allMatches.filter(
+        (m: Match & { group?: { competitionId?: string } }) =>
+          m.group?.competitionId === compId
+      )
     );
-    setMatches(compMatches);
   };
 
   const comp = competitions.find((c) => c.id === selectedComp);
-
-  const scheduledMatches = matches.filter((m) => m.status === "scheduled");
+  const scheduledMatches = matches.filter((m) => m.status === "finished" === false);
   const finishedMatches = matches.filter((m) => m.status === "finished");
 
-  const rounds = [...new Set(scheduledMatches.map((m) => m.round))].sort(
-    (a, b) => {
-      const na = parseInt(a.replace("R", ""));
-      const nb = parseInt(b.replace("R", ""));
-      return na - nb;
-    }
+  const rounds = [...new Set(scheduledMatches.map((m) => m.round))].sort((a, b) =>
+    parseInt((a || "0").replace(/\D/g, "")) - parseInt((b || "0").replace(/\D/g, ""))
   );
 
-  const handleSimulateRound = async (round: string) => {
-    if (!confirm(`Simular TODAS as partidas da rodada ${round}?`)) return;
+  const callSimulate = async (payload: Record<string, unknown>) => {
     setSimulating(true);
     setResult(null);
     try {
       const res = await fetch("/api/simulate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ competitionId: selectedComp, round, action: "rodada" }),
-      });
-      const data = await res.json();
-      setResult({ simulated: data.simulated, message: `Rodada ${round}: ${data.simulated} partidas simuladas` });
-      loadMatches(selectedComp);
-    } catch {
-      alert("Erro na simulação");
-    }
-    setSimulating(false);
-  };
-
-  const handleSimulateSeason = async () => {
-    if (!confirm("SIMULAR TODA a temporada? Todas as partidas agendadas serão processadas.")) return;
-    setSimulating(true);
-    setResult(null);
-    try {
-      const res = await fetch("/api/simulate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ competitionId: selectedComp, action: "temporada" }),
-      });
-      const data = await res.json();
-      setResult({ simulated: data.simulated, message: `Temporada completa: ${data.simulated} partidas simuladas!` });
-      loadMatches(selectedComp);
-    } catch {
-      alert("Erro na simulação");
-    }
-    setSimulating(false);
-  };
-
-  const handleSimulateMatch = async (matchId: string) => {
-    setSimulateMatchId(matchId);
-    setResult(null);
-    try {
-      const res = await fetch("/api/simulate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ matchId }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       if (res.ok) {
-        setResult({ simulated: 1, message: `Partida simulada: ${data.homeScore} x ${data.awayScore}` });
-        loadMatches(selectedComp);
+        const msg = data.simulated !== undefined
+          ? `${data.simulated} partidas simuladas!`
+          : `Partida: ${data.homeScore} x ${data.awayScore}`;
+        setResult(msg);
+        if (selectedComp) loadMatches(selectedComp);
       } else {
         alert(`Erro: ${data.error}`);
       }
     } catch {
       alert("Erro de conexão");
     }
+    setSimulating(false);
+  };
+
+  const handleSimulateAction = (action: string) => {
+    if (!selectedComp) return;
+    switch (action) {
+      case "rodada":
+        if (rounds.length === 0) return;
+        callSimulate({ competitionId: selectedComp, round: rounds[0], action: "rodada" });
+        break;
+      case "temporada":
+        callSimulate({ competitionId: selectedComp, action: "temporada" });
+        break;
+      case "ate-rodada":
+        if (!maxRound) { alert("Informe a rodada limite"); return; }
+        callSimulate({ competitionId: selectedComp, maxRound, action: "ate-rodada" });
+        break;
+      case "turno-ida":
+        callSimulate({ competitionId: selectedComp, turno: "ida", action: "turno" });
+        break;
+      case "turno-volta":
+        callSimulate({ competitionId: selectedComp, turno: "volta", action: "turno" });
+        break;
+      case "ate-data":
+        if (!dataLimite) { alert("Informe a data limite"); return; }
+        callSimulate({ competitionId: selectedComp, dataLimite, action: "ate-data" });
+        break;
+      case "todas-temporada":
+        if (!comp?.seasonId) { alert("Esta competição não está vinculada a uma temporada"); return; }
+        callSimulate({ seasonId: comp.seasonId, action: "todas-temporada" });
+        break;
+    }
+  };
+
+  const handleSimulateMatch = (matchId: string) => {
+    setSimulateMatchId(matchId);
+    callSimulate({ matchId });
     setSimulateMatchId(null);
   };
 
-  const getStrengthStars = (strength: number) => {
-    const full = Math.floor(strength);
-    const half = strength % 1 >= 0.5;
-    return "⭐".repeat(full) + (half ? "½" : "");
-  };
+  const getStars = (s: number) => "⭐".repeat(Math.floor(s)) + (s % 1 >= 0.5 ? "½" : "");
 
   return (
     <div>
@@ -137,24 +134,19 @@ export default function AdminSimulador() {
       <div className="glass rounded-2xl p-6 mb-6">
         <h2 className="text-lg font-bold gold-text mb-4">Selecionar Competição</h2>
         <p className="text-sm text-muted mb-4">
-          O simulador usa a <b>Força do Clube</b> (⭐ 1.0 a 10.0) como único fator de cálculo.
-          Clubes mais fortes vencem mais, mas surpresas são possíveis.
+          O simulador usa a <b>Força do Clube</b> (⭐ 1.0 a 10.0) como fator de cálculo.
         </p>
-
         {loading ? (
           <p className="text-muted">Carregando...</p>
         ) : competitions.length === 0 ? (
-          <div className="text-muted">
-            <p>Nenhuma competição encontrada.</p>
-            <p className="text-sm mt-2">Crie uma competição primeiro em <strong>Campeonatos</strong>.</p>
-          </div>
+          <p className="text-muted">Nenhuma competição encontrada. Crie uma em Campeonatos.</p>
         ) : (
           <select
             value={selectedComp}
             onChange={(e) => loadMatches(e.target.value)}
             className="w-full bg-blue-deep border border-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-gold"
           >
-            <option value="">— Selecione uma competição —</option>
+            <option value="">— Selecione —</option>
             {competitions.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name} ({c.numTeams} times, {c.format})
@@ -166,41 +158,87 @@ export default function AdminSimulador() {
 
       {result && (
         <div className="glass rounded-2xl p-6 mb-6 gold-border text-center">
-          <p className="text-lg font-bold gold-text">{result.message}</p>
+          <p className="text-lg font-bold gold-text">{result}</p>
         </div>
       )}
 
       {comp && !simulating && (
         <div className="glass rounded-2xl p-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold">{comp.name}</h2>
-            <div className="flex gap-3">
-              {rounds.length > 0 && rounds.map((round) => (
+          <h2 className="text-lg font-bold mb-4">Opções de Simulação</h2>
+          <p className="text-xs text-muted mb-4">
+            {scheduledMatches.length} agendadas &bull; {finishedMatches.length} concluídas
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+            {rounds.length > 0 && (
+              rounds.map((round) => (
                 <button
                   key={round}
-                  onClick={() => handleSimulateRound(round)}
-                  disabled={simulating}
-                  className="btn-secondary text-xs py-2 px-4 disabled:opacity-50"
+                  onClick={() => callSimulate({ competitionId: selectedComp, round, action: "rodada" })}
+                  className="btn-secondary text-xs py-2 px-4"
                 >
-                  Simular Rodada {round}
+                  Rodada {round}
                 </button>
-              ))}
-              {scheduledMatches.length > 0 && (
-                <button
-                  onClick={handleSimulateSeason}
-                  disabled={simulating}
-                  className="btn-primary text-xs py-2 px-6 disabled:opacity-50"
-                >
-                  Simular Temporada
-                </button>
-              )}
-            </div>
+              ))
+            )}
+            <button
+              onClick={() => handleSimulateAction("temporada")}
+              className="btn-primary text-xs py-2 px-4"
+            >
+              Competição Inteira
+            </button>
+            {comp.seasonId && (
+              <button
+                onClick={() => handleSimulateAction("todas-temporada")}
+                className="btn-primary text-xs py-2 px-4"
+              >
+                Todas Competições da Temporada
+              </button>
+            )}
+            <button
+              onClick={() => handleSimulateAction("turno-ida")}
+              className="btn-secondary text-xs py-2 px-4"
+            >
+              Turno (Ida)
+            </button>
+            <button
+              onClick={() => handleSimulateAction("turno-volta")}
+              className="btn-secondary text-xs py-2 px-4"
+            >
+              Returno (Volta)
+            </button>
           </div>
 
-          <div className="flex gap-6 text-xs text-muted mb-4">
-            <span>{matches.length} partidas total</span>
-            <span className="text-gold">{scheduledMatches.length} agendadas</span>
-            <span>{finishedMatches.length} concluídas</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={maxRound}
+                onChange={(e) => setMaxRound(e.target.value)}
+                placeholder="Rodada limite (ex: 10)"
+                className="flex-1 bg-blue-deep border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gold"
+              />
+              <button
+                onClick={() => handleSimulateAction("ate-rodada")}
+                className="btn-secondary text-xs py-2 px-4 whitespace-nowrap"
+              >
+                Até Rodada
+              </button>
+            </div>
+            <div className="flex gap-2">
+              <input
+                type="date"
+                value={dataLimite}
+                onChange={(e) => setDataLimite(e.target.value)}
+                className="flex-1 bg-blue-deep border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gold"
+              />
+              <button
+                onClick={() => handleSimulateAction("ate-data")}
+                className="btn-secondary text-xs py-2 px-4 whitespace-nowrap"
+              >
+                Até Data
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -208,47 +246,41 @@ export default function AdminSimulador() {
       {simulating && (
         <div className="glass rounded-2xl p-12 text-center">
           <p className="text-gold text-lg">Simulando...</p>
-          <p className="text-muted text-sm mt-2">As partidas estão sendo processadas.</p>
         </div>
       )}
 
       {comp && matches.length > 0 && !simulating && (
         <div className="space-y-2">
-          {[...scheduledMatches, ...finishedMatches].slice(0, 50).map((m) => (
+          {[...scheduledMatches, ...finishedMatches].slice(0, 60).map((m) => (
             <div
               key={m.id}
-              className={`glass rounded-xl p-4 flex items-center justify-between ${
-                m.status === "finished" ? "opacity-80" : ""
+              className={`glass rounded-xl p-3 flex items-center justify-between text-sm ${
+                m.status === "finished" ? "opacity-70" : ""
               }`}
             >
-              <div className="flex-1 text-right text-sm">
-                <div className="font-medium">{m.homeTeam?.name || "—"}</div>
-                <div className="text-xs text-muted">{getStrengthStars(m.homeTeam?.strength || 0)}</div>
+              <div className="flex-1 text-right">
+                <div>{m.homeTeam?.name || "—"}</div>
+                <div className="text-xs text-muted">{getStars(m.homeTeam?.strength || 0)}</div>
               </div>
               <div className="px-4 text-center min-w-[80px]">
                 {m.status === "finished" ? (
                   <span className="text-lg font-bold gold-text">{m.homeScore} - {m.awayScore}</span>
                 ) : (
-                  <span className="text-xs text-muted">Rod.{m.round}</span>
+                  <span className="text-xs text-muted">Rod. {m.round}</span>
                 )}
               </div>
-              <div className="flex-1 text-sm">
-                <div className="font-medium">{m.awayTeam?.name || "—"}</div>
-                <div className="text-xs text-muted">{getStrengthStars(m.awayTeam?.strength || 0)}</div>
+              <div className="flex-1">
+                <div>{m.awayTeam?.name || "—"}</div>
+                <div className="text-xs text-muted">{getStars(m.awayTeam?.strength || 0)}</div>
               </div>
               {m.status === "scheduled" && (
                 <button
                   onClick={() => handleSimulateMatch(m.id)}
                   disabled={simulateMatchId === m.id}
-                  className="ml-4 btn-primary text-xs py-1.5 px-3 disabled:opacity-50"
+                  className="ml-3 btn-primary text-xs py-1.5 px-3 disabled:opacity-50"
                 >
                   {simulateMatchId === m.id ? "..." : "Simular"}
                 </button>
-              )}
-              {m.status === "finished" && (
-                <span className="ml-4 text-xs text-muted">
-                  {m.isKnockout ? "Mata-mata" : ""}
-                </span>
               )}
             </div>
           ))}

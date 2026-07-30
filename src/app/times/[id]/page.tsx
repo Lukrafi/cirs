@@ -41,7 +41,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
         )}
         <div>
           <h1 className="text-3xl font-black">{club.name}</h1>
-          <p className="text-muted">{club.city}, {club.country} • Fundado em {club.founded}</p>
+          <p className="text-muted">{club.city}{club.countryId ? `, ${(club as { country?: { name: string } }).country?.name || ""}` : ""} • Fundado em {club.founded}</p>
         </div>
       </div>
 

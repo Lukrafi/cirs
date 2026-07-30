@@ -314,3 +314,87 @@ export async function simularTemporada(competitionId: string) {
 
   return { simulated: matches.length, results };
 }
+
+export async function simularAteRodada(competitionId: string, maxRound: string) {
+  const maxNum = parseInt(maxRound.replace(/\D/g, ""));
+  const matches = await prisma.match.findMany({
+    where: { group: { competitionId }, status: "scheduled" },
+    include: { group: { include: { competition: true } } },
+    orderBy: { matchDate: "asc" },
+  });
+
+  const results: SimulationResult[] = [];
+  for (const match of matches) {
+    const roundNum = parseInt((match.round || "0").replace(/\D/g, ""));
+    if (roundNum > maxNum) break;
+    const ppw = match.group?.competition?.pointsPerWin ?? 3;
+    const ppd = match.group?.competition?.pointsPerDraw ?? 1;
+    const result = await simulateMatch(match.id);
+    await applySimulation(match.id, result, ppw, ppd);
+    results.push(result);
+  }
+
+  return { simulated: results.length, results };
+}
+
+export async function simularTurno(competitionId: string, turno: "ida" | "volta") {
+  const matches = await prisma.match.findMany({
+    where: { group: { competitionId }, status: "scheduled" },
+    include: { group: { include: { competition: true } } },
+    orderBy: { matchDate: "asc" },
+  });
+
+  const comp = matches[0]?.group?.competition;
+  const roundsPerTurn = comp?.numTeams ? comp.numTeams - 1 : 999;
+  const minRound = turno === "ida" ? 1 : roundsPerTurn + 1;
+  const maxRound = turno === "ida" ? roundsPerTurn : roundsPerTurn * 2;
+
+  const results: SimulationResult[] = [];
+  for (const match of matches) {
+    const rn = parseInt((match.round || "0").replace(/\D/g, ""));
+    if (rn < minRound || rn > maxRound) continue;
+    const ppw = match.group?.competition?.pointsPerWin ?? 3;
+    const ppd = match.group?.competition?.pointsPerDraw ?? 1;
+    const result = await simulateMatch(match.id);
+    await applySimulation(match.id, result, ppw, ppd);
+    results.push(result);
+  }
+
+  return { simulated: results.length, results };
+}
+
+export async function simularAteData(competitionId: string, dataLimite: string) {
+  const limitDate = new Date(dataLimite);
+  const matches = await prisma.match.findMany({
+    where: { group: { competitionId }, status: "scheduled" },
+    include: { group: { include: { competition: true } } },
+    orderBy: { matchDate: "asc" },
+  });
+
+  const results: SimulationResult[] = [];
+  for (const match of matches) {
+    if (match.matchDate && match.matchDate > limitDate) break;
+    const ppw = match.group?.competition?.pointsPerWin ?? 3;
+    const ppd = match.group?.competition?.pointsPerDraw ?? 1;
+    const result = await simulateMatch(match.id);
+    await applySimulation(match.id, result, ppw, ppd);
+    results.push(result);
+  }
+
+  return { simulated: results.length, results };
+}
+
+export async function simularTodasCompeticoes(seasonId: string) {
+  const competitions = await prisma.competition.findMany({
+    where: { seasonId },
+    include: { groups: { include: { matches: true } } },
+  });
+
+  let totalSimulated = 0;
+  for (const comp of competitions) {
+    const result = await simularTemporada(comp.id);
+    totalSimulated += result.simulated;
+  }
+
+  return { simulated: totalSimulated, competitions: competitions.length };
+}

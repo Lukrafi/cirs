@@ -6,6 +6,8 @@ import { useState } from "react";
 
 const links = [
   { href: "/admin", label: "Dashboard", icon: "📊" },
+  { href: "/admin/paises", label: "Países", icon: "🌍" },
+  { href: "/admin/divisoes", label: "Divisões", icon: "📋" },
   { href: "/admin/clubes", label: "Clubes", icon: "🛡️" },
   { href: "/admin/jogadores", label: "Jogadores", icon: "⚽" },
   { href: "/admin/tecnicos", label: "Técnicos", icon: "📋" },
