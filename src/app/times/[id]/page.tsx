@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { formatDate } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -14,14 +15,23 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
       stadiumRel: true,
       standings: { include: { group: { include: { competition: true } } } },
       sponsors: true,
+      awards: { include: { season: true }, orderBy: { date: "desc" } },
+      homeMatches: { include: { awayTeam: true, homeTeam: true }, where: { status: "finished" }, orderBy: { updatedAt: "desc" }, take: 5 },
+      awayMatches: { include: { awayTeam: true, homeTeam: true }, where: { status: "finished" }, orderBy: { updatedAt: "desc" }, take: 5 },
     },
   });
 
-  if (!club) notFound();
+  if (!club) return notFound();
+
+  const recentMatches = [...(club.homeMatches || []), ...(club.awayMatches || [])]
+    .sort((a, b) => (b.updatedAt?.getTime() || 0) - (a.updatedAt?.getTime() || 0))
+    .slice(0, 5);
 
   return (
     <div className="pt-20 min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="flex items-center gap-4 mb-8">
+      <Link href="/times" className="text-sm text-muted hover:text-gold transition-colors">← Voltar para Times</Link>
+
+      <div className="flex items-center gap-4 mb-8 mt-4">
         {club.emblem ? (
           <img src={club.emblem} alt={club.name} className="w-20 h-20 rounded-xl object-cover" />
         ) : (
@@ -54,10 +64,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
                   <span className="font-bold gold-text">{attr.value}</span>
                 </div>
                 <div className="w-full bg-blue-deep rounded-full h-2">
-                  <div
-                    className="bg-gradient-to-r from-gold to-yellow-300 h-2 rounded-full"
-                    style={{ width: `${attr.value}%` }}
-                  />
+                  <div className="bg-gradient-to-r from-gold to-yellow-300 h-2 rounded-full" style={{ width: `${attr.value}%` }} />
                 </div>
               </div>
             ))}
@@ -95,20 +102,58 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
         </div>
       </div>
 
+      {/* Títulos */}
+      {club.awards.length > 0 && (
+        <section className="mb-8">
+          <h2 className="text-xl font-bold uppercase text-gold mb-4">Títulos e Premiações</h2>
+          <div className="glass rounded-2xl p-6 space-y-2">
+            {club.awards.map((a) => (
+              <div key={a.id} className="flex items-center gap-3 text-sm border-b border-border last:border-0 pb-2 last:pb-0">
+                <span className="text-2xl">🏆</span>
+                <div className="flex-1">
+                  <span className="font-bold">{a.title}</span>
+                  <span className="text-muted ml-2">({a.category})</span>
+                </div>
+                {a.season && <span className="text-xs text-muted">{a.season.name}</span>}
+                <span className="text-xs text-muted">{formatDate(a.date)}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Últimos Jogos */}
+      {recentMatches.length > 0 && (
+        <section className="mb-8">
+          <h2 className="text-xl font-bold uppercase text-gold mb-4">Últimos Jogos</h2>
+          <div className="space-y-2">
+            {recentMatches.map((m) => {
+              const isHome = m.homeTeamId === club.id;
+              const opp = isHome ? m.awayTeam : m.homeTeam;
+              const ourScore = isHome ? m.homeScore : m.awayScore;
+              const oppScore = isHome ? m.awayScore : m.homeScore;
+              const result = (ourScore ?? 0) > (oppScore ?? 0) ? "V" : (ourScore ?? 0) < (oppScore ?? 0) ? "D" : "E";
+              return (
+                <Link key={m.id} href={`/simulacoes/${m.id}`} className="glass rounded-lg p-3 flex items-center gap-4 hover:bg-card/60 transition-colors text-sm">
+                  <span className={`font-bold w-6 text-center ${result === "V" ? "text-green-500" : result === "D" ? "text-red-500" : "text-muted"}`}>{result}</span>
+                  <span className="flex-1">{isHome ? "vs" : "@"} {opp?.name || "TBD"}</span>
+                  <span className="font-bold gold-text">{ourScore} - {oppScore}</span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* Elenco */}
       <h2 className="text-xl font-bold uppercase text-gold mb-4">Elenco</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {club.players.map((p) => (
-          <Link
-            key={p.id}
-            href={`/jogadores/${p.id}`}
-            className="glass rounded-xl p-4 hover:gold-border transition-all duration-300 group flex items-center gap-3"
-          >
+          <Link key={p.id} href={`/jogadores/${p.id}`} className="glass rounded-xl p-4 hover:gold-border transition-all duration-300 group flex items-center gap-3">
             {p.photo ? (
               <img src={p.photo} alt={p.name} className="w-12 h-12 rounded-full object-cover" />
             ) : (
-              <div className="w-12 h-12 rounded-full bg-blue-deep flex items-center justify-center font-bold text-gold">
-                {p.name.charAt(0)}
-              </div>
+              <div className="w-12 h-12 rounded-full bg-blue-deep flex items-center justify-center font-bold text-gold">{p.name.charAt(0)}</div>
             )}
             <div className="flex-1">
               <h3 className="text-sm font-bold group-hover:text-gold transition-colors">{p.name}</h3>

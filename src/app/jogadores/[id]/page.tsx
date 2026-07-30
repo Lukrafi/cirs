@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { formatDate } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -11,10 +12,12 @@ export default async function PlayerDetailPage({ params }: { params: Promise<{ i
     include: {
       club: true,
       matchStats: { include: { match: { include: { homeTeam: true, awayTeam: true } } }, orderBy: { createdAt: "desc" } },
+      transfers: { orderBy: { date: "desc" } },
+      awards: { include: { season: true }, orderBy: { date: "desc" } },
     },
   });
 
-  if (!player) notFound();
+  if (!player) return notFound();
 
   const totalStats = player.matchStats.reduce(
     (acc, s) => ({
@@ -43,7 +46,9 @@ export default async function PlayerDetailPage({ params }: { params: Promise<{ i
 
   return (
     <div className="pt-20 min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="flex items-center gap-4 mb-8">
+      <Link href="/jogadores" className="text-sm text-muted hover:text-gold transition-colors">← Voltar para Jogadores</Link>
+
+      <div className="flex items-center gap-4 mb-8 mt-4">
         {player.photo ? (
           <img src={player.photo} alt={player.name} className="w-20 h-20 rounded-full object-cover" />
         ) : (
@@ -91,7 +96,7 @@ export default async function PlayerDetailPage({ params }: { params: Promise<{ i
             <div className="flex justify-between"><dt className="text-muted">Pé dominante</dt><dd>{player.dominantFoot}</dd></div>
             <div className="flex justify-between"><dt className="text-muted">Altura</dt><dd>{player.height} m</dd></div>
             <div className="flex justify-between"><dt className="text-muted">Peso</dt><dd>{player.weight} kg</dd></div>
-            <div className="flex justify-between"><dt className="text-muted">Partidas</dt><dd>{totalStats.matches}</dd></div>
+            <div className="flex justify-between border-t border-border pt-2 mt-2"><dt className="text-muted">Partidas</dt><dd>{totalStats.matches}</dd></div>
             <div className="flex justify-between"><dt className="text-muted">Gols</dt><dd className="font-bold gold-text">{totalStats.goals}</dd></div>
             <div className="flex justify-between"><dt className="text-muted">Assistências</dt><dd className="font-bold gold-text">{totalStats.assists}</dd></div>
             <div className="flex justify-between"><dt className="text-muted">MVPs</dt><dd className="font-bold gold-text">{totalStats.mvp}</dd></div>
@@ -102,6 +107,43 @@ export default async function PlayerDetailPage({ params }: { params: Promise<{ i
         </div>
       </div>
 
+      {/* Transferências */}
+      {player.transfers.length > 0 && (
+        <section className="mb-8">
+          <h2 className="text-xl font-bold uppercase text-gold mb-4">Histórico de Transferências</h2>
+          <div className="glass rounded-2xl p-6 space-y-2">
+            {player.transfers.map((t) => (
+              <div key={t.id} className="flex items-center gap-3 text-sm border-b border-border last:border-0 pb-2 last:pb-0">
+                <span className="text-xs text-muted w-24">{formatDate(t.date)}</span>
+                <span className="font-medium">{t.fromClubId ? "Saiu" : "Início"}</span>
+                <span className="text-muted">→</span>
+                <span className="font-medium">{t.toClubId ? "Chegou" : "Fim"}</span>
+                {t.fee && <span className="text-gold text-xs ml-2">{t.fee}</span>}
+                <span className="text-xs text-muted ml-auto capitalize">{t.type}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Premiações */}
+      {player.awards.length > 0 && (
+        <section className="mb-8">
+          <h2 className="text-xl font-bold uppercase text-gold mb-4">Premiações</h2>
+          <div className="glass rounded-2xl p-6 space-y-2">
+            {player.awards.map((a) => (
+              <div key={a.id} className="flex items-center gap-3 text-sm border-b border-border last:border-0 pb-2 last:pb-0">
+                <span className="text-2xl">🏆</span>
+                <span className="font-bold">{a.title}</span>
+                <span className="text-muted">({a.category})</span>
+                {a.season && <span className="text-xs text-muted ml-auto">{a.season.name}</span>}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Partidas Recentes */}
       {player.matchStats.length > 0 && (
         <div>
           <h2 className="text-xl font-bold uppercase text-gold mb-4">Partidas Recentes</h2>
@@ -118,9 +160,11 @@ export default async function PlayerDetailPage({ params }: { params: Promise<{ i
               </thead>
               <tbody>
                 {player.matchStats.slice(0, 10).map((s) => (
-                  <tr key={s.id} className="border-b border-border last:border-0">
+                  <tr key={s.id} className="border-b border-border last:border-0 hover:bg-card/40">
                     <td className="p-3">
-                      {s.match?.homeTeam?.name} vs {s.match?.awayTeam?.name}
+                      <Link href={`/simulacoes/${s.matchId}`} className="hover:text-gold transition-colors">
+                        {s.match?.homeTeam?.name || "?"} vs {s.match?.awayTeam?.name || "?"}
+                      </Link>
                     </td>
                     <td className="p-3 text-center">{s.goals}</td>
                     <td className="p-3 text-center">{s.assists}</td>
