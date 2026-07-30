@@ -19,7 +19,7 @@ export default async function AdminLogsPage() {
           <p className="text-muted text-sm p-6 text-center">Nenhum log registrado.</p>
         ) : (
           <div className="divide-y divide-border">
-            {logs.map((l) => (
+            {logs.map((l: typeof logs[number]) => (
               <div key={l.id} className="p-4">
                 <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-3">

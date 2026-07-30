@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   const settings = await prisma.settings.findMany();
   const map: Record<string, string> = {};
-  settings.forEach((s) => { map[s.key] = s.value; });
+  settings.forEach((s: { key: string; value: string }) => { map[s.key] = s.value; });
   return NextResponse.json(map);
 }
 

@@ -37,7 +37,7 @@ export default async function CompetitionDetailPage({ params }: { params: Promis
         </div>
       </div>
 
-      {competition.groups.map((group) => (
+      {competition.groups.map((group: typeof competition.groups[number]) => (
         <div key={group.id} className="mb-8">
           <h2 className="text-lg font-bold uppercase text-gold mb-4">{group.name}</h2>
 

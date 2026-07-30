@@ -68,7 +68,7 @@ export default async function AdminDashboard() {
               <p className="text-muted text-sm p-4">Nenhum log ainda.</p>
             ) : (
               <div className="divide-y divide-border">
-                {recentLogs.map((l) => (
+                {recentLogs.map((l: { id: string; action: string; createdAt: Date; entity: string; entityId?: string | null; details?: string | null }) => (
                   <div key={l.id} className="p-3 text-xs">
                     <div className="flex justify-between">
                       <span className="text-gold font-medium">{l.action}</span>
