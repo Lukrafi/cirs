@@ -43,3 +43,6 @@ next-env.d.ts
 # database
 prisma/*.db
 prisma/*.db-journal
+
+# prisma generated client (gerado pelo postinstall e build-vercel.js)
+/src/generated/prisma
