@@ -288,6 +288,7 @@ export type MatchWhereInput = {
   homeTeam?: Prisma.XOR<Prisma.ClubNullableScalarRelationFilter, Prisma.ClubWhereInput> | null
   awayTeam?: Prisma.XOR<Prisma.ClubNullableScalarRelationFilter, Prisma.ClubWhereInput> | null
   matchStats?: Prisma.MatchStatListRelationFilter
+  reports?: Prisma.MatchReportListRelationFilter
 }
 
 export type MatchOrderByWithRelationInput = {
@@ -308,6 +309,7 @@ export type MatchOrderByWithRelationInput = {
   homeTeam?: Prisma.ClubOrderByWithRelationInput
   awayTeam?: Prisma.ClubOrderByWithRelationInput
   matchStats?: Prisma.MatchStatOrderByRelationAggregateInput
+  reports?: Prisma.MatchReportOrderByRelationAggregateInput
 }
 
 export type MatchWhereUniqueInput = Prisma.AtLeast<{
@@ -331,6 +333,7 @@ export type MatchWhereUniqueInput = Prisma.AtLeast<{
   homeTeam?: Prisma.XOR<Prisma.ClubNullableScalarRelationFilter, Prisma.ClubWhereInput> | null
   awayTeam?: Prisma.XOR<Prisma.ClubNullableScalarRelationFilter, Prisma.ClubWhereInput> | null
   matchStats?: Prisma.MatchStatListRelationFilter
+  reports?: Prisma.MatchReportListRelationFilter
 }, "id">
 
 export type MatchOrderByWithAggregationInput = {
@@ -388,6 +391,7 @@ export type MatchCreateInput = {
   homeTeam?: Prisma.ClubCreateNestedOneWithoutHomeMatchesInput
   awayTeam?: Prisma.ClubCreateNestedOneWithoutAwayMatchesInput
   matchStats?: Prisma.MatchStatCreateNestedManyWithoutMatchInput
+  reports?: Prisma.MatchReportCreateNestedManyWithoutMatchInput
 }
 
 export type MatchUncheckedCreateInput = {
@@ -405,6 +409,7 @@ export type MatchUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   matchStats?: Prisma.MatchStatUncheckedCreateNestedManyWithoutMatchInput
+  reports?: Prisma.MatchReportUncheckedCreateNestedManyWithoutMatchInput
 }
 
 export type MatchUpdateInput = {
@@ -422,6 +427,7 @@ export type MatchUpdateInput = {
   homeTeam?: Prisma.ClubUpdateOneWithoutHomeMatchesNestedInput
   awayTeam?: Prisma.ClubUpdateOneWithoutAwayMatchesNestedInput
   matchStats?: Prisma.MatchStatUpdateManyWithoutMatchNestedInput
+  reports?: Prisma.MatchReportUpdateManyWithoutMatchNestedInput
 }
 
 export type MatchUncheckedUpdateInput = {
@@ -439,6 +445,7 @@ export type MatchUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   matchStats?: Prisma.MatchStatUncheckedUpdateManyWithoutMatchNestedInput
+  reports?: Prisma.MatchReportUncheckedUpdateManyWithoutMatchNestedInput
 }
 
 export type MatchCreateManyInput = {
@@ -713,6 +720,22 @@ export type MatchUpdateOneWithoutMatchStatsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.MatchUpdateToOneWithWhereWithoutMatchStatsInput, Prisma.MatchUpdateWithoutMatchStatsInput>, Prisma.MatchUncheckedUpdateWithoutMatchStatsInput>
 }
 
+export type MatchCreateNestedOneWithoutReportsInput = {
+  create?: Prisma.XOR<Prisma.MatchCreateWithoutReportsInput, Prisma.MatchUncheckedCreateWithoutReportsInput>
+  connectOrCreate?: Prisma.MatchCreateOrConnectWithoutReportsInput
+  connect?: Prisma.MatchWhereUniqueInput
+}
+
+export type MatchUpdateOneWithoutReportsNestedInput = {
+  create?: Prisma.XOR<Prisma.MatchCreateWithoutReportsInput, Prisma.MatchUncheckedCreateWithoutReportsInput>
+  connectOrCreate?: Prisma.MatchCreateOrConnectWithoutReportsInput
+  upsert?: Prisma.MatchUpsertWithoutReportsInput
+  disconnect?: Prisma.MatchWhereInput | boolean
+  delete?: Prisma.MatchWhereInput | boolean
+  connect?: Prisma.MatchWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.MatchUpdateToOneWithWhereWithoutReportsInput, Prisma.MatchUpdateWithoutReportsInput>, Prisma.MatchUncheckedUpdateWithoutReportsInput>
+}
+
 export type MatchCreateWithoutHomeTeamInput = {
   id?: string
   homeScore?: number | null
@@ -727,6 +750,7 @@ export type MatchCreateWithoutHomeTeamInput = {
   group?: Prisma.GroupCreateNestedOneWithoutMatchesInput
   awayTeam?: Prisma.ClubCreateNestedOneWithoutAwayMatchesInput
   matchStats?: Prisma.MatchStatCreateNestedManyWithoutMatchInput
+  reports?: Prisma.MatchReportCreateNestedManyWithoutMatchInput
 }
 
 export type MatchUncheckedCreateWithoutHomeTeamInput = {
@@ -743,6 +767,7 @@ export type MatchUncheckedCreateWithoutHomeTeamInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   matchStats?: Prisma.MatchStatUncheckedCreateNestedManyWithoutMatchInput
+  reports?: Prisma.MatchReportUncheckedCreateNestedManyWithoutMatchInput
 }
 
 export type MatchCreateOrConnectWithoutHomeTeamInput = {
@@ -768,6 +793,7 @@ export type MatchCreateWithoutAwayTeamInput = {
   group?: Prisma.GroupCreateNestedOneWithoutMatchesInput
   homeTeam?: Prisma.ClubCreateNestedOneWithoutHomeMatchesInput
   matchStats?: Prisma.MatchStatCreateNestedManyWithoutMatchInput
+  reports?: Prisma.MatchReportCreateNestedManyWithoutMatchInput
 }
 
 export type MatchUncheckedCreateWithoutAwayTeamInput = {
@@ -784,6 +810,7 @@ export type MatchUncheckedCreateWithoutAwayTeamInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   matchStats?: Prisma.MatchStatUncheckedCreateNestedManyWithoutMatchInput
+  reports?: Prisma.MatchReportUncheckedCreateNestedManyWithoutMatchInput
 }
 
 export type MatchCreateOrConnectWithoutAwayTeamInput = {
@@ -860,6 +887,7 @@ export type MatchCreateWithoutGroupInput = {
   homeTeam?: Prisma.ClubCreateNestedOneWithoutHomeMatchesInput
   awayTeam?: Prisma.ClubCreateNestedOneWithoutAwayMatchesInput
   matchStats?: Prisma.MatchStatCreateNestedManyWithoutMatchInput
+  reports?: Prisma.MatchReportCreateNestedManyWithoutMatchInput
 }
 
 export type MatchUncheckedCreateWithoutGroupInput = {
@@ -876,6 +904,7 @@ export type MatchUncheckedCreateWithoutGroupInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   matchStats?: Prisma.MatchStatUncheckedCreateNestedManyWithoutMatchInput
+  reports?: Prisma.MatchReportUncheckedCreateNestedManyWithoutMatchInput
 }
 
 export type MatchCreateOrConnectWithoutGroupInput = {
@@ -917,6 +946,7 @@ export type MatchCreateWithoutMatchStatsInput = {
   group?: Prisma.GroupCreateNestedOneWithoutMatchesInput
   homeTeam?: Prisma.ClubCreateNestedOneWithoutHomeMatchesInput
   awayTeam?: Prisma.ClubCreateNestedOneWithoutAwayMatchesInput
+  reports?: Prisma.MatchReportCreateNestedManyWithoutMatchInput
 }
 
 export type MatchUncheckedCreateWithoutMatchStatsInput = {
@@ -933,6 +963,7 @@ export type MatchUncheckedCreateWithoutMatchStatsInput = {
   isSimulated?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  reports?: Prisma.MatchReportUncheckedCreateNestedManyWithoutMatchInput
 }
 
 export type MatchCreateOrConnectWithoutMatchStatsInput = {
@@ -965,6 +996,7 @@ export type MatchUpdateWithoutMatchStatsInput = {
   group?: Prisma.GroupUpdateOneWithoutMatchesNestedInput
   homeTeam?: Prisma.ClubUpdateOneWithoutHomeMatchesNestedInput
   awayTeam?: Prisma.ClubUpdateOneWithoutAwayMatchesNestedInput
+  reports?: Prisma.MatchReportUpdateManyWithoutMatchNestedInput
 }
 
 export type MatchUncheckedUpdateWithoutMatchStatsInput = {
@@ -981,6 +1013,91 @@ export type MatchUncheckedUpdateWithoutMatchStatsInput = {
   isSimulated?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  reports?: Prisma.MatchReportUncheckedUpdateManyWithoutMatchNestedInput
+}
+
+export type MatchCreateWithoutReportsInput = {
+  id?: string
+  homeScore?: number | null
+  awayScore?: number | null
+  round?: string | null
+  matchDate?: Date | string | null
+  status?: string
+  isKnockout?: boolean
+  isSimulated?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  group?: Prisma.GroupCreateNestedOneWithoutMatchesInput
+  homeTeam?: Prisma.ClubCreateNestedOneWithoutHomeMatchesInput
+  awayTeam?: Prisma.ClubCreateNestedOneWithoutAwayMatchesInput
+  matchStats?: Prisma.MatchStatCreateNestedManyWithoutMatchInput
+}
+
+export type MatchUncheckedCreateWithoutReportsInput = {
+  id?: string
+  groupId?: string | null
+  homeTeamId?: string | null
+  awayTeamId?: string | null
+  homeScore?: number | null
+  awayScore?: number | null
+  round?: string | null
+  matchDate?: Date | string | null
+  status?: string
+  isKnockout?: boolean
+  isSimulated?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  matchStats?: Prisma.MatchStatUncheckedCreateNestedManyWithoutMatchInput
+}
+
+export type MatchCreateOrConnectWithoutReportsInput = {
+  where: Prisma.MatchWhereUniqueInput
+  create: Prisma.XOR<Prisma.MatchCreateWithoutReportsInput, Prisma.MatchUncheckedCreateWithoutReportsInput>
+}
+
+export type MatchUpsertWithoutReportsInput = {
+  update: Prisma.XOR<Prisma.MatchUpdateWithoutReportsInput, Prisma.MatchUncheckedUpdateWithoutReportsInput>
+  create: Prisma.XOR<Prisma.MatchCreateWithoutReportsInput, Prisma.MatchUncheckedCreateWithoutReportsInput>
+  where?: Prisma.MatchWhereInput
+}
+
+export type MatchUpdateToOneWithWhereWithoutReportsInput = {
+  where?: Prisma.MatchWhereInput
+  data: Prisma.XOR<Prisma.MatchUpdateWithoutReportsInput, Prisma.MatchUncheckedUpdateWithoutReportsInput>
+}
+
+export type MatchUpdateWithoutReportsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  homeScore?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  awayScore?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  round?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  matchDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  isKnockout?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSimulated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  group?: Prisma.GroupUpdateOneWithoutMatchesNestedInput
+  homeTeam?: Prisma.ClubUpdateOneWithoutHomeMatchesNestedInput
+  awayTeam?: Prisma.ClubUpdateOneWithoutAwayMatchesNestedInput
+  matchStats?: Prisma.MatchStatUpdateManyWithoutMatchNestedInput
+}
+
+export type MatchUncheckedUpdateWithoutReportsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  groupId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  homeTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  awayTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  homeScore?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  awayScore?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  round?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  matchDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  isKnockout?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSimulated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  matchStats?: Prisma.MatchStatUncheckedUpdateManyWithoutMatchNestedInput
 }
 
 export type MatchCreateManyHomeTeamInput = {
@@ -1027,6 +1144,7 @@ export type MatchUpdateWithoutHomeTeamInput = {
   group?: Prisma.GroupUpdateOneWithoutMatchesNestedInput
   awayTeam?: Prisma.ClubUpdateOneWithoutAwayMatchesNestedInput
   matchStats?: Prisma.MatchStatUpdateManyWithoutMatchNestedInput
+  reports?: Prisma.MatchReportUpdateManyWithoutMatchNestedInput
 }
 
 export type MatchUncheckedUpdateWithoutHomeTeamInput = {
@@ -1043,6 +1161,7 @@ export type MatchUncheckedUpdateWithoutHomeTeamInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   matchStats?: Prisma.MatchStatUncheckedUpdateManyWithoutMatchNestedInput
+  reports?: Prisma.MatchReportUncheckedUpdateManyWithoutMatchNestedInput
 }
 
 export type MatchUncheckedUpdateManyWithoutHomeTeamInput = {
@@ -1074,6 +1193,7 @@ export type MatchUpdateWithoutAwayTeamInput = {
   group?: Prisma.GroupUpdateOneWithoutMatchesNestedInput
   homeTeam?: Prisma.ClubUpdateOneWithoutHomeMatchesNestedInput
   matchStats?: Prisma.MatchStatUpdateManyWithoutMatchNestedInput
+  reports?: Prisma.MatchReportUpdateManyWithoutMatchNestedInput
 }
 
 export type MatchUncheckedUpdateWithoutAwayTeamInput = {
@@ -1090,6 +1210,7 @@ export type MatchUncheckedUpdateWithoutAwayTeamInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   matchStats?: Prisma.MatchStatUncheckedUpdateManyWithoutMatchNestedInput
+  reports?: Prisma.MatchReportUncheckedUpdateManyWithoutMatchNestedInput
 }
 
 export type MatchUncheckedUpdateManyWithoutAwayTeamInput = {
@@ -1136,6 +1257,7 @@ export type MatchUpdateWithoutGroupInput = {
   homeTeam?: Prisma.ClubUpdateOneWithoutHomeMatchesNestedInput
   awayTeam?: Prisma.ClubUpdateOneWithoutAwayMatchesNestedInput
   matchStats?: Prisma.MatchStatUpdateManyWithoutMatchNestedInput
+  reports?: Prisma.MatchReportUpdateManyWithoutMatchNestedInput
 }
 
 export type MatchUncheckedUpdateWithoutGroupInput = {
@@ -1152,6 +1274,7 @@ export type MatchUncheckedUpdateWithoutGroupInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   matchStats?: Prisma.MatchStatUncheckedUpdateManyWithoutMatchNestedInput
+  reports?: Prisma.MatchReportUncheckedUpdateManyWithoutMatchNestedInput
 }
 
 export type MatchUncheckedUpdateManyWithoutGroupInput = {
@@ -1176,10 +1299,12 @@ export type MatchUncheckedUpdateManyWithoutGroupInput = {
 
 export type MatchCountOutputType = {
   matchStats: number
+  reports: number
 }
 
 export type MatchCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   matchStats?: boolean | MatchCountOutputTypeCountMatchStatsArgs
+  reports?: boolean | MatchCountOutputTypeCountReportsArgs
 }
 
 /**
@@ -1197,6 +1322,13 @@ export type MatchCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extens
  */
 export type MatchCountOutputTypeCountMatchStatsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.MatchStatWhereInput
+}
+
+/**
+ * MatchCountOutputType without action
+ */
+export type MatchCountOutputTypeCountReportsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MatchReportWhereInput
 }
 
 
@@ -1218,6 +1350,7 @@ export type MatchSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   homeTeam?: boolean | Prisma.Match$homeTeamArgs<ExtArgs>
   awayTeam?: boolean | Prisma.Match$awayTeamArgs<ExtArgs>
   matchStats?: boolean | Prisma.Match$matchStatsArgs<ExtArgs>
+  reports?: boolean | Prisma.Match$reportsArgs<ExtArgs>
   _count?: boolean | Prisma.MatchCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["match"]>
 
@@ -1281,6 +1414,7 @@ export type MatchInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   homeTeam?: boolean | Prisma.Match$homeTeamArgs<ExtArgs>
   awayTeam?: boolean | Prisma.Match$awayTeamArgs<ExtArgs>
   matchStats?: boolean | Prisma.Match$matchStatsArgs<ExtArgs>
+  reports?: boolean | Prisma.Match$reportsArgs<ExtArgs>
   _count?: boolean | Prisma.MatchCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type MatchIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1301,6 +1435,7 @@ export type $MatchPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     homeTeam: Prisma.$ClubPayload<ExtArgs> | null
     awayTeam: Prisma.$ClubPayload<ExtArgs> | null
     matchStats: Prisma.$MatchStatPayload<ExtArgs>[]
+    reports: Prisma.$MatchReportPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1714,6 +1849,7 @@ export interface Prisma__MatchClient<T, Null = never, ExtArgs extends runtime.Ty
   homeTeam<T extends Prisma.Match$homeTeamArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Match$homeTeamArgs<ExtArgs>>): Prisma.Prisma__ClubClient<runtime.Types.Result.GetResult<Prisma.$ClubPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   awayTeam<T extends Prisma.Match$awayTeamArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Match$awayTeamArgs<ExtArgs>>): Prisma.Prisma__ClubClient<runtime.Types.Result.GetResult<Prisma.$ClubPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   matchStats<T extends Prisma.Match$matchStatsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Match$matchStatsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MatchStatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reports<T extends Prisma.Match$reportsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Match$reportsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MatchReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2228,6 +2364,30 @@ export type Match$matchStatsArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.MatchStatScalarFieldEnum | Prisma.MatchStatScalarFieldEnum[]
+}
+
+/**
+ * Match.reports
+ */
+export type Match$reportsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MatchReport
+   */
+  select?: Prisma.MatchReportSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MatchReport
+   */
+  omit?: Prisma.MatchReportOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MatchReportInclude<ExtArgs> | null
+  where?: Prisma.MatchReportWhereInput
+  orderBy?: Prisma.MatchReportOrderByWithRelationInput | Prisma.MatchReportOrderByWithRelationInput[]
+  cursor?: Prisma.MatchReportWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MatchReportScalarFieldEnum | Prisma.MatchReportScalarFieldEnum[]
 }
 
 /**

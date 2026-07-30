@@ -87,6 +87,7 @@ model Player {
   matchStats MatchStat[]
   awards     Award[]
   seasons    SeasonStat[]
+  transfers  Transfer[]
 }
 
 model Referee {
@@ -196,6 +197,7 @@ model Match {
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   matchStats  MatchStat[]
+  reports     MatchReport[]
 }
 
 model MatchStat {
@@ -287,6 +289,7 @@ model News {
   published Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  comments  Comment[]
 }
 
 model MapFile {
@@ -299,4 +302,88 @@ model MapFile {
   downloads   Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  email     String?  @unique
+  password  String
+  role      String   @default("user")
+  avatar    String   @default("")
+  discord   String?
+  bio       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  comments  Comment[]
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  newsId    String
+  news      News     @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  authorName String  @default("Anonimo")
+  content   String
+  createdAt DateTime @default(now())
+}
+
+model Transfer {
+  id        String   @id @default(cuid())
+  playerId  String
+  player    Player   @relation(fields: [playerId], references: [id])
+  fromClubId String?
+  toClubId  String?
+  date      DateTime @default(now())
+  fee       String   @default("")
+  type      String   @default("transfer")
+  createdAt DateTime @default(now())
+}
+
+model Log {
+  id        String   @id @default(cuid())
+  action    String
+  entity    String
+  entityId  String?
+  adminId   String?
+  details   String   @default("")
+  createdAt DateTime @default(now())
+}
+
+model Settings {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model ApiKey {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  label     String   @default("HaxBall Integration")
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  matches   MatchReport[]
+}
+
+model MatchReport {
+  id            String   @id @default(cuid())
+  apiKeyId      String?
+  apiKey        ApiKey?  @relation(fields: [apiKeyId], references: [id])
+  matchId       String?
+  match         Match?   @relation(fields: [matchId], references: [id])
+  redTeamName   String
+  blueTeamName  String
+  redScore      Int      @default(0)
+  blueScore     Int      @default(0)
+  redPossession Float    @default(50)
+  bluePossession Float   @default(50)
+  mvpPlayerName String?
+  mvpRating     Float    @default(0)
+  events        String   @default("[]")
+  playerStats   String   @default("[]")
+  teamStats     String   @default("[]")
+  penaltyShootout String @default("{}")
+  createdAt     DateTime @default(now())
 }

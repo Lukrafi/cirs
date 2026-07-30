@@ -66,7 +66,14 @@ export const ModelName = {
   Award: 'Award',
   Sponsor: 'Sponsor',
   News: 'News',
-  MapFile: 'MapFile'
+  MapFile: 'MapFile',
+  User: 'User',
+  Comment: 'Comment',
+  Transfer: 'Transfer',
+  Log: 'Log',
+  Settings: 'Settings',
+  ApiKey: 'ApiKey',
+  MatchReport: 'MatchReport'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -381,6 +388,104 @@ export const MapFileScalarFieldEnum = {
 } as const
 
 export type MapFileScalarFieldEnum = (typeof MapFileScalarFieldEnum)[keyof typeof MapFileScalarFieldEnum]
+
+
+export const UserScalarFieldEnum = {
+  id: 'id',
+  username: 'username',
+  email: 'email',
+  password: 'password',
+  role: 'role',
+  avatar: 'avatar',
+  discord: 'discord',
+  bio: 'bio',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const CommentScalarFieldEnum = {
+  id: 'id',
+  newsId: 'newsId',
+  userId: 'userId',
+  authorName: 'authorName',
+  content: 'content',
+  createdAt: 'createdAt'
+} as const
+
+export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
+
+
+export const TransferScalarFieldEnum = {
+  id: 'id',
+  playerId: 'playerId',
+  fromClubId: 'fromClubId',
+  toClubId: 'toClubId',
+  date: 'date',
+  fee: 'fee',
+  type: 'type',
+  createdAt: 'createdAt'
+} as const
+
+export type TransferScalarFieldEnum = (typeof TransferScalarFieldEnum)[keyof typeof TransferScalarFieldEnum]
+
+
+export const LogScalarFieldEnum = {
+  id: 'id',
+  action: 'action',
+  entity: 'entity',
+  entityId: 'entityId',
+  adminId: 'adminId',
+  details: 'details',
+  createdAt: 'createdAt'
+} as const
+
+export type LogScalarFieldEnum = (typeof LogScalarFieldEnum)[keyof typeof LogScalarFieldEnum]
+
+
+export const SettingsScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  value: 'value',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SettingsScalarFieldEnum = (typeof SettingsScalarFieldEnum)[keyof typeof SettingsScalarFieldEnum]
+
+
+export const ApiKeyScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  label: 'label',
+  active: 'active',
+  createdAt: 'createdAt'
+} as const
+
+export type ApiKeyScalarFieldEnum = (typeof ApiKeyScalarFieldEnum)[keyof typeof ApiKeyScalarFieldEnum]
+
+
+export const MatchReportScalarFieldEnum = {
+  id: 'id',
+  apiKeyId: 'apiKeyId',
+  matchId: 'matchId',
+  redTeamName: 'redTeamName',
+  blueTeamName: 'blueTeamName',
+  redScore: 'redScore',
+  blueScore: 'blueScore',
+  redPossession: 'redPossession',
+  bluePossession: 'bluePossession',
+  mvpPlayerName: 'mvpPlayerName',
+  mvpRating: 'mvpRating',
+  events: 'events',
+  playerStats: 'playerStats',
+  teamStats: 'teamStats',
+  penaltyShootout: 'penaltyShootout',
+  createdAt: 'createdAt'
+} as const
+
+export type MatchReportScalarFieldEnum = (typeof MatchReportScalarFieldEnum)[keyof typeof MatchReportScalarFieldEnum]
 
 
 export const SortOrder = {

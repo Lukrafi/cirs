@@ -392,6 +392,7 @@ export type PlayerWhereInput = {
   matchStats?: Prisma.MatchStatListRelationFilter
   awards?: Prisma.AwardListRelationFilter
   seasons?: Prisma.SeasonStatListRelationFilter
+  transfers?: Prisma.TransferListRelationFilter
 }
 
 export type PlayerOrderByWithRelationInput = {
@@ -420,6 +421,7 @@ export type PlayerOrderByWithRelationInput = {
   matchStats?: Prisma.MatchStatOrderByRelationAggregateInput
   awards?: Prisma.AwardOrderByRelationAggregateInput
   seasons?: Prisma.SeasonStatOrderByRelationAggregateInput
+  transfers?: Prisma.TransferOrderByRelationAggregateInput
 }
 
 export type PlayerWhereUniqueInput = Prisma.AtLeast<{
@@ -451,6 +453,7 @@ export type PlayerWhereUniqueInput = Prisma.AtLeast<{
   matchStats?: Prisma.MatchStatListRelationFilter
   awards?: Prisma.AwardListRelationFilter
   seasons?: Prisma.SeasonStatListRelationFilter
+  transfers?: Prisma.TransferListRelationFilter
 }, "id">
 
 export type PlayerOrderByWithAggregationInput = {
@@ -534,6 +537,7 @@ export type PlayerCreateInput = {
   matchStats?: Prisma.MatchStatCreateNestedManyWithoutPlayerInput
   awards?: Prisma.AwardCreateNestedManyWithoutPlayerInput
   seasons?: Prisma.SeasonStatCreateNestedManyWithoutPlayerInput
+  transfers?: Prisma.TransferCreateNestedManyWithoutPlayerInput
 }
 
 export type PlayerUncheckedCreateInput = {
@@ -561,6 +565,7 @@ export type PlayerUncheckedCreateInput = {
   matchStats?: Prisma.MatchStatUncheckedCreateNestedManyWithoutPlayerInput
   awards?: Prisma.AwardUncheckedCreateNestedManyWithoutPlayerInput
   seasons?: Prisma.SeasonStatUncheckedCreateNestedManyWithoutPlayerInput
+  transfers?: Prisma.TransferUncheckedCreateNestedManyWithoutPlayerInput
 }
 
 export type PlayerUpdateInput = {
@@ -588,6 +593,7 @@ export type PlayerUpdateInput = {
   matchStats?: Prisma.MatchStatUpdateManyWithoutPlayerNestedInput
   awards?: Prisma.AwardUpdateManyWithoutPlayerNestedInput
   seasons?: Prisma.SeasonStatUpdateManyWithoutPlayerNestedInput
+  transfers?: Prisma.TransferUpdateManyWithoutPlayerNestedInput
 }
 
 export type PlayerUncheckedUpdateInput = {
@@ -615,6 +621,7 @@ export type PlayerUncheckedUpdateInput = {
   matchStats?: Prisma.MatchStatUncheckedUpdateManyWithoutPlayerNestedInput
   awards?: Prisma.AwardUncheckedUpdateManyWithoutPlayerNestedInput
   seasons?: Prisma.SeasonStatUncheckedUpdateManyWithoutPlayerNestedInput
+  transfers?: Prisma.TransferUncheckedUpdateManyWithoutPlayerNestedInput
 }
 
 export type PlayerCreateManyInput = {
@@ -805,6 +812,11 @@ export type PlayerNullableScalarRelationFilter = {
   isNot?: Prisma.PlayerWhereInput | null
 }
 
+export type PlayerScalarRelationFilter = {
+  is?: Prisma.PlayerWhereInput
+  isNot?: Prisma.PlayerWhereInput
+}
+
 export type PlayerCreateNestedManyWithoutClubInput = {
   create?: Prisma.XOR<Prisma.PlayerCreateWithoutClubInput, Prisma.PlayerUncheckedCreateWithoutClubInput> | Prisma.PlayerCreateWithoutClubInput[] | Prisma.PlayerUncheckedCreateWithoutClubInput[]
   connectOrCreate?: Prisma.PlayerCreateOrConnectWithoutClubInput | Prisma.PlayerCreateOrConnectWithoutClubInput[]
@@ -907,6 +919,20 @@ export type PlayerUpdateOneWithoutAwardsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.PlayerUpdateToOneWithWhereWithoutAwardsInput, Prisma.PlayerUpdateWithoutAwardsInput>, Prisma.PlayerUncheckedUpdateWithoutAwardsInput>
 }
 
+export type PlayerCreateNestedOneWithoutTransfersInput = {
+  create?: Prisma.XOR<Prisma.PlayerCreateWithoutTransfersInput, Prisma.PlayerUncheckedCreateWithoutTransfersInput>
+  connectOrCreate?: Prisma.PlayerCreateOrConnectWithoutTransfersInput
+  connect?: Prisma.PlayerWhereUniqueInput
+}
+
+export type PlayerUpdateOneRequiredWithoutTransfersNestedInput = {
+  create?: Prisma.XOR<Prisma.PlayerCreateWithoutTransfersInput, Prisma.PlayerUncheckedCreateWithoutTransfersInput>
+  connectOrCreate?: Prisma.PlayerCreateOrConnectWithoutTransfersInput
+  upsert?: Prisma.PlayerUpsertWithoutTransfersInput
+  connect?: Prisma.PlayerWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PlayerUpdateToOneWithWhereWithoutTransfersInput, Prisma.PlayerUpdateWithoutTransfersInput>, Prisma.PlayerUncheckedUpdateWithoutTransfersInput>
+}
+
 export type PlayerCreateWithoutClubInput = {
   id?: string
   name: string
@@ -931,6 +957,7 @@ export type PlayerCreateWithoutClubInput = {
   matchStats?: Prisma.MatchStatCreateNestedManyWithoutPlayerInput
   awards?: Prisma.AwardCreateNestedManyWithoutPlayerInput
   seasons?: Prisma.SeasonStatCreateNestedManyWithoutPlayerInput
+  transfers?: Prisma.TransferCreateNestedManyWithoutPlayerInput
 }
 
 export type PlayerUncheckedCreateWithoutClubInput = {
@@ -957,6 +984,7 @@ export type PlayerUncheckedCreateWithoutClubInput = {
   matchStats?: Prisma.MatchStatUncheckedCreateNestedManyWithoutPlayerInput
   awards?: Prisma.AwardUncheckedCreateNestedManyWithoutPlayerInput
   seasons?: Prisma.SeasonStatUncheckedCreateNestedManyWithoutPlayerInput
+  transfers?: Prisma.TransferUncheckedCreateNestedManyWithoutPlayerInput
 }
 
 export type PlayerCreateOrConnectWithoutClubInput = {
@@ -1035,6 +1063,7 @@ export type PlayerCreateWithoutMatchStatsInput = {
   club?: Prisma.ClubCreateNestedOneWithoutPlayersInput
   awards?: Prisma.AwardCreateNestedManyWithoutPlayerInput
   seasons?: Prisma.SeasonStatCreateNestedManyWithoutPlayerInput
+  transfers?: Prisma.TransferCreateNestedManyWithoutPlayerInput
 }
 
 export type PlayerUncheckedCreateWithoutMatchStatsInput = {
@@ -1061,6 +1090,7 @@ export type PlayerUncheckedCreateWithoutMatchStatsInput = {
   updatedAt?: Date | string
   awards?: Prisma.AwardUncheckedCreateNestedManyWithoutPlayerInput
   seasons?: Prisma.SeasonStatUncheckedCreateNestedManyWithoutPlayerInput
+  transfers?: Prisma.TransferUncheckedCreateNestedManyWithoutPlayerInput
 }
 
 export type PlayerCreateOrConnectWithoutMatchStatsInput = {
@@ -1103,6 +1133,7 @@ export type PlayerUpdateWithoutMatchStatsInput = {
   club?: Prisma.ClubUpdateOneWithoutPlayersNestedInput
   awards?: Prisma.AwardUpdateManyWithoutPlayerNestedInput
   seasons?: Prisma.SeasonStatUpdateManyWithoutPlayerNestedInput
+  transfers?: Prisma.TransferUpdateManyWithoutPlayerNestedInput
 }
 
 export type PlayerUncheckedUpdateWithoutMatchStatsInput = {
@@ -1129,6 +1160,7 @@ export type PlayerUncheckedUpdateWithoutMatchStatsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   awards?: Prisma.AwardUncheckedUpdateManyWithoutPlayerNestedInput
   seasons?: Prisma.SeasonStatUncheckedUpdateManyWithoutPlayerNestedInput
+  transfers?: Prisma.TransferUncheckedUpdateManyWithoutPlayerNestedInput
 }
 
 export type PlayerCreateWithoutSeasonsInput = {
@@ -1155,6 +1187,7 @@ export type PlayerCreateWithoutSeasonsInput = {
   club?: Prisma.ClubCreateNestedOneWithoutPlayersInput
   matchStats?: Prisma.MatchStatCreateNestedManyWithoutPlayerInput
   awards?: Prisma.AwardCreateNestedManyWithoutPlayerInput
+  transfers?: Prisma.TransferCreateNestedManyWithoutPlayerInput
 }
 
 export type PlayerUncheckedCreateWithoutSeasonsInput = {
@@ -1181,6 +1214,7 @@ export type PlayerUncheckedCreateWithoutSeasonsInput = {
   updatedAt?: Date | string
   matchStats?: Prisma.MatchStatUncheckedCreateNestedManyWithoutPlayerInput
   awards?: Prisma.AwardUncheckedCreateNestedManyWithoutPlayerInput
+  transfers?: Prisma.TransferUncheckedCreateNestedManyWithoutPlayerInput
 }
 
 export type PlayerCreateOrConnectWithoutSeasonsInput = {
@@ -1223,6 +1257,7 @@ export type PlayerUpdateWithoutSeasonsInput = {
   club?: Prisma.ClubUpdateOneWithoutPlayersNestedInput
   matchStats?: Prisma.MatchStatUpdateManyWithoutPlayerNestedInput
   awards?: Prisma.AwardUpdateManyWithoutPlayerNestedInput
+  transfers?: Prisma.TransferUpdateManyWithoutPlayerNestedInput
 }
 
 export type PlayerUncheckedUpdateWithoutSeasonsInput = {
@@ -1249,6 +1284,7 @@ export type PlayerUncheckedUpdateWithoutSeasonsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   matchStats?: Prisma.MatchStatUncheckedUpdateManyWithoutPlayerNestedInput
   awards?: Prisma.AwardUncheckedUpdateManyWithoutPlayerNestedInput
+  transfers?: Prisma.TransferUncheckedUpdateManyWithoutPlayerNestedInput
 }
 
 export type PlayerCreateWithoutAwardsInput = {
@@ -1275,6 +1311,7 @@ export type PlayerCreateWithoutAwardsInput = {
   club?: Prisma.ClubCreateNestedOneWithoutPlayersInput
   matchStats?: Prisma.MatchStatCreateNestedManyWithoutPlayerInput
   seasons?: Prisma.SeasonStatCreateNestedManyWithoutPlayerInput
+  transfers?: Prisma.TransferCreateNestedManyWithoutPlayerInput
 }
 
 export type PlayerUncheckedCreateWithoutAwardsInput = {
@@ -1301,6 +1338,7 @@ export type PlayerUncheckedCreateWithoutAwardsInput = {
   updatedAt?: Date | string
   matchStats?: Prisma.MatchStatUncheckedCreateNestedManyWithoutPlayerInput
   seasons?: Prisma.SeasonStatUncheckedCreateNestedManyWithoutPlayerInput
+  transfers?: Prisma.TransferUncheckedCreateNestedManyWithoutPlayerInput
 }
 
 export type PlayerCreateOrConnectWithoutAwardsInput = {
@@ -1343,6 +1381,7 @@ export type PlayerUpdateWithoutAwardsInput = {
   club?: Prisma.ClubUpdateOneWithoutPlayersNestedInput
   matchStats?: Prisma.MatchStatUpdateManyWithoutPlayerNestedInput
   seasons?: Prisma.SeasonStatUpdateManyWithoutPlayerNestedInput
+  transfers?: Prisma.TransferUpdateManyWithoutPlayerNestedInput
 }
 
 export type PlayerUncheckedUpdateWithoutAwardsInput = {
@@ -1368,6 +1407,131 @@ export type PlayerUncheckedUpdateWithoutAwardsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   matchStats?: Prisma.MatchStatUncheckedUpdateManyWithoutPlayerNestedInput
+  seasons?: Prisma.SeasonStatUncheckedUpdateManyWithoutPlayerNestedInput
+  transfers?: Prisma.TransferUncheckedUpdateManyWithoutPlayerNestedInput
+}
+
+export type PlayerCreateWithoutTransfersInput = {
+  id?: string
+  name: string
+  age: number
+  nationality: string
+  position: string
+  number: number
+  dominantFoot: string
+  height: number
+  weight: number
+  overall?: number
+  pace?: number
+  shooting?: number
+  passing?: number
+  dribbling?: number
+  defending?: number
+  physical?: number
+  goalkeeperStats?: number
+  photo?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  club?: Prisma.ClubCreateNestedOneWithoutPlayersInput
+  matchStats?: Prisma.MatchStatCreateNestedManyWithoutPlayerInput
+  awards?: Prisma.AwardCreateNestedManyWithoutPlayerInput
+  seasons?: Prisma.SeasonStatCreateNestedManyWithoutPlayerInput
+}
+
+export type PlayerUncheckedCreateWithoutTransfersInput = {
+  id?: string
+  name: string
+  age: number
+  nationality: string
+  clubId?: string | null
+  position: string
+  number: number
+  dominantFoot: string
+  height: number
+  weight: number
+  overall?: number
+  pace?: number
+  shooting?: number
+  passing?: number
+  dribbling?: number
+  defending?: number
+  physical?: number
+  goalkeeperStats?: number
+  photo?: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  matchStats?: Prisma.MatchStatUncheckedCreateNestedManyWithoutPlayerInput
+  awards?: Prisma.AwardUncheckedCreateNestedManyWithoutPlayerInput
+  seasons?: Prisma.SeasonStatUncheckedCreateNestedManyWithoutPlayerInput
+}
+
+export type PlayerCreateOrConnectWithoutTransfersInput = {
+  where: Prisma.PlayerWhereUniqueInput
+  create: Prisma.XOR<Prisma.PlayerCreateWithoutTransfersInput, Prisma.PlayerUncheckedCreateWithoutTransfersInput>
+}
+
+export type PlayerUpsertWithoutTransfersInput = {
+  update: Prisma.XOR<Prisma.PlayerUpdateWithoutTransfersInput, Prisma.PlayerUncheckedUpdateWithoutTransfersInput>
+  create: Prisma.XOR<Prisma.PlayerCreateWithoutTransfersInput, Prisma.PlayerUncheckedCreateWithoutTransfersInput>
+  where?: Prisma.PlayerWhereInput
+}
+
+export type PlayerUpdateToOneWithWhereWithoutTransfersInput = {
+  where?: Prisma.PlayerWhereInput
+  data: Prisma.XOR<Prisma.PlayerUpdateWithoutTransfersInput, Prisma.PlayerUncheckedUpdateWithoutTransfersInput>
+}
+
+export type PlayerUpdateWithoutTransfersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  age?: Prisma.IntFieldUpdateOperationsInput | number
+  nationality?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.IntFieldUpdateOperationsInput | number
+  dominantFoot?: Prisma.StringFieldUpdateOperationsInput | string
+  height?: Prisma.FloatFieldUpdateOperationsInput | number
+  weight?: Prisma.FloatFieldUpdateOperationsInput | number
+  overall?: Prisma.IntFieldUpdateOperationsInput | number
+  pace?: Prisma.IntFieldUpdateOperationsInput | number
+  shooting?: Prisma.IntFieldUpdateOperationsInput | number
+  passing?: Prisma.IntFieldUpdateOperationsInput | number
+  dribbling?: Prisma.IntFieldUpdateOperationsInput | number
+  defending?: Prisma.IntFieldUpdateOperationsInput | number
+  physical?: Prisma.IntFieldUpdateOperationsInput | number
+  goalkeeperStats?: Prisma.IntFieldUpdateOperationsInput | number
+  photo?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  club?: Prisma.ClubUpdateOneWithoutPlayersNestedInput
+  matchStats?: Prisma.MatchStatUpdateManyWithoutPlayerNestedInput
+  awards?: Prisma.AwardUpdateManyWithoutPlayerNestedInput
+  seasons?: Prisma.SeasonStatUpdateManyWithoutPlayerNestedInput
+}
+
+export type PlayerUncheckedUpdateWithoutTransfersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  age?: Prisma.IntFieldUpdateOperationsInput | number
+  nationality?: Prisma.StringFieldUpdateOperationsInput | string
+  clubId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  position?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.IntFieldUpdateOperationsInput | number
+  dominantFoot?: Prisma.StringFieldUpdateOperationsInput | string
+  height?: Prisma.FloatFieldUpdateOperationsInput | number
+  weight?: Prisma.FloatFieldUpdateOperationsInput | number
+  overall?: Prisma.IntFieldUpdateOperationsInput | number
+  pace?: Prisma.IntFieldUpdateOperationsInput | number
+  shooting?: Prisma.IntFieldUpdateOperationsInput | number
+  passing?: Prisma.IntFieldUpdateOperationsInput | number
+  dribbling?: Prisma.IntFieldUpdateOperationsInput | number
+  defending?: Prisma.IntFieldUpdateOperationsInput | number
+  physical?: Prisma.IntFieldUpdateOperationsInput | number
+  goalkeeperStats?: Prisma.IntFieldUpdateOperationsInput | number
+  photo?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  matchStats?: Prisma.MatchStatUncheckedUpdateManyWithoutPlayerNestedInput
+  awards?: Prisma.AwardUncheckedUpdateManyWithoutPlayerNestedInput
   seasons?: Prisma.SeasonStatUncheckedUpdateManyWithoutPlayerNestedInput
 }
 
@@ -1418,6 +1582,7 @@ export type PlayerUpdateWithoutClubInput = {
   matchStats?: Prisma.MatchStatUpdateManyWithoutPlayerNestedInput
   awards?: Prisma.AwardUpdateManyWithoutPlayerNestedInput
   seasons?: Prisma.SeasonStatUpdateManyWithoutPlayerNestedInput
+  transfers?: Prisma.TransferUpdateManyWithoutPlayerNestedInput
 }
 
 export type PlayerUncheckedUpdateWithoutClubInput = {
@@ -1444,6 +1609,7 @@ export type PlayerUncheckedUpdateWithoutClubInput = {
   matchStats?: Prisma.MatchStatUncheckedUpdateManyWithoutPlayerNestedInput
   awards?: Prisma.AwardUncheckedUpdateManyWithoutPlayerNestedInput
   seasons?: Prisma.SeasonStatUncheckedUpdateManyWithoutPlayerNestedInput
+  transfers?: Prisma.TransferUncheckedUpdateManyWithoutPlayerNestedInput
 }
 
 export type PlayerUncheckedUpdateManyWithoutClubInput = {
@@ -1478,12 +1644,14 @@ export type PlayerCountOutputType = {
   matchStats: number
   awards: number
   seasons: number
+  transfers: number
 }
 
 export type PlayerCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   matchStats?: boolean | PlayerCountOutputTypeCountMatchStatsArgs
   awards?: boolean | PlayerCountOutputTypeCountAwardsArgs
   seasons?: boolean | PlayerCountOutputTypeCountSeasonsArgs
+  transfers?: boolean | PlayerCountOutputTypeCountTransfersArgs
 }
 
 /**
@@ -1517,6 +1685,13 @@ export type PlayerCountOutputTypeCountSeasonsArgs<ExtArgs extends runtime.Types.
   where?: Prisma.SeasonStatWhereInput
 }
 
+/**
+ * PlayerCountOutputType without action
+ */
+export type PlayerCountOutputTypeCountTransfersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TransferWhereInput
+}
+
 
 export type PlayerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1544,6 +1719,7 @@ export type PlayerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   matchStats?: boolean | Prisma.Player$matchStatsArgs<ExtArgs>
   awards?: boolean | Prisma.Player$awardsArgs<ExtArgs>
   seasons?: boolean | Prisma.Player$seasonsArgs<ExtArgs>
+  transfers?: boolean | Prisma.Player$transfersArgs<ExtArgs>
   _count?: boolean | Prisma.PlayerCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["player"]>
 
@@ -1627,6 +1803,7 @@ export type PlayerInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   matchStats?: boolean | Prisma.Player$matchStatsArgs<ExtArgs>
   awards?: boolean | Prisma.Player$awardsArgs<ExtArgs>
   seasons?: boolean | Prisma.Player$seasonsArgs<ExtArgs>
+  transfers?: boolean | Prisma.Player$transfersArgs<ExtArgs>
   _count?: boolean | Prisma.PlayerCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PlayerIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1643,6 +1820,7 @@ export type $PlayerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     matchStats: Prisma.$MatchStatPayload<ExtArgs>[]
     awards: Prisma.$AwardPayload<ExtArgs>[]
     seasons: Prisma.$SeasonStatPayload<ExtArgs>[]
+    transfers: Prisma.$TransferPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2064,6 +2242,7 @@ export interface Prisma__PlayerClient<T, Null = never, ExtArgs extends runtime.T
   matchStats<T extends Prisma.Player$matchStatsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Player$matchStatsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MatchStatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   awards<T extends Prisma.Player$awardsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Player$awardsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AwardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   seasons<T extends Prisma.Player$seasonsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Player$seasonsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SeasonStatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  transfers<T extends Prisma.Player$transfersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Player$transfersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2596,6 +2775,30 @@ export type Player$seasonsArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.SeasonStatScalarFieldEnum | Prisma.SeasonStatScalarFieldEnum[]
+}
+
+/**
+ * Player.transfers
+ */
+export type Player$transfersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Transfer
+   */
+  select?: Prisma.TransferSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Transfer
+   */
+  omit?: Prisma.TransferOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TransferInclude<ExtArgs> | null
+  where?: Prisma.TransferWhereInput
+  orderBy?: Prisma.TransferOrderByWithRelationInput | Prisma.TransferOrderByWithRelationInput[]
+  cursor?: Prisma.TransferWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TransferScalarFieldEnum | Prisma.TransferScalarFieldEnum[]
 }
 
 /**

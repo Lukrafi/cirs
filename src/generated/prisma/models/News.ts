@@ -223,6 +223,7 @@ export type NewsWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"News"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"News"> | Date | string
   club?: Prisma.XOR<Prisma.ClubNullableScalarRelationFilter, Prisma.ClubWhereInput> | null
+  comments?: Prisma.CommentListRelationFilter
 }
 
 export type NewsOrderByWithRelationInput = {
@@ -237,6 +238,7 @@ export type NewsOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   club?: Prisma.ClubOrderByWithRelationInput
+  comments?: Prisma.CommentOrderByRelationAggregateInput
 }
 
 export type NewsWhereUniqueInput = Prisma.AtLeast<{
@@ -254,6 +256,7 @@ export type NewsWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"News"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"News"> | Date | string
   club?: Prisma.XOR<Prisma.ClubNullableScalarRelationFilter, Prisma.ClubWhereInput> | null
+  comments?: Prisma.CommentListRelationFilter
 }, "id">
 
 export type NewsOrderByWithAggregationInput = {
@@ -299,6 +302,7 @@ export type NewsCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   club?: Prisma.ClubCreateNestedOneWithoutNewsInput
+  comments?: Prisma.CommentCreateNestedManyWithoutNewsInput
 }
 
 export type NewsUncheckedCreateInput = {
@@ -312,6 +316,7 @@ export type NewsUncheckedCreateInput = {
   published?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutNewsInput
 }
 
 export type NewsUpdateInput = {
@@ -325,6 +330,7 @@ export type NewsUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   club?: Prisma.ClubUpdateOneWithoutNewsNestedInput
+  comments?: Prisma.CommentUpdateManyWithoutNewsNestedInput
 }
 
 export type NewsUncheckedUpdateInput = {
@@ -338,6 +344,7 @@ export type NewsUncheckedUpdateInput = {
   published?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutNewsNestedInput
 }
 
 export type NewsCreateManyInput = {
@@ -427,6 +434,11 @@ export type NewsMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
+export type NewsScalarRelationFilter = {
+  is?: Prisma.NewsWhereInput
+  isNot?: Prisma.NewsWhereInput
+}
+
 export type NewsCreateNestedManyWithoutClubInput = {
   create?: Prisma.XOR<Prisma.NewsCreateWithoutClubInput, Prisma.NewsUncheckedCreateWithoutClubInput> | Prisma.NewsCreateWithoutClubInput[] | Prisma.NewsUncheckedCreateWithoutClubInput[]
   connectOrCreate?: Prisma.NewsCreateOrConnectWithoutClubInput | Prisma.NewsCreateOrConnectWithoutClubInput[]
@@ -469,6 +481,20 @@ export type NewsUncheckedUpdateManyWithoutClubNestedInput = {
   deleteMany?: Prisma.NewsScalarWhereInput | Prisma.NewsScalarWhereInput[]
 }
 
+export type NewsCreateNestedOneWithoutCommentsInput = {
+  create?: Prisma.XOR<Prisma.NewsCreateWithoutCommentsInput, Prisma.NewsUncheckedCreateWithoutCommentsInput>
+  connectOrCreate?: Prisma.NewsCreateOrConnectWithoutCommentsInput
+  connect?: Prisma.NewsWhereUniqueInput
+}
+
+export type NewsUpdateOneRequiredWithoutCommentsNestedInput = {
+  create?: Prisma.XOR<Prisma.NewsCreateWithoutCommentsInput, Prisma.NewsUncheckedCreateWithoutCommentsInput>
+  connectOrCreate?: Prisma.NewsCreateOrConnectWithoutCommentsInput
+  upsert?: Prisma.NewsUpsertWithoutCommentsInput
+  connect?: Prisma.NewsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.NewsUpdateToOneWithWhereWithoutCommentsInput, Prisma.NewsUpdateWithoutCommentsInput>, Prisma.NewsUncheckedUpdateWithoutCommentsInput>
+}
+
 export type NewsCreateWithoutClubInput = {
   id?: string
   title: string
@@ -479,6 +505,7 @@ export type NewsCreateWithoutClubInput = {
   published?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  comments?: Prisma.CommentCreateNestedManyWithoutNewsInput
 }
 
 export type NewsUncheckedCreateWithoutClubInput = {
@@ -491,6 +518,7 @@ export type NewsUncheckedCreateWithoutClubInput = {
   published?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutNewsInput
 }
 
 export type NewsCreateOrConnectWithoutClubInput = {
@@ -534,6 +562,74 @@ export type NewsScalarWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"News"> | Date | string
 }
 
+export type NewsCreateWithoutCommentsInput = {
+  id?: string
+  title: string
+  content: string
+  image?: string
+  category: string
+  author: string
+  published?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  club?: Prisma.ClubCreateNestedOneWithoutNewsInput
+}
+
+export type NewsUncheckedCreateWithoutCommentsInput = {
+  id?: string
+  title: string
+  content: string
+  image?: string
+  category: string
+  author: string
+  clubId?: string | null
+  published?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type NewsCreateOrConnectWithoutCommentsInput = {
+  where: Prisma.NewsWhereUniqueInput
+  create: Prisma.XOR<Prisma.NewsCreateWithoutCommentsInput, Prisma.NewsUncheckedCreateWithoutCommentsInput>
+}
+
+export type NewsUpsertWithoutCommentsInput = {
+  update: Prisma.XOR<Prisma.NewsUpdateWithoutCommentsInput, Prisma.NewsUncheckedUpdateWithoutCommentsInput>
+  create: Prisma.XOR<Prisma.NewsCreateWithoutCommentsInput, Prisma.NewsUncheckedCreateWithoutCommentsInput>
+  where?: Prisma.NewsWhereInput
+}
+
+export type NewsUpdateToOneWithWhereWithoutCommentsInput = {
+  where?: Prisma.NewsWhereInput
+  data: Prisma.XOR<Prisma.NewsUpdateWithoutCommentsInput, Prisma.NewsUncheckedUpdateWithoutCommentsInput>
+}
+
+export type NewsUpdateWithoutCommentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.StringFieldUpdateOperationsInput | string
+  published?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  club?: Prisma.ClubUpdateOneWithoutNewsNestedInput
+}
+
+export type NewsUncheckedUpdateWithoutCommentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.StringFieldUpdateOperationsInput | string
+  clubId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  published?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type NewsCreateManyClubInput = {
   id?: string
   title: string
@@ -556,6 +652,7 @@ export type NewsUpdateWithoutClubInput = {
   published?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  comments?: Prisma.CommentUpdateManyWithoutNewsNestedInput
 }
 
 export type NewsUncheckedUpdateWithoutClubInput = {
@@ -568,6 +665,7 @@ export type NewsUncheckedUpdateWithoutClubInput = {
   published?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutNewsNestedInput
 }
 
 export type NewsUncheckedUpdateManyWithoutClubInput = {
@@ -583,6 +681,35 @@ export type NewsUncheckedUpdateManyWithoutClubInput = {
 }
 
 
+/**
+ * Count Type NewsCountOutputType
+ */
+
+export type NewsCountOutputType = {
+  comments: number
+}
+
+export type NewsCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  comments?: boolean | NewsCountOutputTypeCountCommentsArgs
+}
+
+/**
+ * NewsCountOutputType without action
+ */
+export type NewsCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the NewsCountOutputType
+   */
+  select?: Prisma.NewsCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * NewsCountOutputType without action
+ */
+export type NewsCountOutputTypeCountCommentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CommentWhereInput
+}
+
 
 export type NewsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -596,6 +723,8 @@ export type NewsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   createdAt?: boolean
   updatedAt?: boolean
   club?: boolean | Prisma.News$clubArgs<ExtArgs>
+  comments?: boolean | Prisma.News$commentsArgs<ExtArgs>
+  _count?: boolean | Prisma.NewsCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["news"]>
 
 export type NewsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -642,6 +771,8 @@ export type NewsSelectScalar = {
 export type NewsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "content" | "image" | "category" | "author" | "clubId" | "published" | "createdAt" | "updatedAt", ExtArgs["result"]["news"]>
 export type NewsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   club?: boolean | Prisma.News$clubArgs<ExtArgs>
+  comments?: boolean | Prisma.News$commentsArgs<ExtArgs>
+  _count?: boolean | Prisma.NewsCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type NewsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   club?: boolean | Prisma.News$clubArgs<ExtArgs>
@@ -654,6 +785,7 @@ export type $NewsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name: "News"
   objects: {
     club: Prisma.$ClubPayload<ExtArgs> | null
+    comments: Prisma.$CommentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1061,6 +1193,7 @@ readonly fields: NewsFieldRefs;
 export interface Prisma__NewsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   club<T extends Prisma.News$clubArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.News$clubArgs<ExtArgs>>): Prisma.Prisma__ClubClient<runtime.Types.Result.GetResult<Prisma.$ClubPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  comments<T extends Prisma.News$commentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.News$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1510,6 +1643,30 @@ export type News$clubArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs 
    */
   include?: Prisma.ClubInclude<ExtArgs> | null
   where?: Prisma.ClubWhereInput
+}
+
+/**
+ * News.comments
+ */
+export type News$commentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Comment
+   */
+  select?: Prisma.CommentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Comment
+   */
+  omit?: Prisma.CommentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CommentInclude<ExtArgs> | null
+  where?: Prisma.CommentWhereInput
+  orderBy?: Prisma.CommentOrderByWithRelationInput | Prisma.CommentOrderByWithRelationInput[]
+  cursor?: Prisma.CommentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CommentScalarFieldEnum | Prisma.CommentScalarFieldEnum[]
 }
 
 /**

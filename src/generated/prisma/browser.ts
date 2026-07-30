@@ -107,3 +107,38 @@ export type News = Prisma.NewsModel
  * 
  */
 export type MapFile = Prisma.MapFileModel
+/**
+ * Model User
+ * 
+ */
+export type User = Prisma.UserModel
+/**
+ * Model Comment
+ * 
+ */
+export type Comment = Prisma.CommentModel
+/**
+ * Model Transfer
+ * 
+ */
+export type Transfer = Prisma.TransferModel
+/**
+ * Model Log
+ * 
+ */
+export type Log = Prisma.LogModel
+/**
+ * Model Settings
+ * 
+ */
+export type Settings = Prisma.SettingsModel
+/**
+ * Model ApiKey
+ * 
+ */
+export type ApiKey = Prisma.ApiKeyModel
+/**
+ * Model MatchReport
+ * 
+ */
+export type MatchReport = Prisma.MatchReportModel
