@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "seed": "npx tsx prisma/seed.ts",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate --schema=prisma/schema.prisma || true",
     "db:push": "npx prisma db push",
     "db:studio": "npx prisma studio"
   },
