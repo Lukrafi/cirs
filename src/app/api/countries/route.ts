@@ -10,6 +10,9 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
+  if (!body.code) {
+    body.code = (body.name || "XX").substring(0, 3).toUpperCase() + "-" + Math.random().toString(36).substring(2, 6).toUpperCase();
+  }
   const country = await prisma.country.create({ data: body });
   return NextResponse.json(country, { status: 201 });
 }
@@ -17,6 +20,7 @@ export async function POST(req: NextRequest) {
 export async function PUT(req: NextRequest) {
   const body = await req.json();
   const { id, ...data } = body;
+  if (!data.code) delete data.code;
   const country = await prisma.country.update({ where: { id }, data });
   return NextResponse.json(country);
 }

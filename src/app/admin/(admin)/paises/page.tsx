@@ -60,8 +60,8 @@ export default function AdminPaises() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.code) {
-      alert("Nome e Código são obrigatórios!");
+    if (!form.name) {
+      alert("Nome é obrigatório!");
       return;
     }
     const method = editingId ? "PUT" : "POST";
@@ -126,11 +126,6 @@ export default function AdminPaises() {
                 className="w-full bg-blue-deep border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gold" />
             </div>
             <div>
-              <label className="text-sm text-muted mb-1 block">Código *</label>
-              <input type="text" value={String(form.code || "")} onChange={(e) => setForm({ ...form, code: e.target.value })} required
-                className="w-full bg-blue-deep border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gold" />
-            </div>
-            <div>
               <label className="text-sm text-muted mb-1 block">Bandeira (URL)</label>
               <input type="text" value={String(form.flag || "")} onChange={(e) => setForm({ ...form, flag: e.target.value })}
                 className="w-full bg-blue-deep border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gold" />
@@ -166,7 +161,6 @@ export default function AdminPaises() {
               <tr className="text-left text-muted text-xs">
                 <th className="p-3">Bandeira</th>
                 <th className="p-3">Nome</th>
-                <th className="p-3">Código</th>
                 <th className="p-3">Confederação</th>
                 <th className="p-3 text-right">Ações</th>
               </tr>
@@ -182,7 +176,6 @@ export default function AdminPaises() {
                     )}
                   </td>
                   <td className="p-3 font-medium">{country.name}</td>
-                  <td className="p-3 text-muted">{country.code}</td>
                   <td className="p-3 text-muted">{country.confederation?.name || getConfederationName(country.confederationId)}</td>
                   <td className="p-3 text-right space-x-2">
                     <button onClick={() => handleEdit(country)} className="text-gold hover:underline text-xs">Editar</button>
