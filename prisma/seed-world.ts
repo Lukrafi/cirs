@@ -332,6 +332,41 @@ async function main() {
     data: leagueData,
   });
 
+  // Step 5b: National Leagues (1st and 2nd division) + Divisions for each country
+  console.log("Creating national leagues and divisions...");
+  for (const c of countries) {
+    const countryId = countryMap.get(c.code)!;
+    const confId = confMap.get(c.conf)!;
+
+    const div1 = await prisma.division.create({
+      data: { name: `${c.name} Division 1`, countryId, level: 1 },
+    });
+    await prisma.league.create({
+      data: {
+        name: `${c.name} First Division`,
+        logo: "",
+        countryId,
+        confederationId: confId,
+        divisionId: div1.id,
+        isInternational: false,
+      },
+    });
+
+    const div2 = await prisma.division.create({
+      data: { name: `${c.name} Division 2`, countryId, level: 2 },
+    });
+    await prisma.league.create({
+      data: {
+        name: `${c.name} Second Division`,
+        logo: "",
+        countryId,
+        confederationId: confId,
+        divisionId: div2.id,
+        isInternational: false,
+      },
+    });
+  }
+
   // Step 6: Competitions per confederation
   console.log("Creating confederation competitions...");
   let competitionData: { name: string; type: string; logo: string; format: string; isKnockout: boolean }[] = [];
