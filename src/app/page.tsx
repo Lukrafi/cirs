@@ -25,7 +25,7 @@ export default async function Home() {
       orderBy: { _sum: { goals: "desc" } },
       take: 5,
     }),
-    prisma.club.findMany({ include: { standings: true } }),
+    prisma.club.findMany({ orderBy: { strength: "desc" }, take: 5 }),
   ]);
 
   const [matchCount, clubsCount, playerCountDB, competitionCount] = await Promise.all([
@@ -42,10 +42,7 @@ export default async function Home() {
   });
   const scorerMap = new Map(players.map((p) => [p.id, p]));
 
-  const clubsRanked = clubsForRanking
-    .map((c) => ({ ...c, totalPoints: c.standings.reduce((sum, s) => sum + s.points, 0) }))
-    .sort((a, b) => b.totalPoints - a.totalPoints)
-    .slice(0, 5);
+  const clubsRanked = clubsForRanking.sort((a, b) => b.strength - a.strength);
 
   return (
     <div className="relative min-h-screen overflow-hidden pt-16">
@@ -184,7 +181,7 @@ export default async function Home() {
                     </div>
                   )}
                   <div className="text-xs font-semibold truncate">{club.name}</div>
-                  <div className="text-xs text-gold mt-1">{club.totalPoints} pts</div>
+                  <div className="text-xs text-gold mt-1">{club.strength}</div>
                 </Link>
               ))}
             </div>

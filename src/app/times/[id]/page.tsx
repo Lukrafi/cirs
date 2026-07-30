@@ -47,27 +47,20 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         <div className="glass rounded-2xl p-6">
-          <h2 className="text-sm uppercase text-gold tracking-wider mb-4">Atributos</h2>
-          <div className="space-y-3">
-            {[
-              { label: "Ataque", value: club.attack },
-              { label: "Meio-Campo", value: club.midfield },
-              { label: "Defesa", value: club.defense },
-              { label: "Goleiro", value: club.goalkeeper },
-              { label: "Entrosamento", value: club.chemistry },
-              { label: "Forma", value: club.form },
-              { label: "Moral", value: club.morale },
-            ].map((attr) => (
-              <div key={attr.label}>
-                <div className="flex justify-between text-sm mb-1">
-                  <span className="text-muted">{attr.label}</span>
-                  <span className="font-bold gold-text">{attr.value}</span>
-                </div>
-                <div className="w-full bg-blue-deep rounded-full h-2">
-                  <div className="bg-gradient-to-r from-gold to-yellow-300 h-2 rounded-full" style={{ width: `${attr.value}%` }} />
-                </div>
-              </div>
-            ))}
+          <h2 className="text-sm uppercase text-gold tracking-wider mb-4">Força do Clube</h2>
+          <div className="text-center">
+            <div className="text-5xl font-black gold-text">
+              {"⭐".repeat(Math.floor(club.strength))}
+              {club.strength % 1 >= 0.5 ? "½" : ""}
+            </div>
+            <div className="text-2xl font-bold text-gold mt-2">{club.strength}</div>
+            <div className="text-xs text-muted mt-1">Escala de 1.0 a 10.0</div>
+          </div>
+          <div className="w-full bg-blue-deep rounded-full h-3 mt-4">
+            <div
+              className="bg-gradient-to-r from-gold to-yellow-300 h-3 rounded-full"
+              style={{ width: `${(club.strength / 10) * 100}%` }}
+            />
           </div>
         </div>
 

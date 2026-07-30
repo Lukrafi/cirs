@@ -5,12 +5,14 @@ import { useState, useEffect } from "react";
 type Field = {
   name: string;
   label: string;
-  type: "text" | "number" | "textarea" | "select" | "checkbox";
+  type: "text" | "number" | "textarea" | "select" | "checkbox" | "date";
   options?: { value: string; label: string }[];
+  fetchOptionsFrom?: string;
+  optionLabel?: string;
   default?: string | number | boolean;
 };
 
-type DisplayField = { key: string; label: string };
+type DisplayField = { key: string; label: string; ref?: string; refLabel?: string };
 
 type CrudTableProps = {
   apiPath: string;
@@ -25,6 +27,7 @@ export default function CrudManager({ apiPath, fields, title, displayFields }: C
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState<Record<string, unknown> | null>(null);
   const [form, setForm] = useState<Record<string, unknown>>({});
+  const [dynamicOptions, setDynamicOptions] = useState<Record<string, { value: string; label: string }[]>>({});
 
   const fetchItems = async () => {
     setLoading(true);
@@ -34,7 +37,21 @@ export default function CrudManager({ apiPath, fields, title, displayFields }: C
     setLoading(false);
   };
 
-  useEffect(() => { fetchItems(); }, []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchItems();
+    fields.forEach(async (f) => {
+      if (f.fetchOptionsFrom) {
+        const res = await fetch(f.fetchOptionsFrom);
+        const data = await res.json();
+        const opts = data.map((item: Record<string, unknown>) => ({
+          value: String(item.id),
+          label: String(item[f.optionLabel || "name"] || item.name || item.title || "—"),
+        }));
+        setDynamicOptions((prev) => ({ ...prev, [f.name]: opts }));
+      }
+    });
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,6 +92,20 @@ export default function CrudManager({ apiPath, fields, title, displayFields }: C
 
   const fieldsToShow: DisplayField[] = (displayFields || fields.filter(f => f.type !== "textarea" && f.type !== "checkbox").slice(0, 6).map(f => ({ key: f.name, label: f.label })));
 
+  function getDisplayValue(item: Record<string, unknown>, f: DisplayField): string {
+    if (f.ref && f.refLabel) {
+      const refObj = item[f.ref] as Record<string, unknown> | undefined;
+      if (refObj && refObj[f.refLabel]) return String(refObj[f.refLabel]);
+    }
+    const val = item[f.key];
+    if (val === null || val === undefined || val === "") return "—";
+    if (typeof val === "string" && (f.key === "createdAt" || f.key === "updatedAt" || f.key === "date" || f.key === "matchDate" || f.key === "startDate" || f.key === "endDate")) {
+      try { return new Date(val).toLocaleDateString("pt-BR"); } catch { return String(val); }
+    }
+    if (typeof val === "boolean") return val ? "Sim" : "Não";
+    return String(val);
+  }
+
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
@@ -103,7 +134,7 @@ export default function CrudManager({ apiPath, fields, title, displayFields }: C
                     className="w-full bg-blue-deep border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gold"
                   >
                     <option value="">—</option>
-                    {f.options?.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+                    {(f.options || dynamicOptions[f.name] || []).map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
                   </select>
                 ) : f.type === "checkbox" ? (
                   <input
@@ -111,6 +142,13 @@ export default function CrudManager({ apiPath, fields, title, displayFields }: C
                     checked={Boolean(form[f.name])}
                     onChange={(e) => setForm({ ...form, [f.name]: e.target.checked })}
                     className="w-5 h-5 accent-gold"
+                  />
+                ) : f.type === "date" ? (
+                  <input
+                    type="date"
+                    value={String(form[f.name] ?? "")}
+                    onChange={(e) => setForm({ ...form, [f.name]: e.target.value })}
+                    className="w-full bg-blue-deep border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gold"
                   />
                 ) : (
                   <input
@@ -153,10 +191,8 @@ export default function CrudManager({ apiPath, fields, title, displayFields }: C
                     <td key={f.key} className="p-3">
                       {f.key === "emblem" || f.key === "photo" || f.key === "logo" || f.key === "image" ? (
                         item[f.key] ? <img src={String(item[f.key])} alt="" className="w-8 h-8 rounded object-cover" /> : "—"
-                      ) : f.key === "club" ? (
-                        String((item as Record<string, { name?: string }>)["club"]?.name || "—")
                       ) : (
-                        String(item[f.key] ?? "—")
+                        getDisplayValue(item, f)
                       )}
                     </td>
                   ))}

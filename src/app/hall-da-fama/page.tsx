@@ -27,6 +27,7 @@ export default async function HallOfFamePage() {
   const players = await prisma.player.findMany({ where: { id: { in: Array.from(allPlayerIds) } }, include: { club: true } });
   const playerMap = new Map(players.map((p) => [p.id, p]));
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function renderRanking(title: string, data: any[], statKey: string, isCount = false) {
     return (
       <div className="glass rounded-2xl p-6">

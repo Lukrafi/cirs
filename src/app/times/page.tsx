@@ -41,23 +41,12 @@ export default async function TimesPage() {
                   <p className="text-xs text-muted">{club.city}, {club.country}</p>
                 </div>
               </div>
-              <div className="grid grid-cols-4 gap-2 text-center text-xs">
-                <div>
-                  <div className="font-bold text-gold">{club.attack}</div>
-                  <div className="text-muted">ATA</div>
+              <div className="mt-3 text-center">
+                <div className="text-2xl font-bold gold-text">
+                  {"⭐".repeat(Math.floor(club.strength))}
+                  {club.strength % 1 >= 0.5 ? "½" : ""}
                 </div>
-                <div>
-                  <div className="font-bold text-gold">{club.midfield}</div>
-                  <div className="text-muted">MEI</div>
-                </div>
-                <div>
-                  <div className="font-bold text-gold">{club.defense}</div>
-                  <div className="text-muted">DEF</div>
-                </div>
-                <div>
-                  <div className="font-bold text-gold">{club.goalkeeper}</div>
-                  <div className="text-muted">GOL</div>
-                </div>
+                <div className="text-xs text-muted">Força {club.strength}</div>
               </div>
               <div className="mt-3 text-xs text-muted text-center">
                 {club.players.length} jogadores • {club.coach?.name || "Sem técnico"}
