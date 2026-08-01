@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import { getPermissions } from "@/lib/permissions";
 import SimularMundoButton from "./SimularMundoButton";
 
 export const dynamic = "force-dynamic";
@@ -22,6 +23,8 @@ const CONFEDERATION_INFO: Record<string, { fullName: string; color: string }> = 
 };
 
 export default async function SimulacoesPage() {
+  const permissions = await getPermissions();
+
   const confederations = await prisma.confederation.findMany({
     include: {
       countries: {
@@ -74,7 +77,7 @@ export default async function SimulacoesPage() {
       </p>
 
       <div className="mb-10">
-        <SimularMundoButton />
+        {permissions.canSimulateWorld && <SimularMundoButton />}
       </div>
 
       {/* Diretório de Confederações */}

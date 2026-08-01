@@ -460,7 +460,65 @@ async function main() {
   console.log(`  Países: ${countryCount}`);
   console.log(`  Divisões: ${divCount}`);
   console.log(`  Ligas: ${leagueCount}`);
-  console.log(`  Competições continentais: ${compCount}`);
+  console.log(`  Competições continentais de clubes: ${compCount}`);
+
+  console.log("\nCriando competições continentais de seleções...");
+  let natCompCount = 0;
+  const nationalTeamData: Record<string, [string, number][]> = {
+    UEFA: [
+      ["UEFA Nations League", 55],
+      ["Eurocopa", 24],
+    ],
+    CONMEBOL: [
+      ["Copa América", 16],
+      ["Finalíssima", 2],
+    ],
+    CONCACAF: [
+      ["Gold Cup", 16],
+      ["CONCACAF Nations League", 41],
+    ],
+    AFC: [
+      ["Copa da Ásia", 24],
+      ["AFC Asian Qualifiers", 47],
+    ],
+    CAF: [
+      ["Copa Africana de Nações", 24],
+      ["African Nations Championship", 16],
+    ],
+    OFC: [
+      ["OFC Nations Cup", 8],
+    ],
+  };
+
+  for (const [confCode, comps] of Object.entries(nationalTeamData)) {
+    const confId = confMap.get(confCode);
+    if (!confId) continue;
+    for (const [compName, numTeams] of comps) {
+      let league = await prisma.league.findFirst({
+        where: { name: compName, confederationId: confId },
+      });
+      if (!league) {
+        league = await prisma.league.create({
+          data: { name: compName, confederationId: confId, isInternational: true },
+        });
+      }
+      await prisma.competition.create({
+        data: {
+          name: `${compName} ${now.getFullYear()}`,
+          type: "national_team",
+          format: "groups",
+          numTeams,
+          isKnockout: false,
+          numTurns: 2,
+          promoted: 0,
+          relegated: 0,
+        },
+      });
+      natCompCount++;
+    }
+  }
+
+  console.log(`  Competições de seleções: ${natCompCount}`);
 }
 
 main()

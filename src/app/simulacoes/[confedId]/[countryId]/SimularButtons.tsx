@@ -5,9 +5,13 @@ import { useState } from "react";
 export default function SimularButtons({
   countryId,
   confederationId,
+  canSimulateCountry,
+  canSimulateConfederation,
 }: {
   countryId: string;
   confederationId: string;
+  canSimulateCountry: boolean;
+  canSimulateConfederation: boolean;
 }) {
   const [simulando, setSimulando] = useState(false);
   const [resultado, setResultado] = useState<string | null>(null);
@@ -33,20 +37,24 @@ export default function SimularButtons({
   return (
     <div className="flex flex-col items-end gap-2 ml-4">
       <div className="flex gap-2">
-        <button
-          onClick={() => simular("country")}
-          disabled={simulando}
-          className="px-4 py-2 text-xs font-semibold rounded-lg bg-gold text-black hover:bg-gold/80 transition-all disabled:opacity-50"
-        >
-          {simulando ? "Simulando..." : "Simular País"}
-        </button>
-        <button
-          onClick={() => simular("confederation")}
-          disabled={simulando}
-          className="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-glow text-white hover:bg-blue-glow/80 transition-all disabled:opacity-50 border border-blue-glow/30"
-        >
-          Simular Confederação
-        </button>
+        {canSimulateCountry && (
+          <button
+            onClick={() => simular("country")}
+            disabled={simulando}
+            className="px-4 py-2 text-xs font-semibold rounded-lg bg-gold text-black hover:bg-gold/80 transition-all disabled:opacity-50"
+          >
+            {simulando ? "Simulando..." : "Simular País"}
+          </button>
+        )}
+        {canSimulateConfederation && (
+          <button
+            onClick={() => simular("confederation")}
+            disabled={simulando}
+            className="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-glow text-white hover:bg-blue-glow/80 transition-all disabled:opacity-50 border border-blue-glow/30"
+          >
+            Simular Confederação
+          </button>
+        )}
       </div>
       {resultado && (
         <p className="text-[10px] text-gold bg-gold/5 px-3 py-1 rounded-lg max-w-[250px] text-center">{resultado}</p>

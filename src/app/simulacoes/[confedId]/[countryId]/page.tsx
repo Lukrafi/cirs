@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getPermissions } from "@/lib/permissions";
 import SimularButtons from "./SimularButtons";
 
 export const dynamic = "force-dynamic";
@@ -11,6 +12,7 @@ export default async function CountryPage({
   params: Promise<{ confedId: string; countryId: string }>;
 }) {
   const { confedId, countryId } = await params;
+  const permissions = await getPermissions();
 
   const country = await prisma.country.findUnique({
     where: { id: countryId },
@@ -57,7 +59,15 @@ export default async function CountryPage({
               {country.leagues.length} ligas · {country.divisions.length} divisões · {country.clubs.length} clubes
             </p>
           </div>
-          <SimularButtons countryId={country.id} confederationId={confedId} />
+          {/* Botões de simulação visíveis apenas para admin */}
+          {(permissions.canSimulateCountry || permissions.canSimulateConfederation) && (
+            <SimularButtons
+              countryId={country.id}
+              confederationId={confedId}
+              canSimulateCountry={permissions.canSimulateCountry}
+              canSimulateConfederation={permissions.canSimulateConfederation}
+            />
+          )}
         </div>
       </header>
 
