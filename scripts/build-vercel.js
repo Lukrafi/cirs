@@ -49,6 +49,13 @@ try {
   console.log("Seed ja existe ou nao foi necessario.");
 }
 
+// Seed Mundial
+try {
+  run("Seed Mundial", "npx tsx prisma/seed-world.ts");
+} catch (e) {
+  console.log("Seed mundial ja executado ou falhou.");
+}
+
 // Build
 run("Next Build", "npx next build");
 
