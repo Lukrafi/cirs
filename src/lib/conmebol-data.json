@@ -1,0 +1,225 @@
+{
+  "confederation": "CONMEBOL",
+  "season": 2026,
+  "countries": [
+    {
+      "name": "Brasil",
+      "code": "BRA",
+      "competitions": [
+        {
+          "name": "Brasileirão Série A",
+          "type": "liga",
+          "division": 1,
+          "teams": [
+            "Athletico Paranaense", "Atlético Mineiro", "Bahia", "Botafogo", "Bragantino", 
+            "Chapecoense", "Corinthians", "Coritiba", "Cruzeiro", "Flamengo", 
+            "Fluminense", "Grêmio", "Internacional", "Mirassol", "Palmeiras", 
+            "Remo", "Santos", "São Paulo", "Vasco da Gama", "Vitória"
+          ]
+        },
+        {
+          "name": "Brasileirão Série B",
+          "type": "liga",
+          "division": 2,
+          "teams": [
+            "América Mineiro", "Athletic Club", "Atlético Goianiense", "Avaí", "Botafogo-SP", 
+            "Ceará", "CRB", "Criciúma", "Cuiabá", "Fortaleza", 
+            "Goiás", "Juventude", "Londrina", "Náutico", "Novorizontino", 
+            "Operário Ferroviário", "Ponte Preta", "São Bernardo", "Sport", "Vila Nova"
+          ]
+        },
+        { "name": "Copa do Brasil", "type": "copa" },
+        { "name": "Supercopa do Brasil", "type": "supercopa" }
+      ]
+    },
+    {
+      "name": "Argentina",
+      "code": "ARG",
+      "competitions": [
+        {
+          "name": "Liga Profesional de Fútbol",
+          "type": "liga",
+          "division": 1,
+          "teams": [
+            "River Plate", "Boca Juniors", "Racing Club", "Independiente", "San Lorenzo", 
+            "Estudiantes de La Plata", "Vélez Sarsfield", "Talleres", "Lanús", "Defensa y Justicia",
+            "Argentinos Juniors", "Huracán", "Belgrano", "Godoy Cruz", "Newell's Old Boys",
+            "Rosario Central", "Platense", "Atlético Tucumán", "Banfield", "Tigre",
+            "Unión", "Instituto", "Barracas Central", "Riestra", "Sarmiento", "Central Córdoba", "Independiente Rivadavia"
+          ]
+        },
+        {
+          "name": "Primera Nacional",
+          "type": "liga",
+          "division": 2,
+          "teams": [
+            "San Martín de Tucumán", "Colón", "San Martín de San Juan", "Quilmes", "All Boys",
+            "Chacarita Juniors", "Agropecuario", "Gimnasia de Mendoza", "Temperley", "Nueva Chicago"
+          ]
+        },
+        { "name": "Copa Argentina", "type": "copa" },
+        { "name": "Supercopa Argentina", "type": "supercopa" }
+      ]
+    },
+    {
+      "name": "Uruguai",
+      "code": "URU",
+      "competitions": [
+        {
+          "name": "Primera División Uruguaia",
+          "type": "liga",
+          "division": 1,
+          "teams": ["Nacional", "Peñarol", "Liverpool", "Defensor Sporting", "Danubio", "Boston River", "Montevideo Wanderers", "Fénix", "River Plate Uruguay", "Cerro", "Cerro Largo", "Deportivo Maldonado", "Racing Montevideo", "Miramar Misiones", "Progreso", "Juventud"]
+        },
+        {
+          "name": "Segunda División Uruguaia",
+          "type": "liga",
+          "division": 2,
+          "teams": ["Rampla Juniors", "Sud América", "Albion", "Uruguay Montevideo", "Cerrito", "Atenas", "Juventud de Las Piedras", "Rentistas", "Torque", "Bella Vista"]
+        },
+        { "name": "Copa Uruguay", "type": "copa" },
+        { "name": "Supercopa Uruguaya", "type": "supercopa" }
+      ]
+    },
+    {
+      "name": "Colômbia",
+      "code": "COL",
+      "competitions": [
+        {
+          "name": "Categoría Primera A",
+          "type": "liga",
+          "division": 1,
+          "teams": ["Millonarios", "Atlético Nacional", "Junior", "Independiente Medellín", "América de Cali", "Santa Fe", "Deportes Tolima", "Deportivo Cali", "Once Caldas", "Águilas Doradas", "La Equidad", "Deportivo Pasto", "Bucaramanga", "Pereira", "Jaguares", "Boyacá Chicó", "Envigado", "Patriotas", "Fortaleza CEIF", "Llaneros"]
+        },
+        {
+          "name": "Categoría Primera B",
+          "type": "liga",
+          "division": 2,
+          "teams": ["Real Cartagena", "Unión Magdalena", "Cúcuta Deportivo", "Orsomarso", "Tigres", "Bogotá", "Real Cundinamarca", "Leones", "Barranquilla", "Cortuluá"]
+        },
+        { "name": "Copa Colombia", "type": "copa" },
+        { "name": "Superliga de Colombia", "type": "supercopa" }
+      ]
+    },
+    {
+      "name": "Chile",
+      "code": "CHI",
+      "competitions": [
+        {
+          "name": "Primera División de Chile",
+          "type": "liga",
+          "division": 1,
+          "teams": ["Colo-Colo", "Universidad de Chile", "Universidad Católica", "Palestino", "Huachipato", "Unión Española", "Everton", "Coquimbo Unido", "Audax Italiano", "Cobresal", "O'Higgins", "Ñublense", "La Calera", "Deportes Copiapó", "Cobreloa", "Iquique"]
+        },
+        {
+          "name": "Primera B de Chile",
+          "type": "liga",
+          "division": 2,
+          "teams": ["Santiago Wanderers", "Deportes Antofagasta", "San Luis de Quillota", "Deportes Temuco", "Magallanes", "Rangers de Talca", "Barnechea", "San Marcos de Arica", "Unión San Felipe", "Curicó Unido"]
+        },
+        { "name": "Copa Chile", "type": "copa" },
+        { "name": "Supercopa de Chile", "type": "supercopa" }
+      ]
+    },
+    {
+      "name": "Equador",
+      "code": "ECU",
+      "competitions": [
+        {
+          "name": "LigaPro Serie A",
+          "type": "liga",
+          "division": 1,
+          "teams": ["Independiente del Valle", "LDU Quito", "Barcelona SC", "Emelec", "Universidad Católica", "Aucas", "Macará", "El Nacional", "Delfín", "Mushuc Runa", "Deportivo Cuenca", "Técnico Universitario", "Imbabura", "Orense", "Cumbayá", "Libertad"]
+        },
+        {
+          "name": "LigaPro Serie B",
+          "type": "liga",
+          "division": 2,
+          "teams": ["Guayaquil City", "Manta", "Chacaritas", "Vargas Torres", "San Antonio", "9 de Octubre", "Leones del Norte", "Gualaceo", "Cuniburo", "Búhos ULVR"]
+        },
+        { "name": "Copa Ecuador", "type": "copa" },
+        { "name": "Supercopa Ecuador", "type": "supercopa" }
+      ]
+    },
+    {
+      "name": "Paraguai",
+      "code": "PAR",
+      "competitions": [
+        {
+          "name": "División Profesional (Apertura/Clausura)",
+          "type": "liga",
+          "division": 1,
+          "teams": ["Olimpia", "Cerro Porteño", "Libertad", "Guaraní", "Sportivo Luqueño", "Nacional Asunción", "General Caballero JLM", "Tacuary", "Ameliano", "Trinidad", "2 de Mayo", "Sol de América"]
+        },
+        {
+          "name": "División Intermedia",
+          "type": "liga",
+          "division": 2,
+          "teams": ["San Lorenzo", "Deportivo Recoleta", "Fernando de la Mora", "Independiente CG", "Pastoreo", "Guaireña", "12 de Octubre", "Rubio Ñu", "Encarnación", "Tembetary"]
+        },
+        { "name": "Copa Paraguay", "type": "copa" },
+        { "name": "Supercopa Paraguay", "type": "supercopa" }
+      ]
+    },
+    {
+      "name": "Peru",
+      "code": "PER",
+      "competitions": [
+        {
+          "name": "Liga 1",
+          "type": "liga",
+          "division": 1,
+          "teams": ["Universitario", "Alianza Lima", "Sporting Cristal", "Melgar", "Cienciano", "Sport Huancayo", "ADT", "Cusco FC", "UTC", "Alianza Atlético", "Comerciantes Unidos", "Los Chankas", "Sport Boys", "Deportivo Garcilaso", "César Vallejo", "Unión Comercio", "Atlético Grau", "Mannucci"]
+        },
+        {
+          "name": "Liga 2",
+          "type": "liga",
+          "division": 2,
+          "teams": ["San Martín", "Deportivo Municipal", "Ayacucho FC", "Coopsol", "Llacuabamba", "Pirata FC", "Juan Pablo II", "U. San Martín", "Comerciantes", "Cantolao"]
+        },
+        { "name": "Copa Bicentenario", "type": "copa" },
+        { "name": "Supercopa Peruana", "type": "supercopa" }
+      ]
+    },
+    {
+      "name": "Bolívia",
+      "code": "BOL",
+      "competitions": [
+        {
+          "name": "División Profesional",
+          "type": "liga",
+          "division": 1,
+          "teams": ["Bolívar", "The Strongest", "Always Ready", "Blooming", "Wilstermann", "San Antonio Bulo Bulo", "Real Tomayapo", "Nacional Potosí", "Aurora", "Royal Pari", "GV San José", "Independiente Petrolero", "Oriente Petrolero", "Universitario de Vinto", "Real Santa Cruz", "Gualberto Villarroel"]
+        },
+        {
+          "name": "Copa Simón Bolívar (Segunda Div)",
+          "type": "liga",
+          "division": 2,
+          "teams": ["Fatic", "CD Fatic", "Totora Real Oruro", "Stormers", "Ciclón", "Mariscal Sucre", "Universitario de Sucre", "ABB", "Comercio", "Chaco Petrolero"]
+        },
+        { "name": "Copa Division Profesional", "type": "copa" },
+        { "name": "Supercopa Boliviana", "type": "supercopa" }
+      ]
+    },
+    {
+      "name": "Venezuela",
+      "code": "VEN",
+      "competitions": [
+        {
+          "name": "Liga FUTVE",
+          "type": "liga",
+          "division": 1,
+          "teams": ["Deportivo Táchira", "Carabobo", "Caracas", "Metropolitanos", "Universidad Central", "Deportivo La Guaira", "Academia Puerto Cabello", "Monagas", "Angostura", "Portuguesa", "Inter de Barinas", "Zamora", "Rayo Zuliano", "Estudiantes de Mérida"]
+        },
+        {
+          "name": "Liga FUTVE 2",
+          "type": "liga",
+          "division": 2,
+          "teams": ["Héroes de Falcón", "Marítimo de La Guaira", "Trujillanos", "Academia Anzoátegui", "Bolívar SC", "Yaracuyanos", "Deportivo Miranda", "Dynamo Puerto", "El Vigía", "Ureña"]
+        },
+        { "name": "Copa Venezuela", "type": "copa" },
+        { "name": "Supercopa de Venezuela", "type": "supercopa" }
+      ]
+    }
+  ]
+}

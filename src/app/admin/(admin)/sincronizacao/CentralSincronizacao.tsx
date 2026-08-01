@@ -180,6 +180,22 @@ export default function CentralSincronizacao({ confederations, competitions, cou
         </div>
       </div>
 
+       {/* Importar CONMEBOL do JSON */}
+      <div className="glass rounded-2xl p-6 mb-6 border border-gold/20">
+        <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+          <span className="w-1 h-5 bg-gold rounded-full" />
+          Importar CONMEBOL Completa
+        </h2>
+        <p className="text-xs text-muted mb-4">Importa automaticamente 10 paises, 20 ligas, 10 copas e todos os clubes da CONMEBOL com dados reais. Sem necessidade de URL ou fonte externa.</p>
+        <button
+          onClick={() => call("import-json", {})}
+          disabled={!!running}
+          className="w-full py-4 text-sm font-bold rounded-xl bg-gradient-to-r from-gold to-yellow-300 text-black hover:shadow-xl transition-all disabled:opacity-50"
+        >
+          {running === "import-json" ? "Importando... (pode levar alguns minutos)" : "Importar Toda a CONMEBOL (10 paises, 30 competicoes, ~200 clubes)"}
+        </button>
+      </div>
+
       {/* Datapacks — Pacotes de Ligas Prontos */}
       <div className="glass rounded-2xl p-6 mb-6">
         <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
