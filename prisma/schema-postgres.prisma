@@ -29,6 +29,10 @@ model Club {
   emblem        String   @default("")
   primaryKit    String   @default("")
   secondaryKit  String   @default("")
+  shortName     String   @default("")
+  colors        String   @default("")
+  nickname      String   @default("")
+  state         String   @default("")
   strength      Float    @default(5.0)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
