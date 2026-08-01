@@ -29,6 +29,10 @@ model Club {
   primaryKit    String   @default("")
   secondaryKit  String   @default("")
   strength      Float    @default(5.0)
+  shortName     String   @default("")
+  colors        String   @default("")
+  nickname      String   @default("")
+  state         String   @default("")
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
@@ -105,6 +109,7 @@ model Stadium {
   country   String
   capacity  Int
   image     String   @default("")
+  coordinates String @default("")
   clubId    String?  @unique
   club      Club?    @relation("ClubStadium", fields: [clubId], references: [id])
   createdAt DateTime @default(now())
@@ -231,6 +236,12 @@ model Competition {
   relegated  Int      @default(0)
   qualifiedLibertadores Int @default(0)
   qualifiedSulAmericana Int @default(0)
+  qualifiedConfChampions Int @default(0)
+  qualifiedConfSecondary Int @default(0)
+  qualifiedConfTertiary Int  @default(0)
+  continentalSpots Int      @default(0)
+  sourceUrl        String   @default("")
+  lastSyncAt       DateTime?
   pointsPerWin    Int  @default(3)
   pointsPerDraw   Int  @default(1)
   hasExtraTime    Boolean @default(false)
@@ -484,4 +495,24 @@ model MatchReport {
   teamStats     String   @default("[]")
   penaltyShootout String @default("{}")
   createdAt     DateTime @default(now())
+}
+
+model SyncLog {
+  id              String   @id @default(cuid())
+  level           String   @default("competition")
+  sourceName      String
+  adminId         String?
+  adminUsername   String
+  entity          String
+  entityId        String?
+  clubsCreated    Int      @default(0)
+  clubsUpdated    Int      @default(0)
+  competitionsCreated Int @default(0)
+  competitionsUpdated Int @default(0)
+  flagsDownloaded Int      @default(0)
+  emblemsDownloaded Int    @default(0)
+  stadiumsUpdated Int      @default(0)
+  errors          String   @default("[]")
+  elapsedMs        Int      @default(0)
+  createdAt       DateTime @default(now())
 }

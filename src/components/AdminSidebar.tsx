@@ -16,6 +16,7 @@ const links = [
   { href: "/admin/temporadas", label: "Temporadas", icon: "📅" },
   { href: "/admin/campeonatos", label: "Campeonatos", icon: "🎖️" },
   { href: "/admin/simulador", label: "Simulador", icon: "⚡" },
+  { href: "/admin/sincronizacao", label: "Sincronização", icon: "🔄" },
   { href: "/admin/estadios", label: "Estádios", icon: "🏟️" },
   { href: "/admin/patrocinadores", label: "Patrocinadores", icon: "💰" },
   { href: "/admin/noticias", label: "Notícias", icon: "📰" },
