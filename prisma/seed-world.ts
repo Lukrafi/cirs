@@ -3,409 +3,359 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const confederations = [
-  { name: "UEFA", code: "UEFA", logo: "" },
-  { name: "CONMEBOL", code: "CONMEBOL", logo: "" },
-  { name: "CONCACAF", code: "CONCACAF", logo: "" },
-  { name: "AFC", code: "AFC", logo: "" },
-  { name: "CAF", code: "CAF", logo: "" },
-  { name: "OFC", code: "OFC", logo: "" },
+  { name: "UEFA", code: "UEFA" },
+  { name: "CONMEBOL", code: "CONMEBOL" },
+  { name: "CONCACAF", code: "CONCACAF" },
+  { name: "AFC", code: "AFC" },
+  { name: "CAF", code: "CAF" },
+  { name: "OFC", code: "OFC" },
 ] as const;
 
-type ConfData = { name: string; code: string; conf: string; strength: number };
+type L = [string, number, number, number, number, boolean];
+function L1(n: string, t = 16, p = 0, r = 2): L { return [n, 1, t, p, r, false]; }
+function L2(n: string, t = 16, p = 2, r = 2): L { return [n, 2, t, p, r, false]; }
+function LC(n: string, t = 32): L { return [n, 0.5, t, 0, 0, true]; }
+function LS(n: string, t = 2): L { return [n, 0, t, 0, 0, true]; }
 
-const countries: ConfData[] = [
-  { name: "Albania", code: "ALB", conf: "UEFA", strength: 3.5 },
-  { name: "Andorra", code: "AND", conf: "UEFA", strength: 1.0 },
-  { name: "Armenia", code: "ARM", conf: "UEFA", strength: 2.5 },
-  { name: "Austria", code: "AUT", conf: "UEFA", strength: 5.5 },
-  { name: "Azerbaijan", code: "AZE", conf: "UEFA", strength: 2.5 },
-  { name: "Belarus", code: "BLR", conf: "UEFA", strength: 3.0 },
-  { name: "Belgium", code: "BEL", conf: "UEFA", strength: 8.0 },
-  { name: "Bosnia and Herzegovina", code: "BIH", conf: "UEFA", strength: 4.0 },
-  { name: "Bulgaria", code: "BUL", conf: "UEFA", strength: 3.5 },
-  { name: "Croatia", code: "CRO", conf: "UEFA", strength: 7.5 },
-  { name: "Cyprus", code: "CYP", conf: "UEFA", strength: 2.5 },
-  { name: "Czechia", code: "CZE", conf: "UEFA", strength: 5.5 },
-  { name: "Denmark", code: "DEN", conf: "UEFA", strength: 6.5 },
-  { name: "England", code: "ENG", conf: "UEFA", strength: 8.5 },
-  { name: "Estonia", code: "EST", conf: "UEFA", strength: 2.0 },
-  { name: "Faroe Islands", code: "FRO", conf: "UEFA", strength: 1.5 },
-  { name: "Finland", code: "FIN", conf: "UEFA", strength: 3.5 },
-  { name: "France", code: "FRA", conf: "UEFA", strength: 9.0 },
-  { name: "Georgia", code: "GEO", conf: "UEFA", strength: 4.5 },
-  { name: "Germany", code: "GER", conf: "UEFA", strength: 8.5 },
-  { name: "Gibraltar", code: "GIB", conf: "UEFA", strength: 1.0 },
-  { name: "Greece", code: "GRE", conf: "UEFA", strength: 4.5 },
-  { name: "Hungary", code: "HUN", conf: "UEFA", strength: 5.0 },
-  { name: "Iceland", code: "ISL", conf: "UEFA", strength: 3.5 },
-  { name: "Republic of Ireland", code: "IRL", conf: "UEFA", strength: 4.5 },
-  { name: "Israel", code: "ISR", conf: "UEFA", strength: 4.0 },
-  { name: "Italy", code: "ITA", conf: "UEFA", strength: 8.5 },
-  { name: "Kazakhstan", code: "KAZ", conf: "UEFA", strength: 2.5 },
-  { name: "Kosovo", code: "KOS", conf: "UEFA", strength: 2.5 },
-  { name: "Latvia", code: "LVA", conf: "UEFA", strength: 2.0 },
-  { name: "Liechtenstein", code: "LIE", conf: "UEFA", strength: 1.0 },
-  { name: "Lithuania", code: "LTU", conf: "UEFA", strength: 2.0 },
-  { name: "Luxembourg", code: "LUX", conf: "UEFA", strength: 2.5 },
-  { name: "Malta", code: "MLT", conf: "UEFA", strength: 1.5 },
-  { name: "North Macedonia", code: "MKD", conf: "UEFA", strength: 3.0 },
-  { name: "Moldova", code: "MDA", conf: "UEFA", strength: 2.0 },
-  { name: "Montenegro", code: "MNE", conf: "UEFA", strength: 3.0 },
-  { name: "Netherlands", code: "NED", conf: "UEFA", strength: 8.0 },
-  { name: "Northern Ireland", code: "NIR", conf: "UEFA", strength: 3.5 },
-  { name: "Norway", code: "NOR", conf: "UEFA", strength: 5.5 },
-  { name: "Poland", code: "POL", conf: "UEFA", strength: 5.5 },
-  { name: "Portugal", code: "POR", conf: "UEFA", strength: 8.5 },
-  { name: "Romania", code: "ROU", conf: "UEFA", strength: 5.0 },
-  { name: "Russia", code: "RUS", conf: "UEFA", strength: 6.5 },
-  { name: "San Marino", code: "SMR", conf: "UEFA", strength: 1.0 },
-  { name: "Scotland", code: "SCO", conf: "UEFA", strength: 5.0 },
-  { name: "Serbia", code: "SRB", conf: "UEFA", strength: 5.5 },
-  { name: "Slovakia", code: "SVK", conf: "UEFA", strength: 4.5 },
-  { name: "Slovenia", code: "SVN", conf: "UEFA", strength: 4.5 },
-  { name: "Spain", code: "ESP", conf: "UEFA", strength: 9.0 },
-  { name: "Sweden", code: "SWE", conf: "UEFA", strength: 5.5 },
-  { name: "Switzerland", code: "SUI", conf: "UEFA", strength: 6.5 },
-  { name: "Turkey", code: "TUR", conf: "UEFA", strength: 6.5 },
-  { name: "Ukraine", code: "UKR", conf: "UEFA", strength: 6.0 },
-  { name: "Wales", code: "WAL", conf: "UEFA", strength: 5.0 },
+type P = { c: string; n: string; f: string; s: number; l: L[] };
+function P_(c: string, n: string, f: string, s: number, l: L[]): P { return { c, n, f, s, l }; }
 
-  { name: "Argentina", code: "ARG", conf: "CONMEBOL", strength: 9.0 },
-  { name: "Bolivia", code: "BOL", conf: "CONMEBOL", strength: 3.5 },
-  { name: "Brazil", code: "BRA", conf: "CONMEBOL", strength: 9.0 },
-  { name: "Chile", code: "CHI", conf: "CONMEBOL", strength: 6.0 },
-  { name: "Colombia", code: "COL", conf: "CONMEBOL", strength: 7.0 },
-  { name: "Ecuador", code: "ECU", conf: "CONMEBOL", strength: 6.0 },
-  { name: "Paraguay", code: "PAR", conf: "CONMEBOL", strength: 5.0 },
-  { name: "Peru", code: "PER", conf: "CONMEBOL", strength: 5.5 },
-  { name: "Uruguay", code: "URU", conf: "CONMEBOL", strength: 8.0 },
-  { name: "Venezuela", code: "VEN", conf: "CONMEBOL", strength: 4.5 },
+const data: P[] = [
+  // CONMEBOL
+  P_("ARG","Argentina","CONMEBOL",9.0,[L1("Liga Profesional",28,0,2),L2("Primera Nacional",38,2,4),LC("Copa Argentina",64),LS("Trofeo de Campeones")]),
+  P_("BOL","Bolívia","CONMEBOL",3.5,[L1("División Profesional",16,0,2),L2("Copa Simón Bolívar",24,2,4),LC("Copa Bolivia")]),
+  P_("BRA","Brasil","CONMEBOL",9.0,[L1("Série A",20,0,4),L2("Série B",20,4,4),LC("Copa do Brasil",92),LS("Supercopa do Brasil")]),
+  P_("CHI","Chile","CONMEBOL",6.0,[L1("Primera División",16,0,2),L2("Primera B",16,2,2),LC("Copa Chile"),LS("Supercopa de Chile")]),
+  P_("COL","Colômbia","CONMEBOL",7.0,[L1("Liga BetPlay",20,0,2),L2("Torneo BetPlay",16,2,2),LC("Copa Colombia"),LS("Superliga BetPlay")]),
+  P_("ECU","Equador","CONMEBOL",6.0,[L1("Liga Pro",16,0,2),L2("Liga Pro Serie B",10,2,2),LC("Copa Ecuador"),LS("Supercopa Ecuador")]),
+  P_("PAR","Paraguai","CONMEBOL",5.0,[L1("Primera División",12,0,2),L2("División Intermedia",16,2,3),LC("Copa Paraguay"),LS("Supercopa Paraguay")]),
+  P_("PER","Peru","CONMEBOL",5.5,[L1("Liga 1",18,0,3),L2("Liga 2",15,2,2),LC("Copa Peru"),LS("Supercopa Peruana")]),
+  P_("URU","Uruguai","CONMEBOL",8.0,[L1("Primera División",16,0,3),L2("Segunda División",14,3,3),LC("Copa Uruguay"),LS("Supercopa Uruguaya")]),
+  P_("VEN","Venezuela","CONMEBOL",4.5,[L1("Primera División",15,0,2),L2("Segunda División",16,2,3),LC("Copa Venezuela")]),
 
-  { name: "Anguilla", code: "AIA", conf: "CONCACAF", strength: 1.0 },
-  { name: "Antigua and Barbuda", code: "ATG", conf: "CONCACAF", strength: 2.0 },
-  { name: "Aruba", code: "ARU", conf: "CONCACAF", strength: 1.0 },
-  { name: "Bahamas", code: "BAH", conf: "CONCACAF", strength: 1.0 },
-  { name: "Barbados", code: "BRB", conf: "CONCACAF", strength: 1.5 },
-  { name: "Belize", code: "BLZ", conf: "CONCACAF", strength: 1.0 },
-  { name: "Bermuda", code: "BER", conf: "CONCACAF", strength: 1.5 },
-  { name: "Bonaire", code: "BOE", conf: "CONCACAF", strength: 1.0 },
-  { name: "British Virgin Islands", code: "VGB", conf: "CONCACAF", strength: 1.0 },
-  { name: "Canada", code: "CAN", conf: "CONCACAF", strength: 5.5 },
-  { name: "Cayman Islands", code: "CAY", conf: "CONCACAF", strength: 1.0 },
-  { name: "Costa Rica", code: "CRC", conf: "CONCACAF", strength: 5.5 },
-  { name: "Cuba", code: "CUB", conf: "CONCACAF", strength: 2.5 },
-  { name: "Curaçao", code: "CUW", conf: "CONCACAF", strength: 2.5 },
-  { name: "Dominica", code: "DMA", conf: "CONCACAF", strength: 1.0 },
-  { name: "Dominican Republic", code: "DOM", conf: "CONCACAF", strength: 2.0 },
-  { name: "El Salvador", code: "SLV", conf: "CONCACAF", strength: 3.0 },
-  { name: "Grenada", code: "GRN", conf: "CONCACAF", strength: 1.0 },
-  { name: "Guatemala", code: "GUA", conf: "CONCACAF", strength: 3.0 },
-  { name: "Guyana", code: "GUY", conf: "CONCACAF", strength: 1.5 },
-  { name: "Haiti", code: "HAI", conf: "CONCACAF", strength: 2.5 },
-  { name: "Honduras", code: "HON", conf: "CONCACAF", strength: 4.0 },
-  { name: "Jamaica", code: "JAM", conf: "CONCACAF", strength: 4.0 },
-  { name: "Martinique", code: "MTQ", conf: "CONCACAF", strength: 2.0 },
-  { name: "Mexico", code: "MEX", conf: "CONCACAF", strength: 7.5 },
-  { name: "Montserrat", code: "MSR", conf: "CONCACAF", strength: 1.0 },
-  { name: "Nicaragua", code: "NCA", conf: "CONCACAF", strength: 2.0 },
-  { name: "Panama", code: "PAN", conf: "CONCACAF", strength: 4.5 },
-  { name: "Puerto Rico", code: "PUR", conf: "CONCACAF", strength: 1.5 },
-  { name: "Saint Kitts and Nevis", code: "SKN", conf: "CONCACAF", strength: 1.5 },
-  { name: "Saint Lucia", code: "LCA", conf: "CONCACAF", strength: 1.0 },
-  { name: "Saint Vincent and the Grenadines", code: "VIN", conf: "CONCACAF", strength: 1.0 },
-  { name: "Suriname", code: "SUR", conf: "CONCACAF", strength: 2.0 },
-  { name: "Trinidad and Tobago", code: "TTO", conf: "CONCACAF", strength: 3.0 },
-  { name: "Turks and Caicos Islands", code: "TCA", conf: "CONCACAF", strength: 1.0 },
-  { name: "United States", code: "USA", conf: "CONCACAF", strength: 7.0 },
-  { name: "US Virgin Islands", code: "ISV", conf: "CONCACAF", strength: 1.0 },
+  // UEFA
+  P_("ALB","Albânia","UEFA",3.5,[L1("Kategoria Superiore",10,0,2),L2("Kategoria e Parë",12),LC("Kupa e Shqipërisë"),LS("Superkupa")]),
+  P_("AND","Andorra","UEFA",1.0,[L1("Primera Divisió",10,0,2),L2("Segona Divisió",12),LC("Copa Constitució"),LS("Supercopa")]),
+  P_("ARM","Armênia","UEFA",2.5,[L1("Premier League",10,0,1),L2("First League",15,1,0),LC("Copa da Armênia"),LS("Supercopa")]),
+  P_("AUT","Áustria","UEFA",5.5,[L1("Bundesliga",12,0,1),L2("2. Liga",16,1,3),LC("ÖFB-Cup",64)]),
+  P_("AZE","Azerbaijão","UEFA",2.5,[L1("Premyer Liqası",10,0,2),L2("Birinci Liqa",14,1,0),LC("Copa"),LS("Supercopa")]),
+  P_("BLR","Belarus","UEFA",3.0,[L1("Vyšâjaja Líha",16,0,2),L2("Pieršaja Líha",18,2,2),LC("Copa"),LS("Supercopa")]),
+  P_("BEL","Bélgica","UEFA",8.0,[L1("Jupiler Pro League",16,0,2),L2("Challenger Pro League",16,2,2),LC("Copa da Bélgica"),LS("Supercopa")]),
+  P_("BIH","Bósnia","UEFA",4.0,[L1("Premijer Liga",12,0,2),L2("Prva Liga",16,2,2),LC("Copa da Bósnia")]),
+  P_("BUL","Bulgária","UEFA",3.5,[L1("Parva Liga",16,0,3),L2("Vtora Liga",20,3,4),LC("Copa"),LS("Supercopa")]),
+  P_("CRO","Croácia","UEFA",7.5,[L1("SuperSport HNL",10,0,1),L2("Prva NL",12,1,2),LC("Copa"),LS("Supercopa")]),
+  P_("CYP","Chipre","UEFA",2.5,[L1("Protágmata",14,0,2),L2("Segunda Divisão",16,2,3),LC("Copa"),LS("Supercopa")]),
+  P_("CZE","República Tcheca","UEFA",5.5,[L1("Fortuna Liga",16,0,2),L2("Národní Liga",16,2,2),LC("Pohár FAČR"),LS("Pohár Czech")]),
+  P_("DEN","Dinamarca","UEFA",6.5,[L1("Superligaen",12,0,1),L2("1. Division",12,1,2),LC("Sydbank Pokalen")]),
+  P_("ENG","Inglaterra","UEFA",8.5,[L1("Premier League",20,0,3),L2("Championship",24,3,3),LC("FA Cup",732),LS("Community Shield"),LC("EFL Cup",92)]),
+  P_("EST","Estônia","UEFA",2.0,[L1("Meistriliiga",10,0,2),L2("Esiliiga",10,2,2),LC("Eesti Karikas"),LS("Superkarikas")]),
+  P_("FRO","Ilhas Faroé","UEFA",1.5,[L1("Betri Deildin",10,0,2),L2("1. Deild",10,2,2),LC("Løgmanssteypið"),LS("Supersteypið")]),
+  P_("FIN","Finlândia","UEFA",3.5,[L1("Veikkausliiga",12,0,1),L2("Ykkösliiga",10,1,2),LC("Suomen Cup"),LS("Liigacup")]),
+  P_("FRA","França","UEFA",9.0,[L1("Ligue 1",18,0,2),L2("Ligue 2",18,2,3),LC("Coupe de France"),LS("Trophée des Champions")]),
+  P_("GEO","Geórgia","UEFA",4.5,[L1("Erovnuli Liga",10,0,2),L2("Erovnuli Liga 2",10,2,2),LC("Copa"),LS("Supercopa")]),
+  P_("GER","Alemanha","UEFA",8.5,[L1("Bundesliga",18,0,2),L2("2. Bundesliga",18,2,3),LC("DFB-Pokal",64),LS("DFL-Supercup")]),
+  P_("GIB","Gibraltar","UEFA",1.0,[L1("Gibraltar League",11,0,0),L2("2nd Division",8),LC("Rock Cup"),LS("Pepe Reyes Cup")]),
+  P_("GRE","Grécia","UEFA",4.5,[L1("Super League 1",14,0,2),L2("Super League 2",14,2,2),LC("Kýpellos Elládos")]),
+  P_("HUN","Hungria","UEFA",5.0,[L1("Nemzeti Bajnokság I",12,0,2),L2("NB II",16,2,2),LC("Magyar Kupa"),LS("Szuperkupa")]),
+  P_("ISL","Islândia","UEFA",3.5,[L1("Besta deild",12,0,2),L2("Lengjudeild",12,2,2),LC("Bikarkeppni"),LS("Meistarakóp")]),
+  P_("IRL","Irlanda","UEFA",4.5,[L1("Premier Division",10,0,1),L2("First Division",10,1,1),LC("FAI Cup"),LS("President's Cup")]),
+  P_("ISR","Israel","UEFA",4.0,[L1("Ligat HaAl",14,0,2),L2("Liga Leumit",16,2,3),LC("State Cup"),LS("Supercopa")]),
+  P_("ITA","Itália","UEFA",8.5,[L1("Serie A",20,0,3),L2("Serie B",20,3,4),LC("Coppa Italia"),LS("Supercoppa")]),
+  P_("KAZ","Cazaquistão","UEFA",2.5,[L1("Prem'er Llgasy",14,0,2),L2("Birinsh Llgasy",12,2,2),LC("Kubogy"),LS("Superkubogy")]),
+  P_("KOS","Kosovo","UEFA",2.5,[L1("Superliga",10,0,2),L2("Liga e Parë",16,2,2),LC("Kupa e Kosovës"),LS("Superkupa")]),
+  P_("LVA","Letônia","UEFA",2.0,[L1("Virsliga",10,0,2),L2("Pirmā līga",14,2,0),LC("Kauss"),LS("Superkauss")]),
+  P_("LIE","Liechtenstein","UEFA",1.0,[L1("Cup",7,0,0),L2("Cup II",7),LC("Cup")]),
+  P_("LTU","Lituânia","UEFA",2.0,[L1("A Lyga",10,0,1),L2("Pirma Lyga",16,1,2),LC("Táurê"),LS("Supertaurê")]),
+  P_("LUX","Luxemburgo","UEFA",2.5,[L1("BGL Ligue",16,0,2),L2("Division of Honour",16,2,2),LC("Coupe"),LS("Super Cup")]),
+  P_("MLT","Malta","UEFA",1.5,[L1("Premier League",14,0,2),L2("Challenge League",16,2,2),LC("Tazza Maltija"),LS("Super Cup")]),
+  P_("MKD","Macedônia do Norte","UEFA",3.0,[L1("Prva Liga",12,0,2),L2("Vtora Liga",16,2,2),LC("Kup"),LS("Superkup")]),
+  P_("MDA","Moldávia","UEFA",2.0,[L1("Super Liga",8,0,2),L2("Liga 1",12,2,2),LC("Cupa"),LS("Supercupa")]),
+  P_("MNE","Montenegro","UEFA",3.0,[L1("Prva Liga",10,0,2),L2("Druga Liga",12,2,2),LC("Kup"),LS("Superkup")]),
+  P_("NED","Países Baixos","UEFA",8.0,[L1("Eredivisie",18,0,2),L2("Eerste Divisie",20,2,0),LC("Copa KNVB"),LS("Johan Cruijff Schaal")]),
+  P_("NIR","Irlanda do Norte","UEFA",3.5,[L1("Premiership",12,0,1),L2("Championship",12,1,2),LC("Irish Cup"),LS("Charity Shield")]),
+  P_("NOR","Noruega","UEFA",5.5,[L1("Eliteserien",16,0,2),L2("OBOS Ligaen",16,2,3),LC("Norgesmesterskapet"),LS("Supercupen")]),
+  P_("POL","Polônia","UEFA",5.5,[L1("Ekstraklasa",18,0,1),L2("I Liga",18,2,3),LC("Puchar Polski"),LS("Superpuchar")]),
+  P_("POR","Portugal","UEFA",8.5,[L1("Primeira Liga",18,0,2),L2("Liga Portugal 2",18,2,3),LC("Taça de Portugal"),LC("Taça da Liga",34),LS("Supertaça")]),
+  P_("ROU","Romênia","UEFA",5.0,[L1("SuperLiga",16,0,2),L2("Liga II",20,2,4),LC("Cupa"),LS("Supercupa")]),
+  P_("RUS","Rússia","UEFA",6.5,[L1("RPL",16,0,2),L2("Pervaya Liga",18,2,3),LC("Kubok"),LS("Superkubok")]),
+  P_("SMR","San Marino","UEFA",1.0,[L1("Campionato",16,0,0),L2("Golden League",16),LC("Coppa Titano"),LS("Supercoppa")]),
+  P_("SCO","Escócia","UEFA",5.0,[L1("Premiership",12,0,1),L2("Championship",10,1,2),LC("Scottish Cup"),LC("League Cup",44)]),
+  P_("SRB","Sérvia","UEFA",5.5,[L1("Superliga",16,0,2),L2("Prva Liga",16,2,3),LC("Kup"),LS("Superkup")]),
+  P_("SVK","Eslováquia","UEFA",4.5,[L1("Niké Liga",12,0,2),L2("Druhá Liga",16,2,2),LC("Slovnak Cup"),LS("Supercup")]),
+  P_("SVN","Eslovênia","UEFA",4.0,[L1("PrvaLiga",10,0,1),L2("Druga Liga",16,1,2),LC("Pokal"),LS("Superpokal")]),
+  P_("ESP","Espanha","UEFA",9.0,[L1("La Liga",20,0,3),L2("La Liga 2",22,3,4),LC("Copa del Rey"),LS("Supercopa",4)]),
+  P_("SWE","Suécia","UEFA",5.5,[L1("Allsvenskan",16,0,2),L2("Superettan",16,2,3),LC("Svenska Cupen"),LS("Supercupen")]),
+  P_("SUI","Suíça","UEFA",6.5,[L1("Super League",12,0,1),L2("Challenge League",10,1,2),LC("Swiss Cup"),LS("Super Cup")]),
+  P_("TUR","Turquia","UEFA",6.5,[L1("Süper Lig",20,0,4),L2("1. Lig",18,3,4),LC("Türkiye Kupası"),LS("Süper Kupa")]),
+  P_("UKR","Ucrânia","UEFA",6.0,[L1("PremerLiha",16,0,2),L2("Persha Liha",16,2,3),LC("Kubok"),LS("Superkubok")]),
+  P_("WAL","País de Gales","UEFA",5.0,[L1("Cymru Premier",12,0,2),L2("Cymru North/South",16,2,2),LC("Welsh Cup"),LC("League Cup",44)]),
 
-  { name: "Afghanistan", code: "AFG", conf: "AFC", strength: 1.5 },
-  { name: "Australia", code: "AUS", conf: "AFC", strength: 6.5 },
-  { name: "Bahrain", code: "BHR", conf: "AFC", strength: 3.0 },
-  { name: "Bangladesh", code: "BAN", conf: "AFC", strength: 1.5 },
-  { name: "Bhutan", code: "BHU", conf: "AFC", strength: 1.0 },
-  { name: "Brunei", code: "BRU", conf: "AFC", strength: 1.0 },
-  { name: "Cambodia", code: "CAM", conf: "AFC", strength: 1.0 },
-  { name: "China", code: "CHN", conf: "AFC", strength: 4.5 },
-  { name: "Chinese Taipei", code: "TPE", conf: "AFC", strength: 2.0 },
-  { name: "Guam", code: "GUM", conf: "AFC", strength: 1.0 },
-  { name: "Hong Kong", code: "HKG", conf: "AFC", strength: 2.5 },
-  { name: "India", code: "IND", conf: "AFC", strength: 3.5 },
-  { name: "Indonesia", code: "IDN", conf: "AFC", strength: 3.0 },
-  { name: "Iran", code: "IRN", conf: "AFC", strength: 6.5 },
-  { name: "Iraq", code: "IRQ", conf: "AFC", strength: 4.5 },
-  { name: "Japan", code: "JPN", conf: "AFC", strength: 8.0 },
-  { name: "Jordan", code: "JOR", conf: "AFC", strength: 3.5 },
-  { name: "Kuwait", code: "KUW", conf: "AFC", strength: 2.5 },
-  { name: "Kyrgyzstan", code: "KGZ", conf: "AFC", strength: 2.0 },
-  { name: "Laos", code: "LAO", conf: "AFC", strength: 1.0 },
-  { name: "Lebanon", code: "LBN", conf: "AFC", strength: 2.5 },
-  { name: "Macau", code: "MAC", conf: "AFC", strength: 1.0 },
-  { name: "Malaysia", code: "MAS", conf: "AFC", strength: 3.0 },
-  { name: "Maldives", code: "MDV", conf: "AFC", strength: 1.0 },
-  { name: "Mongolia", code: "MNG", conf: "AFC", strength: 1.0 },
-  { name: "Myanmar", code: "MYA", conf: "AFC", strength: 1.5 },
-  { name: "Nepal", code: "NEP", conf: "AFC", strength: 1.0 },
-  { name: "North Korea", code: "PRK", conf: "AFC", strength: 2.5 },
-  { name: "Oman", code: "OMA", conf: "AFC", strength: 3.0 },
-  { name: "Pakistan", code: "PAK", conf: "AFC", strength: 1.0 },
-  { name: "Palestine", code: "PLE", conf: "AFC", strength: 2.0 },
-  { name: "Philippines", code: "PHI", conf: "AFC", strength: 1.5 },
-  { name: "Qatar", code: "QAT", conf: "AFC", strength: 5.5 },
-  { name: "Saudi Arabia", code: "KSA", conf: "AFC", strength: 5.5 },
-  { name: "Singapore", code: "SGP", conf: "AFC", strength: 2.0 },
-  { name: "South Korea", code: "KOR", conf: "AFC", strength: 7.5 },
-  { name: "Sri Lanka", code: "SRI", conf: "AFC", strength: 1.0 },
-  { name: "Syria", code: "SYR", conf: "AFC", strength: 3.0 },
-  { name: "Tajikistan", code: "TJK", conf: "AFC", strength: 2.5 },
-  { name: "Thailand", code: "THA", conf: "AFC", strength: 3.5 },
-  { name: "Timor-Leste", code: "TLS", conf: "AFC", strength: 1.0 },
-  { name: "Turkmenistan", code: "TKM", conf: "AFC", strength: 1.5 },
-  { name: "United Arab Emirates", code: "UAE", conf: "AFC", strength: 4.5 },
-  { name: "Uzbekistan", code: "UZB", conf: "AFC", strength: 4.5 },
-  { name: "Vietnam", code: "VIE", conf: "AFC", strength: 3.5 },
-  { name: "Yemen", code: "YEM", conf: "AFC", strength: 1.5 },
+  // CAF
+  P_("ALG","Argélia","CAF",5.5,[L1("Ligue 1 Mobilis",16,0,2),L2("Ligue 2",16,2,4),LC("Coupe"),LS("Supercoupe")]),
+  P_("ANG","Angola","CAF",4.0,[L1("Girabola",16,0,3),L2("Segundona",16,3,3),LC("Taça"),LS("Supertaça")]),
+  P_("BEN","Benim","CAF",2.5,[L1("Ligue 1",16,0,2),L2("Ligue 2",14),LC("Coupe")]),
+  P_("BOT","Botsuana","CAF",2.0,[L1("Premier League",16,0,2),L2("First Division",12),LC("FA Cup")]),
+  P_("BFA","Burkina Faso","CAF",4.0,[L1("Ligue 1",16,0,2),L2("Ligue 2",16),LC("Coupe"),LS("Supercoupe")]),
+  P_("BDI","Burundi","CAF",1.5,[L1("Primus Liga",16,0,2),L2("Ligue B"),LC("Coupe")]),
+  P_("CMR","Camarões","CAF",5.5,[L1("Elite One",18,0,2),L2("Elite Two",16,2,2),LC("Coupe"),LS("Super Coupe")]),
+  P_("CPV","Cabo Verde","CAF",3.5,[L1("Liga",16,0,2),L2("Segunda"),LC("Copa"),LS("Supertaça")]),
+  P_("CTA","Rep. Centro-Africana","CAF",1.5,[L1("Ligue 1"),L2("Ligue 2"),LC("Coupe")]),
+  P_("CHA","Chade","CAF",1.0,[L1("Ligue 1"),L2("Ligue 2"),LC("Coupe")]),
+  P_("COM","Comores","CAF",2.0,[L1("Ligue 1"),L2("Ligue 2"),LC("Coupe")]),
+  P_("COG","Congo","CAF",3.0,[L1("Ligue 1",14,0,2),L2("Ligue 2"),LC("Coupe")]),
+  P_("COD","RD Congo","CAF",4.0,[L1("Linafoot",20,0,2),L2("Div 2"),LC("Coupe"),LS("Supercup")]),
+  P_("DJI","Djibouti","CAF",1.0,[L1("Premier League"),L2("Div 2"),LC("Coupe")]),
+  P_("EGY","Egito","CAF",6.5,[L1("Premier League",18,0,2),L2("Second Division",16,2,2),LC("Coupe"),LS("Supercup")]),
+  P_("GNQ","Guiné Equatorial","CAF",2.5,[L1("Liga Nacional"),L2("Div 2"),LC("Coupe")]),
+  P_("ERI","Eritreia","CAF",1.0,[L1("Liga"),L2("Div 2"),LC("Coupe")]),
+  P_("SWZ","Essuatíni","CAF",1.5,[L1("Premier League"),L2("Div 2"),LC("FA Cup")]),
+  P_("ETH","Etiópia","CAF",2.0,[L1("Premier League",16,0,2),L2("Div 2"),LC("Coupe"),LS("Supercoupe")]),
+  P_("GAB","Gabão","CAF",3.0,[L1("Ligue 1"),L2("Div 2"),LC("Coupe")]),
+  P_("GMB","Gâmbia","CAF",2.0,[L1("Liga"),L2("Div 2"),LC("FA Cup")]),
+  P_("GHA","Gana","CAF",5.5,[L1("Premier League",20,0,3),L2("Division One"),LC("FA Cup"),LS("Super Cup")]),
+  P_("GIN","Guiné","CAF",3.5,[L1("Ligue 1",14,0,2),L2("Div 2"),LC("Coupe")]),
+  P_("GNB","Guiné-Bissau","CAF",2.0,[L1("Ligue 1"),L2("Ligue 2"),LC("Coupe")]),
+  P_("CIV","Costa do Marfim","CAF",6.0,[L1("Ligue 1",16,0,2),L2("Ligue 2"),LC("Coupe"),LS("Super Cup")]),
+  P_("KEN","Quênia","CAF",3.0,[L1("Premier League",18,0,2),L2("Super League"),LC("Cup"),LS("Super Cup")]),
+  P_("LSO","Lesoto","CAF",1.5,[L1("Premier League"),L2("Div 2"),LC("FA Cup")]),
+  P_("LBR","Libéria","CAF",1.5,[L1("Liga"),L2("Ligue 2"),LC("FA Cup")]),
+  P_("LBY","Líbia","CAF",2.5,[L1("Liga 1",16,0,2),L2("Liga 2"),LC("Coupe")]),
+  P_("MAD","Madagascar","CAF",2.0,[L1("Champions League"),L2("Ligue 2"),LC("FA Cup"),LS("Supercoupe")]),
+  P_("MWI","Malawi","CAF",2.0,[L1("Super League"),L2("Div 2"),LC("FA Cup")]),
+  P_("MLI","Mali","CAF",4.0,[L1("Ligue 1",16,0,2),L2("Ligue 2"),LC("Coupe"),LS("Super Coupe")]),
+  P_("MRT","Mauritânia","CAF",2.5,[L1("Ligue 1"),L2("Ligue 2"),LC("Coupe"),LS("Supercoupe")]),
+  P_("MUS","Maurício","CAF",1.0,[L1("Premier League"),L2("Div 2"),LC("FA Cup")]),
+  P_("MAR","Marrocos","CAF",7.5,[L1("Botola Pro",16,0,2),L2("Botola 2",16,2,2),LC("Coupe du Trône"),LS("Supercoupe")]),
+  P_("MOZ","Moçambique","CAF",2.5,[L1("Moçambola",12,0,2),L2("2ª Divisão"),LC("Taça"),LS("Supertaça")]),
+  P_("NAM","Namíbia","CAF",2.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("NER","Níger","CAF",2.0,[L1("Ligue 1"),L2("Ligue 2"),LC("Coupe")]),
+  P_("NGA","Nigéria","CAF",6.5,[L1("NPFL",20,0,2),L2("National League"),LC("FA Cup"),LS("Super Cup")]),
+  P_("RWA","Ruanda","CAF",2.0,[L1("Premier League"),L2("Div 2"),LC("FA Cup"),LS("Super Cup")]),
+  P_("STP","São Tomé e Príncipe","CAF",1.0,[L1("Liga"),L2("Div 2"),LC("Taça"),LS("Supertaça")]),
+  P_("SEN","Senegal","CAF",7.5,[L1("Ligue 1",16,0,2),L2("Ligue 2"),LC("Coupe"),LS("Super Cup")]),
+  P_("SEY","Seicheles","CAF",1.0,[L1("Premier League"),L2("Div 2"),LC("FA Cup")]),
+  P_("SLE","Serra Leoa","CAF",1.5,[L1("Premier League"),L2("Div 2"),LC("FA Cup")]),
+  P_("SOM","Somália","CAF",1.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("RSA","África do Sul","CAF",5.5,[L1("DStv Premiership",16,0,2),L2("Motsepe Champ"),LC("Nedbank Cup"),LC("MTN 8",8)]),
+  P_("SSD","Sudão do Sul","CAF",1.5,[L1("National League"),L2("Div 2"),LC("Cup")]),
+  P_("SDN","Sudão","CAF",2.5,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("TZA","Tanzânia","CAF",2.5,[L1("Premier League",16,0,2),L2("Div 2"),LC("FA Cup"),LS("Community Shield")]),
+  P_("TGO","Togo","CAF",2.5,[L1("Ligue 1",16,0,2),L2("Ligue 2"),LC("Coupe")]),
+  P_("TUN","Tunísia","CAF",5.5,[L1("Ligue Pro 1",16,0,2),L2("Ligue Pro 2",16,2,2),LC("Coupe"),LS("Supercoupe")]),
+  P_("UGA","Uganda","CAF",3.0,[L1("Premier League"),L2("Div 2"),LC("FA Cup"),LS("Super Cup")]),
+  P_("ZMB","Zâmbia","CAF",3.0,[L1("Super League"),L2("Div 2"),LC("FAZ Cup")]),
+  P_("ZWE","Zimbábue","CAF",2.5,[L1("Premier League",16,0,2),L2("Div 2"),LC("FA Cup")]),
 
-  { name: "Algeria", code: "ALG", conf: "CAF", strength: 5.5 },
-  { name: "Angola", code: "ANG", conf: "CAF", strength: 4.0 },
-  { name: "Benin", code: "BEN", conf: "CAF", strength: 2.5 },
-  { name: "Botswana", code: "BOT", conf: "CAF", strength: 2.0 },
-  { name: "Burkina Faso", code: "BFA", conf: "CAF", strength: 4.0 },
-  { name: "Burundi", code: "BDI", conf: "CAF", strength: 1.5 },
-  { name: "Cameroon", code: "CMR", conf: "CAF", strength: 5.5 },
-  { name: "Cape Verde", code: "CPV", conf: "CAF", strength: 3.5 },
-  { name: "Central African Republic", code: "CAF", conf: "CAF", strength: 1.5 },
-  { name: "Chad", code: "CHA", conf: "CAF", strength: 1.0 },
-  { name: "Comoros", code: "COM", conf: "CAF", strength: 2.0 },
-  { name: "Congo", code: "CGO", conf: "CAF", strength: 3.0 },
-  { name: "DR Congo", code: "COD", conf: "CAF", strength: 4.0 },
-  { name: "Djibouti", code: "DJI", conf: "CAF", strength: 1.0 },
-  { name: "Egypt", code: "EGY", conf: "CAF", strength: 6.5 },
-  { name: "Equatorial Guinea", code: "EQG", conf: "CAF", strength: 2.5 },
-  { name: "Eritrea", code: "ERI", conf: "CAF", strength: 1.0 },
-  { name: "Eswatini", code: "SWZ", conf: "CAF", strength: 1.5 },
-  { name: "Ethiopia", code: "ETH", conf: "CAF", strength: 2.0 },
-  { name: "Gabon", code: "GAB", conf: "CAF", strength: 3.0 },
-  { name: "Gambia", code: "GAM", conf: "CAF", strength: 2.0 },
-  { name: "Ghana", code: "GHA", conf: "CAF", strength: 5.5 },
-  { name: "Guinea", code: "GUI", conf: "CAF", strength: 3.5 },
-  { name: "Guinea-Bissau", code: "GNB", conf: "CAF", strength: 2.0 },
-  { name: "Ivory Coast", code: "CIV", conf: "CAF", strength: 6.0 },
-  { name: "Kenya", code: "KEN", conf: "CAF", strength: 3.0 },
-  { name: "Lesotho", code: "LES", conf: "CAF", strength: 1.5 },
-  { name: "Liberia", code: "LBR", conf: "CAF", strength: 1.5 },
-  { name: "Libya", code: "LBY", conf: "CAF", strength: 2.5 },
-  { name: "Madagascar", code: "MAD", conf: "CAF", strength: 2.0 },
-  { name: "Malawi", code: "MWI", conf: "CAF", strength: 2.0 },
-  { name: "Mali", code: "MLI", conf: "CAF", strength: 4.0 },
-  { name: "Mauritania", code: "MTN", conf: "CAF", strength: 2.5 },
-  { name: "Mauritius", code: "MRI", conf: "CAF", strength: 1.0 },
-  { name: "Morocco", code: "MAR", conf: "CAF", strength: 7.5 },
-  { name: "Mozambique", code: "MOZ", conf: "CAF", strength: 2.5 },
-  { name: "Namibia", code: "NAM", conf: "CAF", strength: 2.0 },
-  { name: "Niger", code: "NIG", conf: "CAF", strength: 2.0 },
-  { name: "Nigeria", code: "NGA", conf: "CAF", strength: 6.5 },
-  { name: "Rwanda", code: "RWA", conf: "CAF", strength: 2.0 },
-  { name: "São Tomé and Príncipe", code: "STP", conf: "CAF", strength: 1.0 },
-  { name: "Senegal", code: "SEN", conf: "CAF", strength: 7.5 },
-  { name: "Seychelles", code: "SEY", conf: "CAF", strength: 1.0 },
-  { name: "Sierra Leone", code: "SLE", conf: "CAF", strength: 1.5 },
-  { name: "Somalia", code: "SOM", conf: "CAF", strength: 1.0 },
-  { name: "South Africa", code: "RSA", conf: "CAF", strength: 5.5 },
-  { name: "South Sudan", code: "SSD", conf: "CAF", strength: 1.5 },
-  { name: "Sudan", code: "SDN", conf: "CAF", strength: 2.5 },
-  { name: "Tanzania", code: "TAN", conf: "CAF", strength: 2.5 },
-  { name: "Togo", code: "TOG", conf: "CAF", strength: 2.5 },
-  { name: "Tunisia", code: "TUN", conf: "CAF", strength: 5.5 },
-  { name: "Uganda", code: "UGA", conf: "CAF", strength: 3.0 },
-  { name: "Zambia", code: "ZAM", conf: "CAF", strength: 3.0 },
-  { name: "Zimbabwe", code: "ZIM", conf: "CAF", strength: 2.5 },
+  // CONCACAF
+  P_("AIA","Anguilla","CONCACAF",1.0,[L1("AFA League"),L2("Div 2"),LC("Cup")]),
+  P_("ATG","Antígua e Barbuda","CONCACAF",2.0,[L1("Premier Division"),L2("First Division"),LC("FA Cup")]),
+  P_("ARU","Aruba","CONCACAF",1.0,[L1("Division di Honor"),L2("Div 2"),LC("Cup")]),
+  P_("BAH","Bahamas","CONCACAF",1.0,[L1("BFA League"),L2("Div 2"),LC("Cup")]),
+  P_("BRB","Barbados","CONCACAF",1.5,[L1("Premier League"),L2("Division 1"),LC("FA Cup")]),
+  P_("BLZ","Belize","CONCACAF",1.0,[L1("Premier League"),L2("First Division"),LC("Cup")]),
+  P_("BER","Bermudas","CONCACAF",1.5,[L1("Premier Division"),L2("Division 1"),LC("FA Cup")]),
+  P_("CAN","Canadá","CONCACAF",5.5,[L1("CPL",8,0,0),L2("League1 Ontario"),LC("Canadian Championship")]),
+  P_("CAY","Ilhas Cayman","CONCACAF",1.0,[L1("CIFA League"),L2("Div 2"),LC("Cup")]),
+  P_("CRC","Costa Rica","CONCACAF",5.5,[L1("Liga FPD",12,0,2),L2("Liga de Ascenso"),LC("Copa"),LS("Supercopa")]),
+  P_("CUB","Cuba","CONCACAF",2.5,[L1("Campeonato Nacional"),L2("Div 2"),LC("Cup")]),
+  P_("CUW","Curaçao","CONCACAF",2.5,[L1("Sekshon Pagá"),L2("Div 2"),LC("Cup")]),
+  P_("DMA","Dominica","CONCACAF",1.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("DOM","Rep. Dominicana","CONCACAF",2.0,[L1("Liga Dominicana"),L2("Segunda"),LC("Cup")]),
+  P_("SLV","El Salvador","CONCACAF",3.0,[L1("Primera División",12,0,2),L2("Segunda División"),LC("Cup")]),
+  P_("GRN","Granada","CONCACAF",1.0,[L1("Premier Division"),L2("Div 2"),LC("Cup")]),
+  P_("GUA","Guatemala","CONCACAF",3.0,[L1("Liga Nacional",12,0,2),L2("Primera División"),LC("Cup")]),
+  P_("GUY","Guiana","CONCACAF",1.5,[L1("GFF Elite League"),L2("Div 2"),LC("Cup")]),
+  P_("HAI","Haiti","CONCACAF",2.5,[L1("Ligue Haïtienne"),L2("Div 2"),LC("Cup")]),
+  P_("HON","Honduras","CONCACAF",4.0,[L1("Liga Nacional",10,0,2),L2("Liga de Ascenso"),LC("Cup")]),
+  P_("JAM","Jamaica","CONCACAF",4.0,[L1("Premier League",12,0,2),L2("Championship"),LC("FA Cup")]),
+  P_("MTQ","Martinica","CONCACAF",2.0,[L1("R1 Championship"),L2("Div 2"),LC("Cup")]),
+  P_("MEX","México","CONCACAF",7.5,[L1("Liga MX",18,0,2),L2("Liga de Expansión",16,2,2),LC("Copa MX"),LS("Supercopa")]),
+  P_("MSR","Montserrat","CONCACAF",1.0,[L1("MSFA League"),L2("Div 2"),LC("Cup")]),
+  P_("NCA","Nicarágua","CONCACAF",2.0,[L1("Primera División"),L2("Segunda"),LC("Cup")]),
+  P_("PAN","Panamá","CONCACAF",4.5,[L1("LPF",10,0,2),L2("Liga Nacional"),LC("Cup")]),
+  P_("PUR","Porto Rico","CONCACAF",1.5,[L1("Puerto Rico Soccer League"),L2("Div 2"),LC("Cup")]),
+  P_("SKN","St. Kitts e Nevis","CONCACAF",1.5,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("LCA","Santa Lúcia","CONCACAF",1.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("VIN","St. Vincent e Granadinas","CONCACAF",1.0,[L1("Premier Division"),L2("Div 2"),LC("Cup")]),
+  P_("SUR","Suriname","CONCACAF",2.0,[L1("SVB Eerste Klasse"),L2("Div 2"),LC("Cup")]),
+  P_("TTO","Trinidad e Tobago","CONCACAF",3.0,[L1("Pro League"),L2("Div 2"),LC("FA Cup")]),
+  P_("TCA","Turks e Caicos","CONCACAF",1.0,[L1("Wray & Nephew League"),L2("Div 2"),LC("Cup")]),
+  P_("USA","Estados Unidos","CONCACAF",7.0,[L1("MLS",28,0,0),L2("USL Championship"),LC("US Open Cup"),LC("Leagues Cup")]),
+  P_("ISV","Ilhas Virgens EUA","CONCACAF",1.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
 
-  { name: "American Samoa", code: "ASA", conf: "OFC", strength: 1.0 },
-  { name: "Cook Islands", code: "COK", conf: "OFC", strength: 1.0 },
-  { name: "Fiji", code: "FIJ", conf: "OFC", strength: 2.0 },
-  { name: "Kiribati", code: "KIR", conf: "OFC", strength: 1.0 },
-  { name: "New Caledonia", code: "NCL", conf: "OFC", strength: 2.0 },
-  { name: "New Zealand", code: "NZL", conf: "OFC", strength: 5.0 },
-  { name: "Papua New Guinea", code: "PNG", conf: "OFC", strength: 2.0 },
-  { name: "Samoa", code: "SAM", conf: "OFC", strength: 1.0 },
-  { name: "Solomon Islands", code: "SOL", conf: "OFC", strength: 1.5 },
-  { name: "Tahiti", code: "TAH", conf: "OFC", strength: 2.0 },
-  { name: "Tonga", code: "TGA", conf: "OFC", strength: 1.0 },
-  { name: "Tuvalu", code: "TUV", conf: "OFC", strength: 1.0 },
-  { name: "Vanuatu", code: "VAN", conf: "OFC", strength: 1.5 },
+  // AFC
+  P_("AFG","Afeganistão","AFC",1.5,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("AUS","Austrália","AFC",6.5,[L1("A-League",12,0,0),L2("NPL"),LC("Australia Cup")]),
+  P_("BHR","Bahrein","AFC",3.0,[L1("Premier League",10,0,2),L2("Second Division"),LC("Kings Cup")]),
+  P_("BAN","Bangladesh","AFC",1.5,[L1("Premier League"),L2("Championship League"),LC("Federation Cup")]),
+  P_("BHU","Butão","AFC",1.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("BRU","Brunei","AFC",1.0,[L1("Super League"),L2("Div 2"),LC("Cup")]),
+  P_("KHM","Camboja","AFC",1.0,[L1("C-League"),L2("Div 2"),LC("Cup")]),
+  P_("CHN","China","AFC",4.5,[L1("Chinese Super League",16,0,2),L2("China League One",16,2,2),LC("CFA Cup")]),
+  P_("TPE","Chinese Taipei","AFC",2.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("GUM","Guam","AFC",1.0,[L1("Guam Soccer League"),L2("Div 2"),LC("Cup")]),
+  P_("HKG","Hong Kong","AFC",2.5,[L1("Premier League",10,0,2),L2("First Division"),LC("FA Cup"),LS("Senior Shield")]),
+  P_("IND","Índia","AFC",3.5,[L1("Indian Super League",12,0,0),L2("I-League"),LC("Super Cup"),LS("Durand Cup")]),
+  P_("IDN","Indonésia","AFC",3.0,[L1("Liga 1",18,0,3),L2("Liga 2"),LC("Piala")]),
+  P_("IRN","Irã","AFC",6.5,[L1("Persian Gulf Pro League",16,0,2),L2("Azadegan League"),LC("Hazfi Cup")]),
+  P_("IRQ","Iraque","AFC",4.5,[L1("Iraq Stars League",20,0,3),L2("Division 1"),LC("Cup")]),
+  P_("JPN","Japão","AFC",8.0,[L1("J1 League",18,0,3),L2("J2 League",22,3,4),LC("Emperor Cup"),LS("Super Cup")]),
+  P_("JOR","Jordânia","AFC",3.5,[L1("Premier League",12,0,2),L2("First Division"),LC("Cup"),LS("Super Cup")]),
+  P_("KUW","Kuwait","AFC",2.5,[L1("Premier League"),L2("First Division"),LC("Cup"),LS("Super Cup")]),
+  P_("KGZ","Quirguistão","AFC",2.0,[L1("Premier League"),L2("First League"),LC("Cup")]),
+  P_("LAO","Laos","AFC",1.0,[L1("Lao League 1"),L2("Lao League 2"),LC("Cup")]),
+  P_("LBN","Líbano","AFC",2.5,[L1("Premier League"),L2("Second Division"),LC("FA Cup")]),
+  P_("MAC","Macau","AFC",1.0,[L1("Liga de Elite"),L2("Segunda Divisão"),LC("Cup")]),
+  P_("MAS","Malásia","AFC",3.0,[L1("Super League",14,0,2),L2("Premier League"),LC("FA Cup"),LS("Super Cup")]),
+  P_("MDV","Maldivas","AFC",1.0,[L1("Dhivehi League"),L2("Div 2"),LC("Cup")]),
+  P_("MNG","Mongólia","AFC",1.0,[L1("National Premier League"),L2("First League"),LC("Cup")]),
+  P_("MMR","Myanmar","AFC",1.5,[L1("Myanmar National League"),L2("MNL-2"),LC("Cup")]),
+  P_("NEP","Nepal","AFC",1.0,[L1("Martyr's Memorial A Division"),L2("Martyr's Memorial B Division"),LC("Cup")]),
+  P_("PRK","Coreia do Norte","AFC",2.5,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("OMA","Omã","AFC",3.0,[L1("Premier League"),L2("First Division"),LC("Cup"),LS("Super Cup")]),
+  P_("PAK","Paquistão","AFC",1.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("PLE","Palestina","AFC",2.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("PHI","Filipinas","AFC",1.5,[L1("Philippines Football League"),L2("Div 2"),LC("Cup")]),
+  P_("QAT","Catar","AFC",5.5,[L1("Stars League",12,0,2),L2("Second Division"),LC("Emir Cup"),LS("Super Cup")]),
+  P_("KSA","Arábia Saudita","AFC",5.5,[L1("Pro League",18,0,2),L2("First Division"),LC("King Cup"),LS("Super Cup")]),
+  P_("SGP","Singapura","AFC",2.0,[L1("Premier League"),L2("Div 2"),LC("Singapore Cup"),LC("League Cup")]),
+  P_("KOR","Coreia do Sul","AFC",7.5,[L1("K League 1",12,0,2),L2("K League 2",13,2,2),LC("Korea Cup"),LS("Super Cup")]),
+  P_("LKA","Sri Lanka","AFC",1.0,[L1("Super League"),L2("Division One"),LC("Cup")]),
+  P_("SYR","Síria","AFC",3.0,[L1("Premier League"),L2("Second Division"),LC("Cup")]),
+  P_("TJK","Tadjiquistão","AFC",2.5,[L1("Premier League"),L2("First League"),LC("Cup")]),
+  P_("THA","Tailândia","AFC",3.5,[L1("Thai League 1",16,0,3),L2("Thai League 2"),LC("FA Cup"),LC("League Cup")]),
+  P_("TLS","Timor-Leste","AFC",1.0,[L1("Primeira Divisão"),L2("Segunda Divisão"),LC("Cup")]),
+  P_("TKM","Turcomenistão","AFC",1.5,[L1("Premier League"),L2("First League"),LC("Cup")]),
+  P_("UAE","Emirados Árabes","AFC",4.5,[L1("Pro League",14,0,2),L2("First Division"),LC("Cup"),LS("Super Cup")]),
+  P_("UZB","Uzbequistão","AFC",4.5,[L1("Super League",14,0,2),L2("Pro League"),LC("Cup")]),
+  P_("VIE","Vietnã","AFC",3.5,[L1("V.League 1",14,0,2),L2("V.League 2"),LC("Cup")]),
+  P_("YEM","Iêmen","AFC",1.5,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+
+  // OFC
+  P_("ASA","Samoa Americana","OFC",1.0,[L1("FFAS League"),L2("Div 2"),LC("Cup")]),
+  P_("COK","Ilhas Cook","OFC",1.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("FIJ","Fiji","OFC",2.0,[L1("National Football League"),L2("Second Division"),LC("Cup")]),
+  P_("KIR","Kiribati","OFC",1.0,[L1("League"),L2("Div 2"),LC("Cup")]),
+  P_("NCL","Nova Caledônia","OFC",2.0,[L1("Super Ligue"),L2("Div 2"),LC("Cup")]),
+  P_("NZL","Nova Zelândia","OFC",5.0,[L1("NZFC",10,0,0),L2("National League"),LC("Chatham Cup")]),
+  P_("PNG","Papua Nova Guiné","OFC",2.0,[L1("National Soccer League"),L2("Div 2"),LC("Cup")]),
+  P_("SAM","Samoa","OFC",1.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("SOL","Ilhas Salomão","OFC",1.5,[L1("Telekom S-League"),L2("Div 2"),LC("Cup")]),
+  P_("TAH","Taiti","OFC",2.0,[L1("Ligue 1"),L2("Div 2"),LC("Cup"),LS("Super Cup")]),
+  P_("TGA","Tonga","OFC",1.0,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
+  P_("TUV","Tuvalu","OFC",1.0,[L1("A-Division"),L2("B-Division"),LC("Cup")]),
+  P_("VAN","Vanuatu","OFC",1.5,[L1("Premier League"),L2("Div 2"),LC("Cup")]),
 ];
 
 const confCompetitions: Record<string, string[]> = {
-  UEFA: ["Champions League", "Europa League", "Conference League", "Super Cup"],
+  UEFA: ["UEFA Champions League", "UEFA Europa League", "UEFA Conference League", "UEFA Super Cup", "UEFA Youth League"],
   CONMEBOL: ["Copa Libertadores", "Copa Sul-Americana", "Recopa Sul-Americana"],
-  CONCACAF: ["Champions Cup", "Central American Cup", "Caribbean Cup"],
-  AFC: ["Champions League Elite", "Champions League Two", "Challenge League"],
-  CAF: ["Champions League", "Confederation Cup", "Super Cup"],
-  OFC: ["Champions League"],
+  CONCACAF: ["CONCACAF Champions Cup", "CONCACAF Central American Cup", "CONCACAF Caribbean Cup"],
+  AFC: ["AFC Champions League Elite", "AFC Champions League Two", "AFC Challenge League"],
+  CAF: ["CAF Champions League", "CAF Confederation Cup", "CAF Super Cup"],
+  OFC: ["OFC Champions League"],
 };
 
-const fifaCompetitions: string[] = ["Copa Intercontinental", "Mundial de Clubes"];
-
 async function main() {
-  const existingConf = await prisma.confederation.count();
-  if (existingConf > 0) {
-    console.log("Database already seeded. Skipping.");
+  const existing = await prisma.confederation.count();
+  if (existing > 0) {
+    console.log("Seed já executado. Pulando.");
     return;
   }
 
-  console.log("Seeding world football hierarchy...\n");
+  console.log("=== SEED MUNDIAL CIRS ===");
+  const now = new Date();
 
-  // Step 1: Confederations
-  console.log("Creating confederations...");
-  await prisma.confederation.createMany({
-    data: confederations.map((c) => ({ name: c.name, code: c.code, logo: c.logo })),
-  });
-
-  const confMap = new Map<string, string>();
-  const allConfs = await prisma.confederation.findMany();
-  for (const c of allConfs) {
-    confMap.set(c.code, c.id);
+  // 1. Confederações
+  console.log("Criando 6 confederações...");
+  for (const c of confederations) {
+    await prisma.confederation.create({ data: { name: c.name, code: c.code } });
   }
+  const confs = await prisma.confederation.findMany();
+  const confMap = new Map(confs.map((c) => [c.code, c.id]));
 
-  // Step 2: Countries
-  console.log(`Creating ${countries.length} countries...`);
-  await prisma.country.createMany({
-    data: countries.map((c) => ({
-      name: c.name,
-      code: c.code,
-      flag: "",
-      confederationId: confMap.get(c.conf)!,
-    })),
-  });
+  // 2. Países + Associações + Seleções + Divisões + Ligas + Competições continentais
+  let countryCount = 0;
+  let leagueCount = 0;
+  let divCount = 0;
 
-  const countryMap = new Map<string, string>();
-  const allCountries = await prisma.country.findMany();
-  for (const c of allCountries) {
-    countryMap.set(c.code, c.id);
-  }
-
-  // Step 3: Associations
-  console.log("Creating national associations...");
-  await prisma.nationalAssociation.createMany({
-    data: countries.map((c) => ({
-      name: c.name,
-      code: c.code,
-      countryId: countryMap.get(c.code)!,
-      confederationId: confMap.get(c.conf)!,
-      logo: "",
-    })),
-  });
-
-  const assocMap = new Map<string, string>();
-  const allAssociations = await prisma.nationalAssociation.findMany();
-  for (const a of allAssociations) {
-    assocMap.set(a.code, a.id);
-  }
-
-  // Step 4: National Teams
-  console.log("Creating national teams...");
-  await prisma.nationalTeam.createMany({
-    data: countries.map((c) => ({
-      name: `${c.name} NT`,
-      countryId: countryMap.get(c.code)!,
-      associationId: assocMap.get(c.code)!,
-      confederationId: confMap.get(c.conf)!,
-      strength: c.strength,
-      emblem: "",
-      flag: "",
-      primaryKit: "",
-      secondaryKit: "",
-    })),
-  });
-
-  // Step 5: Leagues
-  console.log("Creating leagues...");
-  const leagueData = confederations.map((c) => ({
-    name: `${c.name} League System`,
-    logo: "",
-    confederationId: confMap.get(c.code)!,
-    isInternational: true,
-  }));
-
-  await prisma.league.createMany({
-    data: leagueData,
-  });
-
-  // Step 5b: National Leagues (1st and 2nd division) + Divisions for each country
-  console.log("Creating national leagues and divisions...");
-  for (const c of countries) {
-    const countryId = countryMap.get(c.code)!;
-    const confId = confMap.get(c.conf)!;
-
-    const div1 = await prisma.division.create({
-      data: { name: `${c.name} Division 1`, countryId, level: 1 },
+  for (const p of data) {
+    const confId = confMap.get(p.f)!;
+    const country = await prisma.country.create({
+      data: { name: p.n, code: p.c, confederationId: confId },
     });
-    await prisma.league.create({
+    countryCount++;
+
+    await prisma.nationalAssociation.create({
+      data: { name: p.n, code: p.c, countryId: country.id, confederationId: confId },
+    });
+
+    await prisma.nationalTeam.create({
       data: {
-        name: `${c.name} First Division`,
-        logo: "",
-        countryId,
+        name: `${p.n} NT`,
+        countryId: country.id,
         confederationId: confId,
-        divisionId: div1.id,
-        isInternational: false,
+        strength: p.s,
       },
     });
 
-    const div2 = await prisma.division.create({
-      data: { name: `${c.name} Division 2`, countryId, level: 2 },
-    });
-    await prisma.league.create({
-      data: {
-        name: `${c.name} Second Division`,
-        logo: "",
-        countryId,
-        confederationId: confId,
-        divisionId: div2.id,
-        isInternational: false,
-      },
-    });
-  }
+    for (const l of p.l) {
+      const [lName, lLevel, lTeams, lPromoted, lRelegated, lKnockout] = l;
 
-  // Step 6: Competitions per confederation
-  console.log("Creating confederation competitions...");
-  let competitionData: { name: string; type: string; logo: string; format: string; isKnockout: boolean }[] = [];
+      let divisionId: string | undefined;
+      if (lLevel === 1 || lLevel === 2) {
+        const div = await prisma.division.create({
+          data: { name: `${p.n} Division ${lLevel}`, countryId: country.id, level: lLevel },
+        });
+        divCount++;
+        divisionId = div.id;
+      }
 
-  for (const [confCode, comps] of Object.entries(confCompetitions)) {
-    for (const compName of comps) {
-      const isKnockout = compName.toLowerCase().includes("super") || compName.toLowerCase().includes("recopa");
-      competitionData.push({
-        name: confCode === "OFC" ? `${compName} (OFC)` : `${confCode} ${compName}`,
-        type: "international",
-        logo: "",
-        format: "groups",
-        isKnockout,
+      await prisma.league.create({
+        data: {
+          name: lName,
+          countryId: country.id,
+          confederationId: confId,
+          divisionId: divisionId || null,
+          isInternational: false,
+        },
       });
+      leagueCount++;
     }
   }
 
-  for (const compName of fifaCompetitions) {
-    competitionData.push({
-      name: `FIFA ${compName}`,
-      type: "international",
-      logo: "",
-      format: "groups",
-      isKnockout: false,
-    });
+  // 3. Competições continentais
+  console.log("Criando competições continentais...");
+  let compCount = 0;
+  for (const [confCode, comps] of Object.entries(confCompetitions)) {
+    const confId = confMap.get(confCode)!;
+    for (const compName of comps) {
+      const confLeague = await prisma.league.findFirst({
+        where: { name: compName, confederationId: confId },
+      });
+      if (!confLeague) {
+        await prisma.league.create({
+          data: { name: compName, confederationId: confId, isInternational: true },
+        });
+      }
+      await prisma.competition.create({
+        data: {
+          name: `${compName} ${now.getFullYear()}`,
+          type: "continental",
+          format: "groups",
+          isKnockout: compName.toLowerCase().includes("super") || compName.toLowerCase().includes("recopa"),
+        },
+      });
+      compCount++;
+    }
   }
 
-  await prisma.competition.createMany({
-    data: competitionData.map((c) => ({ ...c })),
-  });
-
-  const total = await prisma.country.count();
-  console.log(`\nDone! Created:`);
-  console.log(`  ${allConfs.length} confederations`);
-  console.log(`  ${total} countries`);
-  console.log(`  ${await prisma.nationalAssociation.count()} associations`);
-  console.log(`  ${await prisma.nationalTeam.count()} national teams`);
-  console.log(`  ${await prisma.league.count()} leagues`);
-  console.log(`  ${await prisma.competition.count()} competitions`);
+  console.log(`\n=== SEED CONCLUÍDO ===`);
+  console.log(`  Confederações: ${confs.length}`);
+  console.log(`  Países: ${countryCount}`);
+  console.log(`  Divisões: ${divCount}`);
+  console.log(`  Ligas: ${leagueCount}`);
+  console.log(`  Competições continentais: ${compCount}`);
 }
 
 main()

@@ -8,7 +8,8 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-black gold-text mb-2">CIRS</h3>
             <p className="text-sm text-muted max-w-md">
-              Confederação Internacional Real Soccer — O maior servidor de Real Soccer X5 com PowerShot.
+              Confederação Internacional Real Soccer — O maior servidor de Real
+              Soccer X5 com PowerShot.
             </p>
           </div>
 
@@ -20,6 +21,7 @@ export default function Footer() {
               <Link href="/times" className="text-sm text-muted hover:text-foreground transition-colors">Times</Link>
               <Link href="/jogadores" className="text-sm text-muted hover:text-foreground transition-colors">Jogadores</Link>
               <Link href="/estatisticas" className="text-sm text-muted hover:text-foreground transition-colors">Estatísticas</Link>
+              <Link href="/noticias" className="text-sm text-muted hover:text-foreground transition-colors">Notícias</Link>
               <Link href="/simulacoes" className="text-sm text-muted hover:text-foreground transition-colors">Simulações</Link>
             </div>
           </div>
@@ -29,14 +31,14 @@ export default function Footer() {
             <div className="flex flex-col gap-2">
               <Link href="/discord" className="text-sm text-muted hover:text-foreground transition-colors">Discord</Link>
               <Link href="/noticias" className="text-sm text-muted hover:text-foreground transition-colors">Notícias</Link>
-              <Link href="/downloads" className="text-sm text-muted hover:text-foreground transition-colors">Downloads</Link>
+              <Link href="/jogar" className="text-sm text-muted hover:text-foreground transition-colors">Jogar</Link>
             </div>
           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-xs text-muted">
-            &copy; {new Date().getFullYear()} CIRS — Confederação Internacional Real Soccer. Todos os direitos reservados.
+            © {new Date().getFullYear()} CIRS — Confederação Internacional Real Soccer. Todos os direitos reservados.
           </p>
         </div>
       </div>

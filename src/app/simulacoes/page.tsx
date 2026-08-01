@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import SimularMundoButton from "./SimularMundoButton";
 
 export const dynamic = "force-dynamic";
 
@@ -66,11 +67,15 @@ export default async function SimulacoesPage() {
       <h1 className="text-4xl font-black mb-2">
         <span className="gold-text">Simulações</span>
       </h1>
-      <p className="text-muted mb-10 max-w-3xl">
+      <p className="text-muted mb-6 max-w-3xl">
         Diretório global de todas as confederações FIFA e seus países. Aqui ficam as ligas,
         copas e divisões que não são jogadas ativamente no Haxball — tudo gerado por simulação
         externa para alimentar o ecossistema (vagas continentais, alternância de potências).
       </p>
+
+      <div className="mb-10">
+        <SimularMundoButton />
+      </div>
 
       {/* Diretório de Confederações */}
       {sortedConfeds.length === 0 ? (

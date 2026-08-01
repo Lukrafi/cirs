@@ -11,7 +11,7 @@ export const metadata = {
 export default async function PartidasPage() {
   const [finished, scheduled] = await Promise.all([
     prisma.match.findMany({
-      where: { status: "finished" },
+      where: { status: "finished", isSimulated: false },
       include: {
         homeTeam: true,
         awayTeam: true,
@@ -21,7 +21,7 @@ export default async function PartidasPage() {
       take: 30,
     }),
     prisma.match.findMany({
-      where: { status: "scheduled" },
+      where: { status: "scheduled", isSimulated: false },
       include: {
         homeTeam: true,
         awayTeam: true,

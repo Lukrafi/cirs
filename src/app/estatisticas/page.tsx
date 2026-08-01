@@ -16,12 +16,13 @@ export default async function StatisticsPage() {
     histRecentMatches,
     histClubsWithStandings,
   ] = await Promise.all([
-    prisma.match.count({ where: { status: "finished" } }),
+    prisma.match.count({ where: { status: "finished", isSimulated: false } }),
     prisma.club.count(),
     prisma.player.count(),
-    prisma.matchStat.aggregate({ _sum: { goals: true } }),
+    prisma.matchStat.aggregate({ _sum: { goals: true }, where: { match: { isSimulated: false } } }),
     prisma.matchStat.groupBy({
       by: ["playerId"],
+      where: { match: { isSimulated: false } },
       _sum: {
         goals: true,
         assists: true,
@@ -34,17 +35,18 @@ export default async function StatisticsPage() {
       },
     }),
     prisma.match.findMany({
-      where: { status: "finished" },
+      where: { status: "finished", isSimulated: false },
       include: { homeTeam: true, awayTeam: true },
       orderBy: { updatedAt: "desc" },
       take: 30,
     }),
-    prisma.club.findMany({ include: { standings: true } }),
+    prisma.club.findMany({ include: { standings: { where: { group: { matches: { every: { isSimulated: false } } } } } } }),
   ]);
 
   const histClubStats = await prisma.matchStat.groupBy({
     by: ["clubId"],
     _sum: { goals: true },
+    where: { match: { isSimulated: false } },
     orderBy: { _sum: { goals: "desc" } },
     take: 10,
   });

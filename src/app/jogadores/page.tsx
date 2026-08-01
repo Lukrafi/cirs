@@ -18,12 +18,14 @@ export default async function JogadoresPage() {
       }),
       prisma.matchStat.groupBy({
         by: ["playerId"],
+        where: { match: { isSimulated: false } },
         _sum: { goals: true },
         orderBy: { _sum: { goals: "desc" } },
         take: 10,
       }),
       prisma.matchStat.groupBy({
         by: ["playerId"],
+        where: { match: { isSimulated: false } },
         _sum: { assists: true },
         orderBy: { _sum: { assists: "desc" } },
         take: 10,
@@ -31,18 +33,20 @@ export default async function JogadoresPage() {
       prisma.matchStat.groupBy({
         by: ["playerId"],
         _count: { mvp: true },
-        where: { mvp: true },
+        where: { mvp: true, match: { isSimulated: false } },
         orderBy: { _count: { mvp: "desc" } },
         take: 10,
       }),
       prisma.matchStat.groupBy({
         by: ["playerId"],
+        where: { match: { isSimulated: false } },
         _sum: { saves: true },
         orderBy: { _sum: { saves: "desc" } },
         take: 10,
       }),
       prisma.matchStat.groupBy({
         by: ["playerId"],
+        where: { match: { isSimulated: false } },
         _sum: { powerShots: true },
         orderBy: { _sum: { powerShots: "desc" } },
         take: 10,
@@ -50,7 +54,7 @@ export default async function JogadoresPage() {
       prisma.matchStat.groupBy({
         by: ["playerId"],
         _count: { cleanSheet: true },
-        where: { cleanSheet: true },
+        where: { cleanSheet: true, match: { isSimulated: false } },
         orderBy: { _count: { cleanSheet: "desc" } },
         take: 10,
       }),

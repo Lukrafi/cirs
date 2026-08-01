@@ -16,8 +16,8 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
       standings: { include: { group: { include: { competition: true } } } },
       sponsors: true,
       awards: { include: { season: true }, orderBy: { date: "desc" } },
-      homeMatches: { include: { awayTeam: true, homeTeam: true }, where: { status: "finished" }, orderBy: { updatedAt: "desc" }, take: 5 },
-      awayMatches: { include: { awayTeam: true, homeTeam: true }, where: { status: "finished" }, orderBy: { updatedAt: "desc" }, take: 5 },
+      homeMatches: { include: { awayTeam: true, homeTeam: true }, where: { status: "finished", isSimulated: false }, orderBy: { updatedAt: "desc" }, take: 5 },
+      awayMatches: { include: { awayTeam: true, homeTeam: true }, where: { status: "finished", isSimulated: false }, orderBy: { updatedAt: "desc" }, take: 5 },
     },
   });
 
