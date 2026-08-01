@@ -354,8 +354,15 @@ const confCompetitions: Record<string, [string, string, number][]> = {
 async function main() {
   const existing = await prisma.confederation.count();
   if (existing > 0) {
-    console.log("Seed já executado. Pulando.");
-    return;
+    console.log("Seed já executado anteriormente. Limpando dados antigos...");
+    await prisma.competition.deleteMany();
+    await prisma.league.deleteMany();
+    await prisma.division.deleteMany();
+    await prisma.nationalTeam.deleteMany();
+    await prisma.nationalAssociation.deleteMany();
+    await prisma.country.deleteMany();
+    await prisma.confederation.deleteMany();
+    console.log("Dados antigos limpos. Reesemeando...");
   }
 
   console.log("=== SEED MUNDIAL CIRS ===");
