@@ -127,7 +127,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
               const oppScore = isHome ? m.awayScore : m.homeScore;
               const result = (ourScore ?? 0) > (oppScore ?? 0) ? "V" : (ourScore ?? 0) < (oppScore ?? 0) ? "D" : "E";
               return (
-                <Link key={m.id} href={`/simulacoes/${m.id}`} className="glass rounded-lg p-3 flex items-center gap-4 hover:bg-card/60 transition-colors text-sm">
+                <Link key={m.id} href={`/simulacoes/match/${m.id}`} className="glass rounded-lg p-3 flex items-center gap-4 hover:bg-card/60 transition-colors text-sm">
                   <span className={`font-bold w-6 text-center ${result === "V" ? "text-green-500" : result === "D" ? "text-red-500" : "text-muted"}`}>{result}</span>
                   <span className="flex-1">{isHome ? "vs" : "@"} {opp?.name || "TBD"}</span>
                   <span className="font-bold gold-text">{ourScore} - {oppScore}</span>

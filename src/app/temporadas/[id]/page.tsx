@@ -1,11 +1,11 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import LiveCompetitionView from "@/components/LiveCompetitionView";
+import SeasonHubTabs, { type SeasonHubData } from "@/components/SeasonHubTabs";
 
 export const dynamic = "force-dynamic";
 
-export default async function CentralTemporadaPage({
+export default async function SeasonHubPage({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -20,7 +20,11 @@ export default async function CentralTemporadaPage({
         include: {
           groups: {
             include: {
-              matches: { select: { id: true, status: true, round: true } },
+              standings: { include: { club: true } },
+              matches: {
+                include: { homeTeam: true, awayTeam: true },
+                orderBy: { matchDate: "asc" },
+              },
             },
           },
         },
@@ -37,18 +41,118 @@ export default async function CentralTemporadaPage({
   );
   const finishedMatches = allComps.reduce(
     (sum, c) =>
-      sum + c.groups.reduce((s, g) => s + g.matches.filter((m) => m.status === "finished").length, 0),
+      sum +
+      c.groups.reduce(
+        (s, g) => s + g.matches.filter((m) => m.status === "finished").length,
+        0
+      ),
     0
   );
   const scheduledMatches = totalMatches - finishedMatches;
   const pct = totalMatches > 0 ? Math.round((finishedMatches / totalMatches) * 100) : 0;
 
-  const pendingComps = allComps.filter(
-    (c) => c.groups.some((g) => g.matches.some((m) => m.status === "scheduled"))
-  );
-  const completedComps = allComps.filter(
-    (c) => !c.groups.some((g) => g.matches.some((m) => m.status === "scheduled"))
-  );
+  const allMatchIds = allComps.flatMap((c) => c.groups.flatMap((g) => g.matches.map((m) => m.id)));
+
+  const matchStats = allMatchIds.length
+    ? await prisma.matchStat.groupBy({
+        by: ["playerId"],
+        where: { matchId: { in: allMatchIds } },
+        _sum: { goals: true, assists: true, rating: true },
+        _count: { _all: true },
+        orderBy: [{ _sum: { goals: "desc" } }],
+        take: 30,
+      })
+    : [];
+
+  const playerIds = matchStats
+    .map((s) => s.playerId)
+    .filter((id): id is string => id !== null);
+
+  const players = playerIds.length
+    ? await prisma.player.findMany({
+        where: { id: { in: playerIds } },
+        include: { club: true },
+      })
+    : [];
+
+  const playerMap = new Map(players.map((p) => [p.id, p]));
+
+  const scorers = matchStats
+    .filter((s) => s.playerId !== null)
+    .map((s) => {
+      const player = playerMap.get(s.playerId as string);
+      return {
+        playerId: s.playerId,
+        playerName: player?.name || "—",
+        clubName: player?.club?.name || "Sem clube",
+        clubEmblem: player?.club?.emblem || "",
+        goals: s._sum.goals || 0,
+        assists: s._sum.assists || 0,
+        rating: s._sum.rating && s._count._all ? (s._sum.rating / s._count._all) : 0,
+      };
+    });
+
+  const bestScorer = scorers.length > 0 ? scorers[0].playerName : "—";
+  const totalGoals = scorers.reduce((sum, s) => sum + s.goals, 0);
+  const ratingSum = scorers.reduce((sum, s) => sum + s.rating, 0);
+  const ratingCount = scorers.filter((s) => s.rating > 0).length;
+  const avgRating = ratingCount > 0 ? ratingSum / ratingCount : 0;
+
+  const primaryCompetition = allComps[0];
+
+  const hubData: SeasonHubData | null = primaryCompetition
+    ? {
+        competitionName: primaryCompetition.name,
+        competitionLogo: primaryCompetition.logo || "",
+        groups: primaryCompetition.groups.map((g) => ({
+          id: g.id,
+          name: g.name,
+          standings: g.standings
+            .map((s) => ({
+              clubId: s.clubId,
+              clubName: s.club?.name || "—",
+              clubEmblem: s.club?.emblem || "",
+              played: s.played,
+              wins: s.wins,
+              draws: s.draws,
+              losses: s.losses,
+              goalsFor: s.goalsFor,
+              goalsAgainst: s.goalsAgainst,
+              goalsDiff: s.goalsDiff,
+              points: s.points,
+            }))
+            .sort((a, b) => {
+              if (b.points !== a.points) return b.points - a.points;
+              if (b.wins !== a.wins) return b.wins - a.wins;
+              if (b.goalsDiff !== a.goalsDiff) return b.goalsDiff - a.goalsDiff;
+              return b.goalsFor - a.goalsFor;
+            }),
+          matches: g.matches.map((m) => ({
+            id: m.id,
+            status: m.status,
+            round: m.round,
+            matchDate: m.matchDate ? m.matchDate.toISOString() : null,
+            homeName: m.homeTeam?.name || "—",
+            awayName: m.awayTeam?.name || "—",
+            homeEmblem: m.homeTeam?.emblem || "",
+            awayEmblem: m.awayTeam?.emblem || "",
+            homeScore: m.homeScore,
+            awayScore: m.awayScore,
+            isSimulated: m.isSimulated,
+          })),
+        })),
+        topScorers: scorers,
+        totals: {
+          matches: totalMatches,
+          finished: finishedMatches,
+          scheduled: scheduledMatches,
+          goals: totalGoals,
+          avgRating,
+          bestScorer,
+        },
+        liveFeedUrl: primaryCompetition ? `/api/live?competitionId=${primaryCompetition.id}` : null,
+      }
+    : null;
 
   return (
     <div className="pt-20 min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -58,116 +162,72 @@ export default async function CentralTemporadaPage({
 
       <header className="mt-6 glass rounded-2xl p-8 mb-8">
         <div className="flex items-center justify-between flex-wrap gap-4">
-          <div>
-            <h1 className="text-5xl font-black gold-text">{season.year}</h1>
-            <p className="text-muted mt-1">
-              {season.league?.name || "Multiplas competicoes"} • {allComps.length} competicoes
-            </p>
+          <div className="flex items-center gap-4">
+            {hubData?.competitionLogo && (
+              <img
+                src={hubData.competitionLogo}
+                alt=""
+                className="w-16 h-16 rounded-xl object-cover"
+              />
+            )}
+            <div>
+              <div className="text-xs uppercase tracking-[0.3em] text-gold font-semibold mb-1">
+                Hub de Temporada
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-black">{season.year}</h1>
+              <p className="text-muted mt-1">
+                {season.league?.name || "Múltiplas competições"} • {allComps.length} competições
+              </p>
+            </div>
           </div>
+
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="text-center">
-              <div className="text-2xl font-bold gold-text">{finishedMatches}</div>
-              <div className="text-xs text-muted uppercase">Disputadas</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold gold-text">{scheduledMatches}</div>
-              <div className="text-xs text-muted uppercase">Restantes</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold gold-text">{completedComps.length}</div>
-              <div className="text-xs text-muted uppercase">Concluidas</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold gold-text">{pct}%</div>
-              <div className="text-xs text-muted uppercase">Conclusao</div>
-            </div>
+            <KpiCard label="Disputadas" value={finishedMatches} />
+            <KpiCard label="Restantes" value={scheduledMatches} />
+            <KpiCard label="Gols" value={totalGoals} />
+            <KpiCard label="Conclusão" value={`${pct}%`} />
           </div>
         </div>
-        <div className="w-full bg-blue-deep rounded-full h-3 mt-4">
+
+        <div className="w-full bg-blue-deep rounded-full h-2 mt-6">
           <div
-            className="bg-gradient-to-r from-gold to-yellow-300 h-3 rounded-full transition-all duration-500"
+            className="bg-gradient-to-r from-gold to-yellow-300 h-2 rounded-full transition-all duration-500"
             style={{ width: `${pct}%` }}
           />
         </div>
       </header>
 
-      {pendingComps.length > 0 && (
-        <div className="glass rounded-2xl p-6 mb-6 border-l-4 border-yellow-400">
-          <h2 className="text-lg font-bold text-yellow-400 mb-3">Pendencias ({pendingComps.length})</h2>
-          <p className="text-sm text-muted mb-3">
-            Competicoes com partidas pendentes. Nao e possivel avancar para a proxima temporada enquanto houver pendencias.
-          </p>
-          <div className="space-y-2">
-            {pendingComps.map((c) => {
-              const compTotal = c.groups.reduce((s, g) => g.matches.length, 0);
-              const compFinished = c.groups.reduce(
-                (s, g) => g.matches.filter((m) => m.status === "finished").length,
-                0
-              );
-              const compPct = compTotal > 0 ? Math.round((compFinished / compTotal) * 100) : 0;
-              return (
-                <Link
-                  key={c.id}
-                  href={`/campeonatos/${c.id}`}
-                  className="flex items-center justify-between text-sm p-2 bg-blue-deep/50 rounded-lg hover:bg-white/5 transition-colors"
-                >
-                  <span className="font-medium">{c.name}</span>
-                  <span className="text-muted text-xs">
-                    {compFinished}/{compTotal} jogos ({compPct}%) • {c.format}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
+      {allComps.length > 1 && (
+        <div className="glass rounded-2xl p-4 mb-6 flex flex-wrap gap-2 items-center text-sm">
+          <span className="text-muted">Competições da temporada:</span>
+          {allComps.map((c) => (
+            <Link
+              key={c.id}
+              href={`/campeonatos/${c.id}`}
+              className="text-xs px-3 py-1 rounded-full bg-gold/10 text-gold hover:bg-gold/20 transition-colors"
+            >
+              {c.name}
+            </Link>
+          ))}
         </div>
       )}
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold gold-text mb-4">Todas as Competicoes</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {allComps.map((c) => {
-            const compTotal = c.groups.reduce((s, g) => g.matches.length, 0);
-            const compFinished = c.groups.reduce(
-              (s, g) => g.matches.filter((m) => m.status === "finished").length,
-              0
-            );
-            const compPct = compTotal > 0 ? Math.round((compFinished / compTotal) * 100) : 0;
-            const status = compPct === 100 ? "Concluida" : compPct > 0 ? "Em andamento" : "Nao iniciada";
-            const statusColor = compPct === 100 ? "text-green-400" : compPct > 0 ? "text-yellow-400" : "text-muted";
-            return (
-              <Link
-                key={c.id}
-                href={`/campeonatos/${c.id}`}
-                className="glass rounded-xl p-5 hover:gold-border transition-all duration-300"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold">{c.name}</h3>
-                  <span className={`text-xs ${statusColor}`}>{status}</span>
-                </div>
-                <div className="text-xs text-muted mb-3">
-                  {c.format} • {c.numTeams} times • {c.type}
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="flex-1 bg-blue-deep rounded-full h-1.5">
-                    <div
-                      className="bg-gold h-1.5 rounded-full transition-all"
-                      style={{ width: `${compPct}%` }}
-                    />
-                  </div>
-                  <span className="text-xs text-muted w-10 text-right">{compPct}%</span>
-                </div>
-              </Link>
-            );
-          })}
+      {hubData ? (
+        <SeasonHubTabs data={hubData} />
+      ) : (
+        <div className="glass rounded-2xl p-12 text-center">
+          <p className="text-muted">Esta temporada ainda não tem competições cadastradas.</p>
         </div>
-      </section>
-
-      {allComps.length > 0 && (
-        <section>
-          <h2 className="text-2xl font-bold gold-text mb-4">Classificacao em Tempo Real</h2>
-          <LiveCompetitionView competitionId={allComps[0].id} />
-        </section>
       )}
+    </div>
+  );
+}
+
+function KpiCard({ label, value }: { label: string; value: number | string }) {
+  return (
+    <div className="text-center">
+      <div className="text-2xl font-bold gold-text">{value}</div>
+      <div className="text-xs text-muted uppercase">{label}</div>
     </div>
   );
 }

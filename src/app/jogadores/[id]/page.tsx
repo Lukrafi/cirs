@@ -162,7 +162,7 @@ export default async function PlayerDetailPage({ params }: { params: Promise<{ i
                 {player.matchStats.slice(0, 10).map((s) => (
                   <tr key={s.id} className="border-b border-border last:border-0 hover:bg-card/40">
                     <td className="p-3">
-                      <Link href={`/simulacoes/${s.matchId}`} className="hover:text-gold transition-colors">
+                      <Link href={`/simulacoes/match/${s.matchId}`} className="hover:text-gold transition-colors">
                         {s.match?.homeTeam?.name || "?"} vs {s.match?.awayTeam?.name || "?"}
                       </Link>
                     </td>

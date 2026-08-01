@@ -195,7 +195,7 @@ export default async function SimulacoesPage() {
             {recentSimMatches.map((m) => (
               <Link
                 key={m.id}
-                href={`/simulacoes/${m.id}`}
+                href={`/simulacoes/match/${m.id}`}
                 className="glass rounded-xl p-3.5 hover:bg-card/60 transition-colors flex items-center justify-between gap-4 group"
               >
                 <div className="flex items-center gap-3 flex-1 justify-end">
