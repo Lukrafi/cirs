@@ -17,7 +17,10 @@ export default async function TemporadasPage() {
       <h1 className="text-4xl font-black mb-2">
         <span className="gold-text">Temporadas</span>
       </h1>
-      <p className="text-muted mb-8">Central de temporadas da CIRS.</p>
+      <p className="text-muted mb-8 max-w-3xl">
+        Gerencie e acompanhe as ligas jogadas ativamente pela comunidade no Haxball.
+        Aqui ficam os formatos, calendários e resultados das partidas reais.
+      </p>
 
       {seasons.length === 0 ? (
         <div className="glass rounded-2xl p-12 text-center">

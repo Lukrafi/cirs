@@ -15,10 +15,12 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold uppercase text-gold mb-3 tracking-wider">Navegação</h4>
             <div className="flex flex-col gap-2">
-              <Link href="/campeonatos" className="text-sm text-muted hover:text-foreground transition-colors">Campeonatos</Link>
-              <Link href="/ranking" className="text-sm text-muted hover:text-foreground transition-colors">Ranking</Link>
+              <Link href="/partidas" className="text-sm text-muted hover:text-foreground transition-colors">Partidas</Link>
+              <Link href="/temporadas" className="text-sm text-muted hover:text-foreground transition-colors">Temporadas</Link>
               <Link href="/times" className="text-sm text-muted hover:text-foreground transition-colors">Times</Link>
               <Link href="/jogadores" className="text-sm text-muted hover:text-foreground transition-colors">Jogadores</Link>
+              <Link href="/estatisticas" className="text-sm text-muted hover:text-foreground transition-colors">Estatísticas</Link>
+              <Link href="/simulacoes" className="text-sm text-muted hover:text-foreground transition-colors">Simulações</Link>
             </div>
           </div>
 
@@ -26,9 +28,8 @@ export default function Footer() {
             <h4 className="text-sm font-semibold uppercase text-gold mb-3 tracking-wider">Comunidade</h4>
             <div className="flex flex-col gap-2">
               <Link href="/discord" className="text-sm text-muted hover:text-foreground transition-colors">Discord</Link>
-              <Link href="/downloads" className="text-sm text-muted hover:text-foreground transition-colors">Downloads</Link>
               <Link href="/noticias" className="text-sm text-muted hover:text-foreground transition-colors">Notícias</Link>
-              <Link href="/hall-da-fama" className="text-sm text-muted hover:text-foreground transition-colors">Hall da Fama</Link>
+              <Link href="/downloads" className="text-sm text-muted hover:text-foreground transition-colors">Downloads</Link>
             </div>
           </div>
         </div>
