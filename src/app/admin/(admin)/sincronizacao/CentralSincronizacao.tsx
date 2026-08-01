@@ -14,7 +14,7 @@ export default function CentralSincronizacao({ confederations, competitions, cou
   const [result, setResult] = useState<any | null>(null);
   const [selectedConfed, setSelectedConfed] = useState("");
   const [selectedCompetition, setSelectedCompetition] = useState("");
-  const [selectedSource, setSelectedSource] = useState("wikidata");
+  const [selectedSource, setSelectedSource] = useState("wikipedia");
   const [linkUrl, setLinkUrl] = useState("");
   const [logs, setLogs] = useState<any[]>([]);
   const [showLogs, setShowLogs] = useState(false);
@@ -165,7 +165,7 @@ export default function CentralSincronizacao({ confederations, competitions, cou
             type="text"
             value={linkUrl}
             onChange={(e) => setLinkUrl(e.target.value)}
-            placeholder="https://exemplo.com/competicao"
+            placeholder="https://pt.wikipedia.org/wiki/Campeonato_Equatoriano_de_Futebol"
             className="w-full mb-3 px-3 py-2 rounded-lg glass border border-border text-sm bg-blue-deep"
           />
           <button

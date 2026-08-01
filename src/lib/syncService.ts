@@ -1,5 +1,5 @@
 import { prisma } from "./prisma";
-import { getDataSource, listAvailableSources, ExternalImage } from "./dataSources";
+import { getDataSource, listAvailableSources, ExternalImage, ExternalClub, ExternalCompetition } from "./dataSources";
 import fs from "fs";
 import path from "path";
 
@@ -218,7 +218,7 @@ export async function syncCompetition(competitionId: string, sourceName?: string
 
   try {
     if (league) {
-      let extComp = null;
+      let extComp: ExternalCompetition | null = null;
       if (comp.sourceUrl) {
         extComp = await source.fetchCompetitionDataByUrl(comp.sourceUrl);
       }
@@ -348,53 +348,250 @@ export async function syncWorld(sourceName?: string): Promise<SyncResult> {
   return result;
 }
 
-export async function syncByLink(url: string, sourceName?: string): Promise<SyncResult> {
+export async function syncByLink(url: string): Promise<SyncResult> {
   const start = Date.now();
-  const source = getDataSource(sourceName);
-  const result = makeResult(sourceName || source.name);
+  const result: SyncResult = makeResult("auto");
+
+  let extComp: ExternalCompetition | null = null;
+  let usedSource = "";
+
+  const trySources = ["wikipedia", "wikidata", "thesportsdb"];
+  for (const sName of trySources) {
+    const s = getDataSource(sName);
+    try {
+      extComp = await s.fetchCompetitionDataByUrl(url);
+      if (extComp) { usedSource = sName; break; }
+    } catch { /* tenta próximo */ }
+  }
+
+  if (!extComp) {
+    result.errors.push("Nao foi possivel extrair dados da URL. Use um link da Wikipedia (ex: https://pt.wikipedia.org/wiki/Campeonato_Equatoriano_de_Futebol).");
+    result.elapsedMs = Date.now() - start;
+    return result;
+  }
+
+  result.source = usedSource;
 
   try {
-    const extComp = await source.fetchCompetitionDataByUrl(url);
-    if (!extComp) {
-      result.errors.push("Não foi possível identificar a competição pela URL");
-      result.elapsedMs = Date.now() - start;
-      return result;
+    const leagueName = extComp.shortName || extComp.name;
+
+    let country: Awaited<ReturnType<typeof prisma.country.findFirst>> = null;
+    if (extComp.country) {
+      const countryNames: Record<string, string> = {
+        "Equador": "Equador", "Ecuador": "Equador",
+        "Brasil": "Brasil", "Brazil": "Brasil",
+        "Argentina": "Argentina",
+        "Uruguai": "Uruguai", "Uruguay": "Uruguai",
+        "Chile": "Chile",
+        "Colombia": "Colombia",
+        "Peru": "Peru",
+        "Paraguai": "Paraguai", "Paraguay": "Paraguai",
+        "Bolivia": "Bolivia",
+        "Venezuela": "Venezuela",
+        "Inglaterra": "Inglaterra", "England": "Inglaterra",
+        "Espanha": "Espanha", "Spain": "Espanha",
+        "Italia": "Italia", "Italy": "Italia",
+        "Alemanha": "Alemanha", "Germany": "Alemanha",
+        "Franca": "Franca", "France": "Franca",
+        "Paises Baixos": "Paises Baixos", "Netherlands": "Paises Baixos",
+        "Portugal": "Portugal",
+        "Estados Unidos": "Estados Unidos", "United States": "Estados Unidos",
+        "Mexico": "Mexico",
+        "Japao": "Japao", "Japan": "Japao",
+        "Coreia do Sul": "Coreia do Sul", "South Korea": "Coreia do Sul",
+        "Australia": "Australia",
+        "Arabia Saudita": "Arabia Saudita", "Saudi Arabia": "Arabia Saudita",
+      };
+      const normalizedCountry = countryNames[extComp.country] || extComp.country;
+      country = await prisma.country.findFirst({
+        where: {
+          OR: [
+            { name: { contains: normalizedCountry } },
+            { name: normalizedCountry },
+          ],
+        },
+      });
     }
 
-    const existingLeague = await prisma.league.findFirst({
-      where: { name: { contains: extComp.name } },
+    let confederation: Awaited<ReturnType<typeof prisma.confederation.findFirst>> = null;
+    if (extComp.confederation) {
+      confederation = await prisma.confederation.findFirst({
+        where: {
+          OR: [
+            { code: { contains: extComp.confederation } },
+            { name: { contains: extComp.confederation } },
+          ],
+        },
+      });
+    }
+    if (!confederation && country?.confederationId) {
+      confederation = await prisma.confederation.findUnique({
+        where: { id: country.confederationId },
+      });
+    }
+
+    let league = await prisma.league.findFirst({
+      where: { name: { contains: leagueName } },
     });
 
-    if (existingLeague) {
-      const season = await prisma.season.findFirst({
-        where: { leagueId: existingLeague.id },
-        orderBy: { year: "desc" },
+    if (!league) {
+      league = await prisma.league.create({
+        data: {
+          name: leagueName,
+          logo: "",
+          countryId: country?.id,
+          confederationId: confederation?.id,
+          isInternational: !country ? true : false,
+        },
       });
+    } else {
+      const updateData: any = {};
+      if (country && !league.countryId) updateData.countryId = country.id;
+      if (confederation && !league.confederationId) updateData.confederationId = confederation.id;
+      if (Object.keys(updateData).length > 0) {
+        await prisma.league.update({ where: { id: league.id }, data: updateData });
+      }
+    }
 
-      if (season) {
-        const comp = await prisma.competition.findFirst({
-          where: { seasonId: season.id },
-          orderBy: { createdAt: "desc" },
-        });
-        if (comp) {
-          await prisma.competition.update({
-            where: { id: comp.id },
-            data: {
-              numTeams: extComp.numTeams,
-              format: extComp.format,
-              promoted: extComp.promoted,
-              relegated: extComp.relegated,
-              continentalSpots: extComp.continentalSpots,
-              sourceUrl: url,
-              lastSyncAt: new Date(),
-            },
+    const currentYear = new Date().getFullYear();
+    let season = await prisma.season.findFirst({
+      where: { leagueId: league.id, year: currentYear },
+    });
+    if (!season) {
+      season = await prisma.season.create({
+        data: {
+          name: `${currentYear}`,
+          year: currentYear,
+          leagueId: league.id,
+          startDate: new Date(`${currentYear}-01-01`),
+          endDate: new Date(`${currentYear}-12-31`),
+        },
+      });
+    }
+
+    let competition = await prisma.competition.findFirst({
+      where: { seasonId: season.id, name: { contains: extComp.name } },
+    });
+
+    if (!competition) {
+      competition = await prisma.competition.create({
+        data: {
+          name: extComp.name,
+          type: extComp.isKnockout ? "copa" : "liga",
+          seasonId: season.id,
+          numTeams: extComp.numTeams,
+          numTurns: extComp.numRounds > 0 ? Math.ceil(extComp.numRounds / Math.max(extComp.numTeams, 1)) : 2,
+          format: extComp.format,
+          isKnockout: extComp.isKnockout,
+          promoted: extComp.promoted,
+          relegated: extComp.relegated,
+          continentalSpots: extComp.continentalSpots,
+          sourceUrl: url,
+          lastSyncAt: new Date(),
+        },
+      });
+      result.competitionsCreated++;
+    } else {
+      await prisma.competition.update({
+        where: { id: competition.id },
+        data: {
+          numTeams: extComp.numTeams,
+          format: extComp.format,
+          isKnockout: extComp.isKnockout,
+          promoted: extComp.promoted,
+          relegated: extComp.relegated,
+          continentalSpots: extComp.continentalSpots,
+          sourceUrl: url,
+          lastSyncAt: new Date(),
+        },
+      });
+      result.competitionsUpdated++;
+    }
+
+    let group = await prisma.group.findFirst({
+      where: { competitionId: competition.id },
+    });
+    if (!group) {
+      group = await prisma.group.create({
+        data: {
+          name: extComp.isKnockout ? "Mata-mata" : "Grupo Unico",
+          competitionId: competition.id,
+        },
+      });
+    }
+
+    if (extComp.clubs && extComp.clubs.length > 0) {
+      for (const extClub of extComp.clubs) {
+        try {
+          let club = await prisma.club.findFirst({
+            where: { name: { equals: extClub.name } },
           });
-          result.competitionsUpdated++;
+
+          if (!club) {
+            club = await prisma.club.create({
+              data: {
+                name: extClub.name,
+                shortName: extClub.shortName || "",
+                city: extClub.city || "",
+                countryId: country?.id,
+                founded: extClub.founded || "",
+                strength: 5.0,
+              },
+            });
+            result.clubsCreated++;
+          } else {
+            result.clubsUpdated++;
+          }
+
+          const existingStanding = await prisma.standing.findFirst({
+            where: { groupId: group.id, clubId: club.id },
+          });
+          if (!existingStanding) {
+            await prisma.standing.create({
+              data: {
+                groupId: group.id,
+                clubId: club.id,
+                position: 0,
+              },
+            });
+          }
+
+          const emblemSource = getDataSource("wikidata");
+          const img = await emblemSource.fetchEmblem(club.name, country?.name);
+          if (img) {
+            const safe = sanitizeFilename(club.name);
+            const localPath = await downloadImage(img.url, safe, "escudos");
+            if (localPath) {
+              await prisma.club.update({
+                where: { id: club.id },
+                data: { emblem: localPath },
+              });
+              result.emblemsDownloaded++;
+            }
+          }
+        } catch (e: any) {
+          result.errors.push(`Club [${extClub.name}]: ${e.message}`);
         }
       }
     }
+
+    if (country && !country.flag) {
+      const flagSource = getDataSource("wikidata");
+      const flagImg = await flagSource.fetchFlag(country.code);
+      if (flagImg) {
+        const localPath = await downloadImage(flagImg.url, country.code, "bandeiras");
+        if (localPath) {
+          await prisma.country.update({
+            where: { id: country.id },
+            data: { flag: localPath },
+          });
+          result.flagsDownloaded++;
+        }
+      }
+    }
+
   } catch (e: any) {
-    result.errors.push(`Erro na sincronização por link: ${e.message}`);
+    result.errors.push(`Erro na sincronizacao por link: ${e.message}`);
   }
 
   result.elapsedMs = Date.now() - start;
