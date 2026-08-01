@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { LEAGUE_DATAPACKS } from "@/lib/datapacks";
 
 type Props = {
   confederations: { id: string; name: string; code: string }[];
@@ -18,6 +19,7 @@ export default function CentralSincronizacao({ confederations, competitions, cou
   const [linkUrl, setLinkUrl] = useState("");
   const [logs, setLogs] = useState<any[]>([]);
   const [showLogs, setShowLogs] = useState(false);
+  const [datapackFilter, setDatapackFilter] = useState("");
 
   const call = async (endpoint: string, body?: any) => {
     setRunning(endpoint);
@@ -175,6 +177,47 @@ export default function CentralSincronizacao({ confederations, competitions, cou
           >
             {running === "link" ? "Sincronizando..." : "🔗 Sincronizar por Link"}
           </button>
+        </div>
+      </div>
+
+      {/* Datapacks — Pacotes de Ligas Prontos */}
+      <div className="glass rounded-2xl p-6 mb-6">
+        <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+          <span className="w-1 h-5 bg-gold rounded-full" />
+          Pacotes de Ligas (Datapacks)
+        </h2>
+        <p className="text-xs text-muted mb-4">Clique em um pacote para importar automaticamente todos os clubes da liga com país e confederação já configurados.</p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          <button onClick={() => setDatapackFilter("")} className={`px-3 py-1.5 text-xs rounded-lg ${!datapackFilter ? 'bg-gold text-black' : 'glass text-muted'}`}>Todas</button>
+          <button onClick={() => setDatapackFilter("CONMEBOL")} className={`px-3 py-1.5 text-xs rounded-lg ${datapackFilter === "CONMEBOL" ? 'bg-gold text-black' : 'glass text-muted'}`}>CONMEBOL</button>
+          <button onClick={() => setDatapackFilter("UEFA")} className={`px-3 py-1.5 text-xs rounded-lg ${datapackFilter === "UEFA" ? 'bg-gold text-black' : 'glass text-muted'}`}>UEFA</button>
+          <button onClick={() => setDatapackFilter("CONCACAF")} className={`px-3 py-1.5 text-xs rounded-lg ${datapackFilter === "CONCACAF" ? 'bg-gold text-black' : 'glass text-muted'}`}>CONCACAF</button>
+          <button onClick={() => setDatapackFilter("AFC")} className={`px-3 py-1.5 text-xs rounded-lg ${datapackFilter === "AFC" ? 'bg-gold text-black' : 'glass text-muted'}`}>AFC</button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 max-h-96 overflow-y-auto pr-1">
+          {LEAGUE_DATAPACKS
+            .filter(d => !datapackFilter || d.confederation === datapackFilter)
+            .map((dp) => (
+            <button
+              key={dp.id}
+              onClick={() => call("datapack", { datapackId: dp.id })}
+              disabled={!!running}
+              className="glass rounded-xl p-4 hover:gold-border transition-all disabled:opacity-50 group text-left"
+            >
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold gold-text truncate">{dp.emoji} {dp.shortName}</div>
+                  <div className="text-[10px] text-muted mt-1">{dp.country} · {dp.numTeams} times</div>
+                  <div className="text-[10px] text-muted mt-0.5">{dp.confederation}</div>
+                </div>
+                <div className="text-[10px] px-2 py-0.5 rounded-full bg-blue-glow/20 text-blue-glow whitespace-nowrap">
+                  Importar
+                </div>
+              </div>
+            </button>
+          ))}
         </div>
       </div>
 
