@@ -3,7 +3,7 @@ import { getPermissions } from "@/lib/permissions";
 import { prisma } from "@/lib/prisma";
 import { getDataSource } from "@/lib/dataSources";
 import { createSyncLog } from "@/lib/syncService";
-import conmebolData from "@/lib/conmebol-data.json";
+import worldData from "@/lib/world-data.json";
 
 export const dynamic = "force-dynamic";
 
@@ -20,14 +20,34 @@ interface JsonCompetition {
   teams?: string[];
 }
 
-const COUNTRIES: JsonCountry[] = conmebolData.countries as JsonCountry[];
-const CONFED_CODE: string = conmebolData.confederation;
-const SEASON_YEAR: number = conmebolData.season || new Date().getFullYear();
+interface JsonConfederation {
+  name: string;
+  countries: JsonCountry[];
+}
 
-export async function POST(_req: NextRequest) {
+const WORLD_CONFEDERATIONS: JsonConfederation[] = worldData.confederations as JsonConfederation[];
+const SEASON_YEAR: number = worldData.season || new Date().getFullYear();
+
+function getConfedData(confName?: string): JsonConfederation | null {
+  if (!confName) return null;
+  return WORLD_CONFEDERATIONS.find((c) => c.name === confName) || null;
+}
+
+export async function POST(req: NextRequest) {
   const perms = await getPermissions();
   if (!perms.canSyncData) {
     return NextResponse.json({ error: "Apenas administradores" }, { status: 403 });
+  }
+
+  const body = await req.json().catch(() => ({}));
+  const confName: string | undefined = body.confederation;
+
+  const targetConfed = getConfedData(confName);
+  if (!targetConfed) {
+    const available = WORLD_CONFEDERATIONS.map((c) => c.name).join(", ");
+    return NextResponse.json({
+      error: `Confederacao "${confName || "null"}" nao encontrada. Disponiveis: ${available}`,
+    }, { status: 400 });
   }
 
   const start = Date.now();
@@ -43,12 +63,14 @@ export async function POST(_req: NextRequest) {
   try {
     const flagSource = getDataSource("wikidata");
 
-    const confed = await prisma.confederation.findFirst({ where: { code: CONFED_CODE } });
+    const confed = await prisma.confederation.findFirst({ where: { code: targetConfed.name } });
     if (!confed) {
-      return NextResponse.json({ error: "Confederacao CONMEBOL nao encontrada. Execute o seed first." }, { status: 400 });
+      return NextResponse.json({
+        error: `Confederacao ${targetConfed.name} nao encontrada no banco. Execute o seed primeiro.`,
+      }, { status: 400 });
     }
 
-    for (const cData of COUNTRIES) {
+    for (const cData of targetConfed.countries) {
       try {
         let country = await prisma.country.findFirst({
           where: { OR: [{ name: cData.name }, { code: cData.code }] },
@@ -248,7 +270,7 @@ export async function POST(_req: NextRequest) {
     }
 
     const result = {
-      source: "conmebol-json",
+      source: `world-json-${targetConfed.name}`,
       clubsCreated,
       clubsFixed,
       clubsUpdated,
@@ -264,9 +286,9 @@ export async function POST(_req: NextRequest) {
     try {
       await createSyncLog({
         ...result,
-        level: "world",
+        level: "confederation",
         adminUsername: "admin",
-        entity: "CONMEBOL Complete",
+        entity: `${targetConfed.name} Complete`,
       });
     } catch (logErr: any) {
       errors.push(`SyncLog error: ${logErr.message}`);
@@ -277,6 +299,7 @@ export async function POST(_req: NextRequest) {
     return NextResponse.json(
       {
         error: e.message,
+        country: "unknown",
         clubsCreated,
         clubsFixed,
         clubsUpdated,

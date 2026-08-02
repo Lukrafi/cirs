@@ -180,29 +180,62 @@ export default function CentralSincronizacao({ confederations, competitions, cou
         </div>
       </div>
 
-       {/* Importar CONMEBOL do JSON */}
+       {/* Importar Confederações do JSON */}
       <div className="glass rounded-2xl p-6 mb-6 border border-gold/20">
         <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
           <span className="w-1 h-5 bg-gold rounded-full" />
-          Importar CONMEBOL Completa
+          Importar Confederações do JSON Estatico
         </h2>
-        <p className="text-xs text-muted mb-4">Importa automaticamente 10 paises, 20 ligas, 10 copas e todos os clubes da CONMEBOL com dados reais. Sem necessidade de URL ou fonte externa.</p>
+        <p className="text-xs text-muted mb-4">Importa paises, ligas, copas e todos os clubes com dados reais diretamente do world-data.json. Escolha a confederacao:</p>
 
-        <button
-          onClick={() => call("conmebol-fix", {})}
-          disabled={!!running}
-          className="w-full py-3 mb-3 text-sm font-bold rounded-xl bg-red-500/20 text-red-400 hover:bg-red-500/30 border border-red-500/20 transition-all disabled:opacity-50"
-        >
-          {running === "conmebol-fix" ? "Limpando..." : "Limpar clubes órfãos e duplicados (execute antes de importar)"}
-        </button>
-
-        <button
-          onClick={() => call("import-json", {})}
-          disabled={!!running}
-          className="w-full py-4 text-sm font-bold rounded-xl bg-gradient-to-r from-gold to-yellow-300 text-black hover:shadow-xl transition-all disabled:opacity-50"
-        >
-          {running === "import-json" ? "Importando... (pode levar alguns minutos)" : "Importar Toda a CONMEBOL (10 paises, 30 competicoes, ~200 clubes)"}
-        </button>
+        <div className="flex flex-wrap gap-2 mb-3">
+          <button
+            onClick={() => call("import-json", { confederation: "CONMEBOL" })}
+            disabled={!!running}
+            className="flex-1 min-w-[120px] py-3 text-sm font-bold rounded-xl bg-gradient-to-r from-green-600 to-green-400 text-white hover:shadow-xl transition-all disabled:opacity-50"
+          >
+            {running === "import-json" ? "..." : "CONMEBOL"}
+          </button>
+          <button
+            onClick={() => call("import-json", { confederation: "CONCACAF" })}
+            disabled={!!running}
+            className="flex-1 min-w-[120px] py-3 text-sm font-bold rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 text-white hover:shadow-xl transition-all disabled:opacity-50"
+          >
+            {running === "import-json" ? "..." : "CONCACAF"}
+          </button>
+          <button
+            onClick={() => call("import-json", { confederation: "UEFA" })}
+            disabled={true}
+            className="flex-1 min-w-[120px] py-3 text-sm font-bold rounded-xl bg-gradient-to-r from-yellow-600 to-yellow-400 text-black hover:shadow-xl transition-all disabled:opacity-30"
+            title="Em breve"
+          >
+            UEFA (em breve)
+          </button>
+          <button
+            onClick={() => call("import-json", { confederation: "AFC" })}
+            disabled={true}
+            className="flex-1 min-w-[120px] py-3 text-sm font-bold rounded-xl bg-gradient-to-r from-red-600 to-red-400 text-white hover:shadow-xl transition-all disabled:opacity-30"
+            title="Em breve"
+          >
+            AFC (em breve)
+          </button>
+          <button
+            onClick={() => call("import-json", { confederation: "CAF" })}
+            disabled={true}
+            className="flex-1 min-w-[120px] py-3 text-sm font-bold rounded-xl bg-gradient-to-r from-orange-600 to-gray-400 text-white hover:shadow-xl transition-all disabled:opacity-30"
+            title="Em breve"
+          >
+            CAF (em breve)
+          </button>
+          <button
+            onClick={() => call("import-json", { confederation: "OFC" })}
+            disabled={true}
+            className="flex-1 min-w-[120px] py-3 text-sm font-bold rounded-xl bg-gradient-to-r from-teal-600 to-gray-400 text-white hover:shadow-xl transition-all disabled:opacity-30"
+            title="Em breve"
+          >
+            OFC (em breve)
+          </button>
+        </div>
       </div>
 
       {/* Datapacks — Pacotes de Ligas Prontos */}
