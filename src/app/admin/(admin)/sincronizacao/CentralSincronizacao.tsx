@@ -213,11 +213,10 @@ export default function CentralSincronizacao({ confederations, competitions, cou
           </button>
           <button
             onClick={() => call("import-json", { confederation: "AFC" })}
-            disabled={true}
-            className="flex-1 min-w-[120px] py-3 text-sm font-bold rounded-xl bg-gradient-to-r from-red-600 to-red-400 text-white hover:shadow-xl transition-all disabled:opacity-30"
-            title="Em breve"
+            disabled={!!running}
+            className="flex-1 min-w-[120px] py-3 text-sm font-bold rounded-xl bg-gradient-to-r from-red-600 to-red-400 text-white hover:shadow-xl transition-all disabled:opacity-50"
           >
-            AFC (em breve)
+            {running === "import-json" ? "..." : "AFC"}
           </button>
           <button
             onClick={() => call("import-json", { confederation: "CAF" })}

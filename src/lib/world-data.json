@@ -541,6 +541,285 @@
           ]
         }
       ]
+    },
+    {
+      "name": "AFC",
+      "countries": [
+        {
+          "name": "Arábia Saudita",
+          "code": "KSA",
+          "competitions": [
+            {
+              "name": "Saudi Pro League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al Hilal", "Al Nassr", "Al Ittihad", "Al Ahli", "Al Shabab",
+                "Al Ettifaq", "Al Taawoun", "Al Fateh", "Al Riyadh", "Al Fayha",
+                "Al Orobah", "Al Okhdood", "Al Khaleej", "Damac", "Al Raed",
+                "Al Qadsiah", "Neom SC", "Al Hazem"
+              ]
+            },
+            {
+              "name": "Saudi First Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Al Jabalain", "Al Faisaly", "Al-Batin", "Ohod", "Al-Adalah",
+                "Al-Jandal", "Al-Bukiryah", "Al-Ain", "Al-Safa", "Najran"
+              ]
+            },
+            { "name": "King's Cup", "type": "copa" },
+            { "name": "Saudi Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Japão",
+          "code": "JPN",
+          "competitions": [
+            {
+              "name": "J1 League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Vissel Kobe", "Sanfrecce Hiroshima", "Yokohama F. Marinos", "Kashima Antlers", "FC Tokyo",
+                "Cerezo Osaka", "Gamba Osaka", "Kawasaki Frontale", "Urawa Red Diamonds", "Nagoya Grampus",
+                "Albirex Niigata", "Kashiwa Reysol", "Sagan Tosu", "Avispa Fukuoka", "Tokyo Verdy",
+                "Machida Zelvia", "Jubilo Iwata", "Kyoto Sanga", "Consadole Sapporo", "Shonan Bellmare"
+              ]
+            },
+            {
+              "name": "J2 League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Shimizu S-Pulse", "JEF United Chiba", "Vegalta Sendai", "V-Varen Nagasaki", "Fagiano Okayama",
+                "Oita Trinita", "Montedio Yamagata", "Tokushima Vortis", "Blaublitz Akita", "Mito HollyHock",
+                "Fujieda MYFC", "Roasso Kumamoto", "Tochigi SC", "Renofa Yamaguchi", "Iwaki FC",
+                "Giravanz Kitakyushu", "Kagoshima United", "Ehime FC", "Zweigen Kanazawa", "Grulla Morioka"
+              ]
+            },
+            { "name": "Emperor's Cup", "type": "copa" },
+            { "name": "Japanese Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Coreia do Sul",
+          "code": "KOR",
+          "competitions": [
+            {
+              "name": "K League 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Ulsan HD", "Pohang Steelers", "Gwangju FC", "Jeonbuk Hyundai Motors", "FC Seoul",
+                "Incheon United", "Daegu FC", "Jeju United", "Daejeon Hana Citizen", "Suwon FC",
+                "Gangwon FC", "Gimcheon Sangmu"
+              ]
+            },
+            {
+              "name": "K League 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Suwon Samsung Bluewings", "Busan IPark", "Bucheon FC 1995", "FC Anyang", "Jeonnam Dragons",
+                "Chungnam Asan", "Seongnam FC", "Seoul E-Land", "Gimpo FC", "Chungbuk Cheongju"
+              ]
+            },
+            { "name": "Korean FA Cup", "type": "copa" },
+            { "name": "Korean Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "China",
+          "code": "CHN",
+          "competitions": [
+            {
+              "name": "Chinese Super League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Shanghai Port", "Shanghai Shenhua", "Chengdu Rongcheng", "Shandong Taishan", "Beijing Guoan",
+                "Wuhan Three Towns", "Tianjin Jinmen Tiger", "Changchun Yatai", "Henan FC", "Meizhou Hakka",
+                "Cangzhou Mighty Lions", "Qingdao West Coast", "Shenzhen Peng City", "Qingdao Hainiu", "Nantong Zhiyun", "Xiamen 168"
+              ]
+            },
+            {
+              "name": "China League One",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Yunnan Yukun", "Dalian Young Boy", "Guangzhou FC", "Shijiazhuang Gongfu", "Nanjing City",
+                "Liaoning Tieren", "Chongqing Tongliang Long", "Jiangxi Dark Horse", "Suzhou Dongwu", "Shanghai Jiading"
+              ]
+            },
+            { "name": "Chinese FA Cup", "type": "copa" },
+            { "name": "Chinese FA Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Emirados Árabes Unidos",
+          "code": "UAE",
+          "competitions": [
+            {
+              "name": "UAE Pro League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al Ain", "Shabab Al Ahli", "Al Jazira", "Al Wahda", "Sharjah",
+                "Al Nasr", "Baniyas", "Ajman", "Khor Fakkan", "Ittihad Kalba",
+                "Al Bataeh", "Emirates Club", "Dibba Al Hisn", "Al Urooba"
+              ]
+            },
+            {
+              "name": "UAE First Division League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Al Dhafra", "Masfoot", "Hatta", "Al Hamriyah", "Gulf FC",
+                "City FC", "Fursan Hisma", "Al Jazira Al Hamra", "Baynounah", "Dubai United"
+              ]
+            },
+            { "name": "UAE President's Cup", "type": "copa" },
+            { "name": "UAE Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Catar",
+          "code": "QAT",
+          "competitions": [
+            {
+              "name": "Qatar Stars League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al Sadd", "Al Duhail", "Al Rayyan", "Al Wakrah", "Al Arabi",
+                "Umm Salal", "Al Gharafa", "Qatar SC", "Al Shamal", "Al Ahli",
+                "Muaither", "Al Khor"
+              ]
+            },
+            {
+              "name": "Qatargas League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Al Sailiya", "Al Markhiya", "Lusail", "Al Mesaimeer", "Al Bidda",
+                "Al-Kharaitiyat", "Al Waab", "Lekhwiya B"
+              ]
+            },
+            { "name": "Emir of Qatar Cup", "type": "copa" },
+            { "name": "Sheikh Jassim Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Irã",
+          "code": "IRN",
+          "competitions": [
+            {
+              "name": "Persian Gulf Pro League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Esteghlal", "Persepolis", "Sepahan", "Tractor", "Gol Gohar",
+                "Zob Ahan", "Malavan", "Aluminium Arak", "Mes Rafsanjan", "Foolad",
+                "Paykan", "Havadar", "Nassaji Mazandaran", "Esteghlal Khuzestan", "Sanat Naft", "Kheybar"
+              ]
+            },
+            {
+              "name": "Azadegan League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Fajr Sepasi", "Chadormalu", "Saipa", "Mes Kerman", "Pars Jonoubi Jam",
+                "Darya Babol", "Shahr Raz", "Naft Masjed Soleyman", "Mes Sungun", "Ario Eslamshahr"
+              ]
+            },
+            { "name": "Hazfi Cup", "type": "copa" },
+            { "name": "Iranian Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Austrália",
+          "code": "AUS",
+          "competitions": [
+            {
+              "name": "A-League Men",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Central Coast Mariners", "Wellington Phoenix", "Melbourne Victory", "Sydney FC", "Melbourne City",
+                "Western Sydney Wanderers", "Adelaide United", "Western United", "Brisbane Roar", "Perth Glory",
+                "Newcastle Jets", "Macarthur FC", "Auckland FC"
+              ]
+            },
+            {
+              "name": "National Premier Leagues (NPL)",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Sydney Olympic", "Avondale FC", "Heidelberg United", "Brisbane Strikers", "Oakleigh Cannons",
+                "South Melbourne", "APIA Leichhardt", "Olympic FC", "Perth SC", "Campbelltown City"
+              ]
+            },
+            { "name": "Australia Cup", "type": "copa" },
+            { "name": "A-League Community Shield", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Uzbequistão",
+          "code": "UZB",
+          "competitions": [
+            {
+              "name": "Uzbekistan Super League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Pakhtakor", "Nasaf", "Navbahor", "AGMK", "Sogdiana",
+                "Bunyodkor", "Neftchi", "Metallurg Bekabad", "Surkhon", "Qizilqum",
+                "Andijon", "Dinamo Samarkand"
+              ]
+            },
+            {
+              "name": "Uzbekistan Pro League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Mash'al", "Shurtan Guzar", "Kokand 1912", "Turon", "Jayhun",
+                "Aral Nukus", "Dustlik", "Yangiyer"
+              ]
+            },
+            { "name": "Uzbekistan Cup", "type": "copa" },
+            { "name": "Uzbekistan Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Iraque",
+          "code": "IRQ",
+          "competitions": [
+            {
+              "name": "Iraq Stars League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al-Shorta", "Al-Quwa Al-Jawiya", "Al-Zawraa", "Duhok", "Erbil",
+                "Najaf", "Zakho", "Naft Maysan", "Al-Karkh", "Al-Naft",
+                "Karbala", "Al-Minaa", "Naft Al-Basra", "Al-Hudood", "Newroz", "Al-Kahrabaa"
+              ]
+            },
+            {
+              "name": "Iraqi First Division League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Al-Sinaa", "Al-Bahri", "Al-Koot", "Samarra", "Peshmerga",
+                "Diyala", "Al-Muroor", "Afak"
+              ]
+            },
+            { "name": "Iraq FA Cup", "type": "copa" },
+            { "name": "Iraqi Super Cup", "type": "supercopa" }
+          ]
+        }
+      ]
     }
   ]
 }
