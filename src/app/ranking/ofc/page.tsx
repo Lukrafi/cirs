@@ -74,6 +74,12 @@ export default function OfcPowerRankingPage() {
           OFC
         </span>
         <Link
+          href="/ranking/uefa"
+          className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold"
+        >
+          UEFA
+        </Link>
+        <Link
           href="/ranking/caf"
           className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold"
         >
