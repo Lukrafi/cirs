@@ -204,14 +204,15 @@ export async function POST(req: NextRequest) {
                       });
                       clubsFixed++;
                     } else {
-                      try {
-                        club = await prisma.club.upsert({
-                          where: { name: teamName },
-                          update: {
-                            countryId: country.id,
-                            divisionId: divisionId || undefined,
-                          },
-                          create: {
+                      const existing = await prisma.club.findFirst({
+                        where: { name: teamName },
+                      });
+                      if (existing && existing.countryId && existing.countryId !== country.id) {
+                        club = existing;
+                        clubsUpdated++;
+                      } else {
+                        club = await prisma.club.create({
+                          data: {
                             name: teamName,
                             shortName: teamName.split(" ").slice(0, 3).join(" "),
                             city: "",
@@ -222,9 +223,6 @@ export async function POST(req: NextRequest) {
                           },
                         });
                         clubsCreated++;
-                      } catch (e: any) {
-                        errors.push(`upsert Club [${teamName}]: ${e.message}`);
-                        continue;
                       }
                     }
                   } else {
