@@ -1302,6 +1302,407 @@
             { "name": "KNVB Cup", "type": "copa" },
             { "name": "Johan Cruyff Shield", "type": "supercopa" }
           ]
+        },
+        {
+          "name": "Turquia",
+          "code": "TUR",
+          "competitions": [
+            {
+              "name": "Süper Lig",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Galatasaray", "Fenerbahçe", "Beşiktaş", "Trabzonspor", "İstanbul Başakşehir",
+                "Kasımpaşa", "Antalyaspor", "Alanyaspor", "Rizespor", "Sivasspor",
+                "Samsunspor", "Kayserispor", "Gaziantep", "Hatayspor", "Konyaspor",
+                "Adana Demirspor", "Eyüpspor", "Göztepe", "Bodrum FK"
+              ]
+            },
+            {
+              "name": "TFF 1. Lig",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Ankaragücü", "Fatih Karagümrük", "Pendikspor", "Kocaelispor", "Sakaryaspor",
+                "Çorum FK", "Boluspor", "Manisa FK", "Erzurumspor", "Amed SK",
+                "Şanlıurfaspor", "Ümraniyespor", "Ankara Keçiörengücü", "Gençlerbirliği", "Esenler Erokspor",
+                "Iğdır FK", "Bandırmaspor", "Adanaspor"
+              ]
+            },
+            { "name": "Turkish Cup", "type": "copa" },
+            { "name": "Turkish Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Bélgica",
+          "code": "BEL",
+          "competitions": [
+            {
+              "name": "Belgian Pro League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Club Brugge", "Anderlecht", "Union Saint-Gilloise", "Genk", "Antwerp",
+                "Gent", "Cercle Brugge", "Standard Liège", "Mechelen", "Sint-Truiden",
+                "Westerlo", "OH Leuven", "Charleroi", "Kortrijk", "Dender", "Beerschot"
+              ]
+            },
+            {
+              "name": "Challenger Pro League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Zulte Waregem", "Deinze", "Lommel", "Patro Eisden", "RFC Liège",
+                "Club NXT", "RSCA Futures", "Jong Genk", "RWDM", "Eupen",
+                "Seraing", "Lierse", "SK Beveren", "Oostende", "Francs Borains"
+              ]
+            },
+            { "name": "Belgian Cup", "type": "copa" },
+            { "name": "Belgian Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Escócia",
+          "code": "SCO",
+          "competitions": [
+            {
+              "name": "Scottish Premiership",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Celtic", "Rangers", "Heart of Midlothian", "Aberdeen", "Hibernian",
+                "St. Mirren", "Dundee", "Kilmarnock", "Motherwell", "St. Johnstone",
+                "Ross County", "Dundee United"
+              ]
+            },
+            {
+              "name": "Scottish Championship",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Livingston", "Queen's Park", "Ayr United", "Partick Thistle", "Raith Rovers",
+                "Greenock Morton", "Dunfermline Athletic", "Airdrieonians", "Hamilton Academical", "Falkirk"
+              ]
+            },
+            { "name": "Scottish Cup", "type": "copa" },
+            { "name": "Scottish League Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Áustria",
+          "code": "AUT",
+          "competitions": [
+            {
+              "name": "Austrian Bundesliga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Red Bull Salzburg", "Sturm Graz", "LASK", "Rapid Vienna", "Austria Vienna",
+                "TSV Hartberg", "Wolfsberger AC", "Klagenfurt", "Blau-Weiß Linz", "Altach",
+                "Wattens", "GAK"
+              ]
+            },
+            {
+              "name": "2. Liga",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "SV Ried", "Admira Wacker", "St. Pölten", "Liefering",
+                "FAC Vienna", "SV Horn", "First Vienna", "Kapfenberger SV", "Schwarz-Wei Bregenz",
+                "Stripfing", "Amstetten", "Lafnitz"
+              ]
+            },
+            { "name": "Austrian Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Suíça",
+          "code": "SUI",
+          "competitions": [
+            {
+              "name": "Swiss Super League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Young Boys", "Servette", "Lugano", "Basel", "FC Zürich",
+                "St. Gallen", "Winterthur", "Luzern", "Yverdon-Sport", "Lausanne-Sport",
+                "Grasshoppers", "Sion"
+              ]
+            },
+            {
+              "name": "Swiss Challenge League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Thun", "Vaduz", "Aarau", "Wil", "Schaffhausen",
+                "Stade Lausanne-Ouchy", "Bellinzona", "Neuchâtel Xamax", "Étoile Carouge", "Raperswil-Jona"
+              ]
+            },
+            { "name": "Swiss Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Ucrânia",
+          "code": "UKR",
+          "competitions": [
+            {
+              "name": "Ukrainian Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Shakhtar Donetsk", "Dynamo Kyiv", "Kryvbas Kryvyi Rih", "Dnipro-1", "Polissya Zhytomyr",
+                "Rukh Lviv", "Chornomorets Odesa", "Vorskla Poltava", "Zorya Luhansk", "LNZ Cherkasy",
+                "Kolos Kovalivka", "Veres Rivne", "Obolon Kyiv", "Metalist 1925", "Minai", "Inhulets Petrove"
+              ]
+            },
+            {
+              "name": "Ukrainian First League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Karpaty Lviv", "Livyi Bereh", "Mariupol", "Epitsentr",
+                "Ahrobiznes Volochysk", "Bukovyna Chernivtsi", "Nyva Buzova", "Metalist Kharkiv", "Khust"
+              ]
+            },
+            { "name": "Ukrainian Cup", "type": "copa" },
+            { "name": "Ukrainian Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Dinamarca",
+          "code": "DEN",
+          "competitions": [
+            {
+              "name": "Danish Superliga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "FC Copenhagen", "Brøndby IF", "FC Midtjylland", "AGF Aarhus", "FC Nordsjælland",
+                "Silkeborg IF", "Randers FC", "Viborg FF", "Vejle Boldklub", "Lyngby BK",
+                "AaB Aalborg", "SønderjyskE"
+              ]
+            },
+            {
+              "name": "1. Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "OB Odense", "AC Horsens", "FC Fredericia", "Vendsyssel FF", "Hillerød",
+                "HB Køge", "Hobro IK", "B.93", "Esbjerg fB", "Roskilde"
+              ]
+            },
+            { "name": "Danish Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Grécia",
+          "code": "GRE",
+          "competitions": [
+            {
+              "name": "Greek Super League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "PAOK", "AEK Athens", "Olympiacos", "Panathinaikos", "Aris Thessaloniki",
+                "Lamia", "Asteras Tripolis", "Atromitos", "Panserraikos", "OFI Crete",
+                "Kifisia", "PAS Giannina", "Panetolikos", "Volos"
+              ]
+            },
+            {
+              "name": "Super League 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Levadiakos", "Athens Kallithea", "Chania", "Ilioupoli", "Kalamata",
+                "Panachaiki", "Ionikos", "Diagoras", "AO Kavala", "Niki Volou"
+              ]
+            },
+            { "name": "Greek Football Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "República Checa",
+          "code": "CZE",
+          "competitions": [
+            {
+              "name": "Czech First League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Sparta Prague", "Slavia Prague", "Viktoria Plzeň", "Baník Ostrava", "Mladá Boleslav",
+                "Slovácko", "Slovan Liberec", "Teplice", "Bohemians 1905", "Sigma Olomouc",
+                "Hradec Králové", "Karvainta", "České Budějovice", "Zlín", "Dukla Prague", "Pardubice"
+              ]
+            },
+            {
+              "name": "Czech 2. Liga",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Vyškov", "Táborsko", "Zbrojovka Brno", "Vlašim", "Chrudim",
+                "Opava", "Prostějov", "Varnsdorf", "Sigma Olomouc B", "Sparta Prague B"
+              ]
+            },
+            { "name": "Czech Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Croácia",
+          "code": "CRO",
+          "competitions": [
+            {
+              "name": "HNL",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Dinamo Zagreb", "Hajduk Split", "Rijeka", "Osijek", "Lokomotiva Zagreb",
+                "Varaždín", "Istra 1961", "Slaven Belupo", "Gorica", "Šibenik"
+              ]
+            },
+            {
+              "name": "First NL",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Vukovar 1991", "Zrinski Osječko", "Cibalia", "Dubrava", "Jarun",
+                "Solin", "Orijent", "Kustošija", "Croatia Zmijavci"
+              ]
+            },
+            { "name": "Croatian Football Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Polônia",
+          "code": "POL",
+          "competitions": [
+            {
+              "name": "Ekstraklasa",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Jagiellonia Białystok", "Śląskas Wrocław", "Legia Warsaw", "Lech Poznań", "Pogoń Szczecin",
+                "Raków Częstochowa", "Piast Gliwice", "Górnik Zabrze", "Zagł b Lubin", "Widzów Łódź",
+                "Warta Poznań", "Stal Mielec", "Puszcza Niepołomice", "Radomiak Radom", "Korona Kielce",
+                "Lechia Gdańsk", "GKS Katowice", "Motor Lublin"
+              ]
+            },
+            {
+              "name": "I liga",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Arka Gdynia", "GKS Tychy", "Odra Opole", "Wisła Kraków", "Miedź Legnica",
+                "Bruk-Bet Termalica", "Górnik Łęczna", "Polonia Warsaw", "Stal Rzeszów", "Chrobry Głogów"
+              ]
+            },
+            { "name": "Polish Cup", "type": "copa" },
+            { "name": "Polish SuperCup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Suécia",
+          "code": "SWE",
+          "competitions": [
+            {
+              "name": "Allsvenskan",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Malmö FF", "AIK", "Djurgårdens IF", "BK Häcken", "Hammarby IF",
+                "IF Elfsborg", "IFK Göteborg", "IFK Norrköping", "Sirius", "Mjällby AIF",
+                "Kalmar FF", "Halmstads BK", "BP", "Västerås SK", "GAIS"
+              ]
+            },
+            {
+              "name": "Superettan",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Landskrona BoIS", "Östers IF", "Degerfors IF", "Örgryte", "GIF Sundsvall",
+                "Sandvikens IF", "Trelleborgs", "Utsiktens BK", "Östersunds FK", "Skövde AIK"
+              ]
+            },
+            { "name": "Svenska Cupen", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Noruega",
+          "code": "NOR",
+          "competitions": [
+            {
+              "name": "Eliteserien",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Bodø/Glimt", "Brann", "Rosenborg", "Molde", "Viking",
+                "Lillestrøm", "Strømsgodset", "Sarpsborg 08", "Tromsø", "Odd",
+                "HamKam", "Haugesund", "Sandefjord", "KFUM Oslo", "Fredrikstad", "Kristiansund"
+              ]
+            },
+            {
+              "name": "1. divisjon",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Vålerenga", "Aalesund", "Start", "Kongsvinger", "Raufoss",
+                "Bryne", "Sogndal", "Ranheim", "Moss", "Stabæk"
+              ]
+            },
+            { "name": "Norwegian Football Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Sérvia",
+          "code": "SRB",
+          "competitions": [
+            {
+              "name": "Serbian SuperLiga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Crvena Zvezda", "Partizan", "TSC Baška Topola", "Čukarički", "Vojvodina",
+                "Radnički 1923", "Mladost Lučani", "Novi Pazar", "Spartak Subotica", "IMT Novi Beograd",
+                "Železničar Pančevo", "Radnički Niš", "Tekstilac Odžaci", "Jedinstvo Ub"
+              ]
+            },
+            {
+              "name": "Serbian First League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "OFK Beograd", "Inđija", "Smederevo 1924", "Grafičar",
+                "Mačva Šabac", "Radnički Sremska Mitrovica", "Dubočica", "Vršac", "OFK Vršac"
+              ]
+            },
+            { "name": "Serbian Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Romênia",
+          "code": "ROU",
+          "competitions": [
+            {
+              "name": "Liga I",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "FCSB", "CFR Cluj", "Universitatea Craiova", "Rapid Bucharest", "Farul Constanța",
+                "Sepsi OSK", "UTA Arad", "Hermannstadt", "Petrolul Ploiești", "Oțelul Galați",
+                "Universitatea Cluj", "Botoșani", "Dinamo Bucharest", "Unirea Slobozia", "Gloria Buzău", "Politehnica Iași"
+              ]
+            },
+            {
+              "name": "Liga II",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Corvinul Hunedoara", "Ceahlăul Piatra Neamț", "FC Arș", "Chindia Târgoviște", "Metaloglobus",
+                "CSC Șelimbăr", "Concordia Chiajna", "CS Mioveni", "Unirea Dej", "Steaua București"
+              ]
+            },
+            { "name": "Cupa României", "type": "copa" },
+            { "name": "Supercupa României", "type": "supercopa" }
+          ]
         }
       ]
     },
