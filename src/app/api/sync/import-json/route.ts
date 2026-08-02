@@ -4,8 +4,6 @@ import { prisma } from "@/lib/prisma";
 import { getDataSource } from "@/lib/dataSources";
 import { createSyncLog } from "@/lib/syncService";
 import conmebolData from "@/lib/conmebol-data.json";
-import path from "path";
-import fs from "fs";
 
 export const dynamic = "force-dynamic";
 
@@ -69,11 +67,11 @@ export async function POST(_req: NextRequest) {
         if (!country.flag) {
           const flagImg = await flagSource.fetchFlag(cData.code);
           if (flagImg) {
-            const localPath = await downloadImage(flagImg.url, cData.code, "bandeiras");
-            if (localPath) {
-              await prisma.country.update({ where: { id: country.id }, data: { flag: localPath } });
-              flagsDownloaded++;
-            }
+            await prisma.country.update({
+              where: { id: country.id },
+              data: { flag: flagImg.url },
+            });
+            flagsDownloaded++;
           }
         }
 
@@ -228,12 +226,11 @@ export async function POST(_req: NextRequest) {
                   if (!club.emblem) {
                     const img = await flagSource.fetchEmblem(teamName, country.name);
                     if (img) {
-                      const safe = sanitizeFilename(teamName);
-                      const localPath = await downloadImage(img.url, safe, "escudos");
-                      if (localPath) {
-                        await prisma.club.update({ where: { id: club.id }, data: { emblem: localPath } });
-                        emblemsDownloaded++;
-                      }
+                      await prisma.club.update({
+                        where: { id: club.id },
+                        data: { emblem: img.url },
+                      });
+                      emblemsDownloaded++;
                     }
                   }
                 } catch (e: any) {
@@ -264,12 +261,16 @@ export async function POST(_req: NextRequest) {
       errors,
     };
 
-    await createSyncLog({
-      ...result,
-      level: "world",
-      adminUsername: "admin",
-      entity: "CONMEBOL Complete",
-    });
+    try {
+      await createSyncLog({
+        ...result,
+        level: "world",
+        adminUsername: "admin",
+        entity: "CONMEBOL Complete",
+      });
+    } catch (logErr: any) {
+      errors.push(`SyncLog error: ${logErr.message}`);
+    }
 
     return NextResponse.json(result);
   } catch (e: any) {
@@ -289,37 +290,5 @@ export async function POST(_req: NextRequest) {
       },
       { status: 500 }
     );
-  }
-}
-
-const PUBLIC_DIR = path.join(process.cwd(), "public");
-
-function ensureDir(dir: string) {
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-}
-
-function sanitizeFilename(name: string): string {
-  return name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-zA-Z0-9_-]/g, "_")
-    .substring(0, 80)
-    .toLowerCase();
-}
-
-async function downloadImage(imageUrl: string, filename: string, subdir: string): Promise<string | null> {
-  try {
-    const res = await fetch(imageUrl, { signal: AbortSignal.timeout(15000) });
-    if (!res.ok) return null;
-    const buffer = Buffer.from(await res.arrayBuffer());
-    if (buffer.length < 500) return null;
-    const dir = path.join(PUBLIC_DIR, subdir);
-    ensureDir(dir);
-    const ext = imageUrl.endsWith(".svg") ? "svg" : "png";
-    const filePath = path.join(dir, `${filename}.${ext}`);
-    fs.writeFileSync(filePath, buffer);
-    return `/${subdir}/${filename}.${ext}`;
-  } catch {
-    return null;
   }
 }
