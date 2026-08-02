@@ -1699,6 +1699,437 @@
               "type": "supercopa"
             }
           ]
+        },
+        {
+          "name": "Coreia do Norte",
+          "code": "PRK",
+          "competitions": [
+            {
+              "name": "DPR Korea Premier Football League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "April 25",
+                "Pyongyang City",
+                "Kigwancha",
+                "Rimyongsu",
+                "Hwaebul",
+                "Amrokgang",
+                "Sonbong",
+                "Wolmido"
+              ]
+            },
+            {
+              "name": "Hwaebul Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Índia",
+          "code": "IND",
+          "competitions": [
+            {
+              "name": "Indian Super League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Mohun Bagan SG",
+                "Mumbai City",
+                "FC Goa",
+                "Odisha FC",
+                "Kerala Blasters",
+                "Bengaluru FC",
+                "Chennaiyin FC",
+                "East Bengal",
+                "Punjab FC",
+                "Jamshedpur FC",
+                "NorthEast United",
+                "Hyderabad FC"
+              ]
+            },
+            {
+              "name": "I-League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Mohammedan",
+                "Sreenidi Deccan",
+                "Gokulam Kerala",
+                "Inter Kashi"
+              ]
+            },
+            {
+              "name": "Super Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Durand Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Malásia",
+          "code": "MAS",
+          "competitions": [
+            {
+              "name": "Malaysia Super League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Johor Darul Ta'zim",
+                "Selangor FC",
+                "Sabah FC",
+                "Terengganu FC",
+                "Kuala Lumpur City",
+                "Sri Pahang",
+                "Kedah Darul Aman",
+                "Kuching City",
+                "PDRM",
+                "Kelantan Darul Naim",
+                "Negeri Sembilan"
+              ]
+            },
+            {
+              "name": "Malaysia Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Malaysia FA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Omã",
+          "code": "OMA",
+          "competitions": [
+            {
+              "name": "Oman Professional League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al-Seeb",
+                "Al-Nahda",
+                "Dhofar",
+                "Al-Rustaq",
+                "Al-Bashayer",
+                "Sur",
+                "Bahla",
+                "Ibri",
+                "Sohar",
+                "Oman Club",
+                "Al-Shabab",
+                "Saham"
+              ]
+            },
+            {
+              "name": "Sultan Qaboos Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Kuwait",
+          "code": "KUW",
+          "competitions": [
+            {
+              "name": "Kuwait Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Kuwait SC",
+                "Al-Arabi",
+                "Al-Qadsia",
+                "Al-Salmiya",
+                "Kazma",
+                "Al-Fahaheel",
+                "Al-Nasr",
+                "Al-Tadamon",
+                "Khaitan",
+                "Al-Jahra"
+              ]
+            },
+            {
+              "name": "Kuwait Emir Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Bahrein",
+          "code": "BHR",
+          "competitions": [
+            {
+              "name": "Bahraini Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al-Khaldiya",
+                "Al-Riffa",
+                "Manama Club",
+                "Al-Muharraq",
+                "Al-Hidd",
+                "East Riffa",
+                "Sitra",
+                "Al-Ahli",
+                "Busaiteen",
+                "Al-Najma"
+              ]
+            },
+            {
+              "name": "Bahraini King's Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Hong Kong",
+          "code": "HKG",
+          "competitions": [
+            {
+              "name": "Hong Kong Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Lee Man",
+                "Kitchee",
+                "Eastern",
+                "Southern District",
+                "Tai Po",
+                "HKFC",
+                "Rangers",
+                "Sham Shui Po",
+                "North District"
+              ]
+            },
+            {
+              "name": "Hong Kong Senior Challenge Shield",
+              "type": "copa"
+            },
+            {
+              "name": "Hong Kong FA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Singapura",
+          "code": "SGP",
+          "competitions": [
+            {
+              "name": "Singapore Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Lion City Sailors",
+                "Albirex Niigata Singapore",
+                "Tampines Rovers",
+                "Geylang International",
+                "Balestier Khalsa",
+                "Tanjong Pagar United",
+                "Hougang United",
+                "Young Lions"
+              ]
+            },
+            {
+              "name": "Singapore Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Líbano",
+          "code": "LBN",
+          "competitions": [
+            {
+              "name": "Lebanese Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Nejmeh",
+                "Al-Ahed",
+                "Ansar",
+                "Al-Safa",
+                "Al-Bourj",
+                "Shabab Al-Sahel",
+                "Chabab El Ghazieh",
+                "Tripoli SC"
+              ]
+            },
+            {
+              "name": "Lebanese FA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Tajiquistão",
+          "code": "TJK",
+          "competitions": [
+            {
+              "name": "Tajikistan Higher League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Istiklol",
+                "Khujand",
+                "CSKA Pamir",
+                "Ravshan Kulob",
+                "Eskhata",
+                "Kuktosh",
+                "Faizkent",
+                "Regar-TadAZ"
+              ]
+            },
+            {
+              "name": "Tajikistan Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Quirguistão",
+          "code": "KGZ",
+          "competitions": [
+            {
+              "name": "Kyrgyz Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Abdish-Ata Kant",
+                "Dordoi Bishkek",
+                "Alay Osh",
+                "Kara-Balta",
+                "Neftchi Kochkor-Ata",
+                "Alga Bishkek",
+                "Talant"
+              ]
+            },
+            {
+              "name": "Kyrgyzstan Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Turcomenistão",
+          "code": "TKM",
+          "competitions": [
+            {
+              "name": "Ýokary Liga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Ahal",
+                "Altyn Asyr",
+                "Arkadag",
+                "Şagadam",
+                "Köpetdag",
+                "Nebitçi",
+                "Merv"
+              ]
+            },
+            {
+              "name": "Turkmenistan Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Filipinas",
+          "code": "PHI",
+          "competitions": [
+            {
+              "name": "Philippines Football League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Kaya FC-Iloilo",
+                "Dynamic Herb Cebu",
+                "Stallion Laguna",
+                "United City",
+                "Mendiola 1991",
+                "Manila Digger"
+              ]
+            },
+            {
+              "name": "Copa Paulino Alcantara",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Palestina",
+          "code": "PLE",
+          "competitions": [
+            {
+              "name": "West Bank Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Jabal Al-Mukaber",
+                "Shabab Al-Khalil",
+                "Hilal Al-Quds",
+                "Shabab Al-Dhahiriya",
+                "Balata",
+                "Taraji Wadi Al-Nes"
+              ]
+            },
+            {
+              "name": "Palestine Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Mianmar",
+          "code": "MYA",
+          "competitions": [
+            {
+              "name": "Myanmar National League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Shan United",
+                "Yangon United",
+                "Hantharwady United",
+                "Ayeyawady United",
+                "Rakhine United",
+                "Yadanarbon",
+                "Sagaing United"
+              ]
+            },
+            {
+              "name": "General Aung San Shield",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Bangladesh",
+          "code": "BAN",
+          "competitions": [
+            {
+              "name": "Bangladesh Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Bashundhara Kings",
+                "Abahani Limited Dhaka",
+                "Mohammedan Sporting Club",
+                "Sheikh Russel",
+                "Police FC",
+                "Fortis FC",
+                "Rahmatganj MFS"
+              ]
+            },
+            {
+              "name": "Bangladesh Federation Cup",
+              "type": "copa"
+            }
+          ]
         }
       ]
     },
