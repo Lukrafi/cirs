@@ -3212,6 +3212,354 @@
               "type": "copa"
             }
           ]
+        },
+        {
+          "name": "Cabo Verde",
+          "code": "CPV",
+          "competitions": [
+            {
+              "name": "Campeonato Caboverdiano de Futebol",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Académica do Mindelo",
+                "Boavista da Praia",
+                "Mindelense",
+                "Travadores",
+                "Scorpions",
+                "Paulense",
+                "Varandinha",
+                "Juventude do Norte",
+                "Académica da Praia",
+                "Sanjoanense"
+              ]
+            },
+            {
+              "name": "Taça de Cabo Verde",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Chade",
+          "code": "CHA",
+          "competitions": [
+            {
+              "name": "Chad Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Gazelle FC",
+                "AS CotonTchad",
+                "Renaissance FC",
+                "Elect-Sport",
+                "Foullah Edifice",
+                "AS Goulmima",
+                "RFC",
+                "Postel 2000"
+              ]
+            },
+            {
+              "name": "Coupe du Tchad",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Comores",
+          "code": "COM",
+          "competitions": [
+            {
+              "name": "Comoros Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Volcan Club",
+                "Coin Nord",
+                "El Elan",
+                "Ngazi Sport",
+                "Fomboni FC",
+                "Etoile Polaire",
+                "JACM",
+                "Zialé Club"
+              ]
+            },
+            {
+              "name": "Comoros Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Djibouti",
+          "code": "DJI",
+          "competitions": [
+            {
+              "name": "Djibouti Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "AS Ali Sabieh",
+                "AS Port",
+                "GR SICA",
+                "Gendarmerie Nationale",
+                "Arta/Solar7",
+                "Qalali",
+                "Balbala FC",
+                "Dikhil FC"
+              ]
+            },
+            {
+              "name": "Djibouti Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Eritreia",
+          "code": "ERI",
+          "competitions": [
+            {
+              "name": "Eritrean Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Red Sea FC",
+                "Adulis Club",
+                "Denden FC",
+                "Asmara Brewery",
+                "Mdlaw Megbi",
+                "Al Tahrir",
+                "Hintsa FC"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Gâmbia",
+          "code": "GAM",
+          "competitions": [
+            {
+              "name": "GFA League First Division",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Real de Banjul",
+                "Hawks FC",
+                "Fortune FC",
+                "Wallidan FC",
+                "Armed Forces",
+                "Banjul United",
+                "Gambia Ports Authority",
+                "Samger FC",
+                "Elite United",
+                "Marimoo"
+              ]
+            },
+            {
+              "name": "Gambian Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Guiné Equatorial",
+          "code": "EQG",
+          "competitions": [
+            {
+              "name": "Equatoguinean Primera División",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Cano Sport",
+                "Leones Vegetarianos",
+                "Dragon",
+                "Akonangui FC",
+                "Deportivo Mongomo",
+                "Futuro Kings",
+                "Panthères FC",
+                "Ebediyin"
+              ]
+            },
+            {
+              "name": "Equatoguinean Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Libéria",
+          "code": "LBR",
+          "competitions": [
+            {
+              "name": "Liberian First Division League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Watanga FC",
+                "LPRC Oilers",
+                "LISCR FC",
+                "Barrack Young Controllers",
+                "Nimba Kwado",
+                "Bea Mountain",
+                "Heaven Eleven",
+                "Cece United",
+                "Invincible Eleven",
+                "Freeport FC"
+              ]
+            },
+            {
+              "name": "Liberian Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Maurícia",
+          "code": "MRI",
+          "competitions": [
+            {
+              "name": "Mauritian League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Pamplemousses SC",
+                "Curepipe Starlight",
+                "Grand River South East Wanderers",
+                "Savanne SC",
+                "Roche Bois Bolton City",
+                "Petite Rivière Noire SC",
+                "Vacoas-Phoenix",
+                "Entente Boulet Rouge"
+              ]
+            },
+            {
+              "name": "Mauritian Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "República Centro-Africana",
+          "code": "CTA",
+          "competitions": [
+            {
+              "name": "Central African Republic League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Red Star",
+                "Tempête Mocaf",
+                "Diplomates FC",
+                "DFC 8ème Arrondissement",
+                "Sica Sport",
+                "Olympic Real de Bangui",
+                "AS Gbangban"
+              ]
+            },
+            {
+              "name": "CAR Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Seicheles",
+          "code": "SEY",
+          "competitions": [
+            {
+              "name": "Seychelles Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "St Louis Suns United",
+                "Foresters FC",
+                "La Passe FC",
+                "Anse Réunion",
+                "Light Stars",
+                "Red Star Defence Forces",
+                "Northern Dynamo",
+                "Revengers"
+              ]
+            },
+            {
+              "name": "FA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Somália",
+          "code": "SOM",
+          "competitions": [
+            {
+              "name": "Somali First Division",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Horseed FC",
+                "Mogadishu City Club",
+                "Dekedaha FC",
+                "Jeenyo United",
+                "Gaadiidka FC",
+                "Banaadir SC",
+                "Waxool FC",
+                "Elman FC"
+              ]
+            },
+            {
+              "name": "Somali Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "São Tomé e Príncipe",
+          "code": "STP",
+          "competitions": [
+            {
+              "name": "Campeonato Santomense de Futebol",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Sporting Clube de Praia Cruz",
+                "UD Rendes",
+                "Agrosport",
+                "Trindade FC",
+                "Inter Bom-Porto",
+                "Aliança Nacional",
+                "Cruz Vermelha"
+              ]
+            },
+            {
+              "name": "Taça de São Tomé e Príncipe",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Sudão do Sul",
+          "code": "SSD",
+          "competitions": [
+            {
+              "name": "South Sudan Football Championship",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Atlabara FC",
+                "Salaka FC",
+                "Amarat United",
+                "Rabia FC",
+                "Munuki FC",
+                "Wau Salaam",
+                "Juba Super Star"
+              ]
+            },
+            {
+              "name": "South Sudan National Cup",
+              "type": "copa"
+            }
+          ]
         }
       ]
     },
