@@ -2805,6 +2805,413 @@
               "type": "copa"
             }
           ]
+        },
+        {
+          "name": "Madagáscar",
+          "code": "MDG",
+          "competitions": [
+            {
+              "name": "Pure Play Football League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Fosa Juniors",
+                "Elgeco Plus",
+                "Disciples FC",
+                "AS Adema",
+                "Cosfa",
+                "Usca Foot",
+                "TFA Analamanga",
+                "Ajesaia",
+                "Zanakala",
+                "Mama FC"
+              ]
+            },
+            {
+              "name": "Telma Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Gabão",
+          "code": "GAB",
+          "competitions": [
+            {
+              "name": "Championnat National D1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Mangasport",
+                "AS Bouenguidi",
+                "Missile FC",
+                "Stade Mandji",
+                "AS Pélican",
+                "CF Mounana",
+                "AO Logo",
+                "Vantour Club",
+                "Akanda FC",
+                "Oyem AC"
+              ]
+            },
+            {
+              "name": "Coupe du Gabon",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Níger",
+          "code": "NER",
+          "competitions": [
+            {
+              "name": "Niger Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "AS Douanes",
+                "US Gendarmerie Nationale",
+                "AS GNN",
+                "ASN Nigelec",
+                "Sahel SC",
+                "US Corps de Enseignants",
+                "Olympic de Niamey",
+                "AS Police",
+                "Akokana FC",
+                "Liberté FC"
+              ]
+            },
+            {
+              "name": "Coupe Nationale",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Botswana",
+          "code": "BOT",
+          "competitions": [
+            {
+              "name": "Botswana Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Township Rollers",
+                "Jwaneng Galaxy",
+                "Gaborone United",
+                "Orapa United",
+                "Security Systems",
+                "BDF XI",
+                "Police XI",
+                "Extension Gunners",
+                "Morupule Wanderers",
+                "Masitaoka"
+              ]
+            },
+            {
+              "name": "FA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Ruanda",
+          "code": "RWA",
+          "competitions": [
+            {
+              "name": "Rwanda Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "APR FC",
+                "Rayon Sports",
+                "Kiyovu Sports",
+                "Police FC",
+                "Mukura Victory Sports",
+                "AS Kigali",
+                "Gorilla FC",
+                "Musanze FC",
+                "Etincelles",
+                "Marines FC",
+                "Gasogi United",
+                "Bugesera FC"
+              ]
+            },
+            {
+              "name": "Rwandan Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Benim",
+          "code": "BEN",
+          "competitions": [
+            {
+              "name": "Championnat National du Bénin",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Coton FC",
+                "Loto-Popo",
+                "Buffles de Borgou",
+                "ASPAC",
+                "Requins de l'Atlantique",
+                "Dynamo Parakou",
+                "AS Cotonou",
+                "Tonnerre",
+                "ESAE FC",
+                "Bani Gansé"
+              ]
+            },
+            {
+              "name": "Coupe du Bénin",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Togo",
+          "code": "TOG",
+          "competitions": [
+            {
+              "name": "Championnat National",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "AS Togo Port",
+                "ASC Kara",
+                "Dyto",
+                "Semassi",
+                "Gomido",
+                "Maranatha",
+                "Anges FC",
+                "Unisport de Kpalimé",
+                "Sara Sport",
+                "Gbiketi"
+              ]
+            },
+            {
+              "name": "Coupe du Togo",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Mauritânia",
+          "code": "MRT",
+          "competitions": [
+            {
+              "name": "Super D1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "FC Nouadhibou",
+                "Nouakchott King's",
+                "ASC Tevragh-Zeïna",
+                "AS Douanes",
+                "ASC Ksar",
+                "Garde Nationale",
+                "SNIM",
+                "Chemal FC",
+                "Trarza AC",
+                "Inter Nouakchott"
+              ]
+            },
+            {
+              "name": "Coupe du Président de la République",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Malawi",
+          "code": "MWI",
+          "competitions": [
+            {
+              "name": "Super League of Malawi",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Nyasa Big Bullets",
+                "Mighty Wanderers",
+                "Silver Strikers",
+                "Civil Service United",
+                "Karonga United",
+                "Mighty Tigers",
+                "Blue Eagles",
+                "Kamuzu Barracks",
+                "Ekwendeni Hammers",
+                "Dedza Dynamos"
+              ]
+            },
+            {
+              "name": "Carlsberg Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Burundi",
+          "code": "BDI",
+          "competitions": [
+            {
+              "name": "Burundi Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Vital'O",
+                "Flambeau du Centre",
+                "Aigle Noir",
+                "Messager Ngozi",
+                "Bujumbura City",
+                "Rukinzo",
+                "Kayanza United",
+                "Le Messager",
+                "Musongati",
+                "BS Dynamik"
+              ]
+            },
+            {
+              "name": "Burundian Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Serra Leoa",
+          "code": "SLE",
+          "competitions": [
+            {
+              "name": "Sierra Leone National Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Bo Rangers",
+                "East End Lions",
+                "Kallon FC",
+                "Mighty Blackpool",
+                "FC Johansen",
+                "Diamond Stars",
+                "Ports Authority",
+                "Central Parade",
+                "Old Edwardians",
+                "Freetown City"
+              ]
+            },
+            {
+              "name": "FA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Namíbia",
+          "code": "NAM",
+          "competitions": [
+            {
+              "name": "Namibia Premier Football League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "African Stars",
+                "Blue Waters",
+                "Tigers FC",
+                "Orlando Pirates Windhoek",
+                "Life Fighters",
+                "Civics",
+                "United Africa Tigers",
+                "Okahandja United",
+                "Julinho Sporting",
+                "Mighty Gunners"
+              ]
+            },
+            {
+              "name": "NFA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Lesoto",
+          "code": "LES",
+          "competitions": [
+            {
+              "name": "Lesotho Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Bantu FC",
+                "Lioli FC",
+                "Matlama FC",
+                "Lesotho Defence Force",
+                "Kick4Life",
+                "Linare",
+                "LMPS",
+                "Likhopo",
+                "Swallows",
+                "Galaxy"
+              ]
+            },
+            {
+              "name": "Independence Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Essuatíni",
+          "code": "ESW",
+          "competitions": [
+            {
+              "name": "Eswatini MTN Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Mbabane Swallows",
+                "Royal Leopards",
+                "Green Mamba",
+                "Mbabane Highlanders",
+                "Young Buffaloes",
+                "Manzini Wanderers",
+                "Denver Sundowns",
+                "Moneni Pirates",
+                "Tambuti",
+                "Malanti Chiefs"
+              ]
+            },
+            {
+              "name": "Eswatini Bank Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Guiné-Bissau",
+          "code": "GNB",
+          "competitions": [
+            {
+              "name": "Campeonato Nacional da Guiné-Bissau",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Sport Bissau e Benfica",
+                "Flamengo de Pefine",
+                "UDIB",
+                "Pelundo",
+                "São Domingos",
+                "Binar",
+                "Cuntum",
+                "Massingue",
+                "Portos de Bissau",
+                "Nilton"
+              ]
+            },
+            {
+              "name": "Taça Nacional da Guiné-Bissau",
+              "type": "copa"
+            }
+          ]
         }
       ]
     },
