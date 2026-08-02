@@ -2428,6 +2428,167 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Indonésia",
+          "code": "IDN",
+          "competitions": [
+            {
+              "name": "Liga 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Persib Bandung",
+                "Bali United",
+                "Borneo FC",
+                "Madura United",
+                "Persija Jakarta",
+                "PSIS Semarang",
+                "Persis Solo",
+                "PSM Makassar",
+                "Persebaya Surabaya",
+                "Barito Putera",
+                "Arema FC",
+                "PSS Sleman",
+                "Persita Tangerang",
+                "Dewa United",
+                "RANS Nusantara",
+                "Persik Kediri",
+                "Persikabo 1973",
+                "Bhayangkara FC"
+              ]
+            },
+            {
+              "name": "Liga 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "PSBS Biak",
+                "Semen Padang",
+                "Malut United",
+                "Persiraja Banda Aceh"
+              ]
+            },
+            {
+              "name": "Piala Indonesia",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Jordânia",
+          "code": "JOR",
+          "competitions": [
+            {
+              "name": "Jordanian Pro League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al-Hussein",
+                "Al-Faisaly",
+                "Al-Wehdat",
+                "Al-Ramtha",
+                "Shabab Al-Ordon",
+                "Ma'an",
+                "Al-Salt",
+                "Al-Ahli Amman",
+                "Sahab",
+                "Moghayer Al-Sarhan",
+                "Al-Jazeera",
+                "Sarih"
+              ]
+            },
+            {
+              "name": "Jordan FA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Síria",
+          "code": "SYR",
+          "competitions": [
+            {
+              "name": "Syrian Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al-Jaish",
+                "Tishreen",
+                "Al-Ittihad Aleppo",
+                "Al-Karamah",
+                "Jableh",
+                "Al-Wahda",
+                "Al-Shorta",
+                "Al-Fotuwa",
+                "Hutteen",
+                "Al-Majd",
+                "Al-Taliya",
+                "Al-Horriya"
+              ]
+            },
+            {
+              "name": "Syrian Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Vietnã",
+          "code": "VIE",
+          "competitions": [
+            {
+              "name": "V.League 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Nam Dinh",
+                "Cong An Ha Noi",
+                "Hanoi FC",
+                "The Cong-Viettel",
+                "Binh Dinh",
+                "Hai Phong",
+                "Becamex Binh Duong",
+                "Hong Linh Ha Tinh",
+                "Ho Chi Minh City",
+                "SLNA",
+                "Quang Nam",
+                "Khanh Hoa"
+              ]
+            },
+            {
+              "name": "V.League 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Da Nang",
+                "PVF-CAND",
+                "Truong Tuoi Binh Phuoc"
+              ]
+            },
+            {
+              "name": "Vietnamese National Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Ilhas Marianas do Norte",
+          "code": "MNP",
+          "competitions": [
+            {
+              "name": "M*League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Tan Holdings FC",
+                "MP United",
+                "Matansa FC",
+                "Paire FC",
+                "Southern District"
+              ]
+            }
+          ]
         }
       ]
     },
