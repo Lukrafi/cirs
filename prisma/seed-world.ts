@@ -231,6 +231,13 @@ const data: P[] = [
   P_("VIN","St. Vincent e Granadinas","CONCACAF",1.0,[L1("Premier Division",10,0,0),LC("Cup")]),
   P_("LCA","Santa Lúcia","CONCACAF",1.0,[L1("Premier League",10,0,0),LC("Cup")]),
 
+  // Territórios não-FIFA (CONCACAF) — adicionado para power ranking
+  P_("BRB","Barbados","CONCACAF",1.0,[L1("Premier Division",10,0,0),LC("Cup")]),
+  P_("BOE","Bonaire","CONCACAF",1.0,[L1("Premier League",8,0,0),LC("Cup")]),
+  P_("GLP","Guadalupe","CONCACAF",1.0,[L1("Premier Division",10,0,0),LC("Cup")]),
+  P_("GUF","Guiana Francesa","CONCACAF",1.0,[L1("Campeonato Nacional",10,0,0),LC("Cup")]),
+  P_("MTQ","Martinica","CONCACAF",1.0,[L1("Premier League",10,0,0),LC("Cup")]),
+
   // Países maiores → 2 divisões
   P_("CAN","Canadá","CONCACAF",5.5,[L1("CPL",16,0,0),L2("CPL 2",16,1,0),LC("Canadian Championship")]),
   P_("CRC","Costa Rica","CONCACAF",5.5,[L1("Liga FPD",12,0,2),L2("Liga de Ascenso",18,2,2),LC("Copa"),LS("Supercopa")]),
