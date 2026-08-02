@@ -15,6 +15,7 @@ const navLinks: NavLink[] = [
   { href: "/estatisticas", label: "Estatísticas" },
   { href: "/noticias", label: "Notícias" },
   { href: "/simulacoes", label: "Simulações" },
+  { href: "/ranking/caf", label: "CAF" },
   { href: "/ranking/ofc", label: "OFC" },
   { href: "/fifa", label: "FIFA" },
 ];

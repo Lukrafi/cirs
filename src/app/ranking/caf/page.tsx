@@ -1,33 +1,78 @@
 import Link from "next/link";
-import rankingData from "@/lib/ofc-power-ranking.json";
+import rankingData from "@/lib/caf-power-ranking.json";
 
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Power Ranking OFC — CIRS",
-  description: "Ranking de força das ligas nacionais da OFC — Oceania.",
+  title: "Power Ranking CAF — CIRS",
+  description: "Ranking de força das ligas nacionais da CAF — África.",
 };
 
-const OFC_COLOR = "#06b6d4";
+const CAF_COLOR = "#22c55e";
 
 const COUNTRY_FLAGS: Record<string, string> = {
-  "Nova Zelândia": "🇳🇿",
-  "Nova Caledônia": "🇳🇨",
-  Taiti: "🇵🇫",
-  Fiji: "🇫🇯",
-  "Ilhas Salomão": "🇸🇧",
-  Vanuatu: "🇻🇺",
-  "Papua-Nova Guiné": "🇵🇬",
-  Samoa: "🇼🇸",
-  Tonga: "🇹🇴",
-  "Ilhas Cook": "🇨🇰",
-  "Samoa Americana": "🇦🇸",
+  "Marrocos": "🇲🇦",
+  "Egito": "🇪🇬",
+  "África do Sul": "🇿🇦",
+  "Tunísia": "🇹🇳",
+  "Argélia": "🇩🇿",
+  "RD Congo": "🇨🇩",
+  "Tanzânia": "🇹🇿",
+  "Sudão": "🇸🇩",
+  "Gana": "🇬🇭",
+  "Nigéria": "🇳🇬",
+  "Angola": "🇦🇴",
+  "Zâmbia": "🇿🇲",
+  "Costa do Marfim": "🇨🇮",
+  "Zimbábue": "🇿🇼",
+  "Quênia": "🇰🇪",
+  "Uganda": "🇺🇬",
+  "Etiópia": "🇪🇹",
+  "Ruanda": "🇷🇼",
+  "Senegal": "🇸🇳",
+  "Mali": "🇲🇱",
+  "Burkina Faso": "🇧🇫",
+  "Benin": "🇧🇯",
+  "Guiné": "🇬🇳",
+  "Camarões": "🇨🇲",
+  "Moçambique": "🇲🇿",
+  "Burundi": "🇧🇮",
+  "Malawi": "🇲🇼",
+  "Botswana": "🇧🇼",
+  "Lesoto": "🇱🇸",
+  "Essuatíni": "🇸🇿",
+  "Namíbia": "🇳🇦",
+  "Madagascar": "🇲🇬",
+  "Maurício": "🇲🇺",
+  "Seicheles": "🇸🇨",
+  "Comores": "🇰🇲",
+  "Congo": "🇨🇬",
+  "Gabão": "🇬🇦",
+  "Guiné Equatorial": "🇬🇶",
+  "República Centro-Africana": "🇨🇫",
+  "Chade": "🇹🇩",
+  "São Tomé e Príncipe": "🇸🇹",
+  "Djibouti": "🇩🇯",
+  "Eritreia": "🇪🇷",
+  "Somália": "🇸🇴",
+  "Sudão do Sul": "🇸🇸",
+  "Mauritânia": "🇲🇷",
+  "Gâmbia": "🇬🇲",
+  "Libéria": "🇱🇷",
+  "Serra Leoa": "🇸🇱",
+  "Guiné-Bissau": "🇬🇼",
+  "Cabo Verde": "🇨🇻",
+  "Níger": "🇳🇪",
+  "Togo": "🇹🇬",
+  "Zanzibar": "🇹🇿",
+  "Reunião": "🇷🇪",
 };
 
 function ratingTier(rating: number): string {
-  if (rating >= 500) return "bg-cyan-500/10 text-cyan-300";
-  if (rating >= 400) return "bg-cyan-500/10 text-cyan-400";
-  if (rating >= 300) return "bg-blue-500/10 text-blue-400";
+  if (rating >= 750) return "bg-green-500/10 text-green-300";
+  if (rating >= 600) return "bg-green-500/10 text-green-400";
+  if (rating >= 500) return "bg-emerald-500/10 text-emerald-400";
+  if (rating >= 350) return "bg-blue-500/10 text-blue-400";
   if (rating >= 200) return "bg-foreground/5 text-foreground";
   return "bg-muted/10 text-muted";
 }
@@ -47,7 +92,7 @@ const avgRating = Math.round(entries.reduce((s, e) => s + e.rating, 0) / entries
 const firstDiv = entries.filter((e) => e.division === 1);
 const secondDiv = entries.filter((e) => e.division === 2);
 
-export default function OfcPowerRankingPage() {
+export default function CafPowerRankingPage() {
   return (
     <div className="pt-20 min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="mb-2">
@@ -56,10 +101,10 @@ export default function OfcPowerRankingPage() {
         </span>
       </div>
       <h1 className="text-4xl font-black mb-2">
-        <span className="gold-text">Power Ranking da OFC</span>
+        <span className="gold-text">Power Ranking da CAF</span>
       </h1>
       <p className="text-muted mb-8 max-w-3xl">
-        Ranking de força das ligas nacionais da Oceania. Ratings de 0 a 1000 baseados em
+        Ranking de força das ligas nacionais da África. Ratings de 0 a 1000 baseados em
         desempenho histórico, competitividade, talento e exposição internacional.
       </p>
 
@@ -70,21 +115,21 @@ export default function OfcPowerRankingPage() {
         >
           ← Ranking Global
         </Link>
-        <span className="text-xs px-3 py-1.5 rounded-lg" style={{ background: `${OFC_COLOR}22`, color: OFC_COLOR }}>
-          OFC
+        <span className="text-xs px-3 py-1.5 rounded-lg" style={{ background: `${CAF_COLOR}22`, color: CAF_COLOR }}>
+          CAF
         </span>
         <Link
-          href="/ranking/caf"
+          href="/ranking/ofc"
           className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold"
         >
-          CAF
+          OFC
         </Link>
       </div>
 
       {topLeague && (
         <div className="glass rounded-2xl p-6 mb-10 flex items-center justify-between">
           <div>
-            <div className="text-xs uppercase tracking-wider text-muted">Liga #1 da OFC</div>
+            <div className="text-xs uppercase tracking-wider text-muted">Liga #1 da CAF</div>
             <div className="text-2xl font-black gold-text mt-1">{topLeague.league}</div>
             <div className="text-sm text-muted mt-1">
               {topLeague.country} · 1ª Divisão
@@ -116,8 +161,8 @@ export default function OfcPowerRankingPage() {
         </div>
       </div>
 
-      <RanksView entries={firstDiv} title="1ª Divisão" color={OFC_COLOR} />
-      <RanksView entries={secondDiv} title="2ª Divisão" color={OFC_COLOR} />
+      <RanksView entries={firstDiv} title="1ª Divisão" color={CAF_COLOR} />
+      <RanksView entries={secondDiv} title="2ª Divisão" color={CAF_COLOR} />
     </div>
   );
 }
