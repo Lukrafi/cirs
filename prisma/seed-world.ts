@@ -1,4 +1,6 @@
 import { PrismaClient } from "@prisma/client";
+import fs from "fs";
+import path from "path";
 
 const prisma = new PrismaClient();
 
@@ -319,6 +321,41 @@ const data: P[] = [
   P_("VIE","Vietnã","AFC",3.5,[L1("V.League 1",14,0,2),L2("V.League 2",14,2,0),LC("Cup")]),
 ];
 
+const leagueRatingsPath = path.join(__dirname, "..", "src", "lib", "league-ratings.json");
+type LeagueRatingEntry = { league: string; country: string; rating: number; aliases?: string[] };
+const leagueRatings: Record<string, LeagueRatingEntry[]> = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(leagueRatingsPath, "utf-8"));
+  } catch {
+    return {};
+  }
+})();
+
+function getLeagueRating(countryName: string, leagueName: string): number {
+  for (const [, entries] of Object.entries(leagueRatings)) {
+    for (const entry of entries) {
+      if (entry.country.toLowerCase() !== countryName.toLowerCase()) continue;
+      if (entry.league.toLowerCase() === leagueName.toLowerCase()) return entry.rating;
+      const aliases = entry.aliases || [];
+      if (aliases.some((a) => a.toLowerCase() === leagueName.toLowerCase())) return entry.rating;
+    }
+  }
+  for (const [, entries] of Object.entries(leagueRatings)) {
+    for (const entry of entries) {
+      if (entry.country.toLowerCase() !== countryName.toLowerCase()) continue;
+      if (
+        leagueName.toLowerCase().startsWith(entry.league.toLowerCase()) ||
+        (entry.league.length > 4 && leagueName.toLowerCase().includes(entry.league.toLowerCase()))
+      ) {
+        return entry.rating;
+      }
+      const aliases = entry.aliases || [];
+      if (aliases.some((a) => a.toLowerCase() === leagueName.toLowerCase())) return entry.rating;
+    }
+  }
+  return 0;
+}
+
 const confCompetitions: Record<string, [string, string, number][]> = {
   UEFA: [
     ["UEFA Champions League", "groups", 36],
@@ -418,6 +455,7 @@ async function main() {
           confederationId: confId,
           divisionId: divisionId || null,
           isInternational: false,
+          rating: getLeagueRating(p.n, lName),
         },
       });
       leagueCount++;

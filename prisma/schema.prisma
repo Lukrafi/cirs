@@ -127,6 +127,7 @@ model League {
   confederationId String?
   confederation Confederation? @relation(fields: [confederationId], references: [id])
   isInternational Boolean   @default(false)
+  rating       Int          @default(0)
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
   seasons      Season[]
