@@ -1088,6 +1088,222 @@
           ]
         }
       ]
+    },
+    {
+      "name": "UEFA",
+      "countries": [
+        {
+          "name": "Inglaterra",
+          "code": "ENG",
+          "competitions": [
+            {
+              "name": "Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton & Hove Albion",
+                "Chelsea", "Crystal Palace", "Everton", "Fulham", "Ipswich Town",
+                "Leicester City", "Liverpool", "Manchester City", "Manchester United", "Newcastle United",
+                "Nottingham Forest", "Southampton", "Tottenham Hotspur", "West Ham United", "Wolverhampton Wanderers"
+              ]
+            },
+            {
+              "name": "EFL Championship",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Leeds United", "Burnley", "Sheffield United", "Luton Town", "West Bromwich Albion",
+                "Watford", "Coventry City", "Middlesbrough", "Sunderland", "Hull City",
+                "Stoke City", "Millwall", "Preston North End", "Swansea City", "Cardiff City",
+                "Bristol City", "Norwich City", "Blackburn Rovers", "Queens Park Rangers", "Plymouth Argyle",
+                "Sheffield Wednesday", "Oxford United", "Portsmouth", "Derby County"
+              ]
+            },
+            { "name": "FA Cup", "type": "copa" },
+            { "name": "FA Community Shield", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Espanha",
+          "code": "ESP",
+          "competitions": [
+            {
+              "name": "La Liga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Athletic Club", "Atlético de Madrid", "Barcelona", "Celta de Vigo", "Alavés",
+                "Getafe", "Girona", "Mallorca", "Osasuna", "Rayo Vallecano",
+                "Real Betis", "Real Madrid", "Real Sociedad", "Sevilla", "Valencia",
+                "Villarreal", "Las Palmas", "Leganés", "Real Valladolid", "Espanyol"
+              ]
+            },
+            {
+              "name": "Segunda División",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Almería", "Granada", "Cádiz", "Levante", "Eibar",
+                "Real Zaragoza", "Sporting de Gijón", "Real Oviedo", "Tenerife", "Racing de Santander",
+                "Elche", "Huesca", "Mirandés", "Burgos", "Albacete",
+                "Cartagena", "Eldense", "Racing de Ferrol", "Castellón", "Deportivo de La Coruña", "Málaga", "Córdoba"
+              ]
+            },
+            { "name": "Copa del Rey", "type": "copa" },
+            { "name": "Supercopa de España", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Itália",
+          "code": "ITA",
+          "competitions": [
+            {
+              "name": "Serie A",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Atalanta", "Bologna", "Cagliari", "Como", "Empoli",
+                "Fiorentina", "Genoa", "Hellas Verona", "Inter Milan", "Juventus",
+                "Lazio", "Lecce", "AC Milan", "Monza", "Napoli",
+                "Parma", "Roma", "Torino", "Udinese", "Venezia"
+              ]
+            },
+            {
+              "name": "Serie B",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Sassuolo", "Frosinone", "Salernitana", "Sampdoria", "Palermo",
+                "Bari", "Spezia", "Cremonese", "Catanzaro", "Brescia",
+                "Cosenza", "Modena", "Reggiana", "Sudtirol", "Cittadella",
+                "Pisa", "Mantova", "Juve Stabia", "Carrarese", "Cesena"
+              ]
+            },
+            { "name": "Coppa Italia", "type": "copa" },
+            { "name": "Supercoppa Italiana", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Alemanha",
+          "code": "GER",
+          "competitions": [
+            {
+              "name": "Bundesliga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "FC Augsburg", "Bayer Leverkusen", "Bayern Munich", "VfL Bochum", "Werder Bremen",
+                "Borussia Dortmund", "Eintracht Frankfurt", "SC Freiburg", "1. FC Heidenheim", "TSG Hoffenheim",
+                "RB Leipzig", "Mainz 05", "Borussia Mönchengladbach", "FC St. Pauli", "VfB Stuttgart",
+                "Union Berlin", "VfL Wolfsburg", "Holstein Kiel"
+              ]
+            },
+            {
+              "name": "2. Bundesliga",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "1. FC Köln", "Darmstadt 98", "Hamburger SV", "Fortuna Düsseldorf", "Hertha BSC",
+                "Karlsruher SC", "Hannover 96", "SC Paderborn", "Greuther Fürth", "1. FC Nürnberg",
+                "Schalke 04", "SV Elversberg", "Magdeburg", "Kaiserslautern", "Eintracht Braunschweig",
+                "Preußen Münster", "SSV Ulm", "Jahn Regensburg"
+              ]
+            },
+            { "name": "DFB-Pokal", "type": "copa" },
+            { "name": "DFL-Supercup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "França",
+          "code": "FRA",
+          "competitions": [
+            {
+              "name": "Ligue 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Brest", "Le Havre", "Lens", "Lille", "Lyon",
+                "Marseille", "Monaco", "Montpellier", "Nantes", "Nice",
+                "Paris Saint-Germain", "Reims", "Rennes", "Saint-Étienne", "Strasbourg",
+                "Toulouse", "Angers", "Auxerre"
+              ]
+            },
+            {
+              "name": "Ligue 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Ajaccio", "Annecy", "Bastia", "Caen", "Clermont Foot",
+                "Dunkerque", "Guingamp", "Laval", "Lorient", "Martigues",
+                "Metz", "Pau", "Paris FC", "Rodez", "Red Star",
+                "Troyes", "Grenoble", "Amiens"
+              ]
+            },
+            { "name": "Coupe de France", "type": "copa" },
+            { "name": "Trophée des Champions", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Portugal",
+          "code": "POR",
+          "competitions": [
+            {
+              "name": "Primeira Liga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Benfica", "Porto", "Sporting CP", "Braga", "Vitória de Guimarães",
+                "Moreirense", "Arouca", "Famalicão", "Casa Pia", "Rio Ave",
+                "Gil Vicente", "Estoril Praia", "Boavista", "Farense", "Estrela da Amadora",
+                "Nacional", "Santa Clara", "AVS"
+              ]
+            },
+            {
+              "name": "Liga Portugal 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Portimonense", "Vizela", "Chaves", "Marítimo", "Paços de Ferreira",
+                "Tondela", "Feirense", "Torreense", "Mafra", "Leixões",
+                "Oliveirense", "Académico de Viseu", "Penafiel", "União de Leiria", "Felgueiras",
+                "Alverca", "Benfica B", "Porto B"
+              ]
+            },
+            { "name": "Taça de Portugal", "type": "copa" },
+            { "name": "Supertaça Cândido de Oliveira", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Países Baixos",
+          "code": "NED",
+          "competitions": [
+            {
+              "name": "Eredivisie",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Ajax", "AZ Alkmaar", "Feyenoord", "PSV Eindhoven", "FC Utrecht",
+                "FC Twente", "Go Ahead Eagles", "NEC Nijmegen", "Heerenveen", "Fortuna Sittard",
+                "Sparta Rotterdam", "Heracles Almelo", "PEC Zwolle", "Almere City", "RKC Waalwijk",
+                "FC Groningen", "NAC Breda", "Willem II"
+              ]
+            },
+            {
+              "name": "Eerste Divisie",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Excelsior", "FC Volendam", "ADO Den Haag", "De Graafschap", "VVV-Venlo",
+                "FC Emmen", "TOP Oss", "Telstar", "FC Eindhoven", "MVV Maastricht",
+                "Den Bosch", "Jong Ajax", "Jong PSV", "Jong AZ", "Jong Utrecht",
+                "Roda JC", "Helmond Sport", "FC Dordrecht", "SC Cambuur", "Vitesse"
+              ]
+            },
+            { "name": "KNVB Cup", "type": "copa" },
+            { "name": "Johan Cruyff Shield", "type": "supercopa" }
+          ]
+        }
+      ]
     }
   ]
 }
