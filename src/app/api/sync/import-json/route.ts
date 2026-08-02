@@ -184,18 +184,28 @@ export async function POST(_req: NextRequest) {
                       });
                       clubsFixed++;
                     } else {
-                      club = await prisma.club.create({
-                        data: {
-                          name: teamName,
-                          shortName: teamName.split(" ").slice(0, 3).join(" "),
-                          city: "",
-                          countryId: country.id,
-                          divisionId: divisionId || null,
-                          founded: "",
-                          strength: 5.0,
-                        },
-                      });
-                      clubsCreated++;
+                      try {
+                        club = await prisma.club.upsert({
+                          where: { name: teamName },
+                          update: {
+                            countryId: country.id,
+                            divisionId: divisionId || undefined,
+                          },
+                          create: {
+                            name: teamName,
+                            shortName: teamName.split(" ").slice(0, 3).join(" "),
+                            city: "",
+                            countryId: country.id,
+                            divisionId: divisionId || null,
+                            founded: "",
+                            strength: 5.0,
+                          },
+                        });
+                        clubsCreated++;
+                      } catch (e: any) {
+                        errors.push(`upsert Club [${teamName}]: ${e.message}`);
+                        continue;
+                      }
                     }
                   } else {
                     const u: any = {};
