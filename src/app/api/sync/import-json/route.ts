@@ -168,7 +168,13 @@ export async function POST(req: NextRequest) {
 
     let confederation = await prisma.confederation.findFirst({ where: { code: confedCode } });
     if (!confederation) {
-      confederation = await prisma.confederation.create({ data: { name: confedCode, code: confedCode, logo: "" } });
+      console.log("[import-json] Creating confederation:", confedCode);
+      try {
+        confederation = await prisma.confederation.create({ data: { name: confedCode, code: confedCode, logo: "" } });
+      } catch (e: any) {
+        errors.push(`Confederation [${confedCode}]: ${e.message}`);
+        return NextResponse.json({ step: "confederation", error: e.message, clubsCreated: 0, clubsUpdated: 0, competitionsCreated: 0, flagsDownloaded: 0, emblemsDownloaded: 0, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors });
+      }
     }
 
     for (const cData of countries) {
@@ -177,7 +183,13 @@ export async function POST(req: NextRequest) {
           where: { OR: [{ name: cData.name }, { code: cData.code }] },
         });
         if (!country) {
-          country = await prisma.country.create({ data: { name: cData.name, code: cData.code, flag: "", confederationId: confederation.id } });
+          console.log("[import-json] Creating country:", cData.name, cData.code);
+          try {
+            country = await prisma.country.create({ data: { name: cData.name, code: cData.code, flag: "", confederationId: confederation.id } });
+          } catch (e: any) {
+            errors.push(`Country create [${cData.name}]: ${e.message}`);
+            return NextResponse.json({ step: "country-create", country: cData.name, error: e.message, clubsCreated: 0, clubsUpdated: 0, competitionsCreated: 0, flagsDownloaded: 0, emblemsDownloaded: 0, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors });
+          }
         } else if (!country.confederationId) {
           await prisma.country.update({ where: { id: country.id }, data: { confederationId: confederation.id } });
         }
@@ -198,7 +210,13 @@ export async function POST(req: NextRequest) {
           where: { name: "Division 1", countryId: country.id },
         });
         if (!division) {
-          division = await prisma.division.create({ data: { name: "Division 1", countryId: country.id, level: 1 } });
+          console.log("[import-json] Creating division for:", country.name);
+          try {
+            division = await prisma.division.create({ data: { name: "Division 1", countryId: country.id, level: 1 } });
+          } catch (e: any) {
+            errors.push(`Division [${country.name}]: ${e.message}`);
+            return NextResponse.json({ step: "division", country: country.name, error: e.message, clubsCreated: 0, clubsUpdated: 0, competitionsCreated: 0, flagsDownloaded: 0, emblemsDownloaded: 0, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors });
+          }
         }
 
         for (const compData of cData.competitions) {
@@ -207,16 +225,22 @@ export async function POST(req: NextRequest) {
               where: { name: { contains: compData.name } },
             });
             if (!league) {
-              league = await prisma.league.create({
-                data: {
-                  name: compData.name,
-                  logo: "",
-                  countryId: country.id,
-                  confederationId: confederation.id,
-                  divisionId: division.id,
-                  isInternational: false,
-                },
-              });
+              console.log("[import-json] Creating league:", compData.name);
+              try {
+                league = await prisma.league.create({
+                  data: {
+                    name: compData.name,
+                    logo: "",
+                    countryId: country.id,
+                    confederationId: confederation.id,
+                    divisionId: division.id,
+                    isInternational: false,
+                  },
+                });
+              } catch (e: any) {
+                errors.push(`League [${compData.name}]: ${e.message}`);
+                return NextResponse.json({ step: "league", league: compData.name, error: e.message, clubsCreated: 0, clubsUpdated: 0, competitionsCreated: 0, flagsDownloaded: 0, emblemsDownloaded: 0, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors });
+              }
             } else {
               const u: any = {};
               if (!league.countryId) u.countryId = country.id;
@@ -229,33 +253,45 @@ export async function POST(req: NextRequest) {
               where: { leagueId: league.id, year: seasonYear },
             });
             if (!season) {
-              season = await prisma.season.create({
-                data: {
-                  name: `${seasonYear}`,
-                  year: seasonYear,
-                  leagueId: league.id,
-                  startDate: new Date(`${seasonYear}-01-01`),
-                  endDate: new Date(`${seasonYear}-12-31`),
-                },
-              });
+              console.log("[import-json] Creating season:", seasonYear, league.name);
+              try {
+                season = await prisma.season.create({
+                  data: {
+                    name: `${seasonYear}`,
+                    year: seasonYear,
+                    leagueId: league.id,
+                    startDate: new Date(`${seasonYear}-01-01`),
+                    endDate: new Date(`${seasonYear}-12-31`),
+                  },
+                });
+              } catch (e: any) {
+                errors.push(`Season [${league.name}]: ${e.message}`);
+                return NextResponse.json({ step: "season", league: league.name, error: e.message, clubsCreated: 0, clubsUpdated: 0, competitionsCreated: 0, flagsDownloaded: 0, emblemsDownloaded: 0, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors });
+              }
             }
 
             let competition = await prisma.competition.findFirst({
               where: { seasonId: season.id, name: { contains: compData.name } },
             });
             if (!competition) {
-              competition = await prisma.competition.create({
-                data: {
-                  name: compData.name,
-                  type: compData.type,
-                  seasonId: season.id,
-                  numTeams: compData.teams ? compData.teams.length : 0,
-                  numTurns: 2,
-                  format: compData.type === "copa" ? "knockout" : "round-robin",
-                  isKnockout: compData.type === "copa",
-                },
-              });
-              competitionsCreated++;
+              console.log("[import-json] Creating competition:", compData.name);
+              try {
+                competition = await prisma.competition.create({
+                  data: {
+                    name: compData.name,
+                    type: compData.type,
+                    seasonId: season.id,
+                    numTeams: compData.teams ? compData.teams.length : 0,
+                    numTurns: 2,
+                    format: compData.type === "copa" ? "knockout" : "round-robin",
+                    isKnockout: compData.type === "copa",
+                  },
+                });
+                competitionsCreated++;
+              } catch (e: any) {
+                errors.push(`Competition [${compData.name}]: ${e.message}`);
+                return NextResponse.json({ step: "competition", competition: compData.name, error: e.message, clubsCreated: 0, clubsUpdated: 0, competitionsCreated: 0, flagsDownloaded: 0, emblemsDownloaded: 0, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors });
+              }
             } else {
               await prisma.competition.update({
                 where: { id: competition.id },
@@ -270,12 +306,18 @@ export async function POST(req: NextRequest) {
 
             let group = await prisma.group.findFirst({ where: { competitionId: competition.id } });
             if (!group) {
-              group = await prisma.group.create({
-                data: {
-                  name: compData.type === "copa" ? "Mata-mata" : "Grupo Unico",
-                  competitionId: competition.id,
-                },
-              });
+              console.log("[import-json] Creating group:", compData.name);
+              try {
+                group = await prisma.group.create({
+                  data: {
+                    name: compData.type === "copa" ? "Mata-mata" : "Grupo Unico",
+                    competitionId: competition.id,
+                  },
+                });
+              } catch (e: any) {
+                errors.push(`Group [${compData.name}]: ${e.message}`);
+                return NextResponse.json({ step: "group", competition: compData.name, error: e.message, clubsCreated: 0, clubsUpdated: 0, competitionsCreated: 0, flagsDownloaded: 0, emblemsDownloaded: 0, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors });
+              }
             }
 
             if (compData.teams && compData.teams.length > 0) {
@@ -285,18 +327,24 @@ export async function POST(req: NextRequest) {
                     where: { name: { equals: teamName } },
                   });
                   if (!club) {
-                    club = await prisma.club.create({
-                      data: {
-                        name: teamName,
-                        shortName: teamName.split(" ").slice(0, 3).join(" "),
-                        city: "",
-                        countryId: country.id,
-                        divisionId: division.id,
-                        founded: "",
-                        strength: 5.0,
-                      },
-                    });
-                    clubsCreated++;
+                    console.log("[import-json] Creating club:", teamName);
+                    try {
+                      club = await prisma.club.create({
+                        data: {
+                          name: teamName,
+                          shortName: teamName.split(" ").slice(0, 3).join(" "),
+                          city: "",
+                          countryId: country.id,
+                          divisionId: division.id,
+                          founded: "",
+                          strength: 5.0,
+                        },
+                      });
+                      clubsCreated++;
+                    } catch (e: any) {
+                      errors.push(`Club create [${teamName}]: ${e.message}`);
+                      return NextResponse.json({ step: "club-create", club: teamName, error: e.message, clubsCreated, clubsUpdated, competitionsCreated, flagsDownloaded, emblemsDownloaded, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors });
+                    }
                   } else {
                     clubsUpdated++;
                   }
@@ -305,9 +353,15 @@ export async function POST(req: NextRequest) {
                     where: { groupId: group.id, clubId: club.id },
                   });
                   if (!standing) {
-                    await prisma.standing.create({
-                      data: { groupId: group.id, clubId: club.id, position: 0 },
-                    });
+                    console.log("[import-json] Creating standing:", teamName);
+                    try {
+                      await prisma.standing.create({
+                        data: { groupId: group.id, clubId: club.id, position: 0 },
+                      });
+                    } catch (e: any) {
+                      errors.push(`Standing [${teamName}]: ${e.message}`);
+                      return NextResponse.json({ step: "standing", club: teamName, error: e.message, clubsCreated, clubsUpdated, competitionsCreated, flagsDownloaded, emblemsDownloaded, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors });
+                    }
                   }
 
                   if (!club.emblem) {
