@@ -34,6 +34,7 @@ export async function POST(_req: NextRequest) {
 
   const start = Date.now();
   let clubsCreated = 0;
+  let clubsFixed = 0;
   let clubsUpdated = 0;
   let competitionsCreated = 0;
   let competitionsUpdated = 0;
@@ -44,11 +45,9 @@ export async function POST(_req: NextRequest) {
   try {
     const flagSource = getDataSource("wikidata");
 
-    let confederation = await prisma.confederation.findFirst({ where: { code: CONFED_CODE } });
-    if (!confederation) {
-      confederation = await prisma.confederation.create({
-        data: { name: CONFED_CODE, code: CONFED_CODE, logo: "" },
-      });
+    const confed = await prisma.confederation.findFirst({ where: { code: CONFEC_CODE } });
+    if (!confed) {
+      return NextResponse.json({ error: "Confederacao CONMEBOL nao encontrada. Execute o seed first." }, { status: 400 });
     }
 
     for (const cData of COUNTRIES) {
@@ -58,12 +57,12 @@ export async function POST(_req: NextRequest) {
         });
         if (!country) {
           country = await prisma.country.create({
-            data: { name: cData.name, code: cData.code, flag: "", confederationId: confederation.id },
+            data: { name: cData.name, code: cData.code, flag: "", confederationId: confed.id },
           });
         } else if (!country.confederationId) {
           await prisma.country.update({
             where: { id: country.id },
-            data: { confederationId: confederation.id },
+            data: { confederationId: confed.id },
           });
         }
 
@@ -78,29 +77,25 @@ export async function POST(_req: NextRequest) {
           }
         }
 
-        const divisionCache: Record<number, string> = {};
-
         for (const compData of cData.competitions) {
           try {
             let divisionId: string | null = null;
             if (compData.division) {
               const divLevel = compData.division;
-              if (!divisionCache[divLevel]) {
-                let division = await prisma.division.findFirst({
-                  where: { name: `Division ${divLevel}`, countryId: country.id },
+              let division = await prisma.division.findFirst({
+                where: { level: divLevel, countryId: country.id },
+              });
+              if (!division) {
+                division = await prisma.division.create({
+                  data: { name: `Division ${divLevel}`, countryId: country.id, level: divLevel },
                 });
-                if (!division) {
-                  division = await prisma.division.create({
-                    data: { name: `Division ${divLevel}`, countryId: country.id, level: divLevel },
-                  });
-                }
-                divisionCache[divLevel] = division.id;
               }
-              divisionId = divisionCache[divLevel];
+              divisionId = division.id;
             }
 
+            const isKnockout = compData.type === "copa" || compData.type === "supercopa";
             let league = await prisma.league.findFirst({
-              where: { name: compData.name },
+              where: { name: compData.name, countryId: country.id, confederationId: confed.id },
             });
             if (!league) {
               league = await prisma.league.create({
@@ -108,19 +103,11 @@ export async function POST(_req: NextRequest) {
                   name: compData.name,
                   logo: "",
                   countryId: country.id,
-                  confederationId: confederation.id,
+                  confederationId: confed.id,
                   divisionId: divisionId || null,
                   isInternational: false,
                 },
               });
-            } else {
-              const u: any = {};
-              if (!league.countryId) u.countryId = country.id;
-              if (!league.confederationId) u.confederationId = confederation.id;
-              if (!league.divisionId && divisionId) u.divisionId = divisionId;
-              if (Object.keys(u).length > 0) {
-                await prisma.league.update({ where: { id: league.id }, data: u });
-              }
             }
 
             let season = await prisma.season.findFirst({
@@ -141,7 +128,6 @@ export async function POST(_req: NextRequest) {
             let competition = await prisma.competition.findFirst({
               where: { seasonId: season.id, name: compData.name },
             });
-            const isKnockoutType = compData.type === "copa" || compData.type === "supercopa";
             const numTeams = compData.teams?.length || 0;
 
             if (!competition) {
@@ -151,20 +137,16 @@ export async function POST(_req: NextRequest) {
                   type: compData.type,
                   seasonId: season.id,
                   numTeams,
-                  numTurns: isKnockoutType ? 1 : 2,
-                  format: isKnockoutType ? "knockout" : "round-robin",
-                  isKnockout: isKnockoutType,
+                  numTurns: isKnockout ? 1 : 2,
+                  format: isKnockout ? "knockout" : "round-robin",
+                  isKnockout,
                 },
               });
               competitionsCreated++;
             } else {
               await prisma.competition.update({
                 where: { id: competition.id },
-                data: {
-                  numTeams,
-                  format: isKnockoutType ? "knockout" : "round-robin",
-                  isKnockout: isKnockoutType,
-                },
+                data: { numTeams, format: isKnockout ? "knockout" : "round-robin", isKnockout },
               });
               competitionsUpdated++;
             }
@@ -173,7 +155,7 @@ export async function POST(_req: NextRequest) {
             if (!group) {
               group = await prisma.group.create({
                 data: {
-                  name: isKnockoutType ? "Mata-mata" : "Grupo Unico",
+                  name: isKnockout ? "Mata-mata" : "Grupo Unico",
                   competitionId: competition.id,
                 },
               });
@@ -186,36 +168,48 @@ export async function POST(_req: NextRequest) {
                   let club = await prisma.club.findFirst({
                     where: { name: teamName, countryId: country.id },
                   });
+
                   if (!club) {
-                    club = await prisma.club.findFirst({ where: { name: teamName } });
-                  }
-                  if (!club) {
-                    club = await prisma.club.create({
-                      data: {
-                        name: teamName,
-                        shortName: teamName.split(" ").slice(0, 3).join(" "),
-                        city: "",
-                        countryId: country.id,
-                        divisionId: divisionId || null,
-                        founded: "",
-                        strength: 5.0,
-                      },
+                    const orphans = await prisma.club.findMany({
+                      where: { name: teamName, countryId: null },
                     });
-                    clubsCreated++;
+                    if (orphans.length > 0) {
+                      club = orphans[0];
+                      await prisma.club.update({
+                        where: { id: club.id },
+                        data: {
+                          countryId: country.id,
+                          divisionId: divisionId || club.divisionId,
+                        },
+                      });
+                      clubsFixed++;
+                    } else {
+                      club = await prisma.club.create({
+                        data: {
+                          name: teamName,
+                          shortName: teamName.split(" ").slice(0, 3).join(" "),
+                          city: "",
+                          countryId: country.id,
+                          divisionId: divisionId || null,
+                          founded: "",
+                          strength: 5.0,
+                        },
+                      });
+                      clubsCreated++;
+                    }
                   } else {
                     const u: any = {};
-                    if (!club.countryId) u.countryId = country.id;
                     if (!club.divisionId && divisionId) u.divisionId = divisionId;
                     if (Object.keys(u).length > 0) {
                       await prisma.club.update({ where: { id: club.id }, data: u });
-                      clubsUpdated++;
                     }
+                    clubsUpdated++;
                   }
 
-                  const standing = await prisma.standing.findFirst({
+                  const exStanding = await prisma.standing.findFirst({
                     where: { groupId: group.id, clubId: club.id },
                   });
-                  if (!standing) {
+                  if (!exStanding) {
                     await prisma.standing.create({
                       data: { groupId: group.id, clubId: club.id, position: i + 1 },
                     });
@@ -249,6 +243,7 @@ export async function POST(_req: NextRequest) {
     const result = {
       source: "conmebol-json",
       clubsCreated,
+      clubsFixed,
       clubsUpdated,
       competitionsCreated,
       competitionsUpdated,
@@ -269,7 +264,19 @@ export async function POST(_req: NextRequest) {
     return NextResponse.json(result);
   } catch (e: any) {
     return NextResponse.json(
-      { error: e.message, clubsCreated, clubsUpdated, competitionsCreated, competitionsUpdated, flagsDownloaded, emblemsDownloaded, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors: [...errors, e.message] },
+      {
+        error: e.message,
+        clubsCreated,
+        clubsFixed,
+        clubsUpdated,
+        competitionsCreated,
+        competitionsUpdated,
+        flagsDownloaded,
+        emblemsDownloaded,
+        stadiumsUpdated: 0,
+        elapsedMs: Date.now() - start,
+        errors: [...errors, e.message],
+      },
       { status: 500 }
     );
   }
@@ -282,7 +289,12 @@ function ensureDir(dir: string) {
 }
 
 function sanitizeFilename(name: string): string {
-  return name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9_-]/g, "_").substring(0, 80).toLowerCase();
+  return name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zA-Z0-9_-]/g, "_")
+    .substring(0, 80)
+    .toLowerCase();
 }
 
 async function downloadImage(imageUrl: string, filename: string, subdir: string): Promise<string | null> {
