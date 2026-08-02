@@ -16,6 +16,8 @@ const navLinks: NavLink[] = [
   { href: "/noticias", label: "Notícias" },
   { href: "/simulacoes", label: "Simulações" },
   { href: "/ranking/uefa", label: "UEFA" },
+  { href: "/ranking/conmebol", label: "CONMEBOL" },
+  { href: "/ranking/concacaf", label: "CONCACAF" },
   { href: "/ranking/caf", label: "CAF" },
   { href: "/ranking/ofc", label: "OFC" },
   { href: "/fifa", label: "FIFA" },

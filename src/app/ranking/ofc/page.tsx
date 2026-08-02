@@ -80,6 +80,18 @@ export default function OfcPowerRankingPage() {
           UEFA
         </Link>
         <Link
+          href="/ranking/conmebol"
+          className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold"
+        >
+          CONMEBOL
+        </Link>
+        <Link
+          href="/ranking/concacaf"
+          className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold"
+        >
+          CONCACAF
+        </Link>
+        <Link
           href="/ranking/caf"
           className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold"
         >
