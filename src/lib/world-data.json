@@ -1304,6 +1304,128 @@
           ]
         }
       ]
+    },
+    {
+      "name": "OFC",
+      "countries": [
+        {
+          "name": "Nova Zelândia",
+          "code": "NZL",
+          "competitions": [
+            {
+              "name": "New Zealand National League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Auckland City", "Wellington Phoenix Reserves", "Eastern Suburbs", "Birkenhead United", "Cashmere Technical",
+                "Christchurch United", "Melville United", "Napier City Rovers", "Western Springs", "Coastal Spirit"
+              ]
+            },
+            {
+              "name": "Northern / Southern League (Divisão Regional)",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Bay Olympic", "Manurewa", "Takapuna", "West Coast Rangers", "Hamilton Wanderers",
+                "Nomads United", "Ferrymead Bays", "Dunedin City Royals", "Nelson Suburbs", "Green Island"
+              ]
+            },
+            { "name": "Chatham Cup", "type": "copa" },
+            { "name": "Charity Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Fiji",
+          "code": "FIJ",
+          "competitions": [
+            {
+              "name": "Fiji National Football League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Rewa", "Lautoka", "Ba", "Suva", "Nadi",
+                "Navua", "Labasa", "Tailevu Naitasiri", "Nadroga", "Nasinu"
+              ]
+            },
+            { "name": "Battle of the Giants", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Nova Caledônia",
+          "code": "NCL",
+          "competitions": [
+            {
+              "name": "Super Ligue",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Hienghène Sport", "Tiga Sport", "AS Magenta", "Gaïtcha", "Horizon Patho",
+                "Wetr", "Scout", "Kunié", "Mont-Dore", "Baco"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Taiti",
+          "code": "TAH",
+          "competitions": [
+            {
+              "name": "Tahiti Ligue 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "AS Tefana", "AS Pirae", "AS Central Sport", "AS Dragon", "AS Venus",
+                "AS Punaruu", "AS Taiarapu", "AS Excelsior", "AS Arue", "AS JT"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ilhas Salomão",
+          "code": "SOL",
+          "competitions": [
+            {
+              "name": "Solomon Islands S-League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Solomon Warriors", "Henderson Eels", "Central Coast", "Kossa", "Marist",
+                "Real Kakamora", "Southern United", "Honiara City", "Waneagu United", "Laugu United"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vanuatu",
+          "code": "VAN",
+          "competitions": [
+            {
+              "name": "Vanuatu VFF National Super League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Galaxy FC", "Ifira Black Bird", "Tafea FC", "Shepherds United", "Malampa Revivors",
+                "Erakor Golden Star", "Spirit 04", "North West United"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Papua-Nova Guiné",
+          "code": "PNG",
+          "competitions": [
+            {
+              "name": "PNG National Soccer League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Lae City", "Hekari United", "Gulf Komara", "Port Moresby Strikers", "Bougainville",
+                "Madang", "Southern Stars", "Morobe Wawens", "Kutubu", "United Highlands"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
