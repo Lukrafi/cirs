@@ -1,0 +1,15 @@
+[
+  { "rank": 1, "league": "New Zealand National League", "country": "Nova Zelândia", "division": 1, "rating": 550 },
+  { "rank": 2, "league": "New Zealand Regional Leagues (Northern/Central/Southern)", "country": "Nova Zelândia", "division": 2, "rating": 430 },
+  { "rank": 3, "league": "New Caledonia Super Ligue", "country": "Nova Caledônia", "division": 1, "rating": 420 },
+  { "rank": 4, "league": "Tahiti Ligue 1", "country": "Taiti", "division": 1, "rating": 410 },
+  { "rank": 5, "league": "Fiji Premier League", "country": "Fiji", "division": 1, "rating": 400 },
+  { "rank": 6, "league": "Solomon Islands S-League", "country": "Ilhas Salomão", "division": 1, "rating": 390 },
+  { "rank": 7, "league": "Vanuatu National Super League", "country": "Vanuatu", "division": 1, "rating": 380 },
+  { "rank": 8, "league": "Papua New Guinea National Soccer League", "country": "Papua-Nova Guiné", "division": 1, "rating": 370 },
+  { "rank": 9, "league": "Tahiti Ligue 2", "country": "Taiti", "division": 2, "rating": 300 },
+  { "rank": 10, "league": "Samoa National League", "country": "Samoa", "division": 1, "rating": 250 },
+  { "rank": 11, "league": "Tonga Major League", "country": "Tonga", "division": 1, "rating": 240 },
+  { "rank": 12, "league": "Cook Islands Round Cup", "country": "Ilhas Cook", "division": 1, "rating": 230 },
+  { "rank": 13, "league": "American Samoa Senior League", "country": "Samoa Americana", "division": 1, "rating": 200 }
+]

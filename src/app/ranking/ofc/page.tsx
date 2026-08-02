@@ -1,33 +1,34 @@
 import Link from "next/link";
-import rankingData from "@/lib/conmebol-power-ranking.json";
+import rankingData from "@/lib/ofc-power-ranking.json";
 
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Power Ranking CONMEBOL — CIRS",
-  description: "Ranking de força das ligas nacionais da CONMEBOL — América do Sul.",
+  title: "Power Ranking OFC — CIRS",
+  description: "Ranking de força das ligas nacionais da OFC — Oceania.",
 };
 
-const CONMEBOL_COLOR = "#fbbf24";
+const OFC_COLOR = "#06b6d4";
 
 const COUNTRY_FLAGS: Record<string, string> = {
-  Brasil: "🇧🇷",
-  Argentina: "🇦🇷",
-  Uruguai: "🇺🇾",
-  Colômbia: "🇨🇴",
-  Chile: "🇨🇱",
-  Equador: "🇪🇨",
-  Paraguai: "🇵🇾",
-  Peru: "🇵🇪",
-  Venezuela: "🇻🇪",
-  Bolívia: "🇧🇴",
+  "Nova Zelândia": "🇳🇿",
+  "Nova Caledônia": "🇳🇨",
+  Taiti: "🇵🇫",
+  Fiji: "🇫🇯",
+  "Ilhas Salomão": "🇸🇧",
+  Vanuatu: "🇻🇺",
+  "Papua-Nova Guiné": "🇵🇬",
+  Samoa: "🇼🇸",
+  Tonga: "🇹🇴",
+  "Ilhas Cook": "🇨🇰",
+  "Samoa Americana": "🇦🇸",
 };
 
 function ratingTier(rating: number): string {
-  if (rating >= 850) return "bg-yellow-500/10 text-yellow-300";
-  if (rating >= 700) return "bg-gold/10 text-gold";
-  if (rating >= 600) return "bg-blue-500/10 text-blue-400";
-  if (rating >= 500) return "bg-foreground/5 text-foreground";
+  if (rating >= 500) return "bg-cyan-500/10 text-cyan-300";
+  if (rating >= 400) return "bg-cyan-500/10 text-cyan-400";
+  if (rating >= 300) return "bg-blue-500/10 text-blue-400";
+  if (rating >= 200) return "bg-foreground/5 text-foreground";
   return "bg-muted/10 text-muted";
 }
 
@@ -46,7 +47,7 @@ const avgRating = Math.round(entries.reduce((s, e) => s + e.rating, 0) / entries
 const firstDiv = entries.filter((e) => e.division === 1);
 const secondDiv = entries.filter((e) => e.division === 2);
 
-export default function ConmebolPowerRankingPage() {
+export default function OfcPowerRankingPage() {
   return (
     <div className="pt-20 min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="mb-2">
@@ -55,10 +56,10 @@ export default function ConmebolPowerRankingPage() {
         </span>
       </div>
       <h1 className="text-4xl font-black mb-2">
-        <span className="gold-text">Power Ranking da CONMEBOL</span>
+        <span className="gold-text">Power Ranking da OFC</span>
       </h1>
       <p className="text-muted mb-8 max-w-3xl">
-        Ranking de força das ligas nacionais da América do Sul. Ratings de 0 a 1000 baseados em
+        Ranking de força das ligas nacionais da Oceania. Ratings de 0 a 1000 baseados em
         desempenho histórico, competitividade, talento e exposição internacional.
       </p>
 
@@ -69,15 +70,15 @@ export default function ConmebolPowerRankingPage() {
         >
           ← Ranking Global
         </Link>
-        <span className="text-xs px-3 py-1.5 rounded-lg" style={{ background: `${CONMEBOL_COLOR}22`, color: CONMEBOL_COLOR }}>
-          CONMEBOL
+        <span className="text-xs px-3 py-1.5 rounded-lg" style={{ background: `${OFC_COLOR}22`, color: OFC_COLOR }}>
+          OFC
         </span>
       </div>
 
       {topLeague && (
         <div className="glass rounded-2xl p-6 mb-10 flex items-center justify-between">
           <div>
-            <div className="text-xs uppercase tracking-wider text-muted">Liga #1 da CONMEBOL</div>
+            <div className="text-xs uppercase tracking-wider text-muted">Liga #1 da OFC</div>
             <div className="text-2xl font-black gold-text mt-1">{topLeague.league}</div>
             <div className="text-sm text-muted mt-1">
               {topLeague.country} · 1ª Divisão
@@ -109,8 +110,8 @@ export default function ConmebolPowerRankingPage() {
         </div>
       </div>
 
-      <RanksView entries={firstDiv} title="1ª Divisão" color={CONMEBOL_COLOR} />
-      <RanksView entries={secondDiv} title="2ª Divisão" color={CONMEBOL_COLOR} />
+      <RanksView entries={firstDiv} title="1ª Divisão" color={OFC_COLOR} />
+      <RanksView entries={secondDiv} title="2ª Divisão" color={OFC_COLOR} />
     </div>
   );
 }
