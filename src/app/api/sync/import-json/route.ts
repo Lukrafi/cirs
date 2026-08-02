@@ -100,7 +100,7 @@ export async function POST(_req: NextRequest) {
             }
 
             let league = await prisma.league.findFirst({
-              where: { name: compData.name, countryId: country.id },
+              where: { name: compData.name },
             });
             if (!league) {
               league = await prisma.league.create({
@@ -183,7 +183,12 @@ export async function POST(_req: NextRequest) {
               for (let i = 0; i < compData.teams.length; i++) {
                 const teamName = compData.teams[i];
                 try {
-                  let club = await prisma.club.findFirst({ where: { name: teamName } });
+                  let club = await prisma.club.findFirst({
+                    where: { name: teamName, countryId: country.id },
+                  });
+                  if (!club) {
+                    club = await prisma.club.findFirst({ where: { name: teamName } });
+                  }
                   if (!club) {
                     club = await prisma.club.create({
                       data: {
@@ -203,8 +208,8 @@ export async function POST(_req: NextRequest) {
                     if (!club.divisionId && divisionId) u.divisionId = divisionId;
                     if (Object.keys(u).length > 0) {
                       await prisma.club.update({ where: { id: club.id }, data: u });
+                      clubsUpdated++;
                     }
-                    clubsUpdated++;
                   }
 
                   const standing = await prisma.standing.findFirst({
