@@ -187,6 +187,15 @@ export default function CentralSincronizacao({ confederations, competitions, cou
           Importar CONMEBOL Completa
         </h2>
         <p className="text-xs text-muted mb-4">Importa automaticamente 10 paises, 20 ligas, 10 copas e todos os clubes da CONMEBOL com dados reais. Sem necessidade de URL ou fonte externa.</p>
+
+        <button
+          onClick={() => call("conmebol-fix", {})}
+          disabled={!!running}
+          className="w-full py-3 mb-3 text-sm font-bold rounded-xl bg-red-500/20 text-red-400 hover:bg-red-500/30 border border-red-500/20 transition-all disabled:opacity-50"
+        >
+          {running === "conmebol-fix" ? "Limpando..." : "Limpar clubes órfãos e duplicados (execute antes de importar)"}
+        </button>
+
         <button
           onClick={() => call("import-json", {})}
           disabled={!!running}
