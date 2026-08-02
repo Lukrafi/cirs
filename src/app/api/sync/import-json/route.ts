@@ -45,7 +45,7 @@ export async function POST(_req: NextRequest) {
   try {
     const flagSource = getDataSource("wikidata");
 
-    const confed = await prisma.confederation.findFirst({ where: { code: CONFEC_CODE } });
+    const confed = await prisma.confederation.findFirst({ where: { code: CONFED_CODE } });
     if (!confed) {
       return NextResponse.json({ error: "Confederacao CONMEBOL nao encontrada. Execute o seed first." }, { status: 400 });
     }
