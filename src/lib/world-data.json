@@ -2130,6 +2130,304 @@
               "type": "copa"
             }
           ]
+        },
+        {
+          "name": "Afeganistão",
+          "code": "AFG",
+          "competitions": [
+            {
+              "name": "Afghan Champions League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Attack Energy",
+                "Abu Muslim",
+                "Sorkh Posh",
+                "Khurasan",
+                "Maiwand",
+                "Jawana"
+              ]
+            },
+            {
+              "name": "Afghanistan Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Butão",
+          "code": "BHU",
+          "competitions": [
+            {
+              "name": "Bhutan Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Paro FC",
+                "Transport United",
+                "Thimphu City",
+                "RTC FC",
+                "Druk Lhayul",
+                "Tensung"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Brunei",
+          "code": "BRU",
+          "competitions": [
+            {
+              "name": "Brunei Super League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Kasuka FC",
+                "MS ABDB",
+                "Kota Ranger",
+                "Wijaya FC",
+                "Indera SC"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Camboja",
+          "code": "CAM",
+          "competitions": [
+            {
+              "name": "Cambodian Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Phnom Penh Crown",
+                "Preah Khan Reach Svay Rieng",
+                "Visakha FC",
+                "Boeung Ket",
+                "Nagaworld",
+                "Angkor Tiger"
+              ]
+            },
+            {
+              "name": "Hun Sen Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Taipé Chinesa",
+          "code": "TPE",
+          "competitions": [
+            {
+              "name": "Taiwan Football Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Taichung Futuro",
+                "Taiwan Steel",
+                "Hang Yuen",
+                "Tatung",
+                "CPC Corporation"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Guam",
+          "code": "GUM",
+          "competitions": [
+            {
+              "name": "Guam Soccer League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Quality Distributors",
+                "Napa Rovers",
+                "Guam Shipyard",
+                "Southern Cobras",
+                "Wings FC"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Laos",
+          "code": "LAO",
+          "competitions": [
+            {
+              "name": "Lao League 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Young Elephants",
+                "Master 7",
+                "Ezra FC",
+                "Luang Prabang FC",
+                "Viengchanh FC"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Macau",
+          "code": "MAC",
+          "competitions": [
+            {
+              "name": "Liga de Elite",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Chao Pak Kei",
+                "Benfica de Macau",
+                "Sporting de Macau",
+                "Cheng Fung",
+                "Hang Sai"
+              ]
+            },
+            {
+              "name": "Taça de Macau",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Maldivas",
+          "code": "MDV",
+          "competitions": [
+            {
+              "name": "Dhivehi Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Maziya S&R",
+                "Club Eagles",
+                "Super United Sports",
+                "TC Sports Club",
+                "Valencia"
+              ]
+            },
+            {
+              "name": "Maldives FA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Mongólia",
+          "code": "MNG",
+          "competitions": [
+            {
+              "name": "Mongolian National Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Khoromkhon",
+                "FC Ulaanbaatar",
+                "Deren FC",
+                "Erchim",
+                "Khangarid"
+              ]
+            },
+            {
+              "name": "Mongolian Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Nepal",
+          "code": "NEP",
+          "competitions": [
+            {
+              "name": "Martyr's Memorial A-Division League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Church Boys United",
+                "Machhindra FC",
+                "APF FC",
+                "Tribhuvan Army",
+                "Nepal Police Club",
+                "Sankata Club"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Paquistão",
+          "code": "PAK",
+          "competitions": [
+            {
+              "name": "Pakistan Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Khan Research Laboratories",
+                "Pakistan Army",
+                "Muslim FC",
+                "Civil Aviation Authority",
+                "Sui Southern Gas Company"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sri Lanka",
+          "code": "SRI",
+          "competitions": [
+            {
+              "name": "Super League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Defenders FC",
+                "Colombo FC",
+                "Blue Star SC",
+                "Renown SC",
+                "Sea Hawks FC"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Timor-Leste",
+          "code": "TLS",
+          "competitions": [
+            {
+              "name": "Liga Futebol Amadora",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Karketu Dili",
+                "Boavista Timor-Leste",
+                "Lalenok United",
+                "AS Ponta Leste",
+                "Atletico Ultramar"
+              ]
+            },
+            {
+              "name": "Taça 12 de Novembro",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Iêmen",
+          "code": "YEM",
+          "competitions": [
+            {
+              "name": "Yemeni League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al-Ahli Sana'a",
+                "Al-Tilal",
+                "Al-Shaab Ibb",
+                "Al-Saqr",
+                "Al-Ittihad Ibb"
+              ]
+            }
+          ]
         }
       ]
     },
