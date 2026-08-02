@@ -820,6 +820,274 @@
           ]
         }
       ]
+    },
+    {
+      "name": "CAF",
+      "countries": [
+        {
+          "name": "Egito",
+          "code": "EGY",
+          "competitions": [
+            {
+              "name": "Egyptian Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al Ahly", "Zamalek", "Pyramids FC", "Modern Future", "Ceramica Cleopatra",
+                "Al Masry", "ENPPI", "Tala'ea El Gaish", "Smouha", "National Bank of Egypt",
+                "Pharco", "Ismaily", "El Gouna", "ZED FC", "Ittihad Alexandria", "Petrojet"
+              ]
+            },
+            {
+              "name": "Egyptian Second Division A",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Wadi Degla", "Aswan", "Ghazl El Mahalla", "Haras El Hodoud", "Tanta",
+                "Proxy", "Raya", "La Viena", "Petrojet", "Suez SC"
+              ]
+            },
+            { "name": "Egypt Cup", "type": "copa" },
+            { "name": "Egyptian Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Marrocos",
+          "code": "MAR",
+          "competitions": [
+            {
+              "name": "Botola Pro",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Wydad Casablanca", "Raja Casablanca", "AS FAR", "RS Berkane", "FUS Rabat",
+                "Olympic Safi", "Maghreb de Fès", "Union Touarga", "JS Soualem", "Ittihad Tanger",
+                "Hassania Agadir", "Moghreb Tétouan", "COD Meknès", "DHJ El Jadida", "Renaissance Zemamra", "CODM Meknès"
+              ]
+            },
+            {
+              "name": "Botola 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "KAC Marrakech", "Ittihad Khemisset", "Chabab Atlas Khénifra", "Racing de Casablanca",
+                "Olympique Khouribga", "Stade Marocain", "JS Massira", "US Yacoub El Mansour"
+              ]
+            },
+            { "name": "Throne Cup", "type": "copa" },
+            { "name": "Moroccan Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "África do Sul",
+          "code": "RSA",
+          "competitions": [
+            {
+              "name": "South African Premier Division",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Mamelodi Sundowns", "Orlando Pirates", "Kaizer Chiefs", "Stellenbosch", "Sekhukhune United",
+                "Cape Town City", "SuperSport United", "AmaZulu", "Royal AM", "TS Galaxy",
+                "Golden Arrows", "Polokwane City", "Chippa United", "Marumo Gallants", "Richards Bay", "Magesi FC"
+              ]
+            },
+            {
+              "name": "National First Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Orbit College", "Casric Stars", "Baroka FC", "University of Pretoria", "JDR Stars",
+                "Maritzburg United", "Upington City", "Hungry Lions", "Black Leopards", "Venda FC"
+              ]
+            },
+            { "name": "Nedbank Cup", "type": "copa" },
+            { "name": "MTN 8 / League Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Tunísia",
+          "code": "TUN",
+          "competitions": [
+            {
+              "name": "Tunisian Ligue Professionnelle 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Espérance de Tunis", "Étoile du Sahel", "Club Africain", "US Monastir", "CS Sfaxien",
+                "Stade Tunisien", "Olympique de Béja", "US Ben Guerdane", "AS Soliman", "CA Bizertin",
+                "US Tataouine", "ES Metlaoui", "EGS Gafsa", "JS Omrane"
+              ]
+            },
+            {
+              "name": "Tunisian Ligue Professionnelle 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "CS Hammam-Lif", "AS Marsa", "Jendouba Sport", "SC Moknine", "Kalaâ Sport",
+                "AS Djerba", "Stade Gabésien", "ES Hammam Sousse"
+              ]
+            },
+            { "name": "Tunisian Cup", "type": "copa" },
+            { "name": "Tunisian Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Argélia",
+          "code": "ALG",
+          "competitions": [
+            {
+              "name": "Algerian Ligue 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "CR Belouizdad", "JS Kabylie", "USM Alger", "MC Alger", "ES Sétif",
+                "CS Constantine", "Paradou AC", "JS Saoura", "ASO Chlef", "US Biskra",
+                "NC Magra", "USM Khenchela", "MC El Bayadh", "ES Mostaganem", "Olympique Akbou", "Paradou"
+              ]
+            },
+            {
+              "name": "Algerian Ligue 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "USM Annaba", "MO Béjaïa", "JSM Tiaret", "RC Kouba", "NA Hussein Dey",
+                "MC El Eulma", "ASM Oran", "CA Batna", "USM El Harrach", "WA Tlemcen"
+              ]
+            },
+            { "name": "Algerian Cup", "type": "copa" },
+            { "name": "Algerian Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Nigéria",
+          "code": "NGA",
+          "competitions": [
+            {
+              "name": "Nigeria Premier Football League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Enyimba", "Rivers United", "Remo Stars", "Plateau United", "Bendel Insurance",
+                "Shooting Stars", "Rangers International", "Lobi Stars", "Kwara United", "Sunshine Stars",
+                "Kano Pillars", "Katsina United", "Bayelsa United", "Akwa United", "Abia Warriors", "Heartland"
+              ]
+            },
+            {
+              "name": "Nigeria National League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Ikorodu City", "Crown FC", "Abuja FC", "Gateway United", "Jigawa Golden Stars",
+                "El-Kanemi Warriors", "ABS FC", "RoadSafety FC"
+              ]
+            },
+            { "name": "Federation Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Gana",
+          "code": "GHA",
+          "competitions": [
+            {
+              "name": "Ghana Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Asante Kotoko", "Hearts of Oak", "Medeama", "Aduana Stars", "Dreams FC",
+                "Berekum Chelsea", "Legon Cities", "Great Olympics", "Karela United", "Bibiani Gold Stars",
+                "Nations FC", "Nsoatreman", "Bechem United", "Accra Lions", "Samartex", "Bofoakwa Tano"
+              ]
+            },
+            {
+              "name": "Ghana Division One League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "King Faisal", "New Edubiase", "Vision FC", "Heart of Lions", "Swedru All Blacks",
+                "Techiman Eleven Wonders", "Tamale City", "Basake Holy Stars"
+              ]
+            },
+            { "name": "Ghana FA Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Costa do Marfim",
+          "code": "CIV",
+          "competitions": [
+            {
+              "name": "Ligue 1 Côte d'Ivoire",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "ASEC Mimosas", "Africa Sports", "FC San Pédro", "Racing Club d'Abidjan", "SOL FC",
+                "SC Gagnoa", "Stella Club", "Bouaké FC", "AS Denguélé", "Lys Sassandra",
+                "CO Korhogo", "Mouna FC", "Zoman FC", "Stade d'Abidjan"
+              ]
+            },
+            {
+              "name": "Ligue 2 Côte d'Ivoire",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Yamoussoukro", "Espoir de Koumassi", "RFC Aboisso", "Agou", "Cosmof", "Jedida"
+              ]
+            },
+            { "name": "Coupe de Côte d'Ivoire", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Camarões",
+          "code": "CMR",
+          "competitions": [
+            {
+              "name": "Elite One",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Coton Sport", "Canon Yaoundé", "Union Douala", "Bamboutos", "PWD Bamenda",
+                "Stade Renard", "Eding Sport", "Fovu Club", "Apejes de Mfou", "Avion Academy",
+                "Victoria United", "Gazelle FA", "Colombe Sportive", "YOSA Bamenda"
+              ]
+            },
+            {
+              "name": "Elite Two",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Panthère du Ndé", "Renaissance de Ngoumou", "Dragon de Yaoundé", "Tonnerre Yaoundé",
+                "Racing Bafoussam", "Dynamo Douala"
+              ]
+            },
+            { "name": "Cameroonian Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Senegal",
+          "code": "SEN",
+          "competitions": [
+            {
+              "name": "Ligue 1 Sénégal",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Génération Foot", "Teungueth FC", "Casa Sports", "Diambars", "US Gorée",
+                "Jaraaf", "Dakar Sacré-Cœur", "Pikine", "Linguère", "Guédiawaye FC",
+                "Sonacos", "Jamono Fatick", "OS Balantines", "HLM Dakar"
+              ]
+            },
+            {
+              "name": "Ligue 2 Sénégal",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Ndiambour", "Port Autonome", "Renaissance Dakar", "Stade de Mbour", "Keur Madior"
+              ]
+            },
+            { "name": "Coupe du Sénégal", "type": "copa" }
+          ]
+        }
+      ]
     }
   ]
 }
