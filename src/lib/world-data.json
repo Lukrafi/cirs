@@ -14,10 +14,26 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Athletico Paranaense", "Atlético Mineiro", "Bahia", "Botafogo", "Bragantino", 
-                "Chapecoense", "Corinthians", "Coritiba", "Cruzeiro", "Flamengo", 
-                "Fluminense", "Grêmio", "Internacional", "Mirassol", "Palmeiras", 
-                "Remo", "Santos", "São Paulo", "Vasco da Gama", "Vitória"
+                "Athletico Paranaense",
+                "Atlético Mineiro",
+                "Bahia",
+                "Botafogo",
+                "Bragantino",
+                "Chapecoense",
+                "Corinthians",
+                "Coritiba",
+                "Cruzeiro",
+                "Flamengo",
+                "Fluminense",
+                "Grêmio",
+                "Internacional",
+                "Mirassol",
+                "Palmeiras",
+                "Remo",
+                "Santos",
+                "São Paulo",
+                "Vasco da Gama",
+                "Vitória"
               ]
             },
             {
@@ -25,14 +41,36 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "América Mineiro", "Athletic Club", "Atlético Goianiense", "Avaí", "Botafogo-SP", 
-                "Ceará", "CRB", "Criciúma", "Cuiabá", "Fortaleza", 
-                "Goiás", "Juventude", "Londrina", "Náutico", "Novorizontino", 
-                "Operário Ferroviário", "Ponte Preta", "São Bernardo", "Sport", "Vila Nova"
+                "América Mineiro",
+                "Athletic Club",
+                "Atlético Goianiense",
+                "Avaí",
+                "Botafogo-SP",
+                "Ceará",
+                "CRB",
+                "Criciúma",
+                "Cuiabá",
+                "Fortaleza",
+                "Goiás",
+                "Juventude",
+                "Londrina",
+                "Náutico",
+                "Novorizontino",
+                "Operário Ferroviário",
+                "Ponte Preta",
+                "São Bernardo",
+                "Sport",
+                "Vila Nova"
               ]
             },
-            { "name": "Copa do Brasil", "type": "copa" },
-            { "name": "Supercopa do Brasil", "type": "supercopa" }
+            {
+              "name": "Copa do Brasil",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa do Brasil",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -44,11 +82,33 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "River Plate", "Boca Juniors", "Racing Club", "Independiente", "San Lorenzo", 
-                "Estudiantes de La Plata", "Vélez Sarsfield", "Talleres", "Lanús", "Defensa y Justicia",
-                "Argentinos Juniors", "Huracán", "Belgrano", "Godoy Cruz", "Newell's Old Boys",
-                "Rosario Central", "Platense", "Atlético Tucumán", "Banfield", "Tigre",
-                "Unión", "Instituto", "Barracas Central", "Riestra", "Sarmiento", "Central Córdoba", "Independiente Rivadavia"
+                "River Plate",
+                "Boca Juniors",
+                "Racing Club",
+                "Independiente",
+                "San Lorenzo",
+                "Estudiantes de La Plata",
+                "Vélez Sarsfield",
+                "Talleres",
+                "Lanús",
+                "Defensa y Justicia",
+                "Argentinos Juniors",
+                "Huracán",
+                "Belgrano",
+                "Godoy Cruz",
+                "Newell's Old Boys",
+                "Rosario Central",
+                "Platense",
+                "Atlético Tucumán",
+                "Banfield",
+                "Tigre",
+                "Unión",
+                "Instituto",
+                "Barracas Central",
+                "Riestra",
+                "Sarmiento",
+                "Central Córdoba",
+                "Independiente Rivadavia"
               ]
             },
             {
@@ -56,12 +116,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "San Martín de Tucumán", "Colón", "San Martín de San Juan", "Quilmes", "All Boys",
-                "Chacarita Juniors", "Agropecuario", "Gimnasia de Mendoza", "Temperley", "Nueva Chicago"
+                "San Martín de Tucumán",
+                "Colón",
+                "San Martín de San Juan",
+                "Quilmes",
+                "All Boys",
+                "Chacarita Juniors",
+                "Agropecuario",
+                "Gimnasia de Mendoza",
+                "Temperley",
+                "Nueva Chicago"
               ]
             },
-            { "name": "Copa Argentina", "type": "copa" },
-            { "name": "Supercopa Argentina", "type": "supercopa" }
+            {
+              "name": "Copa Argentina",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa Argentina",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -72,16 +146,50 @@
               "name": "Primera División Uruguaia",
               "type": "liga",
               "division": 1,
-              "teams": ["Nacional", "Peñarol", "Liverpool", "Defensor Sporting", "Danubio", "Boston River", "Montevideo Wanderers", "Fénix", "River Plate Uruguay", "Cerro", "Cerro Largo", "Deportivo Maldonado", "Racing Montevideo", "Miramar Misiones", "Progreso", "Juventud"]
+              "teams": [
+                "Nacional",
+                "Peñarol",
+                "Liverpool",
+                "Defensor Sporting",
+                "Danubio",
+                "Boston River",
+                "Montevideo Wanderers",
+                "Fénix",
+                "River Plate Uruguay",
+                "Cerro",
+                "Cerro Largo",
+                "Deportivo Maldonado",
+                "Racing Montevideo",
+                "Miramar Misiones",
+                "Progreso",
+                "Juventud"
+              ]
             },
             {
               "name": "Segunda División Uruguaia",
               "type": "liga",
               "division": 2,
-              "teams": ["Rampla Juniors", "Sud América", "Albion", "Uruguay Montevideo", "Cerrito", "Atenas", "Juventud de Las Piedras", "Rentistas", "Torque", "Bella Vista"]
+              "teams": [
+                "Rampla Juniors",
+                "Sud América",
+                "Albion",
+                "Uruguay Montevideo",
+                "Cerrito",
+                "Atenas",
+                "Juventud de Las Piedras",
+                "Rentistas",
+                "Torque",
+                "Bella Vista"
+              ]
             },
-            { "name": "Copa Uruguay", "type": "copa" },
-            { "name": "Supercopa Uruguaya", "type": "supercopa" }
+            {
+              "name": "Copa Uruguay",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa Uruguaya",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -92,16 +200,54 @@
               "name": "Categoría Primera A",
               "type": "liga",
               "division": 1,
-              "teams": ["Millonarios", "Atlético Nacional", "Junior", "Independiente Medellín", "América de Cali", "Santa Fe", "Deportes Tolima", "Deportivo Cali", "Once Caldas", "Águilas Doradas", "La Equidad", "Deportivo Pasto", "Bucaramanga", "Pereira", "Jaguares", "Boyacá Chicó", "Envigado", "Patriotas", "Fortaleza CEIF", "Llaneros"]
+              "teams": [
+                "Millonarios",
+                "Atlético Nacional",
+                "Junior",
+                "Independiente Medellín",
+                "América de Cali",
+                "Santa Fe",
+                "Deportes Tolima",
+                "Deportivo Cali",
+                "Once Caldas",
+                "Águilas Doradas",
+                "La Equidad",
+                "Deportivo Pasto",
+                "Bucaramanga",
+                "Pereira",
+                "Jaguares",
+                "Boyacá Chicó",
+                "Envigado",
+                "Patriotas",
+                "Fortaleza CEIF",
+                "Llaneros"
+              ]
             },
             {
               "name": "Categoría Primera B",
               "type": "liga",
               "division": 2,
-              "teams": ["Real Cartagena", "Unión Magdalena", "Cúcuta Deportivo", "Orsomarso", "Tigres", "Bogotá", "Real Cundinamarca", "Leones", "Barranquilla", "Cortuluá"]
+              "teams": [
+                "Real Cartagena",
+                "Unión Magdalena",
+                "Cúcuta Deportivo",
+                "Orsomarso",
+                "Tigres",
+                "Bogotá",
+                "Real Cundinamarca",
+                "Leones",
+                "Barranquilla",
+                "Cortuluá"
+              ]
             },
-            { "name": "Copa Colombia", "type": "copa" },
-            { "name": "Superliga de Colombia", "type": "supercopa" }
+            {
+              "name": "Copa Colombia",
+              "type": "copa"
+            },
+            {
+              "name": "Superliga de Colombia",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -112,16 +258,50 @@
               "name": "Primera División de Chile",
               "type": "liga",
               "division": 1,
-              "teams": ["Colo-Colo", "Universidad de Chile", "Universidad Católica", "Palestino", "Huachipato", "Unión Española", "Everton", "Coquimbo Unido", "Audax Italiano", "Cobresal", "O'Higgins", "Ñublense", "La Calera", "Deportes Copiapó", "Cobreloa", "Iquique"]
+              "teams": [
+                "Colo-Colo",
+                "Universidad de Chile",
+                "Universidad Católica",
+                "Palestino",
+                "Huachipato",
+                "Unión Española",
+                "Everton",
+                "Coquimbo Unido",
+                "Audax Italiano",
+                "Cobresal",
+                "O'Higgins",
+                "Ñublense",
+                "La Calera",
+                "Deportes Copiapó",
+                "Cobreloa",
+                "Iquique"
+              ]
             },
             {
               "name": "Primera B de Chile",
               "type": "liga",
               "division": 2,
-              "teams": ["Santiago Wanderers", "Deportes Antofagasta", "San Luis de Quillota", "Deportes Temuco", "Magallanes", "Rangers de Talca", "Barnechea", "San Marcos de Arica", "Unión San Felipe", "Curicó Unido"]
+              "teams": [
+                "Santiago Wanderers",
+                "Deportes Antofagasta",
+                "San Luis de Quillota",
+                "Deportes Temuco",
+                "Magallanes",
+                "Rangers de Talca",
+                "Barnechea",
+                "San Marcos de Arica",
+                "Unión San Felipe",
+                "Curicó Unido"
+              ]
             },
-            { "name": "Copa Chile", "type": "copa" },
-            { "name": "Supercopa de Chile", "type": "supercopa" }
+            {
+              "name": "Copa Chile",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa de Chile",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -132,16 +312,50 @@
               "name": "LigaPro Serie A",
               "type": "liga",
               "division": 1,
-              "teams": ["Independiente del Valle", "LDU Quito", "Barcelona SC", "Emelec", "Universidad Católica", "Aucas", "Macará", "El Nacional", "Delfín", "Mushuc Runa", "Deportivo Cuenca", "Técnico Universitario", "Imbabura", "Orense", "Cumbayá", "Libertad"]
+              "teams": [
+                "Independiente del Valle",
+                "LDU Quito",
+                "Barcelona SC",
+                "Emelec",
+                "Universidad Católica",
+                "Aucas",
+                "Macará",
+                "El Nacional",
+                "Delfín",
+                "Mushuc Runa",
+                "Deportivo Cuenca",
+                "Técnico Universitario",
+                "Imbabura",
+                "Orense",
+                "Cumbayá",
+                "Libertad"
+              ]
             },
             {
               "name": "LigaPro Serie B",
               "type": "liga",
               "division": 2,
-              "teams": ["Guayaquil City", "Manta", "Chacaritas", "Vargas Torres", "San Antonio", "9 de Octubre", "Leones del Norte", "Gualaceo", "Cuniburo", "Búhos ULVR"]
+              "teams": [
+                "Guayaquil City",
+                "Manta",
+                "Chacaritas",
+                "Vargas Torres",
+                "San Antonio",
+                "9 de Octubre",
+                "Leones del Norte",
+                "Gualaceo",
+                "Cuniburo",
+                "Búhos ULVR"
+              ]
             },
-            { "name": "Copa Ecuador", "type": "copa" },
-            { "name": "Supercopa Ecuador", "type": "supercopa" }
+            {
+              "name": "Copa Ecuador",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa Ecuador",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -152,16 +366,46 @@
               "name": "División Profesional (Apertura/Clausura)",
               "type": "liga",
               "division": 1,
-              "teams": ["Olimpia", "Cerro Porteño", "Libertad", "Guaraní", "Sportivo Luqueño", "Nacional Asunción", "General Caballero JLM", "Tacuary", "Ameliano", "Trinidad", "2 de Mayo", "Sol de América"]
+              "teams": [
+                "Olimpia",
+                "Cerro Porteño",
+                "Libertad",
+                "Guaraní",
+                "Sportivo Luqueño",
+                "Nacional Asunción",
+                "General Caballero JLM",
+                "Tacuary",
+                "Ameliano",
+                "Trinidad",
+                "2 de Mayo",
+                "Sol de América"
+              ]
             },
             {
               "name": "División Intermedia",
               "type": "liga",
               "division": 2,
-              "teams": ["San Lorenzo", "Deportivo Recoleta", "Fernando de la Mora", "Independiente CG", "Pastoreo", "Guaireña", "12 de Octubre", "Rubio Ñu", "Encarnación", "Tembetary"]
+              "teams": [
+                "San Lorenzo",
+                "Deportivo Recoleta",
+                "Fernando de la Mora",
+                "Independiente CG",
+                "Pastoreo",
+                "Guaireña",
+                "12 de Octubre",
+                "Rubio Ñu",
+                "Encarnación",
+                "Tembetary"
+              ]
             },
-            { "name": "Copa Paraguay", "type": "copa" },
-            { "name": "Supercopa Paraguay", "type": "supercopa" }
+            {
+              "name": "Copa Paraguay",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa Paraguay",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -172,16 +416,52 @@
               "name": "Liga 1",
               "type": "liga",
               "division": 1,
-              "teams": ["Universitario", "Alianza Lima", "Sporting Cristal", "Melgar", "Cienciano", "Sport Huancayo", "ADT", "Cusco FC", "UTC", "Alianza Atlético", "Comerciantes Unidos", "Los Chankas", "Sport Boys", "Deportivo Garcilaso", "César Vallejo", "Unión Comercio", "Atlético Grau", "Mannucci"]
+              "teams": [
+                "Universitario",
+                "Alianza Lima",
+                "Sporting Cristal",
+                "Melgar",
+                "Cienciano",
+                "Sport Huancayo",
+                "ADT",
+                "Cusco FC",
+                "UTC",
+                "Alianza Atlético",
+                "Comerciantes Unidos",
+                "Los Chankas",
+                "Sport Boys",
+                "Deportivo Garcilaso",
+                "César Vallejo",
+                "Unión Comercio",
+                "Atlético Grau",
+                "Mannucci"
+              ]
             },
             {
               "name": "Liga 2",
               "type": "liga",
               "division": 2,
-              "teams": ["San Martín", "Deportivo Municipal", "Ayacucho FC", "Coopsol", "Llacuabamba", "Pirata FC", "Juan Pablo II", "U. San Martín", "Comerciantes", "Cantolao"]
+              "teams": [
+                "San Martín",
+                "Deportivo Municipal",
+                "Ayacucho FC",
+                "Coopsol",
+                "Llacuabamba",
+                "Pirata FC",
+                "Juan Pablo II",
+                "U. San Martín",
+                "Comerciantes",
+                "Cantolao"
+              ]
             },
-            { "name": "Copa Bicentenario", "type": "copa" },
-            { "name": "Supercopa Peruana", "type": "supercopa" }
+            {
+              "name": "Copa Bicentenario",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa Peruana",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -192,16 +472,50 @@
               "name": "División Profesional",
               "type": "liga",
               "division": 1,
-              "teams": ["Bolívar", "The Strongest", "Always Ready", "Blooming", "Wilstermann", "San Antonio Bulo Bulo", "Real Tomayapo", "Nacional Potosí", "Aurora", "Royal Pari", "GV San José", "Independiente Petrolero", "Oriente Petrolero", "Universitario de Vinto", "Real Santa Cruz", "Gualberto Villarroel"]
+              "teams": [
+                "Bolívar",
+                "The Strongest",
+                "Always Ready",
+                "Blooming",
+                "Wilstermann",
+                "San Antonio Bulo Bulo",
+                "Real Tomayapo",
+                "Nacional Potosí",
+                "Aurora",
+                "Royal Pari",
+                "GV San José",
+                "Independiente Petrolero",
+                "Oriente Petrolero",
+                "Universitario de Vinto",
+                "Real Santa Cruz",
+                "Gualberto Villarroel"
+              ]
             },
             {
               "name": "Copa Simón Bolívar (Segunda Div)",
               "type": "liga",
               "division": 2,
-              "teams": ["Fatic", "CD Fatic", "Totora Real Oruro", "Stormers", "Ciclón", "Mariscal Sucre", "Universitario de Sucre", "ABB", "Comercio", "Chaco Petrolero"]
+              "teams": [
+                "Fatic",
+                "CD Fatic",
+                "Totora Real Oruro",
+                "Stormers",
+                "Ciclón",
+                "Mariscal Sucre",
+                "Universitario de Sucre",
+                "ABB",
+                "Comercio",
+                "Chaco Petrolero"
+              ]
             },
-            { "name": "Copa Division Profesional", "type": "copa" },
-            { "name": "Supercopa Boliviana", "type": "supercopa" }
+            {
+              "name": "Copa Division Profesional",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa Boliviana",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -212,16 +526,48 @@
               "name": "Liga FUTVE",
               "type": "liga",
               "division": 1,
-              "teams": ["Deportivo Táchira", "Carabobo", "Caracas", "Metropolitanos", "Universidad Central", "Deportivo La Guaira", "Academia Puerto Cabello", "Monagas", "Angostura", "Portuguesa", "Inter de Barinas", "Zamora", "Rayo Zuliano", "Estudiantes de Mérida"]
+              "teams": [
+                "Deportivo Táchira",
+                "Carabobo",
+                "Caracas",
+                "Metropolitanos",
+                "Universidad Central",
+                "Deportivo La Guaira",
+                "Academia Puerto Cabello",
+                "Monagas",
+                "Angostura",
+                "Portuguesa",
+                "Inter de Barinas",
+                "Zamora",
+                "Rayo Zuliano",
+                "Estudiantes de Mérida"
+              ]
             },
             {
               "name": "Liga FUTVE 2",
               "type": "liga",
               "division": 2,
-              "teams": ["Héroes de Falcón", "Marítimo de La Guaira", "Trujillanos", "Academia Anzoátegui", "Bolívar SC", "Yaracuyanos", "Deportivo Miranda", "Dynamo Puerto", "El Vigía", "Ureña"]
+              "teams": [
+                "Héroes de Falcón",
+                "Marítimo de La Guaira",
+                "Trujillanos",
+                "Academia Anzoátegui",
+                "Bolívar SC",
+                "Yaracuyanos",
+                "Deportivo Miranda",
+                "Dynamo Puerto",
+                "El Vigía",
+                "Ureña"
+              ]
             },
-            { "name": "Copa Venezuela", "type": "copa" },
-            { "name": "Supercopa de Venezuela", "type": "supercopa" }
+            {
+              "name": "Copa Venezuela",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa de Venezuela",
+              "type": "supercopa"
+            }
           ]
         }
       ]
@@ -238,10 +584,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "América", "Guadalajara", "Cruz Azul", "Monterrey", "Tigres UANL", 
-                "Pumas UNAM", "Toluca", "Pachuca", "Santos Laguna", "León", 
-                "Atlas", "Tijuana", "Necaxa", "Puebla", "Juárez", 
-                "San Luis", "Mazatlán", "Querétaro"
+                "América",
+                "Guadalajara",
+                "Cruz Azul",
+                "Monterrey",
+                "Tigres UANL",
+                "Pumas UNAM",
+                "Toluca",
+                "Pachuca",
+                "Santos Laguna",
+                "León",
+                "Atlas",
+                "Tijuana",
+                "Necaxa",
+                "Puebla",
+                "Juárez",
+                "San Luis",
+                "Mazatlán",
+                "Querétaro"
               ]
             },
             {
@@ -249,12 +609,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Atlante", "Celaya", "Leones Negros", "Morelia", "Cimarrones", 
-                "Tepatitlán", "Alebrijes", "Venados", "Mineros", "Cancún FC"
+                "Atlante",
+                "Celaya",
+                "Leones Negros",
+                "Morelia",
+                "Cimarrones",
+                "Tepatitlán",
+                "Alebrijes",
+                "Venados",
+                "Mineros",
+                "Cancún FC"
               ]
             },
-            { "name": "Copa MX", "type": "copa" },
-            { "name": "Campeón de Campeones", "type": "supercopa" }
+            {
+              "name": "Copa MX",
+              "type": "copa"
+            },
+            {
+              "name": "Campeón de Campeones",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -266,12 +640,36 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Inter Miami", "LA Galaxy", "Los Angeles FC", "Seattle Sounders", "Atlanta United", 
-                "New York City FC", "New York Red Bulls", "Philadelphia Union", "Columbus Crew", "FC Cincinnati", 
-                "Orlando City", "Austin FC", "FC Dallas", "Houston Dynamo", "Charlotte FC", 
-                "Nashville SC", "Minnesota United", "Portland Timbers", "Real Salt Lake", "San Jose Earthquakes", 
-                "Sporting Kansas City", "St. Louis City", "Colorado Rapids", "CF Montréal", "Toronto FC", 
-                "Vancouver Whitecaps", "DC United", "Chicago Fire", "New England Revolution", "San Diego FC"
+                "Inter Miami",
+                "LA Galaxy",
+                "Los Angeles FC",
+                "Seattle Sounders",
+                "Atlanta United",
+                "New York City FC",
+                "New York Red Bulls",
+                "Philadelphia Union",
+                "Columbus Crew",
+                "FC Cincinnati",
+                "Orlando City",
+                "Austin FC",
+                "FC Dallas",
+                "Houston Dynamo",
+                "Charlotte FC",
+                "Nashville SC",
+                "Minnesota United",
+                "Portland Timbers",
+                "Real Salt Lake",
+                "San Jose Earthquakes",
+                "Sporting Kansas City",
+                "St. Louis City",
+                "Colorado Rapids",
+                "CF Montréal",
+                "Toronto FC",
+                "Vancouver Whitecaps",
+                "DC United",
+                "Chicago Fire",
+                "New England Revolution",
+                "San Diego FC"
               ]
             },
             {
@@ -279,12 +677,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Phoenix Rising", "Sacramento Republic", "San Antonio FC", "Louisville City", "Tampa Bay Rowdies", 
-                "Memphis 901", "Charleston Battery", "Colorado Springs Switchbacks", "Oakland Roots", "Orange County SC"
+                "Phoenix Rising",
+                "Sacramento Republic",
+                "San Antonio FC",
+                "Louisville City",
+                "Tampa Bay Rowdies",
+                "Memphis 901",
+                "Charleston Battery",
+                "Colorado Springs Switchbacks",
+                "Oakland Roots",
+                "Orange County SC"
               ]
             },
-            { "name": "Lamar Hunt U.S. Open Cup", "type": "copa" },
-            { "name": "MLS Cup / Campeones Cup", "type": "supercopa" }
+            {
+              "name": "Lamar Hunt U.S. Open Cup",
+              "type": "copa"
+            },
+            {
+              "name": "MLS Cup / Campeones Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -296,9 +708,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Saprissa", "Alajuelense", "Herediano", "Cartaginés", "San Carlos", 
-                "Puntarenas", "Sporting San José", "Guanacasteca", "Pérez Zeledón", "Liberia", 
-                "Municipal Grecia", "Santos de Guápiles"
+                "Saprissa",
+                "Alajuelense",
+                "Herediano",
+                "Cartaginés",
+                "San Carlos",
+                "Puntarenas",
+                "Sporting San José",
+                "Guanacasteca",
+                "Pérez Zeledón",
+                "Liberia",
+                "Municipal Grecia",
+                "Santos de Guápiles"
               ]
             },
             {
@@ -306,12 +727,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Uruguay de Coronado", "Carmelita", "Santa Ana", "Quepos Cambute", "Jicaral", 
-                "Escorpiones", "Liberia B", "Barrio México", "Puerto Golfito", "Cariari"
+                "Uruguay de Coronado",
+                "Carmelita",
+                "Santa Ana",
+                "Quepos Cambute",
+                "Jicaral",
+                "Escorpiones",
+                "Liberia B",
+                "Barrio México",
+                "Puerto Golfito",
+                "Cariari"
               ]
             },
-            { "name": "Copa de Costa Rica", "type": "copa" },
-            { "name": "Supercopa de Costa Rica", "type": "supercopa" }
+            {
+              "name": "Copa de Costa Rica",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa de Costa Rica",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -323,8 +758,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Olimpia", "Motagua", "Real España", "Marathón", "Olancho FC", 
-                "Victoria", "Vida", "Real Sociedad", "Génesis", "Universidad Pedagógica"
+                "Olimpia",
+                "Motagua",
+                "Real España",
+                "Marathón",
+                "Olancho FC",
+                "Victoria",
+                "Vida",
+                "Real Sociedad",
+                "Génesis",
+                "Universidad Pedagógica"
               ]
             },
             {
@@ -332,12 +775,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Platense", "Honduras Progreso", "Juticalpa", "Lone FC", "Real Juventud", 
-                "Independiente", "Parrillas One", "Villanueva", "Brasilia", "San Juan"
+                "Platense",
+                "Honduras Progreso",
+                "Juticalpa",
+                "Lone FC",
+                "Real Juventud",
+                "Independiente",
+                "Parrillas One",
+                "Villanueva",
+                "Brasilia",
+                "San Juan"
               ]
             },
-            { "name": "Copa de Honduras", "type": "copa" },
-            { "name": "Supercopa de Honduras", "type": "supercopa" }
+            {
+              "name": "Copa de Honduras",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa de Honduras",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -349,9 +806,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Tauro", "Plaza Amador", "Universitario", "Alianza", "Sporting San Miguelito", 
-                "Herrera", "Veraguas United", "CAI de La Chorrera", "Árabe Unido", "San Francisco", 
-                "Potros del Este", "CD Del Este"
+                "Tauro",
+                "Plaza Amador",
+                "Universitario",
+                "Alianza",
+                "Sporting San Miguelito",
+                "Herrera",
+                "Veraguas United",
+                "CAI de La Chorrera",
+                "Árabe Unido",
+                "San Francisco",
+                "Potros del Este",
+                "CD Del Este"
               ]
             },
             {
@@ -359,12 +825,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Promesas del Este", "Bocas FC", "Mario Méndez", "San Martin", "Champions Academy", 
-                "Deportivo Chiriquí", "Panamá City", "Udelas", "Águilas", "Centenario"
+                "Promesas del Este",
+                "Bocas FC",
+                "Mario Méndez",
+                "San Martin",
+                "Champions Academy",
+                "Deportivo Chiriquí",
+                "Panamá City",
+                "Udelas",
+                "Águilas",
+                "Centenario"
               ]
             },
-            { "name": "Copa Panamá", "type": "copa" },
-            { "name": "Supercopa de Panamá", "type": "supercopa" }
+            {
+              "name": "Copa Panamá",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa de Panamá",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -376,8 +856,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Comunicaciones", "Municipal", "Antigua GFC", "Cobán Imperial", "Malacateco", 
-                "Xelajú MC", "Guastatoya", "Xinabajul", "Deportivo Mixco", "Zacapa"
+                "Comunicaciones",
+                "Municipal",
+                "Antigua GFC",
+                "Cobán Imperial",
+                "Malacateco",
+                "Xelajú MC",
+                "Guastatoya",
+                "Xinabajul",
+                "Deportivo Mixco",
+                "Zacapa"
               ]
             },
             {
@@ -385,12 +873,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Aurora", "Universidad de San Carlos", "Suchitepéquez", "Quiché", "Puerto Guatelinda", 
-                "Juventud Pinulteca", "San Benito", "Coatepeque", "Barberena", "Cuilapa"
+                "Aurora",
+                "Universidad de San Carlos",
+                "Suchitepéquez",
+                "Quiché",
+                "Puerto Guatelinda",
+                "Juventud Pinulteca",
+                "San Benito",
+                "Coatepeque",
+                "Barberena",
+                "Cuilapa"
               ]
             },
-            { "name": "Copa de Guatemala", "type": "copa" },
-            { "name": "Supercopa de Guatemala", "type": "supercopa" }
+            {
+              "name": "Copa de Guatemala",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa de Guatemala",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -402,8 +904,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Alianza", "FAS", "Águila", "Isidro Metapán", "Luis Ángel Firpo", 
-                "11 Deportivo", "Municipal Limeño", "Jocoro", "Platense", "Fuerte San Francisco"
+                "Alianza",
+                "FAS",
+                "Águila",
+                "Isidro Metapán",
+                "Luis Ángel Firpo",
+                "11 Deportivo",
+                "Municipal Limeño",
+                "Jocoro",
+                "Platense",
+                "Fuerte San Francisco"
               ]
             },
             {
@@ -411,12 +921,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Titán", "Racing Junior", "Atlético Balboa", "Fuerte Aguilares", "Gerardo Barrios", 
-                "Municipal Santa Rosa", "San Pablo Tacachico", "Brujos de Izalco", "Vendaval", "Cangrejera"
+                "Titán",
+                "Racing Junior",
+                "Atlético Balboa",
+                "Fuerte Aguilares",
+                "Gerardo Barrios",
+                "Municipal Santa Rosa",
+                "San Pablo Tacachico",
+                "Brujos de Izalco",
+                "Vendaval",
+                "Cangrejera"
               ]
             },
-            { "name": "Copa El Salvador", "type": "copa" },
-            { "name": "Supercopa de El Salvador", "type": "supercopa" }
+            {
+              "name": "Copa El Salvador",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa de El Salvador",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -428,8 +952,14 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Forge FC", "Cavalry FC", "Atlético Ottawa", "Pacific FC", "York United", 
-                "Valour FC", "HFX Wanderers", "Vancouver FC"
+                "Forge FC",
+                "Cavalry FC",
+                "Atlético Ottawa",
+                "Pacific FC",
+                "York United",
+                "Valour FC",
+                "HFX Wanderers",
+                "Vancouver FC"
               ]
             },
             {
@@ -437,12 +967,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Blue Devils", "Sigma FC", "Vaughan Azzurri", "Scrosoppi", "CS Saint-Laurent", 
-                "CF Montréal Academy", "Whitecaps FC 2", "TFC Academy", "Victoria Highlanders", "Calgary Foothills"
+                "Blue Devils",
+                "Sigma FC",
+                "Vaughan Azzurri",
+                "Scrosoppi",
+                "CS Saint-Laurent",
+                "CF Montréal Academy",
+                "Whitecaps FC 2",
+                "TFC Academy",
+                "Victoria Highlanders",
+                "Calgary Foothills"
               ]
             },
-            { "name": "Canadian Championship", "type": "copa" },
-            { "name": "CPL Shield", "type": "supercopa" }
+            {
+              "name": "Canadian Championship",
+              "type": "copa"
+            },
+            {
+              "name": "CPL Shield",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -454,8 +998,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Diriangén", "Real Estelí", "Managua FC", "CD Walter Ferretti", "UNAN Managua", 
-                "Deportivo Ocotal", "Matagalpa FC", "Sébaco", "Jalapa", "Rancho Grande"
+                "Diriangén",
+                "Real Estelí",
+                "Managua FC",
+                "CD Walter Ferretti",
+                "UNAN Managua",
+                "Deportivo Ocotal",
+                "Matagalpa FC",
+                "Sébaco",
+                "Jalapa",
+                "Rancho Grande"
               ]
             },
             {
@@ -463,12 +1015,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "San Judas", "Juventus Managua", "Bracamonte", "Real Xolotlán", "Masachapa", 
-                "Águilas de León", "Sutiaba", "San Marcos", "Niquinohomo", "El Timal"
+                "San Judas",
+                "Juventus Managua",
+                "Bracamonte",
+                "Real Xolotlán",
+                "Masachapa",
+                "Águilas de León",
+                "Sutiaba",
+                "San Marcos",
+                "Niquinohomo",
+                "El Timal"
               ]
             },
-            { "name": "Copa de Nicaragua", "type": "copa" },
-            { "name": "Supercopa de Nicaragua", "type": "supercopa" }
+            {
+              "name": "Copa de Nicaragua",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa de Nicaragua",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -480,9 +1046,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Cavalier", "Mount Pleasant", "Waterhouse", "Arnett Gardens", "Harbour View", 
-                "Tivoli Gardens", "Portmore United", "Dunbeholden", "Vere United", "Montego Bay United", 
-                "Humble Lions", "Chapelton Maroons", "Racing United", "Lime Hall Academy"
+                "Cavalier",
+                "Mount Pleasant",
+                "Waterhouse",
+                "Arnett Gardens",
+                "Harbour View",
+                "Tivoli Gardens",
+                "Portmore United",
+                "Dunbeholden",
+                "Vere United",
+                "Montego Bay United",
+                "Humble Lions",
+                "Chapelton Maroons",
+                "Racing United",
+                "Lime Hall Academy"
               ]
             },
             {
@@ -490,12 +1067,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Falmouth United", "Meadowbrook", "Browns Town", "Seba United", "Negril", 
-                "Manchester FA", "Constant Spring", "St. Ann", "Portland", "St. Thomas"
+                "Falmouth United",
+                "Meadowbrook",
+                "Browns Town",
+                "Seba United",
+                "Negril",
+                "Manchester FA",
+                "Constant Spring",
+                "St. Ann",
+                "Portland",
+                "St. Thomas"
               ]
             },
-            { "name": "JFF Champions Cup", "type": "copa" },
-            { "name": "Jamaica Super Cup", "type": "supercopa" }
+            {
+              "name": "JFF Champions Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Jamaica Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -507,8 +1098,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Defence Force", "AC Port of Spain", "Terminix La Horquetta Rangers", "Central FC", "Caledonia AIA", 
-                "Police FC", "Point Fortin Civic", "Club Sando", "Prisons FC", "Heritage Petroleum"
+                "Defence Force",
+                "AC Port of Spain",
+                "Terminix La Horquetta Rangers",
+                "Central FC",
+                "Caledonia AIA",
+                "Police FC",
+                "Point Fortin Civic",
+                "Club Sando",
+                "Prisons FC",
+                "Heritage Petroleum"
               ]
             },
             {
@@ -516,12 +1115,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Guaya United", "Matura ReUnited", "QPCC", "Petit Valley", "Real West Fort", 
-                "Harlem Strikers", " Bethel United", "UTT", "FC Santa Rosa", "Cunupia"
+                "Guaya United",
+                "Matura ReUnited",
+                "QPCC",
+                "Petit Valley",
+                "Real West Fort",
+                "Harlem Strikers",
+                " Bethel United",
+                "UTT",
+                "FC Santa Rosa",
+                "Cunupia"
               ]
             },
-            { "name": "FA Trophy", "type": "copa" },
-            { "name": "Charity Shield", "type": "supercopa" }
+            {
+              "name": "FA Trophy",
+              "type": "copa"
+            },
+            {
+              "name": "Charity Shield",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -533,11 +1146,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Cibao FC", "Pantoja", "Universidad O&M", "Delfines del Este", "Atlético Vega Real", 
-                "Moca FC", "Atlántico FC", "San Cristóbal"
+                "Cibao FC",
+                "Pantoja",
+                "Universidad O&M",
+                "Delfines del Este",
+                "Atlético Vega Real",
+                "Moca FC",
+                "Atlántico FC",
+                "San Cristóbal"
               ]
             },
-            { "name": "Copa Dominicana de Fútbol", "type": "copa" }
+            {
+              "name": "Copa Dominicana de Fútbol",
+              "type": "copa"
+            }
           ]
         }
       ]
@@ -554,10 +1176,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Al Hilal", "Al Nassr", "Al Ittihad", "Al Ahli", "Al Shabab",
-                "Al Ettifaq", "Al Taawoun", "Al Fateh", "Al Riyadh", "Al Fayha",
-                "Al Orobah", "Al Okhdood", "Al Khaleej", "Damac", "Al Raed",
-                "Al Qadsiah", "Neom SC", "Al Hazem"
+                "Al Hilal",
+                "Al Nassr",
+                "Al Ittihad",
+                "Al Ahli",
+                "Al Shabab",
+                "Al Ettifaq",
+                "Al Taawoun",
+                "Al Fateh",
+                "Al Riyadh",
+                "Al Fayha",
+                "Al Orobah",
+                "Al Okhdood",
+                "Al Khaleej",
+                "Damac",
+                "Al Raed",
+                "Al Qadsiah",
+                "Neom SC",
+                "Al Hazem"
               ]
             },
             {
@@ -565,12 +1201,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Al Jabalain", "Al Faisaly", "Al-Batin", "Ohod", "Al-Adalah",
-                "Al-Jandal", "Al-Bukiryah", "Al-Ain", "Al-Safa", "Najran"
+                "Al Jabalain",
+                "Al Faisaly",
+                "Al-Batin",
+                "Ohod",
+                "Al-Adalah",
+                "Al-Jandal",
+                "Al-Bukiryah",
+                "Al-Ain",
+                "Al-Safa",
+                "Najran"
               ]
             },
-            { "name": "King's Cup", "type": "copa" },
-            { "name": "Saudi Super Cup", "type": "supercopa" }
+            {
+              "name": "King's Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Saudi Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -582,10 +1232,26 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Vissel Kobe", "Sanfrecce Hiroshima", "Yokohama F. Marinos", "Kashima Antlers", "FC Tokyo",
-                "Cerezo Osaka", "Gamba Osaka", "Kawasaki Frontale", "Urawa Red Diamonds", "Nagoya Grampus",
-                "Albirex Niigata", "Kashiwa Reysol", "Sagan Tosu", "Avispa Fukuoka", "Tokyo Verdy",
-                "Machida Zelvia", "Jubilo Iwata", "Kyoto Sanga", "Consadole Sapporo", "Shonan Bellmare"
+                "Vissel Kobe",
+                "Sanfrecce Hiroshima",
+                "Yokohama F. Marinos",
+                "Kashima Antlers",
+                "FC Tokyo",
+                "Cerezo Osaka",
+                "Gamba Osaka",
+                "Kawasaki Frontale",
+                "Urawa Red Diamonds",
+                "Nagoya Grampus",
+                "Albirex Niigata",
+                "Kashiwa Reysol",
+                "Sagan Tosu",
+                "Avispa Fukuoka",
+                "Tokyo Verdy",
+                "Machida Zelvia",
+                "Jubilo Iwata",
+                "Kyoto Sanga",
+                "Consadole Sapporo",
+                "Shonan Bellmare"
               ]
             },
             {
@@ -593,14 +1259,36 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Shimizu S-Pulse", "JEF United Chiba", "Vegalta Sendai", "V-Varen Nagasaki", "Fagiano Okayama",
-                "Oita Trinita", "Montedio Yamagata", "Tokushima Vortis", "Blaublitz Akita", "Mito HollyHock",
-                "Fujieda MYFC", "Roasso Kumamoto", "Tochigi SC", "Renofa Yamaguchi", "Iwaki FC",
-                "Giravanz Kitakyushu", "Kagoshima United", "Ehime FC", "Zweigen Kanazawa", "Grulla Morioka"
+                "Shimizu S-Pulse",
+                "JEF United Chiba",
+                "Vegalta Sendai",
+                "V-Varen Nagasaki",
+                "Fagiano Okayama",
+                "Oita Trinita",
+                "Montedio Yamagata",
+                "Tokushima Vortis",
+                "Blaublitz Akita",
+                "Mito HollyHock",
+                "Fujieda MYFC",
+                "Roasso Kumamoto",
+                "Tochigi SC",
+                "Renofa Yamaguchi",
+                "Iwaki FC",
+                "Giravanz Kitakyushu",
+                "Kagoshima United",
+                "Ehime FC",
+                "Zweigen Kanazawa",
+                "Grulla Morioka"
               ]
             },
-            { "name": "Emperor's Cup", "type": "copa" },
-            { "name": "Japanese Super Cup", "type": "supercopa" }
+            {
+              "name": "Emperor's Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Japanese Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -612,9 +1300,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Ulsan HD", "Pohang Steelers", "Gwangju FC", "Jeonbuk Hyundai Motors", "FC Seoul",
-                "Incheon United", "Daegu FC", "Jeju United", "Daejeon Hana Citizen", "Suwon FC",
-                "Gangwon FC", "Gimcheon Sangmu"
+                "Ulsan HD",
+                "Pohang Steelers",
+                "Gwangju FC",
+                "Jeonbuk Hyundai Motors",
+                "FC Seoul",
+                "Incheon United",
+                "Daegu FC",
+                "Jeju United",
+                "Daejeon Hana Citizen",
+                "Suwon FC",
+                "Gangwon FC",
+                "Gimcheon Sangmu"
               ]
             },
             {
@@ -622,12 +1319,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Suwon Samsung Bluewings", "Busan IPark", "Bucheon FC 1995", "FC Anyang", "Jeonnam Dragons",
-                "Chungnam Asan", "Seongnam FC", "Seoul E-Land", "Gimpo FC", "Chungbuk Cheongju"
+                "Suwon Samsung Bluewings",
+                "Busan IPark",
+                "Bucheon FC 1995",
+                "FC Anyang",
+                "Jeonnam Dragons",
+                "Chungnam Asan",
+                "Seongnam FC",
+                "Seoul E-Land",
+                "Gimpo FC",
+                "Chungbuk Cheongju"
               ]
             },
-            { "name": "Korean FA Cup", "type": "copa" },
-            { "name": "Korean Super Cup", "type": "supercopa" }
+            {
+              "name": "Korean FA Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Korean Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -639,9 +1350,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Shanghai Port", "Shanghai Shenhua", "Chengdu Rongcheng", "Shandong Taishan", "Beijing Guoan",
-                "Wuhan Three Towns", "Tianjin Jinmen Tiger", "Changchun Yatai", "Henan FC", "Meizhou Hakka",
-                "Cangzhou Mighty Lions", "Qingdao West Coast", "Shenzhen Peng City", "Qingdao Hainiu", "Nantong Zhiyun", "Xiamen 168"
+                "Shanghai Port",
+                "Shanghai Shenhua",
+                "Chengdu Rongcheng",
+                "Shandong Taishan",
+                "Beijing Guoan",
+                "Wuhan Three Towns",
+                "Tianjin Jinmen Tiger",
+                "Changchun Yatai",
+                "Henan FC",
+                "Meizhou Hakka",
+                "Cangzhou Mighty Lions",
+                "Qingdao West Coast",
+                "Shenzhen Peng City",
+                "Qingdao Hainiu",
+                "Nantong Zhiyun",
+                "Xiamen 168"
               ]
             },
             {
@@ -649,12 +1373,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Yunnan Yukun", "Dalian Young Boy", "Guangzhou FC", "Shijiazhuang Gongfu", "Nanjing City",
-                "Liaoning Tieren", "Chongqing Tongliang Long", "Jiangxi Dark Horse", "Suzhou Dongwu", "Shanghai Jiading"
+                "Yunnan Yukun",
+                "Dalian Young Boy",
+                "Guangzhou FC",
+                "Shijiazhuang Gongfu",
+                "Nanjing City",
+                "Liaoning Tieren",
+                "Chongqing Tongliang Long",
+                "Jiangxi Dark Horse",
+                "Suzhou Dongwu",
+                "Shanghai Jiading"
               ]
             },
-            { "name": "Chinese FA Cup", "type": "copa" },
-            { "name": "Chinese FA Super Cup", "type": "supercopa" }
+            {
+              "name": "Chinese FA Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Chinese FA Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -666,9 +1404,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Al Ain", "Shabab Al Ahli", "Al Jazira", "Al Wahda", "Sharjah",
-                "Al Nasr", "Baniyas", "Ajman", "Khor Fakkan", "Ittihad Kalba",
-                "Al Bataeh", "Emirates Club", "Dibba Al Hisn", "Al Urooba"
+                "Al Ain",
+                "Shabab Al Ahli",
+                "Al Jazira",
+                "Al Wahda",
+                "Sharjah",
+                "Al Nasr",
+                "Baniyas",
+                "Ajman",
+                "Khor Fakkan",
+                "Ittihad Kalba",
+                "Al Bataeh",
+                "Emirates Club",
+                "Dibba Al Hisn",
+                "Al Urooba"
               ]
             },
             {
@@ -676,12 +1425,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Al Dhafra", "Masfoot", "Hatta", "Al Hamriyah", "Gulf FC",
-                "City FC", "Fursan Hisma", "Al Jazira Al Hamra", "Baynounah", "Dubai United"
+                "Al Dhafra",
+                "Masfoot",
+                "Hatta",
+                "Al Hamriyah",
+                "Gulf FC",
+                "City FC",
+                "Fursan Hisma",
+                "Al Jazira Al Hamra",
+                "Baynounah",
+                "Dubai United"
               ]
             },
-            { "name": "UAE President's Cup", "type": "copa" },
-            { "name": "UAE Super Cup", "type": "supercopa" }
+            {
+              "name": "UAE President's Cup",
+              "type": "copa"
+            },
+            {
+              "name": "UAE Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -693,9 +1456,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Al Sadd", "Al Duhail", "Al Rayyan", "Al Wakrah", "Al Arabi",
-                "Umm Salal", "Al Gharafa", "Qatar SC", "Al Shamal", "Al Ahli",
-                "Muaither", "Al Khor"
+                "Al Sadd",
+                "Al Duhail",
+                "Al Rayyan",
+                "Al Wakrah",
+                "Al Arabi",
+                "Umm Salal",
+                "Al Gharafa",
+                "Qatar SC",
+                "Al Shamal",
+                "Al Ahli",
+                "Muaither",
+                "Al Khor"
               ]
             },
             {
@@ -703,12 +1475,24 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Al Sailiya", "Al Markhiya", "Lusail", "Al Mesaimeer", "Al Bidda",
-                "Al-Kharaitiyat", "Al Waab", "Lekhwiya B"
+                "Al Sailiya",
+                "Al Markhiya",
+                "Lusail",
+                "Al Mesaimeer",
+                "Al Bidda",
+                "Al-Kharaitiyat",
+                "Al Waab",
+                "Lekhwiya B"
               ]
             },
-            { "name": "Emir of Qatar Cup", "type": "copa" },
-            { "name": "Sheikh Jassim Cup", "type": "supercopa" }
+            {
+              "name": "Emir of Qatar Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Sheikh Jassim Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -720,9 +1504,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Esteghlal", "Persepolis", "Sepahan", "Tractor", "Gol Gohar",
-                "Zob Ahan", "Malavan", "Aluminium Arak", "Mes Rafsanjan", "Foolad",
-                "Paykan", "Havadar", "Nassaji Mazandaran", "Esteghlal Khuzestan", "Sanat Naft", "Kheybar"
+                "Esteghlal",
+                "Persepolis",
+                "Sepahan",
+                "Tractor",
+                "Gol Gohar",
+                "Zob Ahan",
+                "Malavan",
+                "Aluminium Arak",
+                "Mes Rafsanjan",
+                "Foolad",
+                "Paykan",
+                "Havadar",
+                "Nassaji Mazandaran",
+                "Esteghlal Khuzestan",
+                "Sanat Naft",
+                "Kheybar"
               ]
             },
             {
@@ -730,12 +1527,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Fajr Sepasi", "Chadormalu", "Saipa", "Mes Kerman", "Pars Jonoubi Jam",
-                "Darya Babol", "Shahr Raz", "Naft Masjed Soleyman", "Mes Sungun", "Ario Eslamshahr"
+                "Fajr Sepasi",
+                "Chadormalu",
+                "Saipa",
+                "Mes Kerman",
+                "Pars Jonoubi Jam",
+                "Darya Babol",
+                "Shahr Raz",
+                "Naft Masjed Soleyman",
+                "Mes Sungun",
+                "Ario Eslamshahr"
               ]
             },
-            { "name": "Hazfi Cup", "type": "copa" },
-            { "name": "Iranian Super Cup", "type": "supercopa" }
+            {
+              "name": "Hazfi Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Iranian Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -747,9 +1558,19 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Central Coast Mariners", "Wellington Phoenix", "Melbourne Victory", "Sydney FC", "Melbourne City",
-                "Western Sydney Wanderers", "Adelaide United", "Western United", "Brisbane Roar", "Perth Glory",
-                "Newcastle Jets", "Macarthur FC", "Auckland FC"
+                "Central Coast Mariners",
+                "Wellington Phoenix",
+                "Melbourne Victory",
+                "Sydney FC",
+                "Melbourne City",
+                "Western Sydney Wanderers",
+                "Adelaide United",
+                "Western United",
+                "Brisbane Roar",
+                "Perth Glory",
+                "Newcastle Jets",
+                "Macarthur FC",
+                "Auckland FC"
               ]
             },
             {
@@ -757,12 +1578,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Sydney Olympic", "Avondale FC", "Heidelberg United", "Brisbane Strikers", "Oakleigh Cannons",
-                "South Melbourne", "APIA Leichhardt", "Olympic FC", "Perth SC", "Campbelltown City"
+                "Sydney Olympic",
+                "Avondale FC",
+                "Heidelberg United",
+                "Brisbane Strikers",
+                "Oakleigh Cannons",
+                "South Melbourne",
+                "APIA Leichhardt",
+                "Olympic FC",
+                "Perth SC",
+                "Campbelltown City"
               ]
             },
-            { "name": "Australia Cup", "type": "copa" },
-            { "name": "A-League Community Shield", "type": "supercopa" }
+            {
+              "name": "Australia Cup",
+              "type": "copa"
+            },
+            {
+              "name": "A-League Community Shield",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -774,9 +1609,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Pakhtakor", "Nasaf", "Navbahor", "AGMK", "Sogdiana",
-                "Bunyodkor", "Neftchi", "Metallurg Bekabad", "Surkhon", "Qizilqum",
-                "Andijon", "Dinamo Samarkand"
+                "Pakhtakor",
+                "Nasaf",
+                "Navbahor",
+                "AGMK",
+                "Sogdiana",
+                "Bunyodkor",
+                "Neftchi",
+                "Metallurg Bekabad",
+                "Surkhon",
+                "Qizilqum",
+                "Andijon",
+                "Dinamo Samarkand"
               ]
             },
             {
@@ -784,12 +1628,24 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Mash'al", "Shurtan Guzar", "Kokand 1912", "Turon", "Jayhun",
-                "Aral Nukus", "Dustlik", "Yangiyer"
+                "Mash'al",
+                "Shurtan Guzar",
+                "Kokand 1912",
+                "Turon",
+                "Jayhun",
+                "Aral Nukus",
+                "Dustlik",
+                "Yangiyer"
               ]
             },
-            { "name": "Uzbekistan Cup", "type": "copa" },
-            { "name": "Uzbekistan Super Cup", "type": "supercopa" }
+            {
+              "name": "Uzbekistan Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Uzbekistan Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -801,9 +1657,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Al-Shorta", "Al-Quwa Al-Jawiya", "Al-Zawraa", "Duhok", "Erbil",
-                "Najaf", "Zakho", "Naft Maysan", "Al-Karkh", "Al-Naft",
-                "Karbala", "Al-Minaa", "Naft Al-Basra", "Al-Hudood", "Newroz", "Al-Kahrabaa"
+                "Al-Shorta",
+                "Al-Quwa Al-Jawiya",
+                "Al-Zawraa",
+                "Duhok",
+                "Erbil",
+                "Najaf",
+                "Zakho",
+                "Naft Maysan",
+                "Al-Karkh",
+                "Al-Naft",
+                "Karbala",
+                "Al-Minaa",
+                "Naft Al-Basra",
+                "Al-Hudood",
+                "Newroz",
+                "Al-Kahrabaa"
               ]
             },
             {
@@ -811,12 +1680,24 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Al-Sinaa", "Al-Bahri", "Al-Koot", "Samarra", "Peshmerga",
-                "Diyala", "Al-Muroor", "Afak"
+                "Al-Sinaa",
+                "Al-Bahri",
+                "Al-Koot",
+                "Samarra",
+                "Peshmerga",
+                "Diyala",
+                "Al-Muroor",
+                "Afak"
               ]
             },
-            { "name": "Iraq FA Cup", "type": "copa" },
-            { "name": "Iraqi Super Cup", "type": "supercopa" }
+            {
+              "name": "Iraq FA Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Iraqi Super Cup",
+              "type": "supercopa"
+            }
           ]
         }
       ]
@@ -833,9 +1714,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Al Ahly", "Zamalek", "Pyramids FC", "Modern Future", "Ceramica Cleopatra",
-                "Al Masry", "ENPPI", "Tala'ea El Gaish", "Smouha", "National Bank of Egypt",
-                "Pharco", "Ismaily", "El Gouna", "ZED FC", "Ittihad Alexandria", "Petrojet"
+                "Al Ahly",
+                "Zamalek",
+                "Pyramids FC",
+                "Modern Future",
+                "Ceramica Cleopatra",
+                "Al Masry",
+                "ENPPI",
+                "Tala'ea El Gaish",
+                "Smouha",
+                "National Bank of Egypt",
+                "Pharco",
+                "Ismaily",
+                "El Gouna",
+                "ZED FC",
+                "Ittihad Alexandria",
+                "Petrojet"
               ]
             },
             {
@@ -843,12 +1737,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Wadi Degla", "Aswan", "Ghazl El Mahalla", "Haras El Hodoud", "Tanta",
-                "Proxy", "Raya", "La Viena", "Petrojet", "Suez SC"
+                "Wadi Degla",
+                "Aswan",
+                "Ghazl El Mahalla",
+                "Haras El Hodoud",
+                "Tanta",
+                "Proxy",
+                "Raya",
+                "La Viena",
+                "Petrojet",
+                "Suez SC"
               ]
             },
-            { "name": "Egypt Cup", "type": "copa" },
-            { "name": "Egyptian Super Cup", "type": "supercopa" }
+            {
+              "name": "Egypt Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Egyptian Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -860,9 +1768,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Wydad Casablanca", "Raja Casablanca", "AS FAR", "RS Berkane", "FUS Rabat",
-                "Olympic Safi", "Maghreb de Fès", "Union Touarga", "JS Soualem", "Ittihad Tanger",
-                "Hassania Agadir", "Moghreb Tétouan", "COD Meknès", "DHJ El Jadida", "Renaissance Zemamra", "CODM Meknès"
+                "Wydad Casablanca",
+                "Raja Casablanca",
+                "AS FAR",
+                "RS Berkane",
+                "FUS Rabat",
+                "Olympic Safi",
+                "Maghreb de Fès",
+                "Union Touarga",
+                "JS Soualem",
+                "Ittihad Tanger",
+                "Hassania Agadir",
+                "Moghreb Tétouan",
+                "COD Meknès",
+                "DHJ El Jadida",
+                "Renaissance Zemamra",
+                "CODM Meknès"
               ]
             },
             {
@@ -870,12 +1791,24 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "KAC Marrakech", "Ittihad Khemisset", "Chabab Atlas Khénifra", "Racing de Casablanca",
-                "Olympique Khouribga", "Stade Marocain", "JS Massira", "US Yacoub El Mansour"
+                "KAC Marrakech",
+                "Ittihad Khemisset",
+                "Chabab Atlas Khénifra",
+                "Racing de Casablanca",
+                "Olympique Khouribga",
+                "Stade Marocain",
+                "JS Massira",
+                "US Yacoub El Mansour"
               ]
             },
-            { "name": "Throne Cup", "type": "copa" },
-            { "name": "Moroccan Super Cup", "type": "supercopa" }
+            {
+              "name": "Throne Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Moroccan Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -887,9 +1820,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Mamelodi Sundowns", "Orlando Pirates", "Kaizer Chiefs", "Stellenbosch", "Sekhukhune United",
-                "Cape Town City", "SuperSport United", "AmaZulu", "Royal AM", "TS Galaxy",
-                "Golden Arrows", "Polokwane City", "Chippa United", "Marumo Gallants", "Richards Bay", "Magesi FC"
+                "Mamelodi Sundowns",
+                "Orlando Pirates",
+                "Kaizer Chiefs",
+                "Stellenbosch",
+                "Sekhukhune United",
+                "Cape Town City",
+                "SuperSport United",
+                "AmaZulu",
+                "Royal AM",
+                "TS Galaxy",
+                "Golden Arrows",
+                "Polokwane City",
+                "Chippa United",
+                "Marumo Gallants",
+                "Richards Bay",
+                "Magesi FC"
               ]
             },
             {
@@ -897,12 +1843,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Orbit College", "Casric Stars", "Baroka FC", "University of Pretoria", "JDR Stars",
-                "Maritzburg United", "Upington City", "Hungry Lions", "Black Leopards", "Venda FC"
+                "Orbit College",
+                "Casric Stars",
+                "Baroka FC",
+                "University of Pretoria",
+                "JDR Stars",
+                "Maritzburg United",
+                "Upington City",
+                "Hungry Lions",
+                "Black Leopards",
+                "Venda FC"
               ]
             },
-            { "name": "Nedbank Cup", "type": "copa" },
-            { "name": "MTN 8 / League Cup", "type": "supercopa" }
+            {
+              "name": "Nedbank Cup",
+              "type": "copa"
+            },
+            {
+              "name": "MTN 8 / League Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -914,9 +1874,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Espérance de Tunis", "Étoile du Sahel", "Club Africain", "US Monastir", "CS Sfaxien",
-                "Stade Tunisien", "Olympique de Béja", "US Ben Guerdane", "AS Soliman", "CA Bizertin",
-                "US Tataouine", "ES Metlaoui", "EGS Gafsa", "JS Omrane"
+                "Espérance de Tunis",
+                "Étoile du Sahel",
+                "Club Africain",
+                "US Monastir",
+                "CS Sfaxien",
+                "Stade Tunisien",
+                "Olympique de Béja",
+                "US Ben Guerdane",
+                "AS Soliman",
+                "CA Bizertin",
+                "US Tataouine",
+                "ES Metlaoui",
+                "EGS Gafsa",
+                "JS Omrane"
               ]
             },
             {
@@ -924,12 +1895,24 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "CS Hammam-Lif", "AS Marsa", "Jendouba Sport", "SC Moknine", "Kalaâ Sport",
-                "AS Djerba", "Stade Gabésien", "ES Hammam Sousse"
+                "CS Hammam-Lif",
+                "AS Marsa",
+                "Jendouba Sport",
+                "SC Moknine",
+                "Kalaâ Sport",
+                "AS Djerba",
+                "Stade Gabésien",
+                "ES Hammam Sousse"
               ]
             },
-            { "name": "Tunisian Cup", "type": "copa" },
-            { "name": "Tunisian Super Cup", "type": "supercopa" }
+            {
+              "name": "Tunisian Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Tunisian Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -941,9 +1924,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "CR Belouizdad", "JS Kabylie", "USM Alger", "MC Alger", "ES Sétif",
-                "CS Constantine", "Paradou AC", "JS Saoura", "ASO Chlef", "US Biskra",
-                "NC Magra", "USM Khenchela", "MC El Bayadh", "ES Mostaganem", "Olympique Akbou", "Paradou"
+                "CR Belouizdad",
+                "JS Kabylie",
+                "USM Alger",
+                "MC Alger",
+                "ES Sétif",
+                "CS Constantine",
+                "Paradou AC",
+                "JS Saoura",
+                "ASO Chlef",
+                "US Biskra",
+                "NC Magra",
+                "USM Khenchela",
+                "MC El Bayadh",
+                "ES Mostaganem",
+                "Olympique Akbou",
+                "Paradou"
               ]
             },
             {
@@ -951,12 +1947,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "USM Annaba", "MO Béjaïa", "JSM Tiaret", "RC Kouba", "NA Hussein Dey",
-                "MC El Eulma", "ASM Oran", "CA Batna", "USM El Harrach", "WA Tlemcen"
+                "USM Annaba",
+                "MO Béjaïa",
+                "JSM Tiaret",
+                "RC Kouba",
+                "NA Hussein Dey",
+                "MC El Eulma",
+                "ASM Oran",
+                "CA Batna",
+                "USM El Harrach",
+                "WA Tlemcen"
               ]
             },
-            { "name": "Algerian Cup", "type": "copa" },
-            { "name": "Algerian Super Cup", "type": "supercopa" }
+            {
+              "name": "Algerian Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Algerian Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -968,9 +1978,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Enyimba", "Rivers United", "Remo Stars", "Plateau United", "Bendel Insurance",
-                "Shooting Stars", "Rangers International", "Lobi Stars", "Kwara United", "Sunshine Stars",
-                "Kano Pillars", "Katsina United", "Bayelsa United", "Akwa United", "Abia Warriors", "Heartland"
+                "Enyimba",
+                "Rivers United",
+                "Remo Stars",
+                "Plateau United",
+                "Bendel Insurance",
+                "Shooting Stars",
+                "Rangers International",
+                "Lobi Stars",
+                "Kwara United",
+                "Sunshine Stars",
+                "Kano Pillars",
+                "Katsina United",
+                "Bayelsa United",
+                "Akwa United",
+                "Abia Warriors",
+                "Heartland"
               ]
             },
             {
@@ -978,11 +2001,20 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Ikorodu City", "Crown FC", "Abuja FC", "Gateway United", "Jigawa Golden Stars",
-                "El-Kanemi Warriors", "ABS FC", "RoadSafety FC"
+                "Ikorodu City",
+                "Crown FC",
+                "Abuja FC",
+                "Gateway United",
+                "Jigawa Golden Stars",
+                "El-Kanemi Warriors",
+                "ABS FC",
+                "RoadSafety FC"
               ]
             },
-            { "name": "Federation Cup", "type": "copa" }
+            {
+              "name": "Federation Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -994,9 +2026,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Asante Kotoko", "Hearts of Oak", "Medeama", "Aduana Stars", "Dreams FC",
-                "Berekum Chelsea", "Legon Cities", "Great Olympics", "Karela United", "Bibiani Gold Stars",
-                "Nations FC", "Nsoatreman", "Bechem United", "Accra Lions", "Samartex", "Bofoakwa Tano"
+                "Asante Kotoko",
+                "Hearts of Oak",
+                "Medeama",
+                "Aduana Stars",
+                "Dreams FC",
+                "Berekum Chelsea",
+                "Legon Cities",
+                "Great Olympics",
+                "Karela United",
+                "Bibiani Gold Stars",
+                "Nations FC",
+                "Nsoatreman",
+                "Bechem United",
+                "Accra Lions",
+                "Samartex",
+                "Bofoakwa Tano"
               ]
             },
             {
@@ -1004,11 +2049,20 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "King Faisal", "New Edubiase", "Vision FC", "Heart of Lions", "Swedru All Blacks",
-                "Techiman Eleven Wonders", "Tamale City", "Basake Holy Stars"
+                "King Faisal",
+                "New Edubiase",
+                "Vision FC",
+                "Heart of Lions",
+                "Swedru All Blacks",
+                "Techiman Eleven Wonders",
+                "Tamale City",
+                "Basake Holy Stars"
               ]
             },
-            { "name": "Ghana FA Cup", "type": "copa" }
+            {
+              "name": "Ghana FA Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1020,9 +2074,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "ASEC Mimosas", "Africa Sports", "FC San Pédro", "Racing Club d'Abidjan", "SOL FC",
-                "SC Gagnoa", "Stella Club", "Bouaké FC", "AS Denguélé", "Lys Sassandra",
-                "CO Korhogo", "Mouna FC", "Zoman FC", "Stade d'Abidjan"
+                "ASEC Mimosas",
+                "Africa Sports",
+                "FC San Pédro",
+                "Racing Club d'Abidjan",
+                "SOL FC",
+                "SC Gagnoa",
+                "Stella Club",
+                "Bouaké FC",
+                "AS Denguélé",
+                "Lys Sassandra",
+                "CO Korhogo",
+                "Mouna FC",
+                "Zoman FC",
+                "Stade d'Abidjan"
               ]
             },
             {
@@ -1030,10 +2095,18 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Yamoussoukro", "Espoir de Koumassi", "RFC Aboisso", "Agou", "Cosmof", "Jedida"
+                "Yamoussoukro",
+                "Espoir de Koumassi",
+                "RFC Aboisso",
+                "Agou",
+                "Cosmof",
+                "Jedida"
               ]
             },
-            { "name": "Coupe de Côte d'Ivoire", "type": "copa" }
+            {
+              "name": "Coupe de Côte d'Ivoire",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1045,9 +2118,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Coton Sport", "Canon Yaoundé", "Union Douala", "Bamboutos", "PWD Bamenda",
-                "Stade Renard", "Eding Sport", "Fovu Club", "Apejes de Mfou", "Avion Academy",
-                "Victoria United", "Gazelle FA", "Colombe Sportive", "YOSA Bamenda"
+                "Coton Sport",
+                "Canon Yaoundé",
+                "Union Douala",
+                "Bamboutos",
+                "PWD Bamenda",
+                "Stade Renard",
+                "Eding Sport",
+                "Fovu Club",
+                "Apejes de Mfou",
+                "Avion Academy",
+                "Victoria United",
+                "Gazelle FA",
+                "Colombe Sportive",
+                "YOSA Bamenda"
               ]
             },
             {
@@ -1055,11 +2139,18 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Panthère du Ndé", "Renaissance de Ngoumou", "Dragon de Yaoundé", "Tonnerre Yaoundé",
-                "Racing Bafoussam", "Dynamo Douala"
+                "Panthère du Ndé",
+                "Renaissance de Ngoumou",
+                "Dragon de Yaoundé",
+                "Tonnerre Yaoundé",
+                "Racing Bafoussam",
+                "Dynamo Douala"
               ]
             },
-            { "name": "Cameroonian Cup", "type": "copa" }
+            {
+              "name": "Cameroonian Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1071,9 +2162,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Génération Foot", "Teungueth FC", "Casa Sports", "Diambars", "US Gorée",
-                "Jaraaf", "Dakar Sacré-Cœur", "Pikine", "Linguère", "Guédiawaye FC",
-                "Sonacos", "Jamono Fatick", "OS Balantines", "HLM Dakar"
+                "Génération Foot",
+                "Teungueth FC",
+                "Casa Sports",
+                "Diambars",
+                "US Gorée",
+                "Jaraaf",
+                "Dakar Sacré-Cœur",
+                "Pikine",
+                "Linguère",
+                "Guédiawaye FC",
+                "Sonacos",
+                "Jamono Fatick",
+                "OS Balantines",
+                "HLM Dakar"
               ]
             },
             {
@@ -1081,10 +2183,627 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Ndiambour", "Port Autonome", "Renaissance Dakar", "Stade de Mbour", "Keur Madior"
+                "Ndiambour",
+                "Port Autonome",
+                "Renaissance Dakar",
+                "Stade de Mbour",
+                "Keur Madior"
               ]
             },
-            { "name": "Coupe du Sénégal", "type": "copa" }
+            {
+              "name": "Coupe du Sénégal",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Angola",
+          "code": "ANG",
+          "competitions": [
+            {
+              "name": "Girabola",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Petro de Luanda",
+                "Primeiro de Agosto",
+                "Sagrada Esperança",
+                "Wiliete",
+                "Interclube",
+                "Kabuscorp",
+                "Desportivo da Huíla",
+                "Bravos do Maquis",
+                "Recreativo do Libolo",
+                "Académica do Lobato",
+                "Luanda City",
+                "São Salvador",
+                "Santa Rita de Cássia",
+                "Recreativo do Caála",
+                "Sporting de Cabinda"
+              ]
+            },
+            {
+              "name": "Gira Angola",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Pro-Dínamo",
+                "Jackson Jinga",
+                "Académica do Soyo",
+                "Sporting de Benguela"
+              ]
+            },
+            {
+              "name": "Taça de Angola",
+              "type": "copa"
+            },
+            {
+              "name": "Supertaça de Angola",
+              "type": "supercopa"
+            }
+          ]
+        },
+        {
+          "name": "República Democrática do Congo",
+          "code": "COD",
+          "competitions": [
+            {
+              "name": "Linafoot Ligue 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "TP Mazembe",
+                "AS Vita Club",
+                "DC Motema Pembe",
+                "Saint-Éloi Lupopo",
+                "Maniema Union",
+                "JS Groupe Bazano",
+                "Simba Kolwezi",
+                "Blessing",
+                "AC Rangers",
+                "Étoile du Kivu",
+                "Kuya Sport",
+                "Lubumbashi Sport"
+              ]
+            },
+            {
+              "name": "Linafoot Ligue 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "FC Les Aigles du Kinshasa",
+                "AS Dragons",
+                "OC Bukavu Dawa",
+                "AS Malole"
+              ]
+            },
+            {
+              "name": "Coupe du Congo",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Tanzânia",
+          "code": "TAN",
+          "competitions": [
+            {
+              "name": "Tanzanian Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Young Africans",
+                "Simba SC",
+                "Azam FC",
+                "Coastal Union",
+                "Namungo",
+                "Geita Gold",
+                "Dodoma Jiji",
+                "KMC",
+                "Kagera Sugar",
+                "Ihefu",
+                "Tanzania Prisons",
+                "JKT Tanzania",
+                "Mashujaa",
+                "Tabora United"
+              ]
+            },
+            {
+              "name": "Tanzanian First Division League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Pamba Jiji",
+                "Biashara United",
+                "Transit Camp",
+                "African Lyon"
+              ]
+            },
+            {
+              "name": "Tanzania FA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Mali",
+          "code": "MLI",
+          "competitions": [
+            {
+              "name": "Malian Première Division",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Djoliba AC",
+                "Stade Malien",
+                "Real Bamako",
+                "USFAS Bamako",
+                "Yeelen Olympique",
+                "Onze Créateurs",
+                "Bougouba",
+                "Police AS",
+                "Korofina",
+                "Binga FC",
+                "Black Stars",
+                "AS Bakaridjan"
+              ]
+            },
+            {
+              "name": "Malian Second Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "AS Performance",
+                "Lafia Club",
+                "CS Duguwolofila"
+              ]
+            },
+            {
+              "name": "Malian Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Malian Super Cup",
+              "type": "supercopa"
+            }
+          ]
+        },
+        {
+          "name": "Zâmbia",
+          "code": "ZAM",
+          "competitions": [
+            {
+              "name": "Zambian Super League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Red Arrows",
+                "ZESCO United",
+                "Power Dynamos",
+                "Green Eagles",
+                "Napsa Stars",
+                "Mufulira Wanderers",
+                "Zanaco",
+                "Kabwe Warriors",
+                "Forest Rangers",
+                "Nkana",
+                "Mutondo Stars",
+                "Trident",
+                "Nchanga Rangers",
+                "Konkola Blades",
+                "Prison Leopards",
+                "Kansanshi Dynamos"
+              ]
+            },
+            {
+              "name": "Zambian National Division One",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Kitwe United",
+                "Lumwana Radiants",
+                "Livingstone Pirates"
+              ]
+            },
+            {
+              "name": "ABSA Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Sudão",
+          "code": "SDN",
+          "competitions": [
+            {
+              "name": "Sudan Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al-Hilal Omdurman",
+                "Al-Merrikh SC",
+                "Hay Al-Arab",
+                "Al-Ahli Merriwi",
+                "Kober",
+                "Tuti SC",
+                "Al-Hilal Port Sudan",
+                "Al-Amal Atbara",
+                "Hay Al-Wadi",
+                "Al-Ahli Khartoum"
+              ]
+            },
+            {
+              "name": "Sudan First Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Al-Merrikh Port Sudan",
+                "Burri SC"
+              ]
+            },
+            {
+              "name": "Sudan Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Uganda",
+          "code": "UGA",
+          "competitions": [
+            {
+              "name": "Uganda Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Vipers SC",
+                "KCCA FC",
+                "SC Villa",
+                "Express FC",
+                "URA FC",
+                "Bul FC",
+                "Wakiso Giants",
+                "Maroons",
+                "Arua Hill",
+                "Soltilo Bright Stars",
+                "Gaddafi",
+                "Busoga United",
+                "Kitara",
+                "Mbarara City"
+              ]
+            },
+            {
+              "name": "Uganda Big League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Lugazi FC",
+                "Police FC",
+                "Mbale Heroes"
+              ]
+            },
+            {
+              "name": "Uganda Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Quênia",
+          "code": "KEN",
+          "competitions": [
+            {
+              "name": "Kenyan Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Gor Mahia",
+                "Tusker FC",
+                "Kenya Police",
+                "AFC Leopards",
+                "Kakamega Homeboyz",
+                "Bandari",
+                "Sofapaka",
+                "Posta Rangers",
+                "Nzoia Sugar",
+                "Ulinzi Stars",
+                "Nairobi City Stars",
+                "Kariobangi Sharks",
+                "Shabana",
+                "Murang'a Seal",
+                "FC Talanta",
+                "Bidco United"
+              ]
+            },
+            {
+              "name": "National Super League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Naivas FC",
+                "Mara Sugar",
+                "Kisumu All Stars"
+              ]
+            },
+            {
+              "name": "FKF Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Zimbabwe",
+          "code": "ZIM",
+          "competitions": [
+            {
+              "name": "Zimbabwean Premier Soccer League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Highlanders",
+                "Dynamos",
+                "FC Platinum",
+                "Chicken Inn",
+                "CAPS United",
+                "Ngezi Platinum",
+                "Manica Diamonds",
+                "Simba Bhora",
+                "Herentals",
+                "Triangle United",
+                "Hwange",
+                "Bulawayo Chiefs",
+                "Sheasham",
+                "Green Fuel",
+                "Cranborne Bullets",
+                "Yadah"
+              ]
+            },
+            {
+              "name": "Zimbabwe Division One",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Arenel Movers",
+                "Bikita Minerals"
+              ]
+            },
+            {
+              "name": "Chibuku Super Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Moçambique",
+          "code": "MOZ",
+          "competitions": [
+            {
+              "name": "Moçambola",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Black Bulls",
+                "Ferroviário da Beira",
+                "UD Songo",
+                "Costa do Sol",
+                "Ferroviário de Maputo",
+                "Ferroviário de Nampula",
+                "Desportivo de Nacala",
+                "Incomáti",
+                "Matchedje de Maputo",
+                "Baía de Pemba",
+                "Chibuto",
+                "Brera Tchumene"
+              ]
+            },
+            {
+              "name": "Divisão de Honra",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Estrela Vermelha da Beira",
+                "Ferroviário de Quelimane"
+              ]
+            },
+            {
+              "name": "Taça de Moçambique",
+              "type": "copa"
+            },
+            {
+              "name": "Supertaça de Moçambique",
+              "type": "supercopa"
+            }
+          ]
+        },
+        {
+          "name": "Guiné",
+          "code": "GUI",
+          "competitions": [
+            {
+              "name": "Guinée Championnat National Ligue 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Horoya AC",
+                "Hafia FC",
+                "AS Kaloum Star",
+                "Milo FC",
+                "Wakriya AC",
+                "SOAR Academy",
+                "Flamme Olympique",
+                "Ashanti GB",
+                "Gangan FC",
+                "Fello Star",
+                "Séquedje FC",
+                "Dubréka"
+              ]
+            },
+            {
+              "name": "Ligue 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Loubha FC",
+                "Elephant de Coléah"
+              ]
+            },
+            {
+              "name": "Coupe Nationale de Guinée",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Burkina Faso",
+          "code": "BFA",
+          "competitions": [
+            {
+              "name": "Burkinabé Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "AS Douanes",
+                "Salitas FC",
+                "Rahimo FC",
+                "Majestic SC",
+                "USFA",
+                "Vitesse FC",
+                "AS Sonabel",
+                "Royal FC",
+                "EFO",
+                "AJEB",
+                "Cascades",
+                "RCB"
+              ]
+            },
+            {
+              "name": "Burkinabé Second Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Kiko FC",
+                "Santos FC"
+              ]
+            },
+            {
+              "name": "Coupe du Faso",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Líbia",
+          "code": "LBY",
+          "competitions": [
+            {
+              "name": "Libyan Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Al-Ahli Tripoli",
+                "Al-Ittihad",
+                "Al-Ahli Benghazi",
+                "Al-Nasr",
+                "Al-Madina",
+                "Al-Dhahra",
+                "Al-Akhdar",
+                "Al-Hilal Benghazi",
+                "Abu Salim",
+                "Al-Olympic",
+                "Asaria",
+                "Al-Suqoor"
+              ]
+            },
+            {
+              "name": "Libyan Second Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Al-Khmes",
+                "Al-Tersana"
+              ]
+            },
+            {
+              "name": "Libyan Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Libyan Super Cup",
+              "type": "supercopa"
+            }
+          ]
+        },
+        {
+          "name": "Etiópia",
+          "code": "ETH",
+          "competitions": [
+            {
+              "name": "Ethiopian Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "St. George",
+                "Ethiopian Coffee",
+                "Fasil Kenema",
+                "Bahir Dar City",
+                "Hawassa City",
+                "Sidama Bunna",
+                "Adama City",
+                "Dire Dawa City",
+                "Wolkite City",
+                "Hadiya Hosaena",
+                "Sebeta City",
+                "Legetafo Legedadi"
+              ]
+            },
+            {
+              "name": "Ethiopian Higher League",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Ethiopian Insurance",
+                "Mekelle 70 Enderta"
+              ]
+            },
+            {
+              "name": "Ethiopian Cup",
+              "type": "copa"
+            }
+          ]
+        },
+        {
+          "name": "Congo",
+          "code": "CGO",
+          "competitions": [
+            {
+              "name": "Congo Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "AS Otohô",
+                "AC Léopards",
+                "Diables Noirs",
+                "Étoile du Congo",
+                "CARA Brazzaville",
+                "V.Club Mokanda",
+                "Patronage Sainte-Anne",
+                "Jeunesse Sportive de Talangaï",
+                "AS JUK"
+              ]
+            },
+            {
+              "name": "Ligue 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Nico Nicoyé",
+                "Munisport"
+              ]
+            },
+            {
+              "name": "Coupe du Congo",
+              "type": "copa"
+            }
           ]
         }
       ]
@@ -1101,10 +2820,26 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton & Hove Albion",
-                "Chelsea", "Crystal Palace", "Everton", "Fulham", "Ipswich Town",
-                "Leicester City", "Liverpool", "Manchester City", "Manchester United", "Newcastle United",
-                "Nottingham Forest", "Southampton", "Tottenham Hotspur", "West Ham United", "Wolverhampton Wanderers"
+                "Arsenal",
+                "Aston Villa",
+                "Bournemouth",
+                "Brentford",
+                "Brighton & Hove Albion",
+                "Chelsea",
+                "Crystal Palace",
+                "Everton",
+                "Fulham",
+                "Ipswich Town",
+                "Leicester City",
+                "Liverpool",
+                "Manchester City",
+                "Manchester United",
+                "Newcastle United",
+                "Nottingham Forest",
+                "Southampton",
+                "Tottenham Hotspur",
+                "West Ham United",
+                "Wolverhampton Wanderers"
               ]
             },
             {
@@ -1112,15 +2847,40 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Leeds United", "Burnley", "Sheffield United", "Luton Town", "West Bromwich Albion",
-                "Watford", "Coventry City", "Middlesbrough", "Sunderland", "Hull City",
-                "Stoke City", "Millwall", "Preston North End", "Swansea City", "Cardiff City",
-                "Bristol City", "Norwich City", "Blackburn Rovers", "Queens Park Rangers", "Plymouth Argyle",
-                "Sheffield Wednesday", "Oxford United", "Portsmouth", "Derby County"
+                "Leeds United",
+                "Burnley",
+                "Sheffield United",
+                "Luton Town",
+                "West Bromwich Albion",
+                "Watford",
+                "Coventry City",
+                "Middlesbrough",
+                "Sunderland",
+                "Hull City",
+                "Stoke City",
+                "Millwall",
+                "Preston North End",
+                "Swansea City",
+                "Cardiff City",
+                "Bristol City",
+                "Norwich City",
+                "Blackburn Rovers",
+                "Queens Park Rangers",
+                "Plymouth Argyle",
+                "Sheffield Wednesday",
+                "Oxford United",
+                "Portsmouth",
+                "Derby County"
               ]
             },
-            { "name": "FA Cup", "type": "copa" },
-            { "name": "FA Community Shield", "type": "supercopa" }
+            {
+              "name": "FA Cup",
+              "type": "copa"
+            },
+            {
+              "name": "FA Community Shield",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1132,10 +2892,26 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Athletic Club", "Atlético de Madrid", "Barcelona", "Celta de Vigo", "Alavés",
-                "Getafe", "Girona", "Mallorca", "Osasuna", "Rayo Vallecano",
-                "Real Betis", "Real Madrid", "Real Sociedad", "Sevilla", "Valencia",
-                "Villarreal", "Las Palmas", "Leganés", "Real Valladolid", "Espanyol"
+                "Athletic Club",
+                "Atlético de Madrid",
+                "Barcelona",
+                "Celta de Vigo",
+                "Alavés",
+                "Getafe",
+                "Girona",
+                "Mallorca",
+                "Osasuna",
+                "Rayo Vallecano",
+                "Real Betis",
+                "Real Madrid",
+                "Real Sociedad",
+                "Sevilla",
+                "Valencia",
+                "Villarreal",
+                "Las Palmas",
+                "Leganés",
+                "Real Valladolid",
+                "Espanyol"
               ]
             },
             {
@@ -1143,14 +2919,38 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Almería", "Granada", "Cádiz", "Levante", "Eibar",
-                "Real Zaragoza", "Sporting de Gijón", "Real Oviedo", "Tenerife", "Racing de Santander",
-                "Elche", "Huesca", "Mirandés", "Burgos", "Albacete",
-                "Cartagena", "Eldense", "Racing de Ferrol", "Castellón", "Deportivo de La Coruña", "Málaga", "Córdoba"
+                "Almería",
+                "Granada",
+                "Cádiz",
+                "Levante",
+                "Eibar",
+                "Real Zaragoza",
+                "Sporting de Gijón",
+                "Real Oviedo",
+                "Tenerife",
+                "Racing de Santander",
+                "Elche",
+                "Huesca",
+                "Mirandés",
+                "Burgos",
+                "Albacete",
+                "Cartagena",
+                "Eldense",
+                "Racing de Ferrol",
+                "Castellón",
+                "Deportivo de La Coruña",
+                "Málaga",
+                "Córdoba"
               ]
             },
-            { "name": "Copa del Rey", "type": "copa" },
-            { "name": "Supercopa de España", "type": "supercopa" }
+            {
+              "name": "Copa del Rey",
+              "type": "copa"
+            },
+            {
+              "name": "Supercopa de España",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1162,10 +2962,26 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Atalanta", "Bologna", "Cagliari", "Como", "Empoli",
-                "Fiorentina", "Genoa", "Hellas Verona", "Inter Milan", "Juventus",
-                "Lazio", "Lecce", "AC Milan", "Monza", "Napoli",
-                "Parma", "Roma", "Torino", "Udinese", "Venezia"
+                "Atalanta",
+                "Bologna",
+                "Cagliari",
+                "Como",
+                "Empoli",
+                "Fiorentina",
+                "Genoa",
+                "Hellas Verona",
+                "Inter Milan",
+                "Juventus",
+                "Lazio",
+                "Lecce",
+                "AC Milan",
+                "Monza",
+                "Napoli",
+                "Parma",
+                "Roma",
+                "Torino",
+                "Udinese",
+                "Venezia"
               ]
             },
             {
@@ -1173,14 +2989,36 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Sassuolo", "Frosinone", "Salernitana", "Sampdoria", "Palermo",
-                "Bari", "Spezia", "Cremonese", "Catanzaro", "Brescia",
-                "Cosenza", "Modena", "Reggiana", "Sudtirol", "Cittadella",
-                "Pisa", "Mantova", "Juve Stabia", "Carrarese", "Cesena"
+                "Sassuolo",
+                "Frosinone",
+                "Salernitana",
+                "Sampdoria",
+                "Palermo",
+                "Bari",
+                "Spezia",
+                "Cremonese",
+                "Catanzaro",
+                "Brescia",
+                "Cosenza",
+                "Modena",
+                "Reggiana",
+                "Sudtirol",
+                "Cittadella",
+                "Pisa",
+                "Mantova",
+                "Juve Stabia",
+                "Carrarese",
+                "Cesena"
               ]
             },
-            { "name": "Coppa Italia", "type": "copa" },
-            { "name": "Supercoppa Italiana", "type": "supercopa" }
+            {
+              "name": "Coppa Italia",
+              "type": "copa"
+            },
+            {
+              "name": "Supercoppa Italiana",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1192,10 +3030,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "FC Augsburg", "Bayer Leverkusen", "Bayern Munich", "VfL Bochum", "Werder Bremen",
-                "Borussia Dortmund", "Eintracht Frankfurt", "SC Freiburg", "1. FC Heidenheim", "TSG Hoffenheim",
-                "RB Leipzig", "Mainz 05", "Borussia Mönchengladbach", "FC St. Pauli", "VfB Stuttgart",
-                "Union Berlin", "VfL Wolfsburg", "Holstein Kiel"
+                "FC Augsburg",
+                "Bayer Leverkusen",
+                "Bayern Munich",
+                "VfL Bochum",
+                "Werder Bremen",
+                "Borussia Dortmund",
+                "Eintracht Frankfurt",
+                "SC Freiburg",
+                "1. FC Heidenheim",
+                "TSG Hoffenheim",
+                "RB Leipzig",
+                "Mainz 05",
+                "Borussia Mönchengladbach",
+                "FC St. Pauli",
+                "VfB Stuttgart",
+                "Union Berlin",
+                "VfL Wolfsburg",
+                "Holstein Kiel"
               ]
             },
             {
@@ -1203,14 +3055,34 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "1. FC Köln", "Darmstadt 98", "Hamburger SV", "Fortuna Düsseldorf", "Hertha BSC",
-                "Karlsruher SC", "Hannover 96", "SC Paderborn", "Greuther Fürth", "1. FC Nürnberg",
-                "Schalke 04", "SV Elversberg", "Magdeburg", "Kaiserslautern", "Eintracht Braunschweig",
-                "Preußen Münster", "SSV Ulm", "Jahn Regensburg"
+                "1. FC Köln",
+                "Darmstadt 98",
+                "Hamburger SV",
+                "Fortuna Düsseldorf",
+                "Hertha BSC",
+                "Karlsruher SC",
+                "Hannover 96",
+                "SC Paderborn",
+                "Greuther Fürth",
+                "1. FC Nürnberg",
+                "Schalke 04",
+                "SV Elversberg",
+                "Magdeburg",
+                "Kaiserslautern",
+                "Eintracht Braunschweig",
+                "Preußen Münster",
+                "SSV Ulm",
+                "Jahn Regensburg"
               ]
             },
-            { "name": "DFB-Pokal", "type": "copa" },
-            { "name": "DFL-Supercup", "type": "supercopa" }
+            {
+              "name": "DFB-Pokal",
+              "type": "copa"
+            },
+            {
+              "name": "DFL-Supercup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1222,10 +3094,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Brest", "Le Havre", "Lens", "Lille", "Lyon",
-                "Marseille", "Monaco", "Montpellier", "Nantes", "Nice",
-                "Paris Saint-Germain", "Reims", "Rennes", "Saint-Étienne", "Strasbourg",
-                "Toulouse", "Angers", "Auxerre"
+                "Brest",
+                "Le Havre",
+                "Lens",
+                "Lille",
+                "Lyon",
+                "Marseille",
+                "Monaco",
+                "Montpellier",
+                "Nantes",
+                "Nice",
+                "Paris Saint-Germain",
+                "Reims",
+                "Rennes",
+                "Saint-Étienne",
+                "Strasbourg",
+                "Toulouse",
+                "Angers",
+                "Auxerre"
               ]
             },
             {
@@ -1233,14 +3119,34 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Ajaccio", "Annecy", "Bastia", "Caen", "Clermont Foot",
-                "Dunkerque", "Guingamp", "Laval", "Lorient", "Martigues",
-                "Metz", "Pau", "Paris FC", "Rodez", "Red Star",
-                "Troyes", "Grenoble", "Amiens"
+                "Ajaccio",
+                "Annecy",
+                "Bastia",
+                "Caen",
+                "Clermont Foot",
+                "Dunkerque",
+                "Guingamp",
+                "Laval",
+                "Lorient",
+                "Martigues",
+                "Metz",
+                "Pau",
+                "Paris FC",
+                "Rodez",
+                "Red Star",
+                "Troyes",
+                "Grenoble",
+                "Amiens"
               ]
             },
-            { "name": "Coupe de France", "type": "copa" },
-            { "name": "Trophée des Champions", "type": "supercopa" }
+            {
+              "name": "Coupe de France",
+              "type": "copa"
+            },
+            {
+              "name": "Trophée des Champions",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1252,10 +3158,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Benfica", "Porto", "Sporting CP", "Braga", "Vitória de Guimarães",
-                "Moreirense", "Arouca", "Famalicão", "Casa Pia", "Rio Ave",
-                "Gil Vicente", "Estoril Praia", "Boavista", "Farense", "Estrela da Amadora",
-                "Nacional", "Santa Clara", "AVS"
+                "Benfica",
+                "Porto",
+                "Sporting CP",
+                "Braga",
+                "Vitória de Guimarães",
+                "Moreirense",
+                "Arouca",
+                "Famalicão",
+                "Casa Pia",
+                "Rio Ave",
+                "Gil Vicente",
+                "Estoril Praia",
+                "Boavista",
+                "Farense",
+                "Estrela da Amadora",
+                "Nacional",
+                "Santa Clara",
+                "AVS"
               ]
             },
             {
@@ -1263,14 +3183,34 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Portimonense", "Vizela", "Chaves", "Marítimo", "Paços de Ferreira",
-                "Tondela", "Feirense", "Torreense", "Mafra", "Leixões",
-                "Oliveirense", "Académico de Viseu", "Penafiel", "União de Leiria", "Felgueiras",
-                "Alverca", "Benfica B", "Porto B"
+                "Portimonense",
+                "Vizela",
+                "Chaves",
+                "Marítimo",
+                "Paços de Ferreira",
+                "Tondela",
+                "Feirense",
+                "Torreense",
+                "Mafra",
+                "Leixões",
+                "Oliveirense",
+                "Académico de Viseu",
+                "Penafiel",
+                "União de Leiria",
+                "Felgueiras",
+                "Alverca",
+                "Benfica B",
+                "Porto B"
               ]
             },
-            { "name": "Taça de Portugal", "type": "copa" },
-            { "name": "Supertaça Cândido de Oliveira", "type": "supercopa" }
+            {
+              "name": "Taça de Portugal",
+              "type": "copa"
+            },
+            {
+              "name": "Supertaça Cândido de Oliveira",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1282,10 +3222,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Ajax", "AZ Alkmaar", "Feyenoord", "PSV Eindhoven", "FC Utrecht",
-                "FC Twente", "Go Ahead Eagles", "NEC Nijmegen", "Heerenveen", "Fortuna Sittard",
-                "Sparta Rotterdam", "Heracles Almelo", "PEC Zwolle", "Almere City", "RKC Waalwijk",
-                "FC Groningen", "NAC Breda", "Willem II"
+                "Ajax",
+                "AZ Alkmaar",
+                "Feyenoord",
+                "PSV Eindhoven",
+                "FC Utrecht",
+                "FC Twente",
+                "Go Ahead Eagles",
+                "NEC Nijmegen",
+                "Heerenveen",
+                "Fortuna Sittard",
+                "Sparta Rotterdam",
+                "Heracles Almelo",
+                "PEC Zwolle",
+                "Almere City",
+                "RKC Waalwijk",
+                "FC Groningen",
+                "NAC Breda",
+                "Willem II"
               ]
             },
             {
@@ -1293,14 +3247,36 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Excelsior", "FC Volendam", "ADO Den Haag", "De Graafschap", "VVV-Venlo",
-                "FC Emmen", "TOP Oss", "Telstar", "FC Eindhoven", "MVV Maastricht",
-                "Den Bosch", "Jong Ajax", "Jong PSV", "Jong AZ", "Jong Utrecht",
-                "Roda JC", "Helmond Sport", "FC Dordrecht", "SC Cambuur", "Vitesse"
+                "Excelsior",
+                "FC Volendam",
+                "ADO Den Haag",
+                "De Graafschap",
+                "VVV-Venlo",
+                "FC Emmen",
+                "TOP Oss",
+                "Telstar",
+                "FC Eindhoven",
+                "MVV Maastricht",
+                "Den Bosch",
+                "Jong Ajax",
+                "Jong PSV",
+                "Jong AZ",
+                "Jong Utrecht",
+                "Roda JC",
+                "Helmond Sport",
+                "FC Dordrecht",
+                "SC Cambuur",
+                "Vitesse"
               ]
             },
-            { "name": "KNVB Cup", "type": "copa" },
-            { "name": "Johan Cruyff Shield", "type": "supercopa" }
+            {
+              "name": "KNVB Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Johan Cruyff Shield",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1312,10 +3288,25 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Galatasaray", "Fenerbahçe", "Beşiktaş", "Trabzonspor", "İstanbul Başakşehir",
-                "Kasımpaşa", "Antalyaspor", "Alanyaspor", "Rizespor", "Sivasspor",
-                "Samsunspor", "Kayserispor", "Gaziantep", "Hatayspor", "Konyaspor",
-                "Adana Demirspor", "Eyüpspor", "Göztepe", "Bodrum FK"
+                "Galatasaray",
+                "Fenerbahçe",
+                "Beşiktaş",
+                "Trabzonspor",
+                "İstanbul Başakşehir",
+                "Kasımpaşa",
+                "Antalyaspor",
+                "Alanyaspor",
+                "Rizespor",
+                "Sivasspor",
+                "Samsunspor",
+                "Kayserispor",
+                "Gaziantep",
+                "Hatayspor",
+                "Konyaspor",
+                "Adana Demirspor",
+                "Eyüpspor",
+                "Göztepe",
+                "Bodrum FK"
               ]
             },
             {
@@ -1323,14 +3314,34 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Ankaragücü", "Fatih Karagümrük", "Pendikspor", "Kocaelispor", "Sakaryaspor",
-                "Çorum FK", "Boluspor", "Manisa FK", "Erzurumspor", "Amed SK",
-                "Şanlıurfaspor", "Ümraniyespor", "Ankara Keçiörengücü", "Gençlerbirliği", "Esenler Erokspor",
-                "Iğdır FK", "Bandırmaspor", "Adanaspor"
+                "Ankaragücü",
+                "Fatih Karagümrük",
+                "Pendikspor",
+                "Kocaelispor",
+                "Sakaryaspor",
+                "Çorum FK",
+                "Boluspor",
+                "Manisa FK",
+                "Erzurumspor",
+                "Amed SK",
+                "Şanlıurfaspor",
+                "Ümraniyespor",
+                "Ankara Keçiörengücü",
+                "Gençlerbirliği",
+                "Esenler Erokspor",
+                "Iğdır FK",
+                "Bandırmaspor",
+                "Adanaspor"
               ]
             },
-            { "name": "Turkish Cup", "type": "copa" },
-            { "name": "Turkish Super Cup", "type": "supercopa" }
+            {
+              "name": "Turkish Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Turkish Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1342,9 +3353,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Club Brugge", "Anderlecht", "Union Saint-Gilloise", "Genk", "Antwerp",
-                "Gent", "Cercle Brugge", "Standard Liège", "Mechelen", "Sint-Truiden",
-                "Westerlo", "OH Leuven", "Charleroi", "Kortrijk", "Dender", "Beerschot"
+                "Club Brugge",
+                "Anderlecht",
+                "Union Saint-Gilloise",
+                "Genk",
+                "Antwerp",
+                "Gent",
+                "Cercle Brugge",
+                "Standard Liège",
+                "Mechelen",
+                "Sint-Truiden",
+                "Westerlo",
+                "OH Leuven",
+                "Charleroi",
+                "Kortrijk",
+                "Dender",
+                "Beerschot"
               ]
             },
             {
@@ -1352,13 +3376,31 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Zulte Waregem", "Deinze", "Lommel", "Patro Eisden", "RFC Liège",
-                "Club NXT", "RSCA Futures", "Jong Genk", "RWDM", "Eupen",
-                "Seraing", "Lierse", "SK Beveren", "Oostende", "Francs Borains"
+                "Zulte Waregem",
+                "Deinze",
+                "Lommel",
+                "Patro Eisden",
+                "RFC Liège",
+                "Club NXT",
+                "RSCA Futures",
+                "Jong Genk",
+                "RWDM",
+                "Eupen",
+                "Seraing",
+                "Lierse",
+                "SK Beveren",
+                "Oostende",
+                "Francs Borains"
               ]
             },
-            { "name": "Belgian Cup", "type": "copa" },
-            { "name": "Belgian Super Cup", "type": "supercopa" }
+            {
+              "name": "Belgian Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Belgian Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1370,9 +3412,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Celtic", "Rangers", "Heart of Midlothian", "Aberdeen", "Hibernian",
-                "St. Mirren", "Dundee", "Kilmarnock", "Motherwell", "St. Johnstone",
-                "Ross County", "Dundee United"
+                "Celtic",
+                "Rangers",
+                "Heart of Midlothian",
+                "Aberdeen",
+                "Hibernian",
+                "St. Mirren",
+                "Dundee",
+                "Kilmarnock",
+                "Motherwell",
+                "St. Johnstone",
+                "Ross County",
+                "Dundee United"
               ]
             },
             {
@@ -1380,12 +3431,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Livingston", "Queen's Park", "Ayr United", "Partick Thistle", "Raith Rovers",
-                "Greenock Morton", "Dunfermline Athletic", "Airdrieonians", "Hamilton Academical", "Falkirk"
+                "Livingston",
+                "Queen's Park",
+                "Ayr United",
+                "Partick Thistle",
+                "Raith Rovers",
+                "Greenock Morton",
+                "Dunfermline Athletic",
+                "Airdrieonians",
+                "Hamilton Academical",
+                "Falkirk"
               ]
             },
-            { "name": "Scottish Cup", "type": "copa" },
-            { "name": "Scottish League Cup", "type": "supercopa" }
+            {
+              "name": "Scottish Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Scottish League Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1397,9 +3462,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Red Bull Salzburg", "Sturm Graz", "LASK", "Rapid Vienna", "Austria Vienna",
-                "TSV Hartberg", "Wolfsberger AC", "Klagenfurt", "Blau-Weiß Linz", "Altach",
-                "Wattens", "GAK"
+                "Red Bull Salzburg",
+                "Sturm Graz",
+                "LASK",
+                "Rapid Vienna",
+                "Austria Vienna",
+                "TSV Hartberg",
+                "Wolfsberger AC",
+                "Klagenfurt",
+                "Blau-Weiß Linz",
+                "Altach",
+                "Wattens",
+                "GAK"
               ]
             },
             {
@@ -1407,12 +3481,24 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "SV Ried", "Admira Wacker", "St. Pölten", "Liefering",
-                "FAC Vienna", "SV Horn", "First Vienna", "Kapfenberger SV", "Schwarz-Wei Bregenz",
-                "Stripfing", "Amstetten", "Lafnitz"
+                "SV Ried",
+                "Admira Wacker",
+                "St. Pölten",
+                "Liefering",
+                "FAC Vienna",
+                "SV Horn",
+                "First Vienna",
+                "Kapfenberger SV",
+                "Schwarz-Wei Bregenz",
+                "Stripfing",
+                "Amstetten",
+                "Lafnitz"
               ]
             },
-            { "name": "Austrian Cup", "type": "copa" }
+            {
+              "name": "Austrian Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1424,9 +3510,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Young Boys", "Servette", "Lugano", "Basel", "FC Zürich",
-                "St. Gallen", "Winterthur", "Luzern", "Yverdon-Sport", "Lausanne-Sport",
-                "Grasshoppers", "Sion"
+                "Young Boys",
+                "Servette",
+                "Lugano",
+                "Basel",
+                "FC Zürich",
+                "St. Gallen",
+                "Winterthur",
+                "Luzern",
+                "Yverdon-Sport",
+                "Lausanne-Sport",
+                "Grasshoppers",
+                "Sion"
               ]
             },
             {
@@ -1434,11 +3529,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Thun", "Vaduz", "Aarau", "Wil", "Schaffhausen",
-                "Stade Lausanne-Ouchy", "Bellinzona", "Neuchâtel Xamax", "Étoile Carouge", "Raperswil-Jona"
+                "Thun",
+                "Vaduz",
+                "Aarau",
+                "Wil",
+                "Schaffhausen",
+                "Stade Lausanne-Ouchy",
+                "Bellinzona",
+                "Neuchâtel Xamax",
+                "Étoile Carouge",
+                "Raperswil-Jona"
               ]
             },
-            { "name": "Swiss Cup", "type": "copa" }
+            {
+              "name": "Swiss Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1450,9 +3556,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Shakhtar Donetsk", "Dynamo Kyiv", "Kryvbas Kryvyi Rih", "Dnipro-1", "Polissya Zhytomyr",
-                "Rukh Lviv", "Chornomorets Odesa", "Vorskla Poltava", "Zorya Luhansk", "LNZ Cherkasy",
-                "Kolos Kovalivka", "Veres Rivne", "Obolon Kyiv", "Metalist 1925", "Minai", "Inhulets Petrove"
+                "Shakhtar Donetsk",
+                "Dynamo Kyiv",
+                "Kryvbas Kryvyi Rih",
+                "Dnipro-1",
+                "Polissya Zhytomyr",
+                "Rukh Lviv",
+                "Chornomorets Odesa",
+                "Vorskla Poltava",
+                "Zorya Luhansk",
+                "LNZ Cherkasy",
+                "Kolos Kovalivka",
+                "Veres Rivne",
+                "Obolon Kyiv",
+                "Metalist 1925",
+                "Minai",
+                "Inhulets Petrove"
               ]
             },
             {
@@ -1460,12 +3579,25 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Karpaty Lviv", "Livyi Bereh", "Mariupol", "Epitsentr",
-                "Ahrobiznes Volochysk", "Bukovyna Chernivtsi", "Nyva Buzova", "Metalist Kharkiv", "Khust"
+                "Karpaty Lviv",
+                "Livyi Bereh",
+                "Mariupol",
+                "Epitsentr",
+                "Ahrobiznes Volochysk",
+                "Bukovyna Chernivtsi",
+                "Nyva Buzova",
+                "Metalist Kharkiv",
+                "Khust"
               ]
             },
-            { "name": "Ukrainian Cup", "type": "copa" },
-            { "name": "Ukrainian Super Cup", "type": "supercopa" }
+            {
+              "name": "Ukrainian Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Ukrainian Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1477,9 +3609,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "FC Copenhagen", "Brøndby IF", "FC Midtjylland", "AGF Aarhus", "FC Nordsjælland",
-                "Silkeborg IF", "Randers FC", "Viborg FF", "Vejle Boldklub", "Lyngby BK",
-                "AaB Aalborg", "SønderjyskE"
+                "FC Copenhagen",
+                "Brøndby IF",
+                "FC Midtjylland",
+                "AGF Aarhus",
+                "FC Nordsjælland",
+                "Silkeborg IF",
+                "Randers FC",
+                "Viborg FF",
+                "Vejle Boldklub",
+                "Lyngby BK",
+                "AaB Aalborg",
+                "SønderjyskE"
               ]
             },
             {
@@ -1487,11 +3628,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "OB Odense", "AC Horsens", "FC Fredericia", "Vendsyssel FF", "Hillerød",
-                "HB Køge", "Hobro IK", "B.93", "Esbjerg fB", "Roskilde"
+                "OB Odense",
+                "AC Horsens",
+                "FC Fredericia",
+                "Vendsyssel FF",
+                "Hillerød",
+                "HB Køge",
+                "Hobro IK",
+                "B.93",
+                "Esbjerg fB",
+                "Roskilde"
               ]
             },
-            { "name": "Danish Cup", "type": "copa" }
+            {
+              "name": "Danish Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1503,9 +3655,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "PAOK", "AEK Athens", "Olympiacos", "Panathinaikos", "Aris Thessaloniki",
-                "Lamia", "Asteras Tripolis", "Atromitos", "Panserraikos", "OFI Crete",
-                "Kifisia", "PAS Giannina", "Panetolikos", "Volos"
+                "PAOK",
+                "AEK Athens",
+                "Olympiacos",
+                "Panathinaikos",
+                "Aris Thessaloniki",
+                "Lamia",
+                "Asteras Tripolis",
+                "Atromitos",
+                "Panserraikos",
+                "OFI Crete",
+                "Kifisia",
+                "PAS Giannina",
+                "Panetolikos",
+                "Volos"
               ]
             },
             {
@@ -1513,11 +3676,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Levadiakos", "Athens Kallithea", "Chania", "Ilioupoli", "Kalamata",
-                "Panachaiki", "Ionikos", "Diagoras", "AO Kavala", "Niki Volou"
+                "Levadiakos",
+                "Athens Kallithea",
+                "Chania",
+                "Ilioupoli",
+                "Kalamata",
+                "Panachaiki",
+                "Ionikos",
+                "Diagoras",
+                "AO Kavala",
+                "Niki Volou"
               ]
             },
-            { "name": "Greek Football Cup", "type": "copa" }
+            {
+              "name": "Greek Football Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1529,9 +3703,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Sparta Prague", "Slavia Prague", "Viktoria Plzeň", "Baník Ostrava", "Mladá Boleslav",
-                "Slovácko", "Slovan Liberec", "Teplice", "Bohemians 1905", "Sigma Olomouc",
-                "Hradec Králové", "Karvainta", "České Budějovice", "Zlín", "Dukla Prague", "Pardubice"
+                "Sparta Prague",
+                "Slavia Prague",
+                "Viktoria Plzeň",
+                "Baník Ostrava",
+                "Mladá Boleslav",
+                "Slovácko",
+                "Slovan Liberec",
+                "Teplice",
+                "Bohemians 1905",
+                "Sigma Olomouc",
+                "Hradec Králové",
+                "Karvainta",
+                "České Budějovice",
+                "Zlín",
+                "Dukla Prague",
+                "Pardubice"
               ]
             },
             {
@@ -1539,11 +3726,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Vyškov", "Táborsko", "Zbrojovka Brno", "Vlašim", "Chrudim",
-                "Opava", "Prostějov", "Varnsdorf", "Sigma Olomouc B", "Sparta Prague B"
+                "Vyškov",
+                "Táborsko",
+                "Zbrojovka Brno",
+                "Vlašim",
+                "Chrudim",
+                "Opava",
+                "Prostějov",
+                "Varnsdorf",
+                "Sigma Olomouc B",
+                "Sparta Prague B"
               ]
             },
-            { "name": "Czech Cup", "type": "copa" }
+            {
+              "name": "Czech Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1555,8 +3753,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Dinamo Zagreb", "Hajduk Split", "Rijeka", "Osijek", "Lokomotiva Zagreb",
-                "Varaždín", "Istra 1961", "Slaven Belupo", "Gorica", "Šibenik"
+                "Dinamo Zagreb",
+                "Hajduk Split",
+                "Rijeka",
+                "Osijek",
+                "Lokomotiva Zagreb",
+                "Varaždín",
+                "Istra 1961",
+                "Slaven Belupo",
+                "Gorica",
+                "Šibenik"
               ]
             },
             {
@@ -1564,11 +3770,21 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Vukovar 1991", "Zrinski Osječko", "Cibalia", "Dubrava", "Jarun",
-                "Solin", "Orijent", "Kustošija", "Croatia Zmijavci"
+                "Vukovar 1991",
+                "Zrinski Osječko",
+                "Cibalia",
+                "Dubrava",
+                "Jarun",
+                "Solin",
+                "Orijent",
+                "Kustošija",
+                "Croatia Zmijavci"
               ]
             },
-            { "name": "Croatian Football Cup", "type": "copa" }
+            {
+              "name": "Croatian Football Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1580,10 +3796,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Jagiellonia Białystok", "Śląskas Wrocław", "Legia Warsaw", "Lech Poznań", "Pogoń Szczecin",
-                "Raków Częstochowa", "Piast Gliwice", "Górnik Zabrze", "Zagł b Lubin", "Widzów Łódź",
-                "Warta Poznań", "Stal Mielec", "Puszcza Niepołomice", "Radomiak Radom", "Korona Kielce",
-                "Lechia Gdańsk", "GKS Katowice", "Motor Lublin"
+                "Jagiellonia Białystok",
+                "Śląskas Wrocław",
+                "Legia Warsaw",
+                "Lech Poznań",
+                "Pogoń Szczecin",
+                "Raków Częstochowa",
+                "Piast Gliwice",
+                "Górnik Zabrze",
+                "Zagł b Lubin",
+                "Widzów Łódź",
+                "Warta Poznań",
+                "Stal Mielec",
+                "Puszcza Niepołomice",
+                "Radomiak Radom",
+                "Korona Kielce",
+                "Lechia Gdańsk",
+                "GKS Katowice",
+                "Motor Lublin"
               ]
             },
             {
@@ -1591,12 +3821,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Arka Gdynia", "GKS Tychy", "Odra Opole", "Wisła Kraków", "Miedź Legnica",
-                "Bruk-Bet Termalica", "Górnik Łęczna", "Polonia Warsaw", "Stal Rzeszów", "Chrobry Głogów"
+                "Arka Gdynia",
+                "GKS Tychy",
+                "Odra Opole",
+                "Wisła Kraków",
+                "Miedź Legnica",
+                "Bruk-Bet Termalica",
+                "Górnik Łęczna",
+                "Polonia Warsaw",
+                "Stal Rzeszów",
+                "Chrobry Głogów"
               ]
             },
-            { "name": "Polish Cup", "type": "copa" },
-            { "name": "Polish SuperCup", "type": "supercopa" }
+            {
+              "name": "Polish Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Polish SuperCup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1608,9 +3852,21 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Malmö FF", "AIK", "Djurgårdens IF", "BK Häcken", "Hammarby IF",
-                "IF Elfsborg", "IFK Göteborg", "IFK Norrköping", "Sirius", "Mjällby AIF",
-                "Kalmar FF", "Halmstads BK", "BP", "Västerås SK", "GAIS"
+                "Malmö FF",
+                "AIK",
+                "Djurgårdens IF",
+                "BK Häcken",
+                "Hammarby IF",
+                "IF Elfsborg",
+                "IFK Göteborg",
+                "IFK Norrköping",
+                "Sirius",
+                "Mjällby AIF",
+                "Kalmar FF",
+                "Halmstads BK",
+                "BP",
+                "Västerås SK",
+                "GAIS"
               ]
             },
             {
@@ -1618,11 +3874,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Landskrona BoIS", "Östers IF", "Degerfors IF", "Örgryte", "GIF Sundsvall",
-                "Sandvikens IF", "Trelleborgs", "Utsiktens BK", "Östersunds FK", "Skövde AIK"
+                "Landskrona BoIS",
+                "Östers IF",
+                "Degerfors IF",
+                "Örgryte",
+                "GIF Sundsvall",
+                "Sandvikens IF",
+                "Trelleborgs",
+                "Utsiktens BK",
+                "Östersunds FK",
+                "Skövde AIK"
               ]
             },
-            { "name": "Svenska Cupen", "type": "copa" }
+            {
+              "name": "Svenska Cupen",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1634,9 +3901,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Bodø/Glimt", "Brann", "Rosenborg", "Molde", "Viking",
-                "Lillestrøm", "Strømsgodset", "Sarpsborg 08", "Tromsø", "Odd",
-                "HamKam", "Haugesund", "Sandefjord", "KFUM Oslo", "Fredrikstad", "Kristiansund"
+                "Bodø/Glimt",
+                "Brann",
+                "Rosenborg",
+                "Molde",
+                "Viking",
+                "Lillestrøm",
+                "Strømsgodset",
+                "Sarpsborg 08",
+                "Tromsø",
+                "Odd",
+                "HamKam",
+                "Haugesund",
+                "Sandefjord",
+                "KFUM Oslo",
+                "Fredrikstad",
+                "Kristiansund"
               ]
             },
             {
@@ -1644,11 +3924,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Vålerenga", "Aalesund", "Start", "Kongsvinger", "Raufoss",
-                "Bryne", "Sogndal", "Ranheim", "Moss", "Stabæk"
+                "Vålerenga",
+                "Aalesund",
+                "Start",
+                "Kongsvinger",
+                "Raufoss",
+                "Bryne",
+                "Sogndal",
+                "Ranheim",
+                "Moss",
+                "Stabæk"
               ]
             },
-            { "name": "Norwegian Football Cup", "type": "copa" }
+            {
+              "name": "Norwegian Football Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1660,9 +3951,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Crvena Zvezda", "Partizan", "TSC Baška Topola", "Čukarički", "Vojvodina",
-                "Radnički 1923", "Mladost Lučani", "Novi Pazar", "Spartak Subotica", "IMT Novi Beograd",
-                "Železničar Pančevo", "Radnički Niš", "Tekstilac Odžaci", "Jedinstvo Ub"
+                "Crvena Zvezda",
+                "Partizan",
+                "TSC Baška Topola",
+                "Čukarički",
+                "Vojvodina",
+                "Radnički 1923",
+                "Mladost Lučani",
+                "Novi Pazar",
+                "Spartak Subotica",
+                "IMT Novi Beograd",
+                "Železničar Pančevo",
+                "Radnički Niš",
+                "Tekstilac Odžaci",
+                "Jedinstvo Ub"
               ]
             },
             {
@@ -1670,11 +3972,21 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "OFK Beograd", "Inđija", "Smederevo 1924", "Grafičar",
-                "Mačva Šabac", "Radnički Sremska Mitrovica", "Dubočica", "Vršac", "OFK Vršac"
+                "OFK Beograd",
+                "Inđija",
+                "Smederevo 1924",
+                "Grafičar",
+                "Mačva Šabac",
+                "Radnički Sremska Mitrovica",
+                "Dubočica",
+                "Vršac",
+                "OFK Vršac"
               ]
             },
-            { "name": "Serbian Cup", "type": "copa" }
+            {
+              "name": "Serbian Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1686,9 +3998,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "FCSB", "CFR Cluj", "Universitatea Craiova", "Rapid Bucharest", "Farul Constanța",
-                "Sepsi OSK", "UTA Arad", "Hermannstadt", "Petrolul Ploiești", "Oțelul Galați",
-                "Universitatea Cluj", "Botoșani", "Dinamo Bucharest", "Unirea Slobozia", "Gloria Buzău", "Politehnica Iași"
+                "FCSB",
+                "CFR Cluj",
+                "Universitatea Craiova",
+                "Rapid Bucharest",
+                "Farul Constanța",
+                "Sepsi OSK",
+                "UTA Arad",
+                "Hermannstadt",
+                "Petrolul Ploiești",
+                "Oțelul Galați",
+                "Universitatea Cluj",
+                "Botoșani",
+                "Dinamo Bucharest",
+                "Unirea Slobozia",
+                "Gloria Buzău",
+                "Politehnica Iași"
               ]
             },
             {
@@ -1696,12 +4021,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Corvinul Hunedoara", "Ceahlăul Piatra Neamț", "FC Arș", "Chindia Târgoviște", "Metaloglobus",
-                "CSC Șelimbăr", "Concordia Chiajna", "CS Mioveni", "Unirea Dej", "Steaua București"
+                "Corvinul Hunedoara",
+                "Ceahlăul Piatra Neamț",
+                "FC Arș",
+                "Chindia Târgoviște",
+                "Metaloglobus",
+                "CSC Șelimbăr",
+                "Concordia Chiajna",
+                "CS Mioveni",
+                "Unirea Dej",
+                "Steaua București"
               ]
             },
-            { "name": "Cupa României", "type": "copa" },
-            { "name": "Supercupa României", "type": "supercopa" }
+            {
+              "name": "Cupa României",
+              "type": "copa"
+            },
+            {
+              "name": "Supercupa României",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1713,9 +4052,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Ludogorets Razgrad", "CSKA Sofia", "Cherno More Varna", "Levski Sofia", "Lokomotiv Plovdiv",
-                "Krumovgrad", "Botev Plovdiv", "Berob", "Arda Kardzhali", "Slavia Sofia",
-                "Pirin Blagoevgrad", "Hebar Pazardzhik", "Etar Veliko Tarnovo", "Botev Vratsa", "Lokomotiv Sofia", "CSKA 1948"
+                "Ludogorets Razgrad",
+                "CSKA Sofia",
+                "Cherno More Varna",
+                "Levski Sofia",
+                "Lokomotiv Plovdiv",
+                "Krumovgrad",
+                "Botev Plovdiv",
+                "Berob",
+                "Arda Kardzhali",
+                "Slavia Sofia",
+                "Pirin Blagoevgrad",
+                "Hebar Pazardzhik",
+                "Etar Veliko Tarnovo",
+                "Botev Vratsa",
+                "Lokomotiv Sofia",
+                "CSKA 1948"
               ]
             },
             {
@@ -1723,12 +4075,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Spartak Varna", "Septemvri Sofia", "Dunav Ruse", "Marelk Dupnitsa", "Montana",
-                "Dobrudzha Dobrich", "Yantra Gabrovo", "Strumska Slava", "Litex Lovech", "MiniK Perm"
+                "Spartak Varna",
+                "Septemvri Sofia",
+                "Dunav Ruse",
+                "Marelk Dupnitsa",
+                "Montana",
+                "Dobrudzha Dobrich",
+                "Yantra Gabrovo",
+                "Strumska Slava",
+                "Litex Lovech",
+                "MiniK Perm"
               ]
             },
-            { "name": "Bulgarian Cup", "type": "copa" },
-            { "name": "Bulgarian Supercup", "type": "supercopa" }
+            {
+              "name": "Bulgarian Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Bulgarian Supercup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1740,9 +4106,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Ferencváros", "Pak FC", "Puskás Akadémia", "Fehérvár FC", "Debreceni VSC",
-                "Kecskeméti TE", "Diósgyőri VTK", "Újpest FC", "Zalaegerszegi TE", "Mezőkövesd Zsóry",
-                "Kisvárda", "MTK Budapest"
+                "Ferencváros",
+                "Pak FC",
+                "Puskás Akadémia",
+                "Fehérvár FC",
+                "Debreceni VSC",
+                "Kecskeméti TE",
+                "Diósgyőri VTK",
+                "Újpest FC",
+                "Zalaegerszegi TE",
+                "Mezőkövesd Zsóry",
+                "Kisvárda",
+                "MTK Budapest"
               ]
             },
             {
@@ -1750,11 +4125,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Vas SC", "Győri ET", "Nyíregyháza Spartacus", "Szeged-Csanád", "Budafoki MTE",
-                "Kozármisleny", "Soroksár", "Ajka", "Kazincbarcika", "PMFC"
+                "Vas SC",
+                "Győri ET",
+                "Nyíregyháza Spartacus",
+                "Szeged-Csanád",
+                "Budafoki MTE",
+                "Kozármisleny",
+                "Soroksár",
+                "Ajka",
+                "Kazincbarcika",
+                "PMFC"
               ]
             },
-            { "name": "Magyar Kupa", "type": "copa" }
+            {
+              "name": "Magyar Kupa",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1766,9 +4152,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Slovan Bratislava", "DAC 1904 Dunajská Streda", "Spartak Trnava", "MŠK Žilina", "MFK Ružomberok",
-                "FK Železiarne Podbrezová", "MFK Dukla Banská Bystrica", "MFK Zemplín Michalovce", "FC ViOn Zlaté Moravce", "AS Trenčín",
-                "MFK Skalica", "FC Košice"
+                "Slovan Bratislava",
+                "DAC 1904 Dunajská Streda",
+                "Spartak Trnava",
+                "MŠK Žilina",
+                "MFK Ružomberok",
+                "FK Železiarne Podbrezová",
+                "MFK Dukla Banská Bystrica",
+                "MFK Zemplín Michalovce",
+                "FC ViOn Zlaté Moravce",
+                "AS Trenčín",
+                "MFK Skalica",
+                "FC Košice"
               ]
             },
             {
@@ -1776,11 +4171,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Komárno", "Prešov", "Petržalka", "Púhov", "Humenné",
-                "Považská Bystrica", "Zvolen", "Dolný Kubín", "Slovan Bratislava B", "Trebišov"
+                "Komárno",
+                "Prešov",
+                "Petržalka",
+                "Púhov",
+                "Humenné",
+                "Považská Bystrica",
+                "Zvolen",
+                "Dolný Kubín",
+                "Slovan Bratislava B",
+                "Trebišov"
               ]
             },
-            { "name": "Slovak Cup", "type": "copa" }
+            {
+              "name": "Slovak Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1792,9 +4198,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "APOEL", "AEK Larnaca", "Omonia Nicosia", "Aris Limassol", "Pafos FC",
-                "Anorthosis Famagusta", "Apollon Limassol", "Nea Salamis", "Ethnikos Achnas", "Othellos Athienou",
-                "Karmiotissa", "Doxa Katokopias", "AEL Limassol", "AE Zele"
+                "APOEL",
+                "AEK Larnaca",
+                "Omonia Nicosia",
+                "Aris Limassol",
+                "Pafos FC",
+                "Anorthosis Famagusta",
+                "Apollon Limassol",
+                "Nea Salamis",
+                "Ethnikos Achnas",
+                "Othellos Athienou",
+                "Karmiotissa",
+                "Doxa Katokopias",
+                "AEL Limassol",
+                "AE Zele"
               ]
             },
             {
@@ -1802,12 +4219,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Omonia Aradippou", "EN Paralimni", "FreeD24", "Digenis Ypsona", "Akritas Chlórakas",
-                "Othellos", "MEAP Nisou", "Ahironas-Omusilos", "EN Ypsona", "Peyia"
+                "Omonia Aradippou",
+                "EN Paralimni",
+                "FreeD24",
+                "Digenis Ypsona",
+                "Akritas Chlórakas",
+                "Othellos",
+                "MEAP Nisou",
+                "Ahironas-Omusilos",
+                "EN Ypsona",
+                "Peyia"
               ]
             },
-            { "name": "Cipriano Cup", "type": "copa" },
-            { "name": "Cipriano Super Cup", "type": "supercopa" }
+            {
+              "name": "Cipriano Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Cipriano Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1819,9 +4250,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Maccabi Tel Aviv", "Maccabi Haifa", "Hapoel Be'er Sheva", "Hapoel Haifa", "Maccabi Bnei Reineh",
-                "Hapoel Jerusalem", "Bnei Sakhnin", "Maccabi Netanya", "Beitar Jerusalem", "Hapoel Tel Aviv",
-                "FC Ashdod", "Hapoel Hadera", "Ironi Tiberias", "Ironi Kiryat Shmona"
+                "Maccabi Tel Aviv",
+                "Maccabi Haifa",
+                "Hapoel Be'er Sheva",
+                "Hapoel Haifa",
+                "Maccabi Bnei Reineh",
+                "Hapoel Jerusalem",
+                "Bnei Sakhnin",
+                "Maccabi Netanya",
+                "Beitar Jerusalem",
+                "Hapoel Tel Aviv",
+                "FC Ashdod",
+                "Hapoel Hadera",
+                "Ironi Tiberias",
+                "Ironi Kiryat Shmona"
               ]
             },
             {
@@ -1829,12 +4271,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Hapoel Ironi Rishon LeZion", "Hapoel Kfar Sava", "Hapoel Ramat Gan", "Hapoel Acre", "Bnei Yehuda",
-                "Hapoel Afula", "Maccabi Kabilio Jaffa", "Hapoel Nof HaGalil", "Sektzia Ness Ziona", "Hapoel Rishon"
+                "Hapoel Ironi Rishon LeZion",
+                "Hapoel Kfar Sava",
+                "Hapoel Ramat Gan",
+                "Hapoel Acre",
+                "Bnei Yehuda",
+                "Hapoel Afula",
+                "Maccabi Kabilio Jaffa",
+                "Hapoel Nof HaGalil",
+                "Sektzia Ness Ziona",
+                "Hapoel Rishon"
               ]
             },
-            { "name": "State Cup", "type": "copa" },
-            { "name": "Israel Super Cup", "type": "supercopa" }
+            {
+              "name": "State Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Israel Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1846,8 +4302,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Olimpija Ljubljana", "Celje", "Maribor", "Koper", "Bravo",
-                "Mura", "Domžale", "Radomlje", "Rogaška", "Aluminij"
+                "Olimpija Ljubljana",
+                "Celje",
+                "Maribor",
+                "Koper",
+                "Bravo",
+                "Mura",
+                "Domžale",
+                "Radomlje",
+                "Rogaška",
+                "Aluminij"
               ]
             },
             {
@@ -1855,11 +4319,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Nafta 1903", "Gorica", "Beltinci", "Triglav Kranj", "Bilje",
-                "Jadran Dekani", "Krka", "Drava Ptuj", "Tolmin", "Brinje Grosuplje"
+                "Nafta 1903",
+                "Gorica",
+                "Beltinci",
+                "Triglav Kranj",
+                "Bilje",
+                "Jadran Dekani",
+                "Krka",
+                "Drava Ptuj",
+                "Tolmin",
+                "Brinje Grosuplje"
               ]
             },
-            { "name": "Slovenian Football Cup", "type": "copa" }
+            {
+              "name": "Slovenian Football Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1871,8 +4346,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Qarabağ", "Neftchi Baku", "Zira", "Sabah", "Sumgayıt",
-                "Turan Tovuz", "Arax-Naxban", "Kapaz", "Gabala", "Shamakhi"
+                "Qarabağ",
+                "Neftchi Baku",
+                "Zira",
+                "Sabah",
+                "Sumgayıt",
+                "Turan Tovuz",
+                "Arax-Naxban",
+                "Kapaz",
+                "Gabala",
+                "Shamakhi"
               ]
             },
             {
@@ -1880,11 +4363,20 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Imimis", "MOIK Baku", "Karvan", "Zaqatala", "Difai Ağsu",
-                "Mingəçevir", "Cəbrayil", "Qaradağ Shmal"
+                "Imimis",
+                "MOIK Baku",
+                "Karvan",
+                "Zaqatala",
+                "Difai Ağsu",
+                "Mingəçevir",
+                "Cəbrayil",
+                "Qaradağ Shmal"
               ]
             },
-            { "name": "Azerbaijan Cup", "type": "copa" }
+            {
+              "name": "Azerbaijan Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1896,9 +4388,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Ordabasy", "Astana", "Aktobe", "Kairat", "Tobol",
-                "Kyzylzhar", "Kaisar", "Atyrau", "Jetysu", "Shakter Karagandy",
-                "Zhetysu", "Okzhetpes", "Yelimay", "Turan"
+                "Ordabasy",
+                "Astana",
+                "Aktobe",
+                "Kairat",
+                "Tobol",
+                "Kyzylzhar",
+                "Kaisar",
+                "Atyrau",
+                "Jetysu",
+                "Shakter Karagandy",
+                "Zhetysu",
+                "Okzhetpes",
+                "Yelimay",
+                "Turan"
               ]
             },
             {
@@ -1906,12 +4409,24 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Caspiy", "Akzhayik", "Taraz", "Turkistan", "Academy 05",
-                "Altay", "SD Family", "Jetisay"
+                "Caspiy",
+                "Akzhayik",
+                "Taraz",
+                "Turkistan",
+                "Academy 05",
+                "Altay",
+                "SD Family",
+                "Jetisay"
               ]
             },
-            { "name": "Kazakhstan Cup", "type": "copa" },
-            { "name": "Kazakhstan Super Cup", "type": "supercopa" }
+            {
+              "name": "Kazakhstan Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Kazakhstan Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -1923,9 +4438,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "HJK Helsinki", "InPS", "VPS", "SJK", "FC Inter",
-                "AC Oulu", "FC Liiga", "IFK Mariehamn", "Ilves", "Gnistan",
-                "EIF", "Li"
+                "HJK Helsinki",
+                "InPS",
+                "VPS",
+                "SJK",
+                "FC Inter",
+                "AC Oulu",
+                "FC Liiga",
+                "IFK Mariehamn",
+                "Ilves",
+                "Gnistan",
+                "EIF",
+                "Li"
               ]
             },
             {
@@ -1933,11 +4457,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Jaro", "TPS", "KTP", "MP", "JIPPO",
-                "SJK Akatemia", "KPV", "PK-35", "SalPa", "KaPa"
+                "Jaro",
+                "TPS",
+                "KTP",
+                "MP",
+                "JIPPO",
+                "SJK Akatemia",
+                "KPV",
+                "PK-35",
+                "SalPa",
+                "KaPa"
               ]
             },
-            { "name": "Suomen Cup", "type": "copa" }
+            {
+              "name": "Suomen Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1949,8 +4484,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Shamrock Rovers", "Derry City", "St Patrick's Athletic", "Shelbourne", "Bohemians",
-                "Dundalk", "Sligo Rovers", "Galway United", "Waterford", "Drogheda United"
+                "Shamrock Rovers",
+                "Derry City",
+                "St Patrick's Athletic",
+                "Shelbourne",
+                "Bohemians",
+                "Dundalk",
+                "Sligo Rovers",
+                "Galway United",
+                "Waterford",
+                "Drogheda United"
               ]
             },
             {
@@ -1958,11 +4501,21 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Cork City", "Cobh Ramblers", "Athlone Town", "Bray Wanderers", "Treaty United",
-                "Longford Town", "Wexford", "Finn Harps", "Kerry FC"
+                "Cork City",
+                "Cobh Ramblers",
+                "Athlone Town",
+                "Bray Wanderers",
+                "Treaty United",
+                "Longford Town",
+                "Wexford",
+                "Finn Harps",
+                "Kerry FC"
               ]
             },
-            { "name": "FAI Cup", "type": "copa" }
+            {
+              "name": "FAI Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -1974,9 +4527,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Zrinjski Mostar", "Borac Banja Luka", "Velež Mostar", "Sarajevo", "Željezničar",
-                "Široki Brijeg", "Posušje", "Igman Tren", "Sloga Doboj", "GOŠK Gabela",
-                "Tuzla City", "Zainabda 09"
+                "Zrinjski Mostar",
+                "Borac Banja Luka",
+                "Velež Mostar",
+                "Sarajevo",
+                "Željezničar",
+                "Široki Brijeg",
+                "Posušje",
+                "Igman Tren",
+                "Sloga Doboj",
+                "GOŠK Gabela",
+                "Tuzla City",
+                "Zainabda 09"
               ]
             },
             {
@@ -1984,11 +4546,22 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Sloboda Tuzla", "Selangor", "Jedinstvo Bihać", "Signik Hadžići", "Goražde",
-                "Bratstvo Gračanica", "Gradina", "TOŠK Tešanj", "Travnik", "Čelik Zenica"
+                "Sloboda Tuzla",
+                "Selangor",
+                "Jedinstvo Bihać",
+                "Signik Hadžići",
+                "Goražde",
+                "Bratstvo Gračanica",
+                "Gradina",
+                "TOŠK Tešanj",
+                "Travnik",
+                "Čelik Zenica"
               ]
             },
-            { "name": "Bosnian Cup", "type": "copa" }
+            {
+              "name": "Bosnian Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2000,9 +4573,18 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Víkingur Reykjavík", "Valur", "Stjarnan", "Breiðablik", "Biden Reykjavík",
-                "FH Hafnarjörður", "KA Akureyri", "Fylkir", "ÍA Aktnes", "HK Kópavogur",
-                "Víkingur Ólafsvík", "Vestri"
+                "Víkingur Reykjavík",
+                "Valur",
+                "Stjarnan",
+                "Breiðablik",
+                "Biden Reykjavík",
+                "FH Hafnarjörður",
+                "KA Akureyri",
+                "Fylkir",
+                "ÍA Aktnes",
+                "HK Kópavogur",
+                "Víkingur Ólafsvík",
+                "Vestri"
               ]
             },
             {
@@ -2010,12 +4592,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Grindavík", "Fjölnir", "Leiknir Reykjavík", "Afturelding", "ÞórAkureyri",
-                "Selfoss", "Þróttur Reykjavík", "Njarðvík", "Grótta", "Dalvik R"
+                "Grindavík",
+                "Fjölnir",
+                "Leiknir Reykjavík",
+                "Afturelding",
+                "ÞórAkureyri",
+                "Selfoss",
+                "Þróttur Reykjavík",
+                "Njarðvík",
+                "Grótta",
+                "Dalvik R"
               ]
             },
-            { "name": "Icelandic Cup", "type": "copa" },
-            { "name": "Icelandic Super Cup", "type": "supercopa" }
+            {
+              "name": "Icelandic Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Icelandic Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -2027,8 +4623,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Dinamo Tbilisi", "Dinamo Batumi", "Torpedo Kutaisi", "Dila Gorigi", "Saburtalo",
-                "Samtredia", "Gagra", "Kolkheti Poşa", "Telavi", "Miranda Martvili"
+                "Dinamo Tbilisi",
+                "Dinamo Batumi",
+                "Torpedo Kutaisi",
+                "Dila Gorigi",
+                "Saburtalo",
+                "Samtredia",
+                "Gagra",
+                "Kolkheti Poşa",
+                "Telavi",
+                "Miranda Martvili"
               ]
             },
             {
@@ -2036,12 +4640,24 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Rustavi", "WIT Georgia", "Sioni Bolnisi", "Gorigi", "Spa",
-                "Merani Tbilisi", "Shhu", "Aragvi Duşhetİ"
+                "Rustavi",
+                "WIT Georgia",
+                "Sioni Bolnisi",
+                "Gorigi",
+                "Spa",
+                "Merani Tbilisi",
+                "Shhu",
+                "Aragvi Duşhetİ"
               ]
             },
-            { "name": "Georgian Cup", "type": "copa" },
-            { "name": "Georgian Super Cup", "type": "supercopa" }
+            {
+              "name": "Georgian Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Georgian Super Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -2053,8 +4669,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Egnazia", "Partizani", "Vladivostok", "Skënderbe", "Teuta",
-                "Tirana", "Dinamo City", "Laçi", "Kukësi", "Erzeni"
+                "Egnazia",
+                "Partizani",
+                "Vladivostok",
+                "Skënderbe",
+                "Teuta",
+                "Tirana",
+                "Dinamo City",
+                "Laçi",
+                "Kukësi",
+                "Erzeni"
               ]
             },
             {
@@ -2062,12 +4686,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Bylis", "Apolonia", "Nefti", "Kastrioti", "Burbeli",
-                "Luksnja", "Korabi", "Vora", "Tomori", "B"
+                "Bylis",
+                "Apolonia",
+                "Nefti",
+                "Kastrioti",
+                "Burbeli",
+                "Luksnja",
+                "Korabi",
+                "Vora",
+                "Tomori",
+                "B"
               ]
             },
-            { "name": "Albanian Cup", "type": "copa" },
-            { "name": "Albanian Supercup", "type": "supercopa" }
+            {
+              "name": "Albanian Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Albanian Supercup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -2079,8 +4717,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "RFS", "Riga FC", "Auda", "Valmiera", "Liepāja",
-                "FK Jela", "BFC Daugavpils", "Tukums 2000", "Grobiņa", "Metta"
+                "RFS",
+                "Riga FC",
+                "Auda",
+                "Valmiera",
+                "Liepāja",
+                "FK Jela",
+                "BFC Daugavpils",
+                "Tukums 2000",
+                "Grobiņa",
+                "Metta"
               ]
             },
             {
@@ -2088,11 +4734,20 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Super Nova", "Skanstes SK", "Rezekne", "Talsi", "Olaine",
-                "JDFS Alberts", "Smilten", "Leopards"
+                "Super Nova",
+                "Skanstes SK",
+                "Rezekne",
+                "Talsi",
+                "Olaine",
+                "JDFS Alberts",
+                "Smilten",
+                "Leopards"
               ]
             },
-            { "name": "Latvian Football Cup", "type": "copa" }
+            {
+              "name": "Latvian Football Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2104,11 +4759,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Žalgiris", "Hegelmann", "Kauno Žalgiris", "Panevėžys", "Banga",
-                "Džiugas", "Sūduva", "Jonava", "Dainava", "Šiauliai"
+                "Žalgiris",
+                "Hegelmann",
+                "Kauno Žalgiris",
+                "Panevėžys",
+                "Banga",
+                "Džiugas",
+                "Sūduva",
+                "Jonava",
+                "Dainava",
+                "Šiauliai"
               ]
             },
-            { "name": "Lithuanian Cup", "type": "copa" }
+            {
+              "name": "Lithuanian Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2120,11 +4786,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Flora Tallinn", "Levadia Tallinn", "Paide Linnameeskond", "Kalju FC", "Kuressaare",
-                "Narva Trans", "Tammeka", "Vaprus", "Pärnu", "Tallinna Kalev"
+                "Flora Tallinn",
+                "Levadia Tallinn",
+                "Paide Linnameeskond",
+                "Kalju FC",
+                "Kuressaare",
+                "Narva Trans",
+                "Tammeka",
+                "Vaprus",
+                "Pärnu",
+                "Tallinna Kalev"
               ]
             },
-            { "name": "Estonian Cup", "type": "copa" }
+            {
+              "name": "Estonian Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2136,12 +4813,26 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Differdange 03", "F91 Dudelange", "Swift Hesperange", "Progrès Niederkorn", "Union Titus Peang",
-                "Fola Esch", "Mondorf-les-Bains", "Victoria Rosport", "UNA Strassen", "Wiltz 71",
-                "Käerjeng 97", "Schifflingen 95", "Jeunesse Esch", "Marisca Mersch"
+                "Differdange 03",
+                "F91 Dudelange",
+                "Swift Hesperange",
+                "Progrès Niederkorn",
+                "Union Titus Peang",
+                "Fola Esch",
+                "Mondorf-les-Bains",
+                "Victoria Rosport",
+                "UNA Strassen",
+                "Wiltz 71",
+                "Käerjeng 97",
+                "Schifflingen 95",
+                "Jeunesse Esch",
+                "Marisca Mersch"
               ]
             },
-            { "name": "Luxembourg Cup", "type": "copa" }
+            {
+              "name": "Luxembourg Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2153,12 +4844,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Larne", "Linfield", "Cliftonville", "Glentoran", "Crusaders",
-                "Coleraine", "Dungannon Swifts", "Carrick Rangers", "Ballymena United", "Loughgall",
-                "Glenavon", "Newry City"
+                "Larne",
+                "Linfield",
+                "Cliftonville",
+                "Glentoran",
+                "Crusaders",
+                "Coleraine",
+                "Dungannon Swifts",
+                "Carrick Rangers",
+                "Ballymena United",
+                "Loughgall",
+                "Glenavon",
+                "Newry City"
               ]
             },
-            { "name": "Irish Cup", "type": "copa" }
+            {
+              "name": "Irish Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2170,12 +4873,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "The New Saints", "Connah's Quay Nomads", "Pala Town", "Newtown", "Billboard",
-                "Cardiff MU", "Harvest East", "Caernarfon Town", "Flint Town Utd", "Pontypridd Utd",
-                "Aberystwyth Town", "Colwyn"
+                "The New Saints",
+                "Connah's Quay Nomads",
+                "Pala Town",
+                "Newtown",
+                "Billboard",
+                "Cardiff MU",
+                "Harvest East",
+                "Caernarfon Town",
+                "Flint Town Utd",
+                "Pontypridd Utd",
+                "Aberystwyth Town",
+                "Colwyn"
               ]
             },
-            { "name": "Welsh Cup", "type": "copa" }
+            {
+              "name": "Welsh Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2187,11 +4902,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "I Klaksvik", "Viking Göta", "HB Tórshavn", "B36 Tórshavn", "INS Runavík",
-                "EB/Streymur", "B68 Toftir", "ÍF Fuglafjørður", "Skála ÍF", "07 Chakra"
+                "I Klaksvik",
+                "Viking Göta",
+                "HB Tórshavn",
+                "B36 Tórshavn",
+                "INS Runavík",
+                "EB/Streymur",
+                "B68 Toftir",
+                "ÍF Fuglafjørður",
+                "Skála ÍF",
+                "07 Chakra"
               ]
             },
-            { "name": "Faroe Islands Cup", "type": "copa" }
+            {
+              "name": "Faroe Islands Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2203,12 +4929,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Haram Sparans", "Livenza", "Sliema Wanderers", "Birkirkara", "Marsaxl",
-                "Gazira United", "Hibernians Malta", "Mosta", "Balletan", "Nassar Lions",
-                "Siren", "Santa Lucia"
+                "Haram Sparans",
+                "Livenza",
+                "Sliema Wanderers",
+                "Birkirkara",
+                "Marsaxl",
+                "Gazira United",
+                "Hibernians Malta",
+                "Mosta",
+                "Balletan",
+                "Nassar Lions",
+                "Siren",
+                "Santa Lucia"
               ]
             },
-            { "name": "Maltese FA Trophy", "type": "copa" }
+            {
+              "name": "Maltese FA Trophy",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2220,11 +4958,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Sheriff Tiraspol", "Petrocub Hincesti", "Zimbru Chisinau", "Milsami Orhei", "Balti",
-                "Dacia Buiucani", "Floresti", "Spartanii Selemet"
+                "Sheriff Tiraspol",
+                "Petrocub Hincesti",
+                "Zimbru Chisinau",
+                "Milsami Orhei",
+                "Balti",
+                "Dacia Buiucani",
+                "Floresti",
+                "Spartanii Selemet"
               ]
             },
-            { "name": "Moldovan Cup", "type": "copa" }
+            {
+              "name": "Moldovan Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2236,12 +4983,28 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Dinamo Minsk", "Neman Grođno", "Torpedo-BelZhino", "BATE Borisov", "Isloch",
-                "Slavia Mozyr", "Gomel", "Dinamo Brest", "Arsenal Dzerzhinsk", "Naftan Novopolotsk",
-                "Slutsk", "Smorgon", "Vladivostok", "Minsk", "BGU Energetik", "Belshyna"
+                "Dinamo Minsk",
+                "Neman Grođno",
+                "Torpedo-BelZhino",
+                "BATE Borisov",
+                "Isloch",
+                "Slavia Mozyr",
+                "Gomel",
+                "Dinamo Brest",
+                "Arsenal Dzerzhinsk",
+                "Naftan Novopolotsk",
+                "Slutsk",
+                "Smorgon",
+                "Vladivostok",
+                "Minsk",
+                "BGU Energetik",
+                "Belshyna"
               ]
             },
-            { "name": "Belarusian Cup", "type": "copa" }
+            {
+              "name": "Belarusian Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2253,12 +5016,24 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Struga", "Shkëndija", "Shkupi", "Sileks", "Rabotnički",
-                "Tikvesh", "Bregalnica", "Voska Sport", "Ghostvar", "Makedonija GP",
-                "Brera Strumica", "Vardar"
+                "Struga",
+                "Shkëndija",
+                "Shkupi",
+                "Sileks",
+                "Rabotnički",
+                "Tikvesh",
+                "Bregalnica",
+                "Voska Sport",
+                "Ghostvar",
+                "Makedonija GP",
+                "Brera Strumica",
+                "Vardar"
               ]
             },
-            { "name": "Macedonian Cup", "type": "copa" }
+            {
+              "name": "Macedonian Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2270,11 +5045,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Dečić", "Budućnost Podgorica", "Mornar", "Sutjeska", "Petrovac",
-                "Jezero", "Rudar Pljevlja", "Arsenal Tivat", "Mladost Donja Gorica", "Jedinstvo Bijelo Polje"
+                "Dečić",
+                "Budućnost Podgorica",
+                "Mornar",
+                "Sutjeska",
+                "Petrovac",
+                "Jezero",
+                "Rudar Pljevlja",
+                "Arsenal Tivat",
+                "Mladost Donja Gorica",
+                "Jedinstvo Bijelo Polje"
               ]
             },
-            { "name": "Montenegrin Cup", "type": "copa" }
+            {
+              "name": "Montenegrin Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2286,11 +5072,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Pyunik", "Noah", "Ararat-Armenia", "Grid", "Alashkert",
-                "Shirak", "Van", "West Armenia", "Ararat Yerevan", "BKMA Yerevan"
+                "Pyunik",
+                "Noah",
+                "Ararat-Armenia",
+                "Grid",
+                "Alashkert",
+                "Shirak",
+                "Van",
+                "West Armenia",
+                "Ararat Yerevan",
+                "BKMA Yerevan"
               ]
             },
-            { "name": "Armenian Cup", "type": "copa" }
+            {
+              "name": "Armenian Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2302,11 +5099,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Ballkani", "Drita", "Llapi", "Malisheva", "Prishtina",
-                "Gjilani", "Feroniceli 74", "Fushë Kosova", "Liria", "Dukagjini"
+                "Ballkani",
+                "Drita",
+                "Llapi",
+                "Malisheva",
+                "Prishtina",
+                "Gjilani",
+                "Feroniceli 74",
+                "Fushë Kosova",
+                "Liria",
+                "Dukagjini"
               ]
             },
-            { "name": "Kosovar Cup", "type": "copa" }
+            {
+              "name": "Kosovar Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2318,11 +5126,21 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Lincoln Red Imps", "St Joseph's", "Europa FC", "Mons Calpe", "Glacis United",
-                "Lyx", "Manchester 62", "College 1975", "Europa Point"
+                "Lincoln Red Imps",
+                "St Joseph's",
+                "Europa FC",
+                "Mons Calpe",
+                "Glacis United",
+                "Lyx",
+                "Manchester 62",
+                "College 1975",
+                "Europa Point"
               ]
             },
-            { "name": "Rock Cup", "type": "copa" }
+            {
+              "name": "Rock Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2334,11 +5152,20 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "UE Santa Coloma", "Inter Club d'Escaldes", "FC Santa Coloma", "Pas de la Casa", "Atlètic Club d'Escaldes",
-                "Ordino", "Carolina", "Penya Encarnada"
+                "UE Santa Coloma",
+                "Inter Club d'Escaldes",
+                "FC Santa Coloma",
+                "Pas de la Casa",
+                "Atlètic Club d'Escaldes",
+                "Ordino",
+                "Carolina",
+                "Penya Encarnada"
               ]
             },
-            { "name": "Copa Constitució", "type": "copa" }
+            {
+              "name": "Copa Constitució",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2350,19 +5177,36 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Birus", "La Fiorita", "Tre Zenne", "Cosmos", "Tre Fiori",
-                "Domagnano", "Faetano", "Murata", "Cailungo", "Pennarossa",
-                "Kaunas", "San Giovanni", "Fiorentino", "Fologre"
+                "Birus",
+                "La Fiorita",
+                "Tre Zenne",
+                "Cosmos",
+                "Tre Fiori",
+                "Domagnano",
+                "Faetano",
+                "Murata",
+                "Cailungo",
+                "Pennarossa",
+                "Kaunas",
+                "San Giovanni",
+                "Fiorentino",
+                "Fologre"
               ]
             },
-            { "name": "Titano Cup", "type": "copa" }
+            {
+              "name": "Titano Cup",
+              "type": "copa"
+            }
           ]
         },
         {
           "name": "Liechtenstein",
           "code": "LIE",
           "competitions": [
-            { "name": "Liechtenstein Football Cup", "type": "copa" }
+            {
+              "name": "Liechtenstein Football Cup",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2374,13 +5218,32 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Zenbia Sela", "Spartak Moscow", "CSKA Moscow", "Dynamo Moscow", "Lokomotiv Moscow",
-                "Krasnodar", "Rostov", "Rubin Kazan", "Akhmat Grozny", "Krylia Soviet",
-                "Ural", "Fakel", "Pari Nižni Novgorod", "Orenburg", "Baltika", "Sochi"
+                "Zenbia Sela",
+                "Spartak Moscow",
+                "CSKA Moscow",
+                "Dynamo Moscow",
+                "Lokomotiv Moscow",
+                "Krasnodar",
+                "Rostov",
+                "Rubin Kazan",
+                "Akhmat Grozny",
+                "Krylia Soviet",
+                "Ural",
+                "Fakel",
+                "Pari Nižni Novgorod",
+                "Orenburg",
+                "Baltika",
+                "Sochi"
               ]
             },
-            { "name": "Russian Cup", "type": "copa" },
-            { "name": "Russian Super Cup", "type": "supercopa" }
+            {
+              "name": "Russian Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Russian Super Cup",
+              "type": "supercopa"
+            }
           ]
         }
       ]
@@ -2397,8 +5260,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Auckland City", "Wellington Phoenix Reserves", "Eastern Suburbs", "Birkenhead United", "Cashmere Technical",
-                "Christchurch United", "Melville United", "Napier City Rovers", "Western Springs", "Coastal Spirit"
+                "Auckland City",
+                "Wellington Phoenix Reserves",
+                "Eastern Suburbs",
+                "Birkenhead United",
+                "Cashmere Technical",
+                "Christchurch United",
+                "Melville United",
+                "Napier City Rovers",
+                "Western Springs",
+                "Coastal Spirit"
               ]
             },
             {
@@ -2406,12 +5277,26 @@
               "type": "liga",
               "division": 2,
               "teams": [
-                "Bay Olympic", "Manurewa", "Takapuna", "West Coast Rangers", "Hamilton Wanderers",
-                "Nomads United", "Ferrymead Bays", "Dunedin City Royals", "Nelson Suburbs", "Green Island"
+                "Bay Olympic",
+                "Manurewa",
+                "Takapuna",
+                "West Coast Rangers",
+                "Hamilton Wanderers",
+                "Nomads United",
+                "Ferrymead Bays",
+                "Dunedin City Royals",
+                "Nelson Suburbs",
+                "Green Island"
               ]
             },
-            { "name": "Chatham Cup", "type": "copa" },
-            { "name": "Charity Cup", "type": "supercopa" }
+            {
+              "name": "Chatham Cup",
+              "type": "copa"
+            },
+            {
+              "name": "Charity Cup",
+              "type": "supercopa"
+            }
           ]
         },
         {
@@ -2423,11 +5308,22 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Rewa", "Lautoka", "Ba", "Suva", "Nadi",
-                "Navua", "Labasa", "Tailevu Naitasiri", "Nadroga", "Nasinu"
+                "Rewa",
+                "Lautoka",
+                "Ba",
+                "Suva",
+                "Nadi",
+                "Navua",
+                "Labasa",
+                "Tailevu Naitasiri",
+                "Nadroga",
+                "Nasinu"
               ]
             },
-            { "name": "Battle of the Giants", "type": "copa" }
+            {
+              "name": "Battle of the Giants",
+              "type": "copa"
+            }
           ]
         },
         {
@@ -2439,8 +5335,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Hienghène Sport", "Tiga Sport", "AS Magenta", "Gaïtcha", "Horizon Patho",
-                "Wetr", "Scout", "Kunié", "Mont-Dore", "Baco"
+                "Hienghène Sport",
+                "Tiga Sport",
+                "AS Magenta",
+                "Gaïtcha",
+                "Horizon Patho",
+                "Wetr",
+                "Scout",
+                "Kunié",
+                "Mont-Dore",
+                "Baco"
               ]
             }
           ]
@@ -2454,8 +5358,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "AS Tefana", "AS Pirae", "AS Central Sport", "AS Dragon", "AS Venus",
-                "AS Punaruu", "AS Taiarapu", "AS Excelsior", "AS Arue", "AS JT"
+                "AS Tefana",
+                "AS Pirae",
+                "AS Central Sport",
+                "AS Dragon",
+                "AS Venus",
+                "AS Punaruu",
+                "AS Taiarapu",
+                "AS Excelsior",
+                "AS Arue",
+                "AS JT"
               ]
             }
           ]
@@ -2469,8 +5381,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Solomon Warriors", "Henderson Eels", "Central Coast", "Kossa", "Marist",
-                "Real Kakamora", "Southern United", "Honiara City", "Waneagu United", "Laugu United"
+                "Solomon Warriors",
+                "Henderson Eels",
+                "Central Coast",
+                "Kossa",
+                "Marist",
+                "Real Kakamora",
+                "Southern United",
+                "Honiara City",
+                "Waneagu United",
+                "Laugu United"
               ]
             }
           ]
@@ -2484,8 +5404,14 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Galaxy FC", "Ifira Black Bird", "Tafea FC", "Shepherds United", "Malampa Revivors",
-                "Erakor Golden Star", "Spirit 04", "North West United"
+                "Galaxy FC",
+                "Ifira Black Bird",
+                "Tafea FC",
+                "Shepherds United",
+                "Malampa Revivors",
+                "Erakor Golden Star",
+                "Spirit 04",
+                "North West United"
               ]
             }
           ]
@@ -2499,8 +5425,16 @@
               "type": "liga",
               "division": 1,
               "teams": [
-                "Lae City", "Hekari United", "Gulf Komara", "Port Moresby Strikers", "Bougainville",
-                "Madang", "Southern Stars", "Morobe Wawens", "Kutubu", "United Highlands"
+                "Lae City",
+                "Hekari United",
+                "Gulf Komara",
+                "Port Moresby Strikers",
+                "Bougainville",
+                "Madang",
+                "Southern Stars",
+                "Morobe Wawens",
+                "Kutubu",
+                "United Highlands"
               ]
             }
           ]
