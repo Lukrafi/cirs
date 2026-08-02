@@ -1703,6 +1703,397 @@
             { "name": "Cupa României", "type": "copa" },
             { "name": "Supercupa României", "type": "supercopa" }
           ]
+        },
+        {
+          "name": "Bulgária",
+          "code": "BUL",
+          "competitions": [
+            {
+              "name": "Parva Liga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Ludogorets Razgrad", "CSKA Sofia", "Cherno More Varna", "Levski Sofia", "Lokomotiv Plovdiv",
+                "Krumovgrad", "Botev Plovdiv", "Berob", "Arda Kardzhali", "Slavia Sofia",
+                "Pirin Blagoevgrad", "Hebar Pazardzhik", "Etar Veliko Tarnovo", "Botev Vratsa", "Lokomotiv Sofia", "CSKA 1948"
+              ]
+            },
+            {
+              "name": "Vtora Liga",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Spartak Varna", "Septemvri Sofia", "Dunav Ruse", "Marelk Dupnitsa", "Montana",
+                "Dobrudzha Dobrich", "Yantra Gabrovo", "Strumska Slava", "Litex Lovech", "MiniK Perm"
+              ]
+            },
+            { "name": "Bulgarian Cup", "type": "copa" },
+            { "name": "Bulgarian Supercup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Hungria",
+          "code": "HUN",
+          "competitions": [
+            {
+              "name": "Nemzeti Bajnokság I",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Ferencváros", "Pak FC", "Puskás Akadémia", "Fehérvár FC", "Debreceni VSC",
+                "Kecskeméti TE", "Diósgyőri VTK", "Újpest FC", "Zalaegerszegi TE", "Mezőkövesd Zsóry",
+                "Kisvárda", "MTK Budapest"
+              ]
+            },
+            {
+              "name": "Nemzeti Bajnokság II",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Vas SC", "Győri ET", "Nyíregyháza Spartacus", "Szeged-Csanád", "Budafoki MTE",
+                "Kozármisleny", "Soroksár", "Ajka", "Kazincbarcika", "PMFC"
+              ]
+            },
+            { "name": "Magyar Kupa", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Eslováquia",
+          "code": "SVK",
+          "competitions": [
+            {
+              "name": "Niké Lige",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Slovan Bratislava", "DAC 1904 Dunajská Streda", "Spartak Trnava", "MŠK Žilina", "MFK Ružomberok",
+                "FK Železiarne Podbrezová", "MFK Dukla Banská Bystrica", "MFK Zemplín Michalovce", "FC ViOn Zlaté Moravce", "AS Trenčín",
+                "MFK Skalica", "FC Košice"
+              ]
+            },
+            {
+              "name": "2. Liga",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Komárno", "Prešov", "Petržalka", "Púhov", "Humenné",
+                "Považská Bystrica", "Zvolen", "Dolný Kubín", "Slovan Bratislava B", "Trebišov"
+              ]
+            },
+            { "name": "Slovak Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Chipre",
+          "code": "CYP",
+          "competitions": [
+            {
+              "name": "Cipriano First Division",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "APOEL", "AEK Larnaca", "Omonia Nicosia", "Aris Limassol", "Pafos FC",
+                "Anorthosis Famagusta", "Apollon Limassol", "Nea Salamis", "Ethnikos Achnas", "Othellos Athienou",
+                "Karmiotissa", "Doxa Katokopias", "AEL Limassol", "AE Zele"
+              ]
+            },
+            {
+              "name": "Cipriano Second Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Omonia Aradippou", "EN Paralimni", "FreeD24", "Digenis Ypsona", "Akritas Chlórakas",
+                "Othellos", "MEAP Nisou", "Ahironas-Omusilos", "EN Ypsona", "Peyia"
+              ]
+            },
+            { "name": "Cipriano Cup", "type": "copa" },
+            { "name": "Cipriano Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Israel",
+          "code": "ISR",
+          "competitions": [
+            {
+              "name": "Israeli Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Maccabi Tel Aviv", "Maccabi Haifa", "Hapoel Be'er Sheva", "Hapoel Haifa", "Maccabi Bnei Reineh",
+                "Hapoel Jerusalem", "Bnei Sakhnin", "Maccabi Netanya", "Beitar Jerusalem", "Hapoel Tel Aviv",
+                "FC Ashdod", "Hapoel Hadera", "Ironi Tiberias", "Ironi Kiryat Shmona"
+              ]
+            },
+            {
+              "name": "Liga Leumit",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Hapoel Ironi Rishon LeZion", "Hapoel Kfar Sava", "Hapoel Ramat Gan", "Hapoel Acre", "Bnei Yehuda",
+                "Hapoel Afula", "Maccabi Kabilio Jaffa", "Hapoel Nof HaGalil", "Sektzia Ness Ziona", "Hapoel Rishon"
+              ]
+            },
+            { "name": "State Cup", "type": "copa" },
+            { "name": "Israel Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Eslovênia",
+          "code": "SVN",
+          "competitions": [
+            {
+              "name": "Przeka",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Olimpija Ljubljana", "Celje", "Maribor", "Koper", "Bravo",
+                "Mura", "Domžale", "Radomlje", "Rogaška", "Aluminij"
+              ]
+            },
+            {
+              "name": "2. SNL",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Nafta 1903", "Gorica", "Beltinci", "Triglav Kranj", "Bilje",
+                "Jadran Dekani", "Krka", "Drava Ptuj", "Tolmin", "Brinje Grosuplje"
+              ]
+            },
+            { "name": "Slovenian Football Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Azerbaijão",
+          "code": "AZE",
+          "competitions": [
+            {
+              "name": "Azerbaijan Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Qarabağ", "Neftchi Baku", "Zira", "Sabah", "Sumgayıt",
+                "Turan Tovuz", "Arax-Naxban", "Kapaz", "Gabala", "Shamakhi"
+              ]
+            },
+            {
+              "name": "First Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Imimis", "MOIK Baku", "Karvan", "Zaqatala", "Difai Ağsu",
+                "Mingəçevir", "Cəbrayil", "Qaradağ Shmal"
+              ]
+            },
+            { "name": "Azerbaijan Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Cazaquistão",
+          "code": "KAZ",
+          "competitions": [
+            {
+              "name": "Kazakhstan Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Ordabasy", "Astana", "Aktobe", "Kairat", "Tobol",
+                "Kyzylzhar", "Kaisar", "Atyrau", "Jetysu", "Shakter Karagandy",
+                "Zhetysu", "Okzhetpes", "Yelimay", "Turan"
+              ]
+            },
+            {
+              "name": "First Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Caspiy", "Akzhayik", "Taraz", "Turkistan", "Academy 05",
+                "Altay", "SD Family", "Jetisay"
+              ]
+            },
+            { "name": "Kazakhstan Cup", "type": "copa" },
+            { "name": "Kazakhstan Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Finlândia",
+          "code": "FIN",
+          "competitions": [
+            {
+              "name": "Veikkausliiga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "HJK Helsinki", "InPS", "VPS", "SJK", "FC Inter",
+                "AC Oulu", "FC Liiga", "IFK Mariehamn", "Ilves", "Gnistan",
+                "EIF", "Li"
+              ]
+            },
+            {
+              "name": "Ykkösliiga",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Jaro", "TPS", "KTP", "MP", "JIPPO",
+                "SJK Akatemia", "KPV", "PK-35", "SalPa", "KaPa"
+              ]
+            },
+            { "name": "Suomen Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Irlanda",
+          "code": "IRL",
+          "competitions": [
+            {
+              "name": "League of Ireland Premier Division",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Shamrock Rovers", "Derry City", "St Patrick's Athletic", "Shelbourne", "Bohemians",
+                "Dundalk", "Sligo Rovers", "Galway United", "Waterford", "Drogheda United"
+              ]
+            },
+            {
+              "name": "First Division",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Cork City", "Cobh Ramblers", "Athlone Town", "Bray Wanderers", "Treaty United",
+                "Longford Town", "Wexford", "Finn Harps", "Kerry FC"
+              ]
+            },
+            { "name": "FAI Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Bósnia e Herzegovina",
+          "code": "BIH",
+          "competitions": [
+            {
+              "name": "Win Liga BiH",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Zrinjski Mostar", "Borac Banja Luka", "Velež Mostar", "Sarajevo", "Željezničar",
+                "Široki Brijeg", "Posušje", "Igman Tren", "Sloga Doboj", "GOŠK Gabela",
+                "Tuzla City", "Zainabda 09"
+              ]
+            },
+            {
+              "name": "First League of FBiH",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Sloboda Tuzla", "Selangor", "Jedinstvo Bihać", "Signik Hadžići", "Goražde",
+                "Bratstvo Gračanica", "Gradina", "TOŠK Tešanj", "Travnik", "Čelik Zenica"
+              ]
+            },
+            { "name": "Bosnian Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Islândia",
+          "code": "ISL",
+          "competitions": [
+            {
+              "name": "Besta deild karla",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Víkingur Reykjavík", "Valur", "Stjarnan", "Breiðablik", "Biden Reykjavík",
+                "FH Hafnarjörður", "KA Akureyri", "Fylkir", "ÍA Aktnes", "HK Kópavogur",
+                "Víkingur Ólafsvík", "Vestri"
+              ]
+            },
+            {
+              "name": "1. deild karla",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Grindavík", "Fjölnir", "Leiknir Reykjavík", "Afturelding", "ÞórAkureyri",
+                "Selfoss", "Þróttur Reykjavík", "Njarðvík", "Grótta", "Dalvik R"
+              ]
+            },
+            { "name": "Icelandic Cup", "type": "copa" },
+            { "name": "Icelandic Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Geórgia",
+          "code": "GEO",
+          "competitions": [
+            {
+              "name": "Erovnuli Liga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Dinamo Tbilisi", "Dinamo Batumi", "Torpedo Kutaisi", "Dila Gorigi", "Saburtalo",
+                "Samtredia", "Gagra", "Kolkheti Poşa", "Telavi", "Miranda Martvili"
+              ]
+            },
+            {
+              "name": "Erovnuli Liga 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Rustavi", "WIT Georgia", "Sioni Bolnisi", "Gorigi", "Spa",
+                "Merani Tbilisi", "Shhu", "Aragvi Duşhetİ"
+              ]
+            },
+            { "name": "Georgian Cup", "type": "copa" },
+            { "name": "Georgian Super Cup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Albânia",
+          "code": "ALB",
+          "competitions": [
+            {
+              "name": "Kategoria Superiore",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Egnazia", "Partizani", "Vladivostok", "Skënderbe", "Teuta",
+                "Tirana", "Dinamo City", "Laçi", "Kukësi", "Erzeni"
+              ]
+            },
+            {
+              "name": "Kategoria e Parë",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Bylis", "Apolonia", "Nefti", "Kastrioti", "Burbeli",
+                "Luksnja", "Korabi", "Vora", "Tomori", "B"
+              ]
+            },
+            { "name": "Albanian Cup", "type": "copa" },
+            { "name": "Albanian Supercup", "type": "supercopa" }
+          ]
+        },
+        {
+          "name": "Letônia",
+          "code": "LVA",
+          "competitions": [
+            {
+              "name": "Virsliga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "RFS", "Riga FC", "Auda", "Valmiera", "Liepāja",
+                "FK Jela", "BFC Daugavpils", "Tukums 2000", "Grobiņa", "Metta"
+              ]
+            },
+            {
+              "name": "1. Liga",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Super Nova", "Skanstes SK", "Rezekne", "Talsi", "Olaine",
+                "JDFS Alberts", "Smilten", "Leopards"
+              ]
+            },
+            { "name": "Latvian Football Cup", "type": "copa" }
+          ]
         }
       ]
     },
