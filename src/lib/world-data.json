@@ -2589,6 +2589,62 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Tailândia",
+          "code": "THA",
+          "competitions": [
+            {
+              "name": "Thai League 1",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Buriram United",
+                "Bangkok United",
+                "Muangthong United",
+                "Chonburi FC",
+                "Port FC",
+                "True Bangkok United",
+                "Ratchaburi FC",
+                "Lamphun Warriors",
+                "Nakhon Ratchasima",
+                "BG Pathum United",
+                "Sukhothai FC",
+                "Chiang Rai United",
+                "Khon Kaen United",
+                "Uthai Thani FC",
+                "Prachuap FC",
+                "Rayong FC"
+              ]
+            },
+            {
+              "name": "Thai League 2",
+              "type": "liga",
+              "division": 2,
+              "teams": [
+                "Chainat FC",
+                "Phrae United",
+                "Nong Bua Pitchaya",
+                "Suphanburi FC",
+                "Trat FC",
+                "Samut Prakan City",
+                "Chiangmai FC",
+                "Customs United",
+                "Krabi FC",
+                "Pattaya United",
+                "Kasetsart FC",
+                "Ayutthaya United"
+              ]
+            },
+            {
+              "name": "FA Cup",
+              "type": "copa"
+            },
+            {
+              "name": "League Cup",
+              "type": "copa"
+            }
+          ]
         }
       ]
     },
