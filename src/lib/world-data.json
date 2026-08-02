@@ -2094,6 +2094,294 @@
             },
             { "name": "Latvian Football Cup", "type": "copa" }
           ]
+        },
+        {
+          "name": "Lituânia",
+          "code": "LTU",
+          "competitions": [
+            {
+              "name": "A Lyga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Žalgiris", "Hegelmann", "Kauno Žalgiris", "Panevėžys", "Banga",
+                "Džiugas", "Sūduva", "Jonava", "Dainava", "Šiauliai"
+              ]
+            },
+            { "name": "Lithuanian Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Estônia",
+          "code": "EST",
+          "competitions": [
+            {
+              "name": "Meistriliiga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Flora Tallinn", "Levadia Tallinn", "Paide Linnameeskond", "Kalju FC", "Kuressaare",
+                "Narva Trans", "Tammeka", "Vaprus", "Pärnu", "Tallinna Kalev"
+              ]
+            },
+            { "name": "Estonian Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Luxemburgo",
+          "code": "LUX",
+          "competitions": [
+            {
+              "name": "National Division",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Differdange 03", "F91 Dudelange", "Swift Hesperange", "Progrès Niederkorn", "Union Titus Peang",
+                "Fola Esch", "Mondorf-les-Bains", "Victoria Rosport", "UNA Strassen", "Wiltz 71",
+                "Käerjeng 97", "Schifflingen 95", "Jeunesse Esch", "Marisca Mersch"
+              ]
+            },
+            { "name": "Luxembourg Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Irlanda do Norte",
+          "code": "NIR",
+          "competitions": [
+            {
+              "name": "NIFL Premiership",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Larne", "Linfield", "Cliftonville", "Glentoran", "Crusaders",
+                "Coleraine", "Dungannon Swifts", "Carrick Rangers", "Ballymena United", "Loughgall",
+                "Glenavon", "Newry City"
+              ]
+            },
+            { "name": "Irish Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "País de Gales",
+          "code": "WAL",
+          "competitions": [
+            {
+              "name": "Cymru Premier",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "The New Saints", "Connah's Quay Nomads", "Pala Town", "Newtown", "Billboard",
+                "Cardiff MU", "Harvest East", "Caernarfon Town", "Flint Town Utd", "Pontypridd Utd",
+                "Aberystwyth Town", "Colwyn"
+              ]
+            },
+            { "name": "Welsh Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Ilhas Faroé",
+          "code": "FRO",
+          "competitions": [
+            {
+              "name": "Bitcoin del",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "I Klaksvik", "Viking Göta", "HB Tórshavn", "B36 Tórshavn", "INS Runavík",
+                "EB/Streymur", "B68 Toftir", "ÍF Fuglafjørður", "Skála ÍF", "07 Chakra"
+              ]
+            },
+            { "name": "Faroe Islands Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Malta",
+          "code": "MLT",
+          "competitions": [
+            {
+              "name": "Maltese Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Haram Sparans", "Livenza", "Sliema Wanderers", "Birkirkara", "Marsaxl",
+                "Gazira United", "Hibernians Malta", "Mosta", "Balletan", "Nassar Lions",
+                "Siren", "Santa Lucia"
+              ]
+            },
+            { "name": "Maltese FA Trophy", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Moldávia",
+          "code": "MDA",
+          "competitions": [
+            {
+              "name": "Moldovan Super Liga",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Sheriff Tiraspol", "Petrocub Hincesti", "Zimbru Chisinau", "Milsami Orhei", "Balti",
+                "Dacia Buiucani", "Floresti", "Spartanii Selemet"
+              ]
+            },
+            { "name": "Moldovan Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Bielorrússia",
+          "code": "BLR",
+          "competitions": [
+            {
+              "name": "Belarusian Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Dinamo Minsk", "Neman Grođno", "Torpedo-BelZhino", "BATE Borisov", "Isloch",
+                "Slavia Mozyr", "Gomel", "Dinamo Brest", "Arsenal Dzerzhinsk", "Naftan Novopolotsk",
+                "Slutsk", "Smorgon", "Vladivostok", "Minsk", "BGU Energetik", "Belshyna"
+              ]
+            },
+            { "name": "Belarusian Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Macedônia do Norte",
+          "code": "MKD",
+          "competitions": [
+            {
+              "name": "Macedonian First Football League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Struga", "Shkëndija", "Shkupi", "Sileks", "Rabotnički",
+                "Tikvesh", "Bregalnica", "Voska Sport", "Ghostvar", "Makedonija GP",
+                "Brera Strumica", "Vardar"
+              ]
+            },
+            { "name": "Macedonian Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Montenegro",
+          "code": "MNE",
+          "competitions": [
+            {
+              "name": "Montenegrin First League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Dečić", "Budućnost Podgorica", "Mornar", "Sutjeska", "Petrovac",
+                "Jezero", "Rudar Pljevlja", "Arsenal Tivat", "Mladost Donja Gorica", "Jedinstvo Bijelo Polje"
+              ]
+            },
+            { "name": "Montenegrin Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Armênia",
+          "code": "ARM",
+          "competitions": [
+            {
+              "name": "Armenian Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Pyunik", "Noah", "Ararat-Armenia", "Grid", "Alashkert",
+                "Shirak", "Van", "West Armenia", "Ararat Yerevan", "BKMA Yerevan"
+              ]
+            },
+            { "name": "Armenian Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Kosovo",
+          "code": "KOS",
+          "competitions": [
+            {
+              "name": "Football Superleague of Kosovo",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Ballkani", "Drita", "Llapi", "Malisheva", "Prishtina",
+                "Gjilani", "Feroniceli 74", "Fushë Kosova", "Liria", "Dukagjini"
+              ]
+            },
+            { "name": "Kosovar Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Gibraltar",
+          "code": "GIB",
+          "competitions": [
+            {
+              "name": "Gibraltar Football League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Lincoln Red Imps", "St Joseph's", "Europa FC", "Mons Calpe", "Glacis United",
+                "Lyx", "Manchester 62", "College 1975", "Europa Point"
+              ]
+            },
+            { "name": "Rock Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Andorra",
+          "code": "AND",
+          "competitions": [
+            {
+              "name": "Primera Divisió",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "UE Santa Coloma", "Inter Club d'Escaldes", "FC Santa Coloma", "Pas de la Casa", "Atlètic Club d'Escaldes",
+                "Ordino", "Carolina", "Penya Encarnada"
+              ]
+            },
+            { "name": "Copa Constitució", "type": "copa" }
+          ]
+        },
+        {
+          "name": "San Marino",
+          "code": "SMR",
+          "competitions": [
+            {
+              "name": "Campionato Sammarinese",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Birus", "La Fiorita", "Tre Zenne", "Cosmos", "Tre Fiori",
+                "Domagnano", "Faetano", "Murata", "Cailungo", "Pennarossa",
+                "Kaunas", "San Giovanni", "Fiorentino", "Fologre"
+              ]
+            },
+            { "name": "Titano Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Liechtenstein",
+          "code": "LIE",
+          "competitions": [
+            { "name": "Liechtenstein Football Cup", "type": "copa" }
+          ]
+        },
+        {
+          "name": "Rússia",
+          "code": "RUS",
+          "competitions": [
+            {
+              "name": "Russian Premier League",
+              "type": "liga",
+              "division": 1,
+              "teams": [
+                "Zenbia Sela", "Spartak Moscow", "CSKA Moscow", "Dynamo Moscow", "Lokomotiv Moscow",
+                "Krasnodar", "Rostov", "Rubin Kazan", "Akhmat Grozny", "Krylia Soviet",
+                "Ural", "Fakel", "Pari Nižni Novgorod", "Orenburg", "Baltika", "Sochi"
+              ]
+            },
+            { "name": "Russian Cup", "type": "copa" },
+            { "name": "Russian Super Cup", "type": "supercopa" }
+          ]
         }
       ]
     },
