@@ -57,10 +57,14 @@ try {
 }
 
 // Seed de Clubes (cria e vincula todos os clubes do world-data.json às ligas/divisões)
-try {
-  run("Seed Clubes", "npx tsx prisma/seed-clubs.ts");
-} catch (e) {
-  console.log("Seed de clubes falhou ou ja executado.");
+// Roda por confederação para evitar timeout
+const confeds = ["CONMEBOL", "CONCACAF", "CAF", "AFC", "OFC", "UEFA"];
+for (const conf of confeds) {
+  try {
+    run(`Seed Clubes ${conf}`, `npx tsx prisma/seed-clubs.ts ${conf}`);
+  } catch (e) {
+    console.log(`Seed de clubes ${conf} falhou ou ja executado.`);
+  }
 }
 
 // Build

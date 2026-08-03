@@ -28,10 +28,17 @@ const worldData = JSON.parse(
 
 const SEASON_YEAR: number = worldData.season || new Date().getFullYear();
 
+const CONFED_ARG = process.argv[2] || null;
+const VALID_CONFEDS = ["CONMEBOL", "UEFA", "CONCACAF", "CAF", "AFC", "OFC"];
+
 async function main() {
   console.log("=== SEED DE CLUBES CIRS ===");
   console.log(`Ano: ${SEASON_YEAR}`);
-  console.log(`Confederacoes: ${worldData.confederations.length}`);
+  if (CONFED_ARG) {
+    console.log(`Confederacao alvo: ${CONFED_ARG}`);
+  } else {
+    console.log(`Confederacoes: ${worldData.confederations.length} (todas)`);
+  }
 
   let clubsCreated = 0;
   let clubsUpdated = 0;
@@ -41,7 +48,11 @@ async function main() {
   let standingsCreated = 0;
   const errors: string[] = [];
 
-  for (const confedData of worldData.confederations) {
+  const targetConfeds = CONFED_ARG
+    ? worldData.confederations.filter((c) => c.name === CONFED_ARG)
+    : worldData.confederations;
+
+  for (const confedData of targetConfeds) {
     const confed = await prisma.confederation.findFirst({ where: { code: confedData.name } });
     if (!confed) {
       errors.push(`Confederacao ${confedData.name} nao encontrada no banco`);
