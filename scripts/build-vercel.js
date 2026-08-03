@@ -56,16 +56,8 @@ try {
   console.log("Seed mundial ja executado ou falhou.");
 }
 
-// Seed de Clubes (cria e vincula todos os clubes do world-data.json às ligas/divisões)
-// Roda por confederação para evitar timeout
-const confeds = ["CONMEBOL", "CONCACAF", "CAF", "AFC", "OFC", "UEFA"];
-for (const conf of confeds) {
-  try {
-    run(`Seed Clubes ${conf}`, `npx tsx prisma/seed-clubs.ts ${conf}`);
-  } catch (e) {
-    console.log(`Seed de clubes ${conf} falhou ou ja executado.`);
-  }
-}
+// Seed de Clubes — executado via API /api/sync/seed-clubs (uma confederação por vez)
+// Não rodar no build para evitar timeout
 
 // Build
 run("Next Build", "npx next build");
