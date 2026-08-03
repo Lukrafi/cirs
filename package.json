@@ -10,6 +10,7 @@
     "lint": "eslint",
     "seed": "npx tsx prisma/seed.ts",
     "seed:world": "npx tsx prisma/seed-world.ts",
+    "seed:clubs": "npx tsx prisma/seed-clubs.ts",
     "postinstall": "node scripts/postinstall.js",
     "db:push": "npx prisma db push",
     "db:studio": "npx prisma studio"
