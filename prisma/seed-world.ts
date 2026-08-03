@@ -471,7 +471,7 @@ async function main() {
       leagueCount++;
     }
 
-    // Criar clubes a partir do world-data.json
+    // Criar clubes a partir do world-data.json (apenas create, skip duplicates)
     const confedData = (worldData as any).confederations?.find(
       (cd: any) => cd.name === p.f
     );
@@ -479,44 +479,31 @@ async function main() {
       (cd: any) => cd.name === p.n || cd.code === p.c
     );
     if (countryData?.competitions) {
+      const divs = await prisma.division.findMany({ where: { countryId: country.id } });
+      const divByLevel = new Map(divs.map((d) => [d.level, d.id]));
+      const seen = new Set<string>();
       for (const comp of countryData.competitions) {
         if (!comp.teams || comp.teams.length === 0) continue;
         const divLevel = comp.division ?? 1;
-        const div = await prisma.division.findFirst({
-          where: { countryId: country.id, level: divLevel },
-        });
+        const divisionId = divByLevel.get(divLevel) || null;
         for (const teamName of comp.teams) {
+          if (seen.has(teamName)) continue;
+          seen.add(teamName);
           try {
-            const existing = await prisma.club.findFirst({
-              where: { name: teamName, countryId: country.id },
+            await prisma.club.create({
+              data: {
+                name: teamName,
+                shortName: teamName.split(" ").slice(0, 3).join(" "),
+                city: "",
+                countryId: country.id,
+                divisionId,
+                founded: "",
+                strength: 5.0,
+              },
             });
-            if (!existing) {
-              const existingAny = await prisma.club.findFirst({
-                where: { name: teamName },
-              });
-              if (!existingAny) {
-                await prisma.club.create({
-                  data: {
-                    name: teamName,
-                    shortName: teamName.split(" ").slice(0, 3).join(" "),
-                    city: "",
-                    countryId: country.id,
-                    divisionId: div?.id || null,
-                    founded: "",
-                    strength: 5.0,
-                  },
-                });
-                clubCount++;
-              } else if (!existingAny.countryId) {
-                await prisma.club.update({
-                  where: { id: existingAny.id },
-                  data: { countryId: country.id, divisionId: div?.id || existingAny.divisionId },
-                });
-                clubCount++;
-              }
-            }
+            clubCount++;
           } catch {
-            // Pula clubes duplicados
+            // Pula clubes duplicados (unique constraint)
           }
         }
       }
