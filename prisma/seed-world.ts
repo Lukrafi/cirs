@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import fs from "fs";
 import path from "path";
+import worldData from "../src/lib/world-data.json";
 
 const prisma = new PrismaClient();
 
@@ -406,6 +407,7 @@ async function main() {
     await prisma.nationalAssociation.deleteMany();
     await prisma.country.deleteMany();
     await prisma.confederation.deleteMany();
+    await prisma.club.deleteMany();
     console.log("Dados antigos limpos. Reesemeando...");
   }
 
@@ -422,6 +424,7 @@ async function main() {
   let countryCount = 0;
   let leagueCount = 0;
   let divCount = 0;
+  let clubCount = 0;
 
   for (const p of data) {
     const confId = confMap.get(p.f) || confMap.get("UEFA")!;
@@ -467,6 +470,57 @@ async function main() {
       });
       leagueCount++;
     }
+
+    // Criar clubes a partir do world-data.json
+    const confedData = (worldData as any).confederations?.find(
+      (cd: any) => cd.name === p.f
+    );
+    const countryData = confedData?.countries?.find(
+      (cd: any) => cd.name === p.n || cd.code === p.c
+    );
+    if (countryData?.competitions) {
+      for (const comp of countryData.competitions) {
+        if (!comp.teams || comp.teams.length === 0) continue;
+        const divLevel = comp.division ?? 1;
+        const div = await prisma.division.findFirst({
+          where: { countryId: country.id, level: divLevel },
+        });
+        for (const teamName of comp.teams) {
+          try {
+            const existing = await prisma.club.findFirst({
+              where: { name: teamName, countryId: country.id },
+            });
+            if (!existing) {
+              const existingAny = await prisma.club.findFirst({
+                where: { name: teamName },
+              });
+              if (!existingAny) {
+                await prisma.club.create({
+                  data: {
+                    name: teamName,
+                    shortName: teamName.split(" ").slice(0, 3).join(" "),
+                    city: "",
+                    countryId: country.id,
+                    divisionId: div?.id || null,
+                    founded: "",
+                    strength: 5.0,
+                  },
+                });
+                clubCount++;
+              } else if (!existingAny.countryId) {
+                await prisma.club.update({
+                  where: { id: existingAny.id },
+                  data: { countryId: country.id, divisionId: div?.id || existingAny.divisionId },
+                });
+                clubCount++;
+              }
+            }
+          } catch {
+            // Pula clubes duplicados
+          }
+        }
+      }
+    }
   }
 
   console.log("Criando competições continentais...");
@@ -506,6 +560,7 @@ async function main() {
   console.log(`  Divisões: ${divCount}`);
   console.log(`  Ligas: ${leagueCount}`);
   console.log(`  Competições continentais de clubes: ${compCount}`);
+  console.log(`  Clubes criados: ${clubCount}`);
 
   console.log("\nCriando competições continentais de seleções...");
   let natCompCount = 0;
