@@ -117,6 +117,7 @@ export default function UefaPowerRankingPage() {
         <Link href="/ranking/conmebol" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">CONMEBOL</Link>
         <Link href="/ranking/concacaf" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">CONCACAF</Link>
         <Link href="/ranking/caf" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">CAF</Link>
+        <Link href="/ranking/afc" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">AFC</Link>
         <Link href="/ranking/ofc" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">OFC</Link>
       </div>
 

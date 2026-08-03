@@ -1,0 +1,331 @@
+[
+    {
+        "country":  "Arábia Saudita",
+        "rank":  1,
+        "division":  1,
+        "rating":  810,
+        "league":  "Saudi Pro League"
+    },
+    {
+        "country":  "Japão",
+        "rank":  2,
+        "division":  1,
+        "rating":  800,
+        "league":  "J1 League"
+    },
+    {
+        "country":  "Coreia do Sul",
+        "rank":  3,
+        "division":  1,
+        "rating":  760,
+        "league":  "K League 1"
+    },
+    {
+        "country":  "Emirados Árabes",
+        "rank":  4,
+        "division":  1,
+        "rating":  710,
+        "league":  "UAE Pro League"
+    },
+    {
+        "country":  "Catar",
+        "rank":  5,
+        "division":  1,
+        "rating":  700,
+        "league":  "Qatar Stars League"
+    },
+    {
+        "country":  "China",
+        "rank":  6,
+        "division":  1,
+        "rating":  680,
+        "league":  "Chinese Super League"
+    },
+    {
+        "country":  "Irã",
+        "rank":  7,
+        "division":  1,
+        "rating":  670,
+        "league":  "Persian Gulf Pro League"
+    },
+    {
+        "country":  "Austrália",
+        "rank":  8,
+        "division":  1,
+        "rating":  650,
+        "league":  "A-League Men"
+    },
+    {
+        "country":  "Uzbequistão",
+        "rank":  9,
+        "division":  1,
+        "rating":  600,
+        "league":  "Uzbekistan Super League"
+    },
+    {
+        "country":  "Tailândia",
+        "rank":  10,
+        "division":  2,
+        "rating":  580,
+        "league":  "Thai League 1"
+    },
+    {
+        "country":  "Iraque",
+        "rank":  11,
+        "division":  2,
+        "rating":  560,
+        "league":  "Iraq Stars League"
+    },
+    {
+        "country":  "Índia",
+        "rank":  12,
+        "division":  2,
+        "rating":  550,
+        "league":  "Indian Super League"
+    },
+    {
+        "country":  "Malásia",
+        "rank":  13,
+        "division":  2,
+        "rating":  530,
+        "league":  "Malaysia Super League"
+    },
+    {
+        "country":  "Vietnã",
+        "rank":  14,
+        "division":  2,
+        "rating":  520,
+        "league":  "V.League 1"
+    },
+    {
+        "country":  "Indonésia",
+        "rank":  15,
+        "division":  2,
+        "rating":  510,
+        "league":  "Liga 1"
+    },
+    {
+        "country":  "Jordânia",
+        "rank":  16,
+        "division":  2,
+        "rating":  490,
+        "league":  "Jordanian Pro League"
+    },
+    {
+        "country":  "Síria",
+        "rank":  17,
+        "division":  2,
+        "rating":  470,
+        "league":  "Syrian Premier League"
+    },
+    {
+        "country":  "Hong Kong",
+        "rank":  18,
+        "division":  2,
+        "rating":  450,
+        "league":  "Hong Kong Premier League"
+    },
+    {
+        "country":  "Omã",
+        "rank":  19,
+        "division":  2,
+        "rating":  440,
+        "league":  "Oman Professional League"
+    },
+    {
+        "country":  "Kuwait",
+        "rank":  20,
+        "division":  2,
+        "rating":  430,
+        "league":  "Kuwait Premier League"
+    },
+    {
+        "country":  "Bahrein",
+        "rank":  21,
+        "division":  2,
+        "rating":  420,
+        "league":  "Bahraini Premier League"
+    },
+    {
+        "country":  "Singapura",
+        "rank":  22,
+        "division":  2,
+        "rating":  400,
+        "league":  "Singapore Premier League"
+    },
+    {
+        "country":  "Líbano",
+        "rank":  23,
+        "division":  2,
+        "rating":  390,
+        "league":  "Lebanese Premier League"
+    },
+    {
+        "country":  "Tadjiquistão",
+        "rank":  24,
+        "division":  2,
+        "rating":  370,
+        "league":  "Tajikistan Higher League"
+    },
+    {
+        "country":  "Turcomenistão",
+        "rank":  25,
+        "division":  2,
+        "rating":  360,
+        "league":  "Ýokary Liga"
+    },
+    {
+        "country":  "Quirguistão",
+        "rank":  26,
+        "division":  2,
+        "rating":  350,
+        "league":  "Kyrgyz Premier League"
+    },
+    {
+        "country":  "Coreia do Norte",
+        "rank":  27,
+        "division":  2,
+        "rating":  340,
+        "league":  "DPR Korea Premier Football League"
+    },
+    {
+        "country":  "Filipinas",
+        "rank":  28,
+        "division":  2,
+        "rating":  330,
+        "league":  "Philippines Football League"
+    },
+    {
+        "country":  "Bangladesh",
+        "rank":  29,
+        "division":  2,
+        "rating":  320,
+        "league":  "Bangladesh Premier League"
+    },
+    {
+        "country":  "Mianmar",
+        "rank":  30,
+        "division":  2,
+        "rating":  310,
+        "league":  "Myanmar National League"
+    },
+    {
+        "country":  "Palestina",
+        "rank":  31,
+        "division":  2,
+        "rating":  300,
+        "league":  "West Bank Premier League"
+    },
+    {
+        "country":  "Camboja",
+        "rank":  32,
+        "division":  2,
+        "rating":  290,
+        "league":  "Cambodian Premier League"
+    },
+    {
+        "country":  "Taiwan",
+        "rank":  33,
+        "division":  2,
+        "rating":  280,
+        "league":  "Taiwan Football Premier League"
+    },
+    {
+        "country":  "Maldivas",
+        "rank":  34,
+        "division":  2,
+        "rating":  270,
+        "league":  "Dhivehi Premier League"
+    },
+    {
+        "country":  "Mongólia",
+        "rank":  35,
+        "division":  2,
+        "rating":  260,
+        "league":  "Mongolian National Premier League"
+    },
+    {
+        "country":  "Laos",
+        "rank":  36,
+        "division":  2,
+        "rating":  250,
+        "league":  "Lao League 1"
+    },
+    {
+        "country":  "Macau",
+        "rank":  37,
+        "division":  2,
+        "rating":  240,
+        "league":  "Liga de Elite"
+    },
+    {
+        "country":  "Afeganistão",
+        "rank":  38,
+        "division":  2,
+        "rating":  230,
+        "league":  "Afghan Champions League"
+    },
+    {
+        "country":  "Butão",
+        "rank":  39,
+        "division":  2,
+        "rating":  220,
+        "league":  "Bhutan Premier League"
+    },
+    {
+        "country":  "Nepal",
+        "rank":  40,
+        "division":  2,
+        "rating":  210,
+        "league":  "Martyr\u0027s Memorial A-Division League"
+    },
+    {
+        "country":  "Brunei",
+        "rank":  41,
+        "division":  2,
+        "rating":  200,
+        "league":  "Brunei Super League"
+    },
+    {
+        "country":  "Paquistão",
+        "rank":  42,
+        "division":  2,
+        "rating":  190,
+        "league":  "Pakistan Premier League"
+    },
+    {
+        "country":  "Sri Lanka",
+        "rank":  43,
+        "division":  2,
+        "rating":  180,
+        "league":  "Super League"
+    },
+    {
+        "country":  "Timor-Leste",
+        "rank":  44,
+        "division":  2,
+        "rating":  170,
+        "league":  "Liga Futebol Amadora"
+    },
+    {
+        "country":  "Iêmen",
+        "rank":  45,
+        "division":  2,
+        "rating":  160,
+        "league":  "Yemeni League"
+    },
+    {
+        "country":  "Guam",
+        "rank":  46,
+        "division":  2,
+        "rating":  130,
+        "league":  "Guam Soccer League"
+    },
+    {
+        "country":  "Ilhas Marianas do Norte",
+        "rank":  47,
+        "division":  2,
+        "rating":  100,
+        "league":  "M*League"
+    }
+]

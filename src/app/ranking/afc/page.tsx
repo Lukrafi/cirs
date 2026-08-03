@@ -1,37 +1,37 @@
 import Link from "next/link";
-import rankingData from "@/lib/conmebol-power-ranking.json";
+import rankingData from "@/lib/afc-power-ranking.json";
 
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Power Ranking CONMEBOL — CIRS",
-  description: "Ranking de força das ligas nacionais da CONMEBOL — América do Sul.",
+  title: "Power Ranking AFC — CIRS",
+  description: "Ranking de força das ligas nacionais da AFC — Ásia.",
 };
 
-const CONF_COLOR = "#fbbf24";
+const AFC_COLOR = "#ef4444";
 
 const COUNTRY_FLAGS: Record<string, string> = {
-  "Brasil": "🇧🇷",
-  "Argentina": "🇦🇷",
-  "Uruguai": "🇺🇾",
-  "Colômbia": "🇨🇴",
-  "Chile": "🇨🇱",
-  "Equador": "🇪🇨",
-  "Paraguai": "🇵🇾",
-  "Peru": "🇵🇪",
-  "Venezuela": "🇻🇪",
-  "Bolívia": "🇧🇴",
+  "Arábia Saudita": "🇸🇦", "Japão": "🇯🇵", "Coreia do Sul": "🇰🇷", "Emirados Árabes": "🇦🇪",
+  "Catar": "🇶🇦", "China": "🇨🇳", "Irã": "🇮🇷", "Austrália": "🇦🇺", "Uzbequistão": "🇺🇿",
+  "Tailândia": "🇹🇭", "Iraque": "🇮🇶", "Índia": "🇮🇳", "Malásia": "🇲🇾", "Vietnã": "🇻🇳",
+  "Indonésia": "🇮🇩", "Jordânia": "🇯🇴", "Síria": "🇸🇾", "Hong Kong": "🇭🇰", "Omã": "🇴🇲",
+  "Kuwait": "🇰🇼", "Bahrein": "🇧🇭", "Singapura": "🇸🇬", "Líbano": "🇱🇧", "Tadjiquistão": "🇹🇯",
+  "Turcomenistão": "🇹🇲", "Quirguistão": "🇰🇬", "Coreia do Norte": "🇰🇵", "Filipinas": "🇵🇭",
+  "Bangladesh": "🇧🇩", "Mianmar": "🇲🇲", "Palestina": "🇵🇸", "Camboja": "🇰🇭", "Taiwan": "🇹🇼",
+  "Maldivas": "🇲🇻", "Mongólia": "🇲🇳", "Laos": "🇱🇦", "Macau": "🇲🇴", "Afeganistão": "🇦🇫",
+  "Butão": "🇧🇹", "Nepal": "🇳🇵", "Brunei": "🇧🇳", "Paquistão": "🇵🇰", "Sri Lanka": "🇱🇰",
+  "Timor-Leste": "🇹🇱", "Iêmen": "🇾🇪", "Guam": "🇬🇺", "Ilhas Marianas do Norte": "🇲🇵",
 };
 
 function ratingTier(rating: number): string {
-  if (rating >= 850) return "bg-yellow-500/10 text-yellow-300";
-  if (rating >= 700) return "bg-gold/10 text-gold";
-  if (rating >= 600) return "bg-blue-500/10 text-blue-400";
-  if (rating >= 500) return "bg-foreground/5 text-foreground";
+  if (rating >= 750) return "bg-red-500/10 text-red-300";
+  if (rating >= 600) return "bg-red-500/10 text-red-400";
+  if (rating >= 500) return "bg-orange-500/10 text-orange-400";
+  if (rating >= 300) return "bg-foreground/5 text-foreground";
   return "bg-muted/10 text-muted";
 }
 
-type RankingEntry = { rank: number; league: string; country: string; division: number; rating: number; };
+type RankingEntry = { rank: number; league: string; country: string; division: number; rating: number };
 
 const entries = rankingData as RankingEntry[];
 const topLeague = entries[0];
@@ -39,32 +39,32 @@ const avgRating = Math.round(entries.reduce((s, e) => s + e.rating, 0) / entries
 const firstDiv = entries.filter((e) => e.division === 1);
 const secondDiv = entries.filter((e) => e.division === 2);
 
-export default function ConmebolPowerRankingPage() {
+export default function AfcPowerRankingPage() {
   return (
     <div className="pt-20 min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="mb-2">
         <span className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">Power Ranking</span>
       </div>
-      <h1 className="text-4xl font-black mb-2"><span className="gold-text">Power Ranking da CONMEBOL</span></h1>
+      <h1 className="text-4xl font-black mb-2"><span className="gold-text">Power Ranking da AFC</span></h1>
       <p className="text-muted mb-8 max-w-3xl">
-        Ranking de força das ligas nacionais da América do Sul. Ratings de 0 a 1000 baseados em
+        Ranking de força das ligas nacionais da Ásia. Ratings de 0 a 1000 baseados em
         desempenho histórico, competitividade, talento e exposição internacional.
       </p>
 
       <div className="flex items-center gap-2 mb-8 flex-wrap">
         <Link href="/ranking" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">← Ranking Global</Link>
-        <span className="text-xs px-3 py-1.5 rounded-lg" style={{ background: `${CONF_COLOR}22`, color: CONF_COLOR }}>CONMEBOL</span>
+        <span className="text-xs px-3 py-1.5 rounded-lg" style={{ background: `${AFC_COLOR}22`, color: AFC_COLOR }}>AFC</span>
         <Link href="/ranking/uefa" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">UEFA</Link>
+        <Link href="/ranking/conmebol" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">CONMEBOL</Link>
         <Link href="/ranking/concacaf" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">CONCACAF</Link>
         <Link href="/ranking/caf" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">CAF</Link>
-        <Link href="/ranking/afc" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">AFC</Link>
         <Link href="/ranking/ofc" className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold">OFC</Link>
       </div>
 
       {topLeague && (
         <div className="glass rounded-2xl p-6 mb-10 flex items-center justify-between">
           <div>
-            <div className="text-xs uppercase tracking-wider text-muted">Liga #1 da CONMEBOL</div>
+            <div className="text-xs uppercase tracking-wider text-muted">Liga #1 da AFC</div>
             <div className="text-2xl font-black gold-text mt-1">{topLeague.league}</div>
             <div className="text-sm text-muted mt-1">{topLeague.country} · 1ª Divisão</div>
           </div>
@@ -82,8 +82,8 @@ export default function ConmebolPowerRankingPage() {
         <div className="glass rounded-xl p-4 text-center"><div className="text-2xl font-bold gold-text">{avgRating}</div><div className="text-xs text-muted uppercase mt-1">Rating Médio</div></div>
       </div>
 
-      <RanksView entries={firstDiv} title="1ª Divisão" color={CONF_COLOR} />
-      <RanksView entries={secondDiv} title="2ª Divisão" color={CONF_COLOR} />
+      <RanksView entries={firstDiv} title="1ª Divisão" color={AFC_COLOR} />
+      <RanksView entries={secondDiv} title="2ª Divisão" color={AFC_COLOR} />
     </div>
   );
 }

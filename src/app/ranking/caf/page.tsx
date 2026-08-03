@@ -137,6 +137,12 @@ export default function CafPowerRankingPage() {
           CONCACAF
         </Link>
         <Link
+          href="/ranking/afc"
+          className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold"
+        >
+          AFC
+        </Link>
+        <Link
           href="/ranking/ofc"
           className="text-xs px-3 py-1.5 rounded-lg glass hover:gold-border transition-all text-muted hover:text-gold"
         >
