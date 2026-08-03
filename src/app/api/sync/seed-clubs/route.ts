@@ -105,17 +105,10 @@ export async function POST(req: NextRequest) {
           await prisma.league.update({ where: { id: league.id }, data: { divisionId: division.id } });
         }
 
-        let season = await prisma.season.findFirst({ where: { leagueId: league.id, year: SEASON_YEAR } });
-        if (!season) {
-          season = await prisma.season.create({
-            data: { name: `${SEASON_YEAR}`, year: SEASON_YEAR, leagueId: league.id, startDate: new Date(`${SEASON_YEAR}-01-01`), endDate: new Date(`${SEASON_YEAR}-12-31`) },
-          });
-        }
-
-        let competition = await prisma.competition.findFirst({ where: { seasonId: season.id, name: compData.name } });
+        let competition = await prisma.competition.findFirst({ where: { name: compData.name, seasonId: null } });
         if (!competition) {
           competition = await prisma.competition.create({
-            data: { name: compData.name, type: compData.type, seasonId: season.id, numTeams: compData.teams.length, numTurns: 2, format: "round-robin", isKnockout: false },
+            data: { name: compData.name, type: compData.type, seasonId: null, numTeams: compData.teams.length, numTurns: 2, format: "round-robin", isKnockout: false },
           });
           competitionsCreated++;
         }

@@ -101,29 +101,15 @@ export async function POST(req: NextRequest) {
       if (Object.keys(u).length > 0) await prisma.league.update({ where: { id: league.id }, data: u });
     }
 
-    const year = new Date().getFullYear();
-    let season = await prisma.season.findFirst({ where: { leagueId: league.id, year } });
-    if (!season) {
-      season = await prisma.season.create({
-        data: {
-          name: `${year}`,
-          year,
-          leagueId: league.id,
-          startDate: new Date(`${year}-01-01`),
-          endDate: new Date(`${year}-12-31`),
-        },
-      });
-    }
-
     let competition = await prisma.competition.findFirst({
-      where: { seasonId: season.id, name: { contains: dp.name } },
+      where: { name: { contains: dp.name }, seasonId: null },
     });
     if (!competition) {
       competition = await prisma.competition.create({
         data: {
           name: dp.name,
           type: "liga",
-          seasonId: season.id,
+          seasonId: null,
           numTeams: dp.numTeams,
           numTurns: 2,
           format: dp.format,

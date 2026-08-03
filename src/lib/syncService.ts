@@ -453,24 +453,8 @@ export async function syncByLink(url: string): Promise<SyncResult> {
       }
     }
 
-    const currentYear = new Date().getFullYear();
-    let season = await prisma.season.findFirst({
-      where: { leagueId: league.id, year: currentYear },
-    });
-    if (!season) {
-      season = await prisma.season.create({
-        data: {
-          name: `${currentYear}`,
-          year: currentYear,
-          leagueId: league.id,
-          startDate: new Date(`${currentYear}-01-01`),
-          endDate: new Date(`${currentYear}-12-31`),
-        },
-      });
-    }
-
     let competition = await prisma.competition.findFirst({
-      where: { seasonId: season.id, name: { contains: extComp.name } },
+      where: { name: { contains: extComp.name }, seasonId: null },
     });
 
     if (!competition) {
@@ -478,7 +462,7 @@ export async function syncByLink(url: string): Promise<SyncResult> {
         data: {
           name: extComp.name,
           type: extComp.isKnockout ? "copa" : "liga",
-          seasonId: season.id,
+          seasonId: null,
           numTeams: extComp.numTeams,
           numTurns: extComp.numRounds > 0 ? Math.ceil(extComp.numRounds / Math.max(extComp.numTeams, 1)) : 2,
           format: extComp.format,
