@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { requireAdmin } from "@/lib/apiAuth";
 import { generateRoundrobin, generateKnockout, generateSwiss, generateGroups } from "@/lib/fixtureGenerator";
 
 export const dynamic = "force-dynamic";
@@ -13,6 +14,8 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const body = await req.json();
   const { clubIds, ...compData } = body;
 
@@ -154,6 +157,8 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const body = await req.json();
   const { id, ...data } = body;
   const competition = await prisma.competition.update({ where: { id }, data });
@@ -161,6 +166,8 @@ export async function PUT(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
   if (!id) return NextResponse.json({ error: "ID required" }, { status: 400 });

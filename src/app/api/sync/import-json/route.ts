@@ -207,8 +207,14 @@ export async function POST(req: NextRequest) {
                       const existing = await prisma.club.findFirst({
                         where: { name: teamName },
                       });
-                      if (existing && existing.countryId && existing.countryId !== country.id) {
+                      if (existing) {
                         club = existing;
+                        const fix: any = {};
+                        if (!club.countryId) fix.countryId = country.id;
+                        if (!club.divisionId && divisionId) fix.divisionId = divisionId;
+                        if (Object.keys(fix).length > 0) {
+                          await prisma.club.update({ where: { id: club.id }, data: fix });
+                        }
                         clubsUpdated++;
                       } else {
                         club = await prisma.club.create({
@@ -227,6 +233,7 @@ export async function POST(req: NextRequest) {
                     }
                   } else {
                     const u: any = {};
+                    if (!club.countryId) u.countryId = country.id;
                     if (!club.divisionId && divisionId) u.divisionId = divisionId;
                     if (Object.keys(u).length > 0) {
                       await prisma.club.update({ where: { id: club.id }, data: u });

@@ -520,6 +520,10 @@ export async function syncByLink(url: string): Promise<SyncResult> {
       });
     }
 
+    let division = country
+      ? await prisma.division.findFirst({ where: { countryId: country.id, level: 1 } })
+      : null;
+
     if (extComp.clubs && extComp.clubs.length > 0) {
       for (const extClub of extComp.clubs) {
         try {
@@ -533,13 +537,26 @@ export async function syncByLink(url: string): Promise<SyncResult> {
                 name: extClub.name,
                 shortName: extClub.shortName || "",
                 city: extClub.city || "",
-                countryId: country?.id,
+                countryId: country?.id || null,
+                divisionId: division?.id || null,
                 founded: extClub.founded || "",
                 strength: 5.0,
               },
             });
             result.clubsCreated++;
           } else {
+            if (!club.countryId && country?.id) {
+              await prisma.club.update({
+                where: { id: club.id },
+                data: { countryId: country.id },
+              });
+            }
+            if (!club.divisionId && division?.id) {
+              await prisma.club.update({
+                where: { id: club.id },
+                data: { divisionId: division.id },
+              });
+            }
             result.clubsUpdated++;
           }
 

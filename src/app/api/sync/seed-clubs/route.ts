@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { requireAdmin } from "@/lib/apiAuth";
 import worldData from "@/lib/world-data.json";
 
 export const dynamic = "force-dynamic";
@@ -20,6 +21,8 @@ const confederations = (worldData as any).confederations as JsonConfederation[];
 const SEASON_YEAR = (worldData as any).season || new Date().getFullYear();
 
 export async function POST(req: NextRequest) {
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const body = await req.json().catch(() => ({}));
   const confedCode: string = body.confederation || body.conf || "";
 
@@ -136,7 +139,10 @@ export async function POST(req: NextRequest) {
                 const existingOther = await prisma.club.findFirst({ where: { name: teamName } });
                 if (existingOther) {
                   club = existingOther;
-                  if (!club.divisionId) await prisma.club.update({ where: { id: club.id }, data: { divisionId: division.id } });
+                  const fix: Record<string, string> = {};
+                  if (!club.countryId) fix.countryId = country.id;
+                  if (!club.divisionId) fix.divisionId = division.id;
+                  if (Object.keys(fix).length > 0) await prisma.club.update({ where: { id: club.id }, data: fix });
                   clubsSkipped++;
                 } else {
                   club = await prisma.club.create({

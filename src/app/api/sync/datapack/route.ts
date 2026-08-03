@@ -153,6 +153,13 @@ export async function POST(req: NextRequest) {
     } catch { /* */ }
 
     if (extComp && extComp.clubs && extComp.clubs.length > 0) {
+      let division = await prisma.division.findFirst({ where: { countryId: country.id, level: 1 } });
+      if (!division) {
+        division = await prisma.division.create({
+          data: { name: `${country.name} Division 1`, countryId: country.id, level: 1 },
+        });
+      }
+
       for (const extClub of extComp.clubs) {
         try {
           const existing = await prisma.club.findFirst({ where: { name: { equals: extClub.name } } });
@@ -164,6 +171,7 @@ export async function POST(req: NextRequest) {
                 shortName: extClub.shortName || "",
                 city: extClub.city || "",
                 countryId: country.id,
+                divisionId: division.id,
                 founded: extClub.founded || "",
                 strength: 5.0,
               },
@@ -171,6 +179,12 @@ export async function POST(req: NextRequest) {
             clubsCreated++;
           } else {
             club = existing;
+            const fix: any = {};
+            if (!club.countryId) fix.countryId = country.id;
+            if (!club.divisionId) fix.divisionId = division.id;
+            if (Object.keys(fix).length > 0) {
+              await prisma.club.update({ where: { id: club.id }, data: fix });
+            }
             clubsUpdated++;
           }
 
