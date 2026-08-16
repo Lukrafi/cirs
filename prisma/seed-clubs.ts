@@ -224,8 +224,8 @@ async function main() {
               });
               standingsCreated++;
             }
-          } catch (e: any) {
-            errors.push(`Club [${teamName}]: ${e.message}`);
+          } catch (e) {
+            errors.push(`Club [${teamName}]: ${e instanceof Error ? e.message : String(e)}`);
           }
         }
       }

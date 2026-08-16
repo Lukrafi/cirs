@@ -472,12 +472,19 @@ async function main() {
     }
 
     // Criar clubes a partir do world-data.json (apenas create, skip duplicates)
-    const confedData = (worldData as any).confederations?.find(
-      (cd: any) => cd.name === p.f
-    );
-    const countryData = confedData?.countries?.find(
-      (cd: any) => cd.name === p.n || cd.code === p.c
-    );
+    const confedData = (
+      worldData as {
+        confederations?: Array<{
+          name: string;
+          countries?: Array<{
+            name: string;
+            code: string;
+            competitions?: Array<{ name: string; type?: string; division?: number; teams?: string[] }>;
+          }>;
+        }>;
+      }
+    ).confederations?.find((cd) => cd.name === p.f);
+    const countryData = confedData?.countries?.find((cd) => cd.name === p.n || cd.code === p.c);
     if (countryData?.competitions) {
       const divs = await prisma.division.findMany({ where: { countryId: country.id } });
       const divByLevel = new Map(divs.map((d) => [d.level, d.id]));
