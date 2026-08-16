@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
     prisma.season.findMany({
       where,
       include: { league: true, competitions: true },
-      orderBy: { year: "desc" },
+      orderBy: { year: "asc" },
       skip: (page - 1) * limit,
       take: limit,
     }),
