@@ -15,7 +15,9 @@ export default async function Home() {
     topScorers,
     topAssists,
     topGKs,
-    latestNews
+    latestNews,
+    activeCompetitionSetting,
+    activeCompetitionUpdatedAt,
   ] = await Promise.all([
     prisma.match.findMany({
       where: { status: "scheduled", isSimulated: false },
@@ -46,7 +48,65 @@ export default async function Home() {
     prisma.$queryRawUnsafe(`SELECT "playerId", SUM("assists") as assists FROM "MatchStat" WHERE "assists" > 0 AND "matchId" IN (SELECT id FROM "Match" WHERE "isSimulated" = false) GROUP BY "playerId" ORDER BY assists DESC LIMIT 5`),
     prisma.$queryRawUnsafe(`SELECT "playerId", SUM("saves") as saves FROM "MatchStat" WHERE "saves" > 0 AND "matchId" IN (SELECT id FROM "Match" WHERE "isSimulated" = false) GROUP BY "playerId" ORDER BY saves DESC LIMIT 5`),
     prisma.news.findMany({ where: { published: true }, orderBy: { createdAt: "desc" }, take: 3 }),
+    prisma.settings.findUnique({ where: { key: "active_competition" } }),
+    prisma.settings.findUnique({ where: { key: "active_competition_updated_at" } }),
   ]);
+
+  const activeCompetitionName = activeCompetitionSetting?.value ?? null;
+
+  let nextMatchInfo: {
+    homeTeam: string;
+    awayTeam: string;
+    homeEmblem: string;
+    awayEmblem: string;
+    round: string | null;
+    groupName: string | null;
+    competitionName: string;
+    matchDate: Date | null;
+  } | null = null;
+
+  if (activeCompetitionName) {
+    const competitions = await prisma.competition.findMany({
+      include: {
+        groups: {
+          include: {
+            matches: {
+              where: { status: "scheduled", isSimulated: false },
+              include: {
+                homeTeam: { select: { name: true, emblem: true } },
+                awayTeam: { select: { name: true, emblem: true } },
+              },
+              orderBy: [{ round: "asc" }, { matchDate: "asc" }],
+              take: 1,
+            },
+          },
+        },
+      },
+    });
+
+    const competition = competitions.find(
+      (c) => c.name.toLowerCase() === activeCompetitionName.toLowerCase()
+    );
+
+    if (competition) {
+      for (const group of competition.groups) {
+        if (group.matches.length > 0) {
+          const m = group.matches[0];
+          nextMatchInfo = {
+            homeTeam: m.homeTeam?.name ?? "TBD",
+            awayTeam: m.awayTeam?.name ?? "TBD",
+            homeEmblem: m.homeTeam?.emblem ?? "",
+            awayEmblem: m.awayTeam?.emblem ?? "",
+            round: m.round,
+            groupName: group.name,
+            competitionName: competition.name,
+            matchDate: m.matchDate,
+          };
+          break;
+        }
+      }
+    }
+  }
 
   const stats = [
     { label: "Partidas", value: realMatchCount, icon: "⚽" },
@@ -117,6 +177,67 @@ export default async function Home() {
           ))}
         </div>
       </section>
+
+      {/* Competição Ativa + Próxima Partida */}
+      {activeCompetitionName && (
+        <section className="relative z-10 w-full max-w-3xl mx-auto px-6 mb-12">
+          <div className="glass rounded-2xl p-6 border border-blue-deep/50">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <h2 className="text-lg font-bold">
+                <span className="gold-text">Ao Vivo no Servidor</span>
+              </h2>
+            </div>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xs uppercase tracking-wider text-blue-light font-semibold px-2 py-1 bg-blue-deep/40 rounded">
+                {activeCompetitionName}
+              </span>
+              {activeCompetitionUpdatedAt?.value && (
+                <span className="text-[10px] text-muted/60">
+                  atualizado {formatDate(new Date(activeCompetitionUpdatedAt.value))}
+                </span>
+              )}
+            </div>
+
+            {nextMatchInfo ? (
+              <div className="flex items-center justify-center gap-4 py-4">
+                <div className="flex-1 text-right">
+                  <div className="flex items-center justify-end gap-2">
+                    {nextMatchInfo.homeEmblem && (
+                      <img src={nextMatchInfo.homeEmblem} alt="" className="w-8 h-8 object-contain" />
+                    )}
+                    <span className="font-bold text-foreground">{nextMatchInfo.homeTeam}</span>
+                  </div>
+                </div>
+                <div className="text-center px-4">
+                  <div className="text-xs text-muted uppercase font-semibold">VS</div>
+                  {nextMatchInfo.round && (
+                    <div className="text-[10px] text-muted/70 mt-1">{nextMatchInfo.round}</div>
+                  )}
+                  {nextMatchInfo.groupName && (
+                    <div className="text-[10px] text-muted/50">{nextMatchInfo.groupName}</div>
+                  )}
+                  {nextMatchInfo.matchDate && (
+                    <div className="text-[10px] text-gold/70 mt-1">{formatDate(nextMatchInfo.matchDate)}</div>
+                  )}
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-foreground">{nextMatchInfo.awayTeam}</span>
+                    {nextMatchInfo.awayEmblem && (
+                      <img src={nextMatchInfo.awayEmblem} alt="" className="w-8 h-8 object-contain" />
+                    )}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <p className="text-sm text-muted text-center py-2">
+                Nenhuma partida agendada para esta competição.
+              </p>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Conteúdo Principal: Resultados + Notícias + Rankings */}
       <section className="relative z-10 max-w-5xl mx-auto px-4 pb-20">

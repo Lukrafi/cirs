@@ -54,7 +54,7 @@ export default async function PartidasPage() {
             {scheduled.map((m) => (
               <Link
                 key={m.id}
-                href={`/simulacoes/match/${m.id}`}
+                href={`/partidas/${m.id}`}
                 className="glass rounded-lg p-3 flex items-center gap-3 hover:bg-card/60 transition-colors text-sm"
               >
                 <div className="flex-1 flex items-center justify-end gap-2">
@@ -97,7 +97,7 @@ export default async function PartidasPage() {
             {finished.map((m) => (
               <Link
                 key={m.id}
-                href={`/simulacoes/match/${m.id}`}
+                href={`/partidas/${m.id}`}
                 className="glass rounded-lg p-3 flex items-center gap-3 hover:bg-card/60 transition-colors text-sm"
               >
                 <div className="flex-1 flex items-center justify-end gap-2">

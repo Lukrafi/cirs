@@ -5,12 +5,34 @@ import { readJsonBody } from "@/lib/readBody";
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
-  const seasons = await prisma.season.findMany({
-    include: { league: true, competitions: true },
-    orderBy: { year: "desc" },
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const page = Math.max(1, parseInt(searchParams.get("page") ?? "1", 10));
+  const limit = Math.min(100, Math.max(1, parseInt(searchParams.get("limit") ?? "50", 10)));
+  const yearFilter = searchParams.get("year");
+  const leagueFilter = searchParams.get("leagueId");
+
+  const where: Record<string, unknown> = {};
+  if (yearFilter) where.year = parseInt(yearFilter, 10);
+  if (leagueFilter) where.leagueId = leagueFilter;
+
+  const [seasons, total] = await Promise.all([
+    prisma.season.findMany({
+      where,
+      include: { league: true, competitions: true },
+      orderBy: { year: "desc" },
+      skip: (page - 1) * limit,
+      take: limit,
+    }),
+    prisma.season.count({ where }),
+  ]);
+
+  return NextResponse.json({
+    seasons,
+    total,
+    page,
+    totalPages: Math.ceil(total / limit),
   });
-  return NextResponse.json(seasons);
 }
 
 export async function POST(req: NextRequest) {

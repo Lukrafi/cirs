@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 
 type League = { id: string; name: string };
 
+const PAGE_SIZE = 50;
+
 export default function AdminTemporadas() {
   const [seasons, setSeasons] = useState<Record<string, unknown>[]>([]);
   const [leagues, setLeagues] = useState<League[]>([]);
@@ -12,20 +14,27 @@ export default function AdminTemporadas() {
   const [year, setYear] = useState(2026);
   const [leagueId, setLeagueId] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [filterYear, setFilterYear] = useState("");
+  const [filterLeague, setFilterLeague] = useState("");
 
-  const fetchSeasons = async () => {
+  const fetchSeasons = async (p: number, fy: string, fl: string) => {
     setLoading(true);
-    const res = await fetch("/api/seasons");
+    const params = new URLSearchParams({ page: String(p), limit: String(PAGE_SIZE) });
+    if (fy) params.set("year", fy);
+    if (fl) params.set("leagueId", fl);
+    const res = await fetch(`/api/seasons?${params}`);
     const data = await res.json();
-    setSeasons(data);
+    setSeasons(data.seasons ?? data);
+    setTotalPages(data.totalPages ?? 1);
     setLoading(false);
   };
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    fetchSeasons();
+    fetchSeasons(page, filterYear, filterLeague);
     fetch("/api/leagues").then((r) => r.json()).then(setLeagues);
-  }, []);
+  }, [page, filterYear, filterLeague]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +54,8 @@ export default function AdminTemporadas() {
     setEditingId(null);
     setYear(2026);
     setLeagueId("");
-    fetchSeasons();
+    fetchSeasons(1, filterYear, filterLeague);
+    setPage(1);
   };
 
   const handleEdit = (item: Record<string, unknown>) => {
@@ -58,7 +68,7 @@ export default function AdminTemporadas() {
   const handleDelete = async (id: string) => {
     if (!confirm("Tem certeza?")) return;
     await fetch(`/api/seasons?id=${id}`, { method: "DELETE" });
-    fetchSeasons();
+    fetchSeasons(page, filterYear, filterLeague);
   };
 
   return (
@@ -121,36 +131,80 @@ export default function AdminTemporadas() {
         </form>
       )}
 
+      {/* Filtros */}
+      <div className="flex gap-3 mb-4 flex-wrap">
+        <input
+          type="number"
+          placeholder="Filtrar por ano..."
+          value={filterYear}
+          onChange={(e) => { setFilterYear(e.target.value); setPage(1); }}
+          className="bg-blue-deep border border-border rounded-lg px-3 py-2 text-sm w-40 focus:outline-none focus:border-gold"
+        />
+        <select
+          value={filterLeague}
+          onChange={(e) => { setFilterLeague(e.target.value); setPage(1); }}
+          className="bg-blue-deep border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gold"
+        >
+          <option value="">Todas as ligas</option>
+          {leagues.map((l) => (
+            <option key={l.id} value={l.id}>{l.name}</option>
+          ))}
+        </select>
+      </div>
+
       {loading ? (
         <p className="text-muted">Carregando...</p>
       ) : seasons.length === 0 ? (
         <div className="glass rounded-2xl p-12 text-center">
-          <p className="text-muted">Nenhuma temporada criada ainda.</p>
+          <p className="text-muted">Nenhuma temporada encontrada.</p>
         </div>
       ) : (
-        <div className="glass rounded-2xl overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="border-b border-border">
-              <tr className="text-left text-muted text-xs">
-                <th className="p-3">Ano</th>
-                <th className="p-3">Liga</th>
-                <th className="p-3 text-right">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              {seasons.map((s) => (
-                <tr key={String(s.id)} className="border-b border-border last:border-0">
-                  <td className="p-3 font-bold text-lg gold-text">{String(s.year || s.name)}</td>
-                  <td className="p-3 text-muted">{(s.league as { name?: string })?.name || "—"}</td>
-                  <td className="p-3 text-right space-x-2">
-                    <button onClick={() => handleEdit(s)} className="text-gold hover:underline text-xs">Editar</button>
-                    <button onClick={() => handleDelete(String(s.id))} className="text-red-400 hover:underline text-xs">Excluir</button>
-                  </td>
+        <>
+          <div className="glass rounded-2xl overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="border-b border-border">
+                <tr className="text-left text-muted text-xs">
+                  <th className="p-3">Ano</th>
+                  <th className="p-3">Liga</th>
+                  <th className="p-3 text-right">Ações</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {seasons.map((s) => (
+                  <tr key={String(s.id)} className="border-b border-border last:border-0">
+                    <td className="p-3 font-bold text-lg gold-text">{String(s.year || s.name)}</td>
+                    <td className="p-3 text-muted">{(s.league as { name?: string })?.name || "—"}</td>
+                    <td className="p-3 text-right space-x-2">
+                      <button onClick={() => handleEdit(s)} className="text-gold hover:underline text-xs">Editar</button>
+                      <button onClick={() => handleDelete(String(s.id))} className="text-red-400 hover:underline text-xs">Excluir</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Paginação */}
+          <div className="flex justify-center items-center gap-3 mt-6">
+            <button
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              disabled={page <= 1}
+              className="btn-secondary text-xs py-1 px-3 disabled:opacity-30"
+            >
+              Anterior
+            </button>
+            <span className="text-sm text-muted">
+              Página {page} de {totalPages}
+            </span>
+            <button
+              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+              disabled={page >= totalPages}
+              className="btn-secondary text-xs py-1 px-3 disabled:opacity-30"
+            >
+              Próxima
+            </button>
+          </div>
+        </>
       )}
     </div>
   );
