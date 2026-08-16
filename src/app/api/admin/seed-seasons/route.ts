@@ -7,15 +7,24 @@ export const dynamic = "force-dynamic";
 const START_YEAR = 2026;
 const END_YEAR = 2050;
 
-const QUADRIENNIAL = new Set(["Copa América", "Eurocopa", "Copa da Ásia", "Finalíssima", "OFC Nations Cup"]);
-const QUAD_START: Record<string, number> = { "Copa América": 2024, "Eurocopa": 2024, "Copa da Ásia": 2023, "Finalíssima": 2025, "OFC Nations Cup": 2024 };
+const QUADRIENNIAL: Record<string, number> = {
+  "FIFA World Cup": 2026,
+  "Copa América": 2028,
+  "Eurocopa": 2028,
+  "Copa da Ásia": 2027,
+  "Finalíssima": 2029,
+  "OFC Nations Cup": 2028,
+};
 
-const BIENNIAL = new Set(["Gold Cup", "Copa Africana de Nações", "African Nations Championship"]);
-const BI_START: Record<string, number> = { "Gold Cup": 2025, "Copa Africana de Nações": 2024, "African Nations Championship": 2026 };
+const BIENNIAL: Record<string, number> = {
+  "Gold Cup": 2025,
+  "Copa Africana de Nações": 2025,
+  "African Nations Championship": 2026,
+};
 
 function shouldInclude(name: string, year: number): boolean {
-  if (QUADRIENNIAL.has(name)) return (year - (QUAD_START[name] ?? 2024)) % 4 === 0;
-  if (BIENNIAL.has(name)) return (year - (BI_START[name] ?? 2025)) % 2 === 0;
+  if (name in QUADRIENNIAL) return (year - QUADRIENNIAL[name]) % 4 === 0;
+  if (name in BIENNIAL) return (year - BIENNIAL[name]) % 2 === 0;
   return true;
 }
 
@@ -23,7 +32,6 @@ export async function POST(req: NextRequest) {
   const auth = await requireAdmin();
   if ("error" in auth) return auth.error;
 
-  // Limpa seasons e competitions antigas
   await prisma.competition.deleteMany({});
   await prisma.season.deleteMany({});
 
@@ -58,9 +66,5 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  return NextResponse.json({
-    success: true,
-    seasons: totalSeasons,
-    competitions: totalComps,
-  });
+  return NextResponse.json({ success: true, seasons: totalSeasons, competitions: totalComps });
 }
