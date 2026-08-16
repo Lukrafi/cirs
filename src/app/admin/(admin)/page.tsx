@@ -5,14 +5,11 @@ import { formatDateTime } from "@/lib/utils";
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboard() {
-  const [clubs, players, matches, competitions, news, coaches, referees, recentLogs] = await Promise.all([
+  const [clubs, players, matches, news, recentLogs] = await Promise.all([
     prisma.club.count(),
     prisma.player.count(),
     prisma.match.count(),
-    prisma.competition.count(),
     prisma.news.count(),
-    prisma.coach.count(),
-    prisma.referee.count(),
     prisma.log.findMany({ orderBy: { createdAt: "desc" }, take: 8 }),
   ]);
 
@@ -20,16 +17,12 @@ export default async function AdminDashboard() {
     { label: "Clubes", value: clubs, href: "/admin/clubes", icon: "⚽" },
     { label: "Jogadores", value: players, href: "/admin/jogadores", icon: "👤" },
     { label: "Partidas", value: matches, href: "/admin/partidas", icon: "🏟️" },
-    { label: "Campeonatos", value: competitions, href: "/admin/campeonatos", icon: "🏆" },
     { label: "Notícias", value: news, href: "/admin/noticias", icon: "📰" },
-    { label: "Técnicos", value: coaches, href: "/admin/tecnicos", icon: "🎩" },
-    { label: "Árbitros", value: referees, href: "/admin/arbitros", icon: "🟨" },
   ];
 
   const actions = [
     { label: "Novo Clube", href: "/admin/clubes" },
     { label: "Novo Jogador", href: "/admin/jogadores" },
-    { label: "Novo Campeonato", href: "/admin/campeonatos" },
     { label: "Nova Notícia", href: "/admin/noticias" },
     { label: "Nova Partida", href: "/admin/partidas" },
     { label: "Nova Liga", href: "/admin/ligas" },
@@ -41,7 +34,7 @@ export default async function AdminDashboard() {
     <div className="space-y-8">
       <h1 className="text-3xl font-black gold-text">Dashboard Admin</h1>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {stats.map((s) => (
           <Link key={s.label} href={s.href} className="glass rounded-xl p-4 text-center hover:bg-card/60 transition-colors">
             <div className="text-3xl mb-1">{s.icon}</div>

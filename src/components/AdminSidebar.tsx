@@ -10,18 +10,12 @@ const links = [
   { href: "/admin/divisoes", label: "Divisões", icon: "📋" },
   { href: "/admin/clubes", label: "Clubes", icon: "🛡️" },
   { href: "/admin/jogadores", label: "Jogadores", icon: "⚽" },
-  { href: "/admin/tecnicos", label: "Técnicos", icon: "📋" },
-  { href: "/admin/arbitros", label: "Árbitros", icon: "🟨" },
   { href: "/admin/ligas", label: "Ligas", icon: "🏆" },
   { href: "/admin/temporadas", label: "Temporadas", icon: "📅" },
-  { href: "/admin/campeonatos", label: "Campeonatos", icon: "🎖️" },
   { href: "/admin/partidas", label: "Partidas", icon: "⚽" },
   { href: "/admin/simulador", label: "Simulador", icon: "⚡" },
   { href: "/admin/sincronizacao", label: "Sincronização", icon: "🔄" },
-  { href: "/admin/estadios", label: "Estádios", icon: "🏟️" },
-  { href: "/admin/patrocinadores", label: "Patrocinadores", icon: "💰" },
   { href: "/admin/noticias", label: "Notícias", icon: "📰" },
-  { href: "/admin/downloads", label: "Downloads", icon: "📦" },
   { href: "/admin/logs", label: "Logs", icon: "📜" },
 ];
 
