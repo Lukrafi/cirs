@@ -231,6 +231,7 @@ model Competition {
   seasonId   String?
   season     Season?  @relation(fields: [seasonId], references: [id])
   isKnockout Boolean  @default(false)
+  isSimulated Boolean  @default(true)  // true=simular pelo sistema, false=jogável no HaxBall
   format     String   @default("round-robin")
   numTeams   Int      @default(0)
   numTurns   Int      @default(2)

@@ -20,6 +20,7 @@ export async function POST(_req: NextRequest) {
   // Agrupar todas as competicoes por liga (via temporada) ou diretamente
   const competitions = await prisma.competition.findMany({
     where: {
+      isSimulated: true,
       groups: { some: { matches: { some: { status: "scheduled" } } } },
     },
     include: {

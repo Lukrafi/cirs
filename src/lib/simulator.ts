@@ -386,7 +386,7 @@ export async function simularAteData(competitionId: string, dataLimite: string) 
 
 export async function simularTodasCompeticoes(seasonId: string) {
   const competitions = await prisma.competition.findMany({
-    where: { seasonId },
+    where: { seasonId, isSimulated: true },
     include: { groups: { include: { matches: true } } },
   });
 
