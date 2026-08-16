@@ -20,11 +20,20 @@ function shouldInclude(name: string, year: number): boolean {
 async function main() {
   console.log("=== Seed Seasons 2026-2050 ===");
 
-  // Verifica se já existem seasons
-  const existing = await prisma.season.count();
-  if (existing > 0) {
-    console.log(`Já existem ${existing} seasons. Pulando.`);
+  // Verifica se já existem seasons no formato correto
+  const existingCount = await prisma.season.count();
+  const existingWithLeague = await prisma.season.count({ where: { leagueId: { not: null } } });
+
+  if (existingCount === 25 && existingWithLeague === 0) {
+    console.log("Seasons já estão no formato correto (25 seasons, sem leagueId). Pulando.");
     return;
+  }
+
+  // Se existem seasons no formato antigo, limpa tudo
+  if (existingCount > 0) {
+    console.log(`Limpando ${existingCount} seasons antigas...`);
+    await prisma.competition.deleteMany({});
+    await prisma.season.deleteMany({});
   }
 
   const leagues = await prisma.league.findMany({ select: { id: true, name: true } });
