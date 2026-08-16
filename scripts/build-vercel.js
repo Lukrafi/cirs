@@ -64,6 +64,14 @@ if (process.env.SKIP_SEED_WORLD === "1" || process.env.SKIP_SEED === "1") {
 // Seed de Clubes — executado via API /api/sync/seed-clubs (uma confederação por vez)
 // Não rodar no build para evitar timeout
 
+// Seed de Seleções FIFA — bandeiras já estão commitadas em public/bandeiras-fifa,
+// então aqui só criam/atualizam os registros no banco (idempotente).
+try {
+  run("Seed Seleções FIFA", "npx tsx prisma/seed-national-teams.ts");
+} catch {
+  console.log("Seed de seleções FIFA falhou, continuando...");
+}
+
 // Build
 run("Next Build", "npx next build");
 
