@@ -1,0 +1,38 @@
+// Mapeamento dos códigos FIFA (3 letras) usados no modelo Country para o nome
+// do arquivo de bandeira local em public/bandeiras-fifa/ (baseado no código ISO
+// 3166-1 alpha-2 do flagcdn.com). As 4 nações do Reino Unido sem código ISO usam
+// nomes próprios (eng/sco/wal/nir) — as bandeiras vêm do Wikimedia.
+export const FIFA_CODE_TO_FLAG: Record<string, string> = {
+  AFG: "af", AIA: "ai", ALB: "al", ALG: "dz", AND: "ad", ANG: "ao", ARG: "ar",
+  ARM: "am", ARU: "aw", ASA: "as", ATG: "ag", AUS: "au", AUT: "at", AZE: "az",
+  BAH: "bs", BAN: "bd", BDI: "bi", BEL: "be", BEN: "bj", BER: "bm", BFA: "bf",
+  BHR: "bh", BHU: "bt", BIH: "ba", BLR: "by", BLZ: "bz", BOE: "bq", BOL: "bo",
+  BOT: "bw", BRA: "br", BRB: "bb", BRU: "bn", BUL: "bg", CAN: "ca", CAY: "ky",
+  CHA: "td", CHI: "cl", CHN: "cn", CIV: "ci", CMR: "cm", COD: "cd", COG: "cg",
+  COK: "ck", COL: "co", COM: "km", CPV: "cv", CRC: "cr", CRO: "hr", CTA: "cf",
+  CUB: "cu", CUW: "cw", CYP: "cy", CZE: "cz", DEN: "dk", DJI: "dj", DMA: "dm",
+  DOM: "do", ECU: "ec", EGY: "eg", ENG: "eng", ERI: "er", ESP: "es", EST: "ee",
+  ETH: "et", FIJ: "fj", FIN: "fi", FRA: "fr", FRO: "fo", FSM: "fm", GAB: "ga",
+  GEO: "ge", GER: "de", GHA: "gh", GIB: "gi", GIN: "gn", GLP: "gp", GMB: "gm",
+  GNB: "gw", GNQ: "gq", GRE: "gr", GRN: "gd", GUA: "gt", GUF: "gf", GUM: "gu",
+  GUY: "gy", HAI: "ht", HKG: "hk", HON: "hn", HUN: "hu", IDN: "id", IND: "in",
+  IRL: "ie", IRN: "ir", IRQ: "iq", ISL: "is", ISR: "il", ISV: "vi", ITA: "it",
+  IVB: "vg", JAM: "jm", JOR: "jo", JPN: "jp", KAZ: "kz", KEN: "ke", KGZ: "kg",
+  KHM: "kh", KIR: "ki", KOR: "kr", KOS: "xk", KSA: "sa", KUW: "kw", LAO: "la",
+  LBN: "lb", LBR: "lr", LBY: "ly", LCA: "lc", LIE: "li", LKA: "lk", LSO: "ls",
+  LTU: "lt", LUX: "lu", LVA: "lv", MAC: "mo", MAD: "mg", MAR: "ma", MAS: "my",
+  MDA: "md", MDV: "mv", MEX: "mx", MKD: "mk", MLI: "ml", MLT: "mt", MMR: "mm",
+  MNE: "me", MNG: "mn", MOZ: "mz", MRT: "mr", MSR: "ms", MTQ: "mq", MUS: "mu",
+  MWI: "mw", NAM: "na", NCA: "ni", NCL: "nc", NED: "nl", NEP: "np", NER: "ne",
+  NGA: "ng", NIR: "nir", NIU: "nu", NOR: "no", NZL: "nz", OMA: "om", PAK: "pk",
+  PAN: "pa", PAR: "py", PER: "pe", PHI: "ph", PLW: "pw", PNG: "pg", POL: "pl",
+  POR: "pt", PRK: "kp", PUR: "pr", QAT: "qa", ROU: "ro", RSA: "za", RUS: "ru",
+  RWA: "rw", SAM: "ws", SCO: "sco", SDN: "sd", SEN: "sn", SEY: "sc", SGP: "sg",
+  SKN: "kn", SLE: "sl", SLV: "sv", SMA: "sx", SMN: "mf", SMR: "sm", SOL: "sb",
+  SOM: "so", SRB: "rs", SSD: "ss", STP: "st", SUI: "ch", SUR: "sr", SVK: "sk",
+  SVN: "si", SWE: "se", SWZ: "sz", SYR: "sy", TAH: "pf", TCA: "tc", TGA: "to",
+  TGO: "tg", THA: "th", TJK: "tj", TKM: "tm", TLS: "tl", TPE: "tw", TTO: "tt",
+  TUN: "tn", TUR: "tr", TUV: "tv", TZA: "tz", UAE: "ae", UGA: "ug", UKR: "ua",
+  URU: "uy", USA: "us", UZB: "uz", VAN: "vu", VEN: "ve", VIE: "vn", VIN: "vc",
+  WAL: "wal", YEM: "ye", ZMB: "zm", ZWE: "zw",
+};

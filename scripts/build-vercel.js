@@ -72,6 +72,13 @@ try {
   console.log("Seed de seleções FIFA falhou, continuando...");
 }
 
+// Seed de bandeiras dos Países — reaproveita o mesmo pack local.
+try {
+  run("Seed Bandeiras Países", "npx tsx prisma/seed-country-flags.ts");
+} catch {
+  console.log("Seed de bandeiras dos países falhou, continuando...");
+}
+
 // Build
 run("Next Build", "npx next build");
 

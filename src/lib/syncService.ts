@@ -1,6 +1,7 @@
 import { Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
 import { getDataSource, listAvailableSources, ExternalImage, ExternalClub, ExternalCompetition } from "./dataSources";
+import { FIFA_CODE_TO_FLAG } from "./fifaCountryCodes";
 import fs from "fs";
 import path from "path";
 
@@ -69,7 +70,7 @@ async function downloadImage(
     if (!res.ok) return null;
 
     const buffer = Buffer.from(await res.arrayBuffer());
-    if (buffer.length < 500) return null;
+    if (buffer.length < 50) return null;
 
     const dir = path.join(PUBLIC_DIR, subdir);
     ensureDir(dir);
@@ -94,11 +95,15 @@ export async function syncFlags(sourceName?: string): Promise<SyncResult> {
 
   const countries = await prisma.country.findMany();
   for (const c of countries) {
+    // Country.code é o código FIFA (3 letras); a bandeira usa o nome do arquivo ISO (2 letras).
+    const flagName = FIFA_CODE_TO_FLAG[c.code];
+    if (!flagName) continue;
+
     try {
-      const img = await source.fetchFlag(c.code);
+      const img = await source.fetchFlag(flagName);
       if (!img) continue;
 
-      const localPath = await downloadImage(img.url, c.code, "bandeiras");
+      const localPath = await downloadImage(img.url, flagName, "bandeiras-fifa");
       if (localPath) {
         await prisma.country.update({
           where: { id: c.id },
