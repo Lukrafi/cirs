@@ -79,11 +79,18 @@ try {
   console.log("Seed de bandeiras dos países falhou, continuando...");
 }
 
-// Seed de logos das Divisões — gera os emblemas localmente (sem rede).
+// Seed de logos das Divisões — gera/atualiza os emblemas das divisões principais.
 try {
   run("Seed Logos Divisões", "npx tsx prisma/seed-division-logos.ts");
 } catch {
   console.log("Seed de logos das divisões falhou, continuando...");
+}
+
+// Seed de logos de TODAS as ligas, copas e confederações (Wikipedia, png/svg apenas).
+try {
+  run("Seed Logos Ligas/Copas/Confederações", "npx tsx prisma/seed-all-logos.ts");
+} catch {
+  console.log("Seed de logos de ligas falhou, continuando...");
 }
 
 // Build
