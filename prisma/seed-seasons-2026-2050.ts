@@ -13,6 +13,7 @@ const END_YEAR = 2050;
 // OFC Nations Cup: 2028, 2032, 2036, 2040, 2044, 2048
 const QUADRIENNIAL: Record<string, number> = {
   "FIFA World Cup": 2026,
+  "FIFA Club World Cup": 2029,
   "Copa América": 2028,
   "Eurocopa": 2028,
   "Copa da Ásia": 2027,
