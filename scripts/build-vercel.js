@@ -93,6 +93,13 @@ try {
   console.log("Seed de logos de ligas falhou, continuando...");
 }
 
+// Seed de Seasons 2026-2050 (1 season por ano com todas as competições)
+try {
+  run("Seed Seasons 2026-2050", "npx tsx prisma/seed-seasons-2026-2050.ts");
+} catch {
+  console.log("Seed de seasons falhou, continuando...");
+}
+
 // Build
 run("Next Build", "npx next build");
 
