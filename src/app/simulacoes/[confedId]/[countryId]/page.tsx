@@ -107,9 +107,9 @@ export default async function CountryPage({
               <Link key={league.id} href={`/ligas/${league.id}`} className="glass rounded-xl p-5 hover:gold-border transition-all duration-300 group">
                 <div className="flex items-center gap-3">
                   {league.logo ? (
-                    <img src={league.logo} alt={league.name} className="w-10 h-10 rounded-lg object-contain" />
+                    <img src={league.logo} alt={league.name} className="w-12 h-12 rounded-lg object-contain" />
                   ) : (
-                    <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-lg">🏆</div>
+                    <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-lg">🏆</div>
                   )}
                   <div className="flex-1 min-w-0">
                     <h3 className="text-sm font-bold truncate group-hover:text-gold transition-colors">{league.name}</h3>

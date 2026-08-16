@@ -65,7 +65,7 @@ async function logoFromExactTitle(title: string): Promise<string | null> {
       else if (hasLogo && !bad) score = 1;
       return { f, score };
     })
-    .filter((x) => x.score > 0)
+    .filter((x) => x.score === 3 || x.score === 1) // exige "logo" no nome do arquivo
     .sort((a, b) => b.score - a.score);
 
   for (const cand of scored.slice(0, 5)) {
@@ -92,6 +92,7 @@ async function logoBySearch(leagueName: string, countryEN: string): Promise<stri
     `"${leagueName}" association football`,
     `"${leagueName}" football`,
   ];
+  const nLeague = norm(leagueName);
   const seen = new Set<string>();
 
   for (const q of queries) {
@@ -106,6 +107,8 @@ async function logoBySearch(leagueName: string, countryEN: string): Promise<stri
       if (/^\d{4}\s/.test(t) || /season|temporada/i.test(t)) continue;
       if (seen.has(t)) continue;
       seen.add(t);
+      // o título da página precisa conter o nome da liga (filtra seleção/clube/etc.)
+      if (nLeague.length > 3 && !norm(t).includes(nLeague)) continue;
       const url = await logoFromExactTitle(t);
       if (url) return url;
     }
