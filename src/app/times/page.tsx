@@ -71,7 +71,7 @@ export default async function TimesPage() {
                     <img
                       src={conf.logo}
                       alt={conf.name}
-                      className="w-12 h-12 rounded-lg object-cover"
+                      className="w-12 h-12 rounded-lg object-contain"
                     />
                   ) : (
                     <div
@@ -104,7 +104,7 @@ export default async function TimesPage() {
                             <img
                               src={country.flag}
                               alt={country.name}
-                              className="w-8 h-6 rounded object-cover"
+                              className="w-8 h-6 rounded object-contain"
                             />
                           ) : (
                             <div className="w-8 h-6 rounded bg-blue-deep flex items-center justify-center">
@@ -130,7 +130,7 @@ export default async function TimesPage() {
                                 <img
                                   src={club.emblem}
                                   alt={club.name}
-                                  className="w-10 h-10 mx-auto rounded-lg object-cover mb-2"
+                                  className="w-10 h-10 mx-auto rounded-lg object-contain mb-2"
                                 />
                               ) : (
                                 <div className="w-10 h-10 mx-auto rounded-full bg-blue-deep flex items-center justify-center mb-2">

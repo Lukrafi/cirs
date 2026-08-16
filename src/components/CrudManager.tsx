@@ -190,7 +190,7 @@ export default function CrudManager({ apiPath, fields, title, displayFields }: C
                   {fieldsToShow.map((f) => (
                     <td key={f.key} className="p-3">
                       {f.key === "emblem" || f.key === "photo" || f.key === "logo" || f.key === "image" ? (
-                        item[f.key] ? <img src={String(item[f.key])} alt="" className="w-8 h-8 rounded object-cover" /> : "—"
+                        item[f.key] ? <img src={String(item[f.key])} alt="" className="w-8 h-8 rounded object-contain" /> : "—"
                       ) : (
                         getDisplayValue(item, f)
                       )}

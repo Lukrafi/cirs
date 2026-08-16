@@ -142,7 +142,7 @@ export default function LiveCompetitionView({ competitionId }: { competitionId: 
                         </td>
                         <td className="p-3 font-medium flex items-center gap-2">
                           {s.clubEmblem && (
-                            <img src={s.clubEmblem} alt="" className="w-5 h-5 rounded object-cover" />
+                            <img src={s.clubEmblem} alt="" className="w-5 h-5 rounded object-contain" />
                           )}
                           {s.clubName}
                         </td>

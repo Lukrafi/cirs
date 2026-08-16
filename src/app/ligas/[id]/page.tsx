@@ -34,7 +34,7 @@ export default async function LeaguePage({ params }: { params: Promise<{ id: str
 
         <header className="mt-6 glass rounded-2xl p-8 flex items-center gap-6">
           {league.logo ? (
-            <img src={league.logo} alt={league.name} className="w-20 h-20 rounded-xl object-cover" />
+            <img src={league.logo} alt={league.name} className="w-20 h-20 rounded-xl object-contain" />
           ) : (
             <div className="w-20 h-20 rounded-xl bg-gold/20 flex items-center justify-center text-gold font-black text-3xl">
               {league.name.charAt(0)}

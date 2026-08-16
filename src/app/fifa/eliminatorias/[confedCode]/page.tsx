@@ -75,7 +75,7 @@ export default async function EliminatoriaConfedPage({
             {confed.nationalTeams.map((team) => (
               <div key={team.id} className="glass rounded-xl p-4 text-center hover:gold-border transition-all duration-300 group">
                 {team.flag ? (
-                  <img src={team.flag} alt={team.name} className="w-12 h-8 mx-auto rounded object-cover mb-2" />
+                  <img src={team.flag} alt={team.name} className="w-12 h-8 mx-auto rounded object-contain mb-2" />
                 ) : (
                   <div className="w-12 h-8 mx-auto rounded bg-blue-deep flex items-center justify-center mb-2">
                     <span className="text-[10px] font-bold text-gold">{team.name.slice(0, 3).toUpperCase()}</span>

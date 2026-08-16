@@ -212,7 +212,7 @@ export default async function CafCompetitionPage({ params }: { params: Promise<{
                               <td className="p-2 font-medium">
                                 <div className="flex items-center gap-2">
                                   {s.club?.emblem && (
-                                    <img src={s.club.emblem} alt="" className="w-4 h-4 rounded object-cover" />
+                                    <img src={s.club.emblem} alt="" className="w-4 h-4 rounded object-contain" />
                                   )}
                                   {s.club?.name || "—"}
                                 </div>

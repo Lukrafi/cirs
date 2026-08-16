@@ -185,7 +185,7 @@ export default async function UefaCompetitionPage({ params }: { params: Promise<
                       <td className="p-3 font-medium">
                         <div className="flex items-center gap-2">
                           {s.club?.emblem && (
-                            <img src={s.club.emblem} alt="" className="w-5 h-5 rounded object-cover" />
+                            <img src={s.club.emblem} alt="" className="w-5 h-5 rounded object-contain" />
                           )}
                           {s.club?.name || "—"}
                         </div>

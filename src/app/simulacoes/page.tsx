@@ -96,7 +96,7 @@ export default async function SimulacoesPage() {
               <section key={conf.id} className="glass rounded-2xl p-6">
                 <div className="flex items-center gap-4 mb-6">
                   {conf.logo ? (
-                    <img src={conf.logo} alt={conf.name} className="w-14 h-14 rounded-lg object-cover" />
+                    <img src={conf.logo} alt={conf.name} className="w-14 h-14 rounded-lg object-contain" />
                   ) : (
                     <div
                       className="w-14 h-14 rounded-lg flex items-center justify-center text-xl font-black"
@@ -135,7 +135,7 @@ export default async function SimulacoesPage() {
                           <img
                             src={country.flag}
                             alt={country.name}
-                            className="w-10 h-7 mx-auto rounded object-cover mb-2"
+                            className="w-10 h-7 mx-auto rounded object-contain mb-2"
                           />
                         ) : (
                           <div className="w-10 h-7 mx-auto rounded bg-blue-deep flex items-center justify-center mb-2">
@@ -171,7 +171,7 @@ export default async function SimulacoesPage() {
               >
                 <div className="flex items-center gap-3">
                   {comp.logo ? (
-                    <img src={comp.logo} alt={comp.name} className="w-10 h-10 rounded-lg object-cover" />
+                    <img src={comp.logo} alt={comp.name} className="w-10 h-10 rounded-lg object-contain" />
                   ) : (
                     <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-lg">
                       🏆
@@ -211,7 +211,7 @@ export default async function SimulacoesPage() {
                     {m.homeTeam?.name || "—"}
                   </span>
                   {m.homeTeam?.emblem && (
-                    <img src={m.homeTeam.emblem} alt="" className="w-7 h-7 rounded object-cover" />
+                    <img src={m.homeTeam.emblem} alt="" className="w-7 h-7 rounded object-contain" />
                   )}
                 </div>
                 <div className="text-center px-3 py-1 bg-blue-deep rounded-lg gold-border min-w-[80px]">
@@ -225,7 +225,7 @@ export default async function SimulacoesPage() {
                 </div>
                 <div className="flex items-center gap-3 flex-1">
                   {m.awayTeam?.emblem && (
-                    <img src={m.awayTeam.emblem} alt="" className="w-7 h-7 rounded object-cover" />
+                    <img src={m.awayTeam.emblem} alt="" className="w-7 h-7 rounded object-contain" />
                   )}
                   <span className="text-sm font-medium group-hover:text-gold transition-colors">
                     {m.awayTeam?.name || "—"}

@@ -46,7 +46,7 @@ export default async function CountryPage({
       <header className="mt-6 glass rounded-2xl p-8 mb-8">
         <div className="flex items-center gap-4">
           {country.flag ? (
-            <img src={country.flag} alt={country.name} className="w-16 h-12 rounded-lg object-cover" />
+            <img src={country.flag} alt={country.name} className="w-16 h-12 rounded-lg object-contain" />
           ) : (
             <div className="w-16 h-12 rounded-lg bg-blue-deep flex items-center justify-center">
               <span className="text-lg font-bold text-gold">{country.code}</span>
@@ -136,7 +136,7 @@ export default async function CountryPage({
             {country.clubs.map((club) => (
               <Link key={club.id} href={`/times/${club.id}`} className="glass rounded-xl p-3 text-center hover:gold-border transition-all duration-300 group">
                 {club.emblem ? (
-                  <img src={club.emblem} alt={club.name} className="w-10 h-10 mx-auto rounded-lg object-cover mb-2" />
+                  <img src={club.emblem} alt={club.name} className="w-10 h-10 mx-auto rounded-lg object-contain mb-2" />
                 ) : (
                   <div className="w-10 h-10 mx-auto rounded-full bg-blue-deep flex items-center justify-center mb-2">
                     <span className="text-xs font-bold text-gold">{club.name.charAt(0)}</span>

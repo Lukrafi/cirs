@@ -39,7 +39,7 @@ export default async function CompetitionDetailPage({ params }: { params: Promis
   return (
     <div className="pt-20 min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="flex items-center gap-4 mb-2">
-        {competition.logo && <img src={competition.logo} alt={competition.name} className="w-16 h-16 rounded-xl object-cover" />}
+        {competition.logo && <img src={competition.logo} alt={competition.name} className="w-16 h-16 rounded-xl object-contain" />}
         <div>
           <h1 className="text-3xl font-black">{competition.name}</h1>
           <p className="text-muted text-sm uppercase">{competition.type}</p>

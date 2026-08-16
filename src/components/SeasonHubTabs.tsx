@@ -161,7 +161,7 @@ function ClassificacaoTab({ data }: { data: SeasonHubData }) {
                       <td className="p-3 text-muted">{idx + 1}</td>
                       <td className="p-3 font-medium flex items-center gap-2">
                         {s.clubEmblem && (
-                          <img src={s.clubEmblem} alt="" className="w-5 h-5 rounded object-cover" />
+                          <img src={s.clubEmblem} alt="" className="w-5 h-5 rounded object-contain" />
                         )}
                         {s.clubName}
                       </td>
@@ -246,7 +246,7 @@ function MatchRow({ m }: { m: MatchRow & { groupName?: string } }) {
     >
       <div className="flex-1 flex items-center justify-end gap-2">
         <span className="font-medium text-right">{m.homeName}</span>
-        {m.homeEmblem && <img src={m.homeEmblem} alt="" className="w-6 h-6 rounded object-cover" />}
+        {m.homeEmblem && <img src={m.homeEmblem} alt="" className="w-6 h-6 rounded object-contain" />}
       </div>
 
       <div className="text-center px-3 py-1 bg-blue-deep rounded gold-border min-w-[80px]">
@@ -260,7 +260,7 @@ function MatchRow({ m }: { m: MatchRow & { groupName?: string } }) {
       </div>
 
       <div className="flex-1 flex items-center gap-2">
-        {m.awayEmblem && <img src={m.awayEmblem} alt="" className="w-6 h-6 rounded object-cover" />}
+        {m.awayEmblem && <img src={m.awayEmblem} alt="" className="w-6 h-6 rounded object-contain" />}
         <span className="font-medium">{m.awayName}</span>
       </div>
 

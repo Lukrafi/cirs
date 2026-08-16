@@ -287,7 +287,7 @@ function StandingsSection({
                           </td>
                           <td className="p-2 font-medium">
                             <div className="flex items-center gap-2">
-                              {s.club?.emblem && <img src={s.club.emblem} alt="" className="w-4 h-4 rounded object-cover" />}
+                              {s.club?.emblem && <img src={s.club.emblem} alt="" className="w-4 h-4 rounded object-contain" />}
                               {s.club?.name || "—"}
                             </div>
                           </td>

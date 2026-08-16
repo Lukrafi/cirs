@@ -217,7 +217,7 @@ export default async function ConcacafCompetitionPage({ params }: { params: Prom
                                 <td className="p-2 font-medium">
                                   <div className="flex items-center gap-2">
                                     {s.club?.emblem && (
-                                      <img src={s.club.emblem} alt="" className="w-4 h-4 rounded object-cover" />
+                                      <img src={s.club.emblem} alt="" className="w-4 h-4 rounded object-contain" />
                                     )}
                                     {s.club?.name || "—"}
                                   </div>

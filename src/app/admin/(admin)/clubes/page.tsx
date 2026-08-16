@@ -223,7 +223,7 @@ export default function AdminClubes() {
                 <tr key={club.id} className="border-b border-border last:border-0 hover:bg-white/5">
                   <td className="p-3">
                     {club.emblem ? (
-                      <img src={club.emblem} alt="" className="w-8 h-8 rounded object-cover" />
+                      <img src={club.emblem} alt="" className="w-8 h-8 rounded object-contain" />
                     ) : (
                       "—"
                     )}

@@ -60,7 +60,7 @@ export default async function PartidasPage() {
                 <div className="flex-1 flex items-center justify-end gap-2">
                   <span className="font-medium text-right">{m.homeTeam?.name || "—"}</span>
                   {m.homeTeam?.emblem && (
-                    <img src={m.homeTeam.emblem} alt="" className="w-6 h-6 rounded object-cover" />
+                    <img src={m.homeTeam.emblem} alt="" className="w-6 h-6 rounded object-contain" />
                   )}
                 </div>
                 <div className="text-center px-3 py-1 bg-blue-deep rounded gold-border min-w-[80px]">
@@ -68,7 +68,7 @@ export default async function PartidasPage() {
                 </div>
                 <div className="flex-1 flex items-center gap-2">
                   {m.awayTeam?.emblem && (
-                    <img src={m.awayTeam.emblem} alt="" className="w-6 h-6 rounded object-cover" />
+                    <img src={m.awayTeam.emblem} alt="" className="w-6 h-6 rounded object-contain" />
                   )}
                   <span className="font-medium">{m.awayTeam?.name || "—"}</span>
                 </div>
@@ -103,7 +103,7 @@ export default async function PartidasPage() {
                 <div className="flex-1 flex items-center justify-end gap-2">
                   <span className="font-medium text-right">{m.homeTeam?.name || "—"}</span>
                   {m.homeTeam?.emblem && (
-                    <img src={m.homeTeam.emblem} alt="" className="w-6 h-6 rounded object-cover" />
+                    <img src={m.homeTeam.emblem} alt="" className="w-6 h-6 rounded object-contain" />
                   )}
                 </div>
                 <div className="text-center px-3 py-1 bg-blue-deep rounded gold-border min-w-[80px]">
@@ -113,7 +113,7 @@ export default async function PartidasPage() {
                 </div>
                 <div className="flex-1 flex items-center gap-2">
                   {m.awayTeam?.emblem && (
-                    <img src={m.awayTeam.emblem} alt="" className="w-6 h-6 rounded object-cover" />
+                    <img src={m.awayTeam.emblem} alt="" className="w-6 h-6 rounded object-contain" />
                   )}
                   <span className="font-medium">{m.awayTeam?.name || "—"}</span>
                 </div>

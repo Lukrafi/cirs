@@ -124,7 +124,7 @@ export default async function ConmebolCompetitionPage({ params }: { params: Prom
                         return (
                           <tr key={s.id} className={`border-b border-border last:border-0 hover:bg-white/5 ${isTop2 ? "bg-green-500/5" : isThird ? "bg-orange-500/5" : ""}`}>
                             <td className="p-2"><span className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-xs font-bold ${isTop2 ? "bg-green-500/20 text-green-400" : isThird ? "bg-orange-500/20 text-orange-400" : "text-muted"}`}>{pos}</span></td>
-                            <td className="p-2 font-medium"><div className="flex items-center gap-2">{s.club?.emblem && <img src={s.club.emblem} alt="" className="w-4 h-4 rounded object-cover" />}{s.club?.name || "—"}</div></td>
+                            <td className="p-2 font-medium"><div className="flex items-center gap-2">{s.club?.emblem && <img src={s.club.emblem} alt="" className="w-4 h-4 rounded object-contain" />}{s.club?.name || "—"}</div></td>
                             <td className="p-2 text-center">{s.played}</td><td className="p-2 text-center">{s.wins}</td><td className="p-2 text-center">{s.draws}</td><td className="p-2 text-center">{s.losses}</td><td className="p-2 text-center">{s.goalsDiff > 0 ? `+${s.goalsDiff}` : s.goalsDiff}</td><td className="p-2 text-center font-bold gold-text">{s.points}</td>
                           </tr>
                         );

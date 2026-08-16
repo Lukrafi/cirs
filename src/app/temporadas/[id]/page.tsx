@@ -167,7 +167,7 @@ export default async function SeasonHubPage({
               <img
                 src={hubData.competitionLogo}
                 alt=""
-                className="w-16 h-16 rounded-xl object-cover"
+                className="w-16 h-16 rounded-xl object-contain"
               />
             )}
             <div>

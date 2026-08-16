@@ -33,7 +33,7 @@ export default async function TeamDetailPage({ params }: { params: Promise<{ id:
 
       <div className="flex items-center gap-4 mb-8 mt-4">
         {club.emblem ? (
-          <img src={club.emblem} alt={club.name} className="w-20 h-20 rounded-xl object-cover" />
+          <img src={club.emblem} alt={club.name} className="w-20 h-20 rounded-xl object-contain" />
         ) : (
           <div className="w-20 h-20 rounded-xl bg-blue-deep flex items-center justify-center text-3xl font-bold text-gold">
             {club.name.charAt(0)}

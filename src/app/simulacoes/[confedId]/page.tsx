@@ -81,7 +81,7 @@ export default async function ConfederationPage({
       <header className="mt-6 glass rounded-2xl p-8 mb-8">
         <div className="flex items-center gap-4">
           {confed.logo ? (
-            <img src={confed.logo} alt={confed.name} className="w-20 h-20 rounded-xl object-cover" />
+            <img src={confed.logo} alt={confed.name} className="w-20 h-20 rounded-xl object-contain" />
           ) : (
             <div
               className="w-20 h-20 rounded-xl flex items-center justify-center text-2xl font-black"
@@ -127,7 +127,7 @@ export default async function ConfederationPage({
                 >
                   <div className="flex items-center gap-3">
                     {comp.logo ? (
-                      <img src={comp.logo} alt={comp.name} className="w-12 h-12 rounded-lg object-cover" />
+                      <img src={comp.logo} alt={comp.name} className="w-12 h-12 rounded-lg object-contain" />
                     ) : (
                       <div
                         className="w-12 h-12 rounded-lg flex items-center justify-center text-xl"
@@ -185,7 +185,7 @@ export default async function ConfederationPage({
                   className="glass rounded-xl p-4 hover:gold-border transition-all duration-300 group text-center"
                 >
                   {country.flag ? (
-                    <img src={country.flag} alt={country.name} className="w-12 h-8 mx-auto rounded object-cover mb-2" />
+                    <img src={country.flag} alt={country.name} className="w-12 h-8 mx-auto rounded object-contain mb-2" />
                   ) : (
                     <div className="w-12 h-8 mx-auto rounded bg-blue-deep flex items-center justify-center mb-2">
                       <span className="text-[10px] font-bold text-gold">{country.code}</span>

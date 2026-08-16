@@ -74,7 +74,7 @@ export default async function TemporadasPage() {
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   {comp.logo ? (
-                    <img src={comp.logo} alt={comp.name} className="w-10 h-10 rounded-lg object-cover" />
+                    <img src={comp.logo} alt={comp.name} className="w-10 h-10 rounded-lg object-contain" />
                   ) : (
                     <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-lg">🏆</div>
                   )}
