@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="c"><rect x="0" y="0" width="200" height="200" rx="32"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="32" fill="#0b1220"/>
+  <g clip-path="url(#c)"><svg x="0" y="0" width="200" height="200" viewBox="0 0 270 180" preserveAspectRatio="xMidYMid slice">
+      <path d="M0 0h270v180H0z" fill="#fff"/><path d="M270 0v180H0z" fill="#003087"/><path d="M0 75V0h112.5z" fill="gold"/><g transform="translate(75 77.5)"><path d="M0-45 25.98 0 0 45-25.98 0zM45 0 0 25.98-45 0 0-25.98z"/><circle r="38.971"/><circle r="33.75" fill="#fff"/><path d="m0 22.5-19.486-33.75h38.972zm0-45 19.486 33.75h-38.972z" fill="#d50032"/></g>
+    </svg></g>
+  <rect x="0" y="126" width="200" height="74" fill="rgba(8,12,24,0.8)"/>
+  <rect x="0" y="126" width="200" height="2.5" fill="#d4af37"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#d4af37">BOE</text>
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ffffff">1ª Divisão</text>
+</svg>

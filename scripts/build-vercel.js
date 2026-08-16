@@ -79,6 +79,13 @@ try {
   console.log("Seed de bandeiras dos países falhou, continuando...");
 }
 
+// Seed de logos das Divisões — gera os emblemas localmente (sem rede).
+try {
+  run("Seed Logos Divisões", "npx tsx prisma/seed-division-logos.ts");
+} catch {
+  console.log("Seed de logos das divisões falhou, continuando...");
+}
+
 // Build
 run("Next Build", "npx next build");
 

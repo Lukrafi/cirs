@@ -6,6 +6,7 @@ type Division = {
   id: string;
   name: string;
   level: number;
+  logo?: string;
   countryId?: string;
   country?: { id: string; name: string } | null;
 };
@@ -136,6 +137,7 @@ export default function AdminDivisoes() {
           <table className="w-full text-sm">
             <thead className="border-b border-border">
               <tr className="text-left text-muted text-xs">
+                <th className="p-3">Logo</th>
                 <th className="p-3">Nome</th>
                 <th className="p-3">País</th>
                 <th className="p-3">Nível</th>
@@ -145,6 +147,13 @@ export default function AdminDivisoes() {
             <tbody>
               {divisions.map((division) => (
                 <tr key={division.id} className="border-b border-border last:border-0 hover:bg-white/5">
+                  <td className="p-3">
+                    {division.logo ? (
+                      <img src={division.logo} alt={division.name} className="w-10 h-10 rounded object-contain" />
+                    ) : (
+                      <span className="text-muted">—</span>
+                    )}
+                  </td>
                   <td className="p-3 font-medium">{division.name}</td>
                   <td className="p-3 text-muted">{division.country?.name || getCountryName(division.countryId)}</td>
                   <td className="p-3 gold-text font-bold">{division.level}</td>

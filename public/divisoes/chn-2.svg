@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="c"><rect x="0" y="0" width="200" height="200" rx="32"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="32" fill="#0b1220"/>
+  <g clip-path="url(#c)"><svg x="0" y="0" width="200" height="200" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice">
+      <path fill="#EE1C25" d="M0 0h900v600H0"/><g transform="matrix(3 0 0 3 150 150)"><path id="chn_a" fill="#FF0" d="m0-30 17.634 54.27-46.166-33.54h57.064l-46.166 33.54Z"/></g><use xlink:href="#chn_chn_a" transform="rotate(23.036 2.784 766.082)"/><use xlink:href="#chn_chn_a" transform="rotate(45.87 38.201 485.396)"/><use xlink:href="#chn_chn_a" transform="rotate(69.945 29.892 362.328)"/><use xlink:href="#chn_chn_a" transform="rotate(20.66 -590.66 957.955)"/>
+    </svg></g>
+  <rect x="0" y="126" width="200" height="74" fill="rgba(8,12,24,0.8)"/>
+  <rect x="0" y="126" width="200" height="2.5" fill="#d4af37"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#d4af37">CHN</text>
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ffffff">2ª Divisão</text>
+</svg>

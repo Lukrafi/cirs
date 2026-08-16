@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="c"><rect x="0" y="0" width="200" height="200" rx="32"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="32" fill="#0b1220"/>
+  <g clip-path="url(#c)"><svg x="0" y="0" width="200" height="200" viewBox="0 0 120 80" preserveAspectRatio="xMidYMid slice">
+      <path fill="#fe0000" d="M0 0h120v80H0z"/><path fill="#000094" d="M0 0h60v40H0z"/><path id="tpe_a" fill="#fff" d="m30 5 4 15-4 15-4-15zM15 20l15 4 15-4-15-4z"/><use href="#tpe_a" transform="rotate(30 30 20)"/><use href="#tpe_a" transform="rotate(60 30 20)"/><circle cx="30" cy="20" r="8" fill="#fff" stroke="#000094"/>
+    </svg></g>
+  <rect x="0" y="126" width="200" height="74" fill="rgba(8,12,24,0.8)"/>
+  <rect x="0" y="126" width="200" height="2.5" fill="#d4af37"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#d4af37">TPE</text>
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ffffff">1ª Divisão</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="c"><rect x="0" y="0" width="200" height="200" rx="32"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="32" fill="#0b1220"/>
+  <g clip-path="url(#c)"><svg x="0" y="0" width="200" height="200" viewBox="0 0 22 16" preserveAspectRatio="xMidYMid slice">
+      <path fill="#FFF" d="M0 0h22v16H0z"/><g fill="#005EB8"><path d="M6 0h4v16H6z"/><path d="M0 6h22v4H0z"/></g><g fill="#EF3340"><path d="M7 0h2v16H7z"/><path d="M0 7h22v2H0z"/></g>
+    </svg></g>
+  <rect x="0" y="126" width="200" height="74" fill="rgba(8,12,24,0.8)"/>
+  <rect x="0" y="126" width="200" height="2.5" fill="#d4af37"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#d4af37">FRO</text>
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ffffff">1ª Divisão</text>
+</svg>

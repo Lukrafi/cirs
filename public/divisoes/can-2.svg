@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="c"><rect x="0" y="0" width="200" height="200" rx="32"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="32" fill="#0b1220"/>
+  <g clip-path="url(#c)"><svg x="0" y="0" width="200" height="200" viewBox="0 0 9600 4800" preserveAspectRatio="xMidYMid slice">
+      <path fill="red" d="M0 0h2400l99 99h4602l99-99h2400v4800H7200l-99-99H2499l-99 99H0z"/><path fill="#fff" d="M2400 0h4800v4800H2400zm2490 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"/>
+    </svg></g>
+  <rect x="0" y="126" width="200" height="74" fill="rgba(8,12,24,0.8)"/>
+  <rect x="0" y="126" width="200" height="2.5" fill="#d4af37"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#d4af37">CAN</text>
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ffffff">2ª Divisão</text>
+</svg>

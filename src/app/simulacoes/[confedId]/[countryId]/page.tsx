@@ -77,11 +77,20 @@ export default async function CountryPage({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {country.divisions.map((div) => (
               <div key={div.id} className="glass rounded-xl p-5">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-sm font-bold">{div.name}</h3>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-gold/10 text-gold">Nível {div.level}</span>
+                <div className="flex items-center gap-3 mb-2">
+                  {div.logo ? (
+                    <img src={div.logo} alt={div.name} className="w-12 h-12 rounded-lg object-contain" />
+                  ) : (
+                    <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-base font-bold text-gold">
+                      {div.level}
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-bold truncate">{div.name}</h3>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-gold/10 text-gold">Nível {div.level}</span>
+                  </div>
                 </div>
-                <p className="text-xs text-muted">
+                <p className="text-xs text-muted pl-0">
                   Clubes: {country.clubs.filter((c) => c.divisionId === div.id).length}
                 </p>
               </div>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="c"><rect x="0" y="0" width="200" height="200" rx="32"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="32" fill="#0b1220"/>
+  <g clip-path="url(#c)"><svg x="0" y="0" width="200" height="200" viewBox="0 0 120 60" preserveAspectRatio="xMidYMid slice">
+      <defs><clipPath id="tuv_a"><path d="M0 0h120v60H0z"/></clipPath><clipPath id="tuv_b"><path d="M0 0v15h62v16zm0 30v1h30V0h30z"/></clipPath><path id="tuv_c" d="m0-5.257 3.09 9.51L-5-1.625H5l-8.09 5.878z"/><path id="tuv_d" d="m0 5.257-3.09-9.51L5 1.625H-5l8.09-5.878z"/></defs><path fill="#012169" d="M0 0h120v60H0z"/><g clip-path="url(#tuv_a)" fill="none" stroke="#c8102e" stroke-width="6"><path stroke="#fff" d="m0 0 60 30M0 30 60 0"/><path stroke-width="4" clip-path="url(#tuv_b)" d="m0 0 60 30M0 30 60 0"/><path stroke="#fff" stroke-width="10" d="M30 0v31M0 15h62"/><path d="M30 0v31M0 15h62"/></g><path fill="#009cde" d="M60 0h60v60H0V30h60z"/><use xlink:href="#tuv_tuv_c" x="65.5" y="54"/><use xlink:href="#tuv_tuv_d" x="78" y="38.5"/><use xlink:href="#tuv_tuv_d" x="78" y="51"/><use xlink:href="#tuv_tuv_d" x="90.5" y="21.5"/><use xlink:href="#tuv_tuv_d" x="90.5" y="47.5"/><use xlink:href="#tuv_tuv_d" x="101" y="17.5"/><use xlink:href="#tuv_tuv_c" x="101" y="38.5"/><use xlink:href="#tuv_tuv_c" x="111.5" y="8"/><use xlink:href="#tuv_tuv_c" x="111.5" y="32"/>
+    </svg></g>
+  <rect x="0" y="126" width="200" height="74" fill="rgba(8,12,24,0.8)"/>
+  <rect x="0" y="126" width="200" height="2.5" fill="#d4af37"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#d4af37">TUV</text>
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ffffff">1ª Divisão</text>
+</svg>

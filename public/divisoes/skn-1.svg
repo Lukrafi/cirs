@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="c"><rect x="0" y="0" width="200" height="200" rx="32"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="32" fill="#0b1220"/>
+  <g clip-path="url(#c)"><svg x="0" y="0" width="200" height="200" viewBox="0 0 75 50" preserveAspectRatio="xMidYMid slice">
+      <defs><clipPath id="skn_a"><path d="M0 0h75v50H0z"/></clipPath></defs><path fill="#009739" d="M0 50V0h75z"/><path fill="#c8102e" d="M75 0v50H0z"/><g clip-path="url(#skn_a)"><path stroke="#ffcd00" stroke-width="21" d="M0 50 75 0"/><path stroke="#000" stroke-width="15" d="M0 50 75 0"/></g><path fill="#fff" d="m19.565 29.347 10.448 8.254-13.304-.536 11.078-7.386-4.621 12.487zm28.846-19.231 10.448 8.254-13.304-.536 11.078-7.386-4.621 12.487z"/>
+    </svg></g>
+  <rect x="0" y="126" width="200" height="74" fill="rgba(8,12,24,0.8)"/>
+  <rect x="0" y="126" width="200" height="2.5" fill="#d4af37"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#d4af37">SKN</text>
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ffffff">1ª Divisão</text>
+</svg>

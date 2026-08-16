@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="c"><rect x="0" y="0" width="200" height="200" rx="32"/></clipPath>
+  </defs>
+  <rect width="200" height="200" rx="32" fill="#0b1220"/>
+  <g clip-path="url(#c)"><svg x="0" y="0" width="200" height="200" viewBox="0 0 16 8" preserveAspectRatio="xMidYMid slice">
+      <path fill="#002395" d="M0 0h16v8H0z"/><path d="M4.24 0h8v8z" fill="#fecb00"/><g id="bih_b"><path d="M2.353.525 2.8-.85 3.247.525l-1.17-.85h1.446z" fill="#fff" id="bih_a"/><use xlink:href="#bih_bih_a" x="1" y="1"/><use xlink:href="#bih_bih_a" x="2" y="2"/></g><use xlink:href="#bih_bih_b" x="3" y="3"/><use xlink:href="#bih_bih_b" x="6" y="6"/>
+    </svg></g>
+  <rect x="0" y="126" width="200" height="74" fill="rgba(8,12,24,0.8)"/>
+  <rect x="0" y="126" width="200" height="2.5" fill="#d4af37"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#d4af37">BIH</text>
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ffffff">1ª Divisão</text>
+</svg>
