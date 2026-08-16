@@ -34,8 +34,8 @@ export async function POST(_req: NextRequest) {
       const result = await simularTemporada(comp.id);
       competitionsSimulated++;
       matchesSimulated += result.simulated;
-    } catch (e: any) {
-      errors.push(`${comp.name}: ${e.message}`);
+    } catch (e) {
+      errors.push(`${comp.name}: ${e instanceof Error ? e.message : String(e)}`);
     }
   }
 

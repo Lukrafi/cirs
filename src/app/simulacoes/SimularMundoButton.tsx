@@ -14,8 +14,8 @@ export default function SimularMundoButton() {
       const res = await fetch(`/api/simulate/world`, { method: "POST" });
       const data = await res.json();
       setResultado(`${data.message} (${data.total} países no total)`);
-    } catch (e: any) {
-      setResultado("Erro: " + e.message);
+    } catch (e) {
+      setResultado("Erro: " + (e instanceof Error ? e.message : String(e)));
     } finally {
       setSimulando(false);
     }

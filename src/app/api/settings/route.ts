@@ -5,6 +5,9 @@ import { requireAdmin } from "@/lib/apiAuth";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
+
   const settings = await prisma.settings.findMany();
   const map: Record<string, string> = {};
   settings.forEach((s: { key: string; value: string }) => { map[s.key] = s.value; });
@@ -14,8 +17,16 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const auth = await requireAdmin();
   if ("error" in auth) return auth.error;
-  const body = await req.json();
-  const { key, value } = body;
+
+  let body: Record<string, unknown>;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
+
+  const key = typeof body.key === "string" ? body.key.trim().slice(0, 100) : "";
+  const value = typeof body.value === "string" ? body.value.slice(0, 5000) : "";
   if (!key) return NextResponse.json({ error: "key required" }, { status: 400 });
 
   const setting = await prisma.settings.upsert({

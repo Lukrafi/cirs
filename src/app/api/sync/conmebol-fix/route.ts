@@ -57,8 +57,8 @@ export async function POST(_req: NextRequest) {
           await prisma.club.delete({ where: { id: orphan.id } });
           deletedClubs++;
         }
-      } catch (e: any) {
-        mergeDetails.push(`error with "${orphan.name}": ${e.message}`);
+      } catch (e) {
+        mergeDetails.push(`error with "${orphan.name}": ${e instanceof Error ? e.message : String(e)}`);
       }
     }
 
@@ -77,7 +77,7 @@ export async function POST(_req: NextRequest) {
       mergeDetails: mergeDetails.slice(0, 30),
       message: "Limpeza concluida. Execute /api/sync/import-json novamente.",
     });
-  } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500 });
+  } catch (e) {
+    return NextResponse.json({ error: e instanceof Error ? e.message : String(e) }, { status: 500 });
   }
 }

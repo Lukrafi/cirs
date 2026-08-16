@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPermissions } from "@/lib/permissions";
+import { getUserSession } from "@/lib/permissions";
 import { prisma } from "@/lib/prisma";
 import { getDataSource } from "@/lib/dataSources";
 import { createSyncLog } from "@/lib/syncService";
@@ -33,9 +33,13 @@ function getConfedData(confName?: string): JsonConfederation | null {
   return WORLD_CONFEDERATIONS.find((c) => c.name === confName) || null;
 }
 
+function errMsg(e: unknown): string {
+  return e instanceof Error ? e.message : String(e);
+}
+
 export async function POST(req: NextRequest) {
-  const perms = await getPermissions();
-  if (!perms.canSyncData) {
+  const adminUser = await getUserSession();
+  if (!adminUser || adminUser.role !== "admin") {
     return NextResponse.json({ error: "Apenas administradores" }, { status: 403 });
   }
 
@@ -194,7 +198,7 @@ export async function POST(req: NextRequest) {
                       });
                       if (existing) {
                         club = existing;
-                        const fix: any = {};
+                        const fix: { countryId?: string; divisionId?: string } = {};
                         if (!club.countryId) fix.countryId = country.id;
                         if (!club.divisionId && divisionId) fix.divisionId = divisionId;
                         if (Object.keys(fix).length > 0) {
@@ -217,7 +221,7 @@ export async function POST(req: NextRequest) {
                       }
                     }
                   } else {
-                    const u: any = {};
+                    const u: { countryId?: string; divisionId?: string } = {};
                     if (!club.countryId) u.countryId = country.id;
                     if (!club.divisionId && divisionId) u.divisionId = divisionId;
                     if (Object.keys(u).length > 0) {
@@ -245,17 +249,17 @@ export async function POST(req: NextRequest) {
                       emblemsDownloaded++;
                     }
                   }
-                } catch (e: any) {
-                  errors.push(`Club [${teamName}]: ${e.message}`);
+                } catch (e) {
+                  errors.push(`Club [${teamName}]: ${errMsg(e)}`);
                 }
               }
             }
-          } catch (e: any) {
-            errors.push(`Competition [${compData.name}]: ${e.message}`);
+          } catch (e) {
+            errors.push(`Competition [${compData.name}]: ${errMsg(e)}`);
           }
         }
-      } catch (e: any) {
-        errors.push(`Country [${cData.name}]: ${e.message}`);
+      } catch (e) {
+        errors.push(`Country [${cData.name}]: ${errMsg(e)}`);
       }
     }
 
@@ -277,18 +281,18 @@ export async function POST(req: NextRequest) {
       await createSyncLog({
         ...result,
         level: "confederation",
-        adminUsername: "admin",
+        adminUsername: adminUser.username,
         entity: `${targetConfed.name} Complete`,
       });
-    } catch (logErr: any) {
-      errors.push(`SyncLog error: ${logErr.message}`);
+    } catch (logErr) {
+      errors.push(`SyncLog error: ${errMsg(logErr)}`);
     }
 
     return NextResponse.json(result);
-  } catch (e: any) {
+  } catch (e) {
     return NextResponse.json(
       {
-        error: e.message,
+        error: errMsg(e),
         country: "unknown",
         clubsCreated,
         clubsFixed,
@@ -299,7 +303,7 @@ export async function POST(req: NextRequest) {
         emblemsDownloaded,
         stadiumsUpdated: 0,
         elapsedMs: Date.now() - start,
-        errors: [...errors, e.message],
+        errors: [...errors, errMsg(e)],
       },
       { status: 500 }
     );

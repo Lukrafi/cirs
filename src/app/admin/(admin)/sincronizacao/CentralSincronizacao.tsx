@@ -10,18 +10,45 @@ type Props = {
   sources: string[];
 };
 
+type SyncResultType = {
+  source?: string;
+  clubsCreated?: number;
+  clubsUpdated?: number;
+  competitionsCreated?: number;
+  competitionsUpdated?: number;
+  flagsDownloaded?: number;
+  emblemsDownloaded?: number;
+  stadiumsUpdated?: number;
+  elapsedMs?: number;
+  errors?: string[];
+  error?: string;
+};
+
+type SyncLogType = {
+  id: string;
+  createdAt: string | Date;
+  level: string;
+  sourceName: string;
+  adminUsername: string;
+  clubsUpdated: number;
+  emblemsDownloaded: number;
+  flagsDownloaded: number;
+  elapsedMs: number;
+  errors?: string | string[];
+};
+
 export default function CentralSincronizacao({ confederations, competitions, countries, sources }: Props) {
   const [running, setRunning] = useState<string | null>(null);
-  const [result, setResult] = useState<any | null>(null);
+  const [result, setResult] = useState<SyncResultType | null>(null);
   const [selectedConfed, setSelectedConfed] = useState("");
   const [selectedCompetition, setSelectedCompetition] = useState("");
   const [selectedSource, setSelectedSource] = useState("wikipedia");
   const [linkUrl, setLinkUrl] = useState("");
-  const [logs, setLogs] = useState<any[]>([]);
+  const [logs, setLogs] = useState<SyncLogType[]>([]);
   const [showLogs, setShowLogs] = useState(false);
   const [datapackFilter, setDatapackFilter] = useState("");
 
-  const call = async (endpoint: string, body?: any) => {
+  const call = async (endpoint: string, body?: Record<string, unknown>) => {
     setRunning(endpoint);
     setResult(null);
     try {
@@ -32,8 +59,8 @@ export default function CentralSincronizacao({ confederations, competitions, cou
       });
       const data = await res.json();
       setResult(data);
-    } catch (e: any) {
-      setResult({ error: e.message });
+    } catch (e) {
+      setResult({ error: e instanceof Error ? e.message : String(e) });
     } finally {
       setRunning(null);
     }
@@ -336,10 +363,10 @@ export default function CentralSincronizacao({ confederations, competitions, cou
               </div>
             </div>
           )}
-          {result.elapsedMs > 0 && (
+          {(result.elapsedMs ?? 0) > 0 && (
             <p className="text-[10px] text-muted mt-4 text-center">
-              Fonte: {result.source} • Tempo: {(result.elapsedMs / 1000).toFixed(1)}s
-              {result.errors?.length > 0 && ` • ${result.errors.length} erro(s)`}
+              Fonte: {result.source} • Tempo: {((result.elapsedMs ?? 0) / 1000).toFixed(1)}s
+              {(result.errors?.length ?? 0) > 0 && ` • ${(result.errors ?? []).length} erro(s)`}
             </p>
           )}
         </div>
@@ -372,7 +399,7 @@ export default function CentralSincronizacao({ confederations, competitions, cou
                   </tr>
                 </thead>
                 <tbody>
-                  {logs.map((log: any, i: number) => (
+                  {logs.map((log, i: number) => (
                     <tr key={log.id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
                       <td className="p-2">{new Date(log.createdAt).toLocaleString("pt-BR")}</td>
                       <td className="p-2">
@@ -387,7 +414,7 @@ export default function CentralSincronizacao({ confederations, competitions, cou
                       <td className="p-2 text-right">
                         {(typeof log.errors === "string"
                           ? JSON.parse(log.errors || "[]").length
-                          : log.errors.length) || 0}
+                          : (log.errors ?? []).length) || 0}
                       </td>
                       <td className="p-2 text-right">{log.elapsedMs}s</td>
                     </tr>

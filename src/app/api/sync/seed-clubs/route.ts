@@ -17,8 +17,8 @@ interface JsonCompetition {
 interface JsonCountry { name: string; code: string; competitions: JsonCompetition[]; }
 interface JsonConfederation { name: string; countries: JsonCountry[]; }
 
-const confederations = (worldData as any).confederations as JsonConfederation[];
-const SEASON_YEAR = (worldData as any).season || new Date().getFullYear();
+const confederations = (worldData as { confederations: JsonConfederation[] }).confederations;
+const SEASON_YEAR = (worldData as { season?: number }).season || new Date().getFullYear();
 
 export async function POST(req: NextRequest) {
   const auth = await requireAdmin();
@@ -59,9 +59,9 @@ export async function POST(req: NextRequest) {
           country = await prisma.country.create({
             data: { name: cData.name, code: cData.code, confederationId: confed.id, flag: "" },
           });
-        } catch (e: any) {
+        } catch (e) {
           country = await prisma.country.findFirst({ where: { name: { contains: cData.name.split(" ")[0] } } });
-          if (!country) { errors.push(`Pais ${cData.name} (${cData.code}) nao encontrado nem criado: ${e.message}`); continue; }
+          if (!country) { errors.push(`Pais ${cData.name} (${cData.code}) nao encontrado nem criado: ${e instanceof Error ? e.message : String(e)}`); continue; }
         }
       }
 
@@ -157,8 +157,8 @@ export async function POST(req: NextRequest) {
               await prisma.standing.create({ data: { groupId: group.id, clubId: club.id, position: i + 1 } });
               standingsCreated++;
             }
-          } catch (e: any) {
-            errors.push(`Club [${teamName}]: ${e.message}`);
+          } catch (e) {
+            errors.push(`Club [${teamName}]: ${e instanceof Error ? e.message : String(e)}`);
           }
         }
       }
@@ -177,7 +177,8 @@ export async function POST(req: NextRequest) {
     };
     console.log(`Seed ${confedCode} concluido:`, result);
     return NextResponse.json(result);
-  } catch (e: any) {
-    return NextResponse.json({ error: e.message, confederation: confedCode, clubsCreated, errors }, { status: 500 });
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ error: msg, confederation: confedCode, clubsCreated, errors }, { status: 500 });
   }
 }

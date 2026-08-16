@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/apiAuth";
+import { readJsonBody } from "@/lib/readBody";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,8 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const auth = await requireAdmin();
   if ("error" in auth) return auth.error;
-  const body = await req.json();
+  const body = await readJsonBody(req);
+  if (body instanceof NextResponse) return body;
   const sponsor = await prisma.sponsor.create({ data: body });
   return NextResponse.json(sponsor, { status: 201 });
 }
@@ -20,7 +22,8 @@ export async function POST(req: NextRequest) {
 export async function PUT(req: NextRequest) {
   const auth = await requireAdmin();
   if ("error" in auth) return auth.error;
-  const body = await req.json();
+  const body = await readJsonBody(req);
+  if (body instanceof NextResponse) return body;
   const { id, ...data } = body;
   const sponsor = await prisma.sponsor.update({ where: { id }, data });
   return NextResponse.json(sponsor);

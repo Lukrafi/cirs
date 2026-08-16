@@ -91,7 +91,7 @@ export default async function SimulacoesPage() {
       ) : (
         <div className="space-y-8">
           {sortedConfeds.map((conf) => {
-            const info = CONFEDERATION_INFO[conf.code] || { fullName: conf.fullName, color: "#d4af37" };
+            const info = CONFEDERATION_INFO[conf.code] || { fullName: conf.name, color: "#d4af37" };
             return (
               <section key={conf.id} className="glass rounded-2xl p-6">
                 <div className="flex items-center gap-4 mb-6">

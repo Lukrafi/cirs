@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPermissions } from "@/lib/permissions";
+import { getUserSession } from "@/lib/permissions";
 import { syncByLink, createSyncLog } from "@/lib/syncService";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
-  const perms = await getPermissions();
-  if (!perms.canSyncData) {
+  const adminUser = await getUserSession();
+  if (!adminUser || adminUser.role !== "admin") {
     return NextResponse.json({ error: "Apenas administradores" }, { status: 403 });
   }
 
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
   await createSyncLog({
     ...result,
     level: "link",
-    adminUsername: "admin",
+    adminUsername: adminUser.username,
     entity: url,
   });
 

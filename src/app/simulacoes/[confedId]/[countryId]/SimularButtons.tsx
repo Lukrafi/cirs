@@ -27,8 +27,8 @@ export default function SimularButtons({
       const res = await fetch(url, { method: "POST" });
       const data = await res.json();
       setResultado(data.message || JSON.stringify(data));
-    } catch (e: any) {
-      setResultado("Erro: " + e.message);
+    } catch (e) {
+      setResultado("Erro: " + (e instanceof Error ? e.message : String(e)));
     } finally {
       setSimulando(false);
     }

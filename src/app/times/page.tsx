@@ -56,7 +56,7 @@ export default async function TimesPage() {
         <div className="space-y-8">
           {sortedConfeds.map((conf) => {
             const info = CONFEDERATION_INFO[conf.code] || {
-              fullName: conf.fullName,
+              fullName: conf.name,
               color: "#d4af37",
             };
             const countriesWithClubs = conf.countries.filter(

@@ -104,12 +104,13 @@ class WikidataSource implements DataSource {
           });
           const imgRes = await fetch(`https://commons.wikimedia.org/w/api.php?${imgParams}`);
           const imgData = await imgRes.json();
-          const pages = imgData?.query?.pages || {};
-          for (const p of Object.values<any>(pages)) {
-            if (p.imageinfo?.[0]) {
-              const mime = p.imageinfo[0].mime || "";
+          const pages = (imgData as { query?: { pages?: Record<string, unknown> } } | null)?.query?.pages || {};
+          for (const p of Object.values(pages)) {
+            const info = p as { imageinfo?: Array<{ mime?: string; url?: string }> };
+            if (info.imageinfo?.[0]) {
+              const mime = info.imageinfo[0].mime || "";
               const format = mime.includes("svg") ? "svg" as const : "png" as const;
-              return { url: p.imageinfo[0].url, format };
+              return { url: info.imageinfo[0].url || "", format };
             }
           }
         } catch { /* continue */ }
@@ -153,7 +154,12 @@ class WikipediaSource implements DataSource {
   private async fetchHtml(url: string): Promise<string | null> {
     try {
       const u = new URL(url);
-      if (!u.hostname.includes("wikipedia.org")) return null;
+      // Só permite hosts da Wikipedia (subdomínios de wikipedia.org, ex: pt.wikipedia.org).
+      const host = u.hostname.toLowerCase();
+      const allowed =
+        host === "wikipedia.org" ||
+        host.endsWith(".wikipedia.org");
+      if (!allowed) return null;
       const res = await fetch(url, {
         headers: { "User-Agent": "CIRS-Sync/1.0" },
         signal: AbortSignal.timeout(15000),

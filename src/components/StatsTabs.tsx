@@ -37,8 +37,17 @@ type MatchesData = {
   awayScore: number | null;
 }[];
 
+export type SeasonData = {
+  statCards: StatCards;
+  clubGoals: BarData;
+  clubPerformance: ClubPerfData;
+  summary: SummaryData;
+  recentMatches: MatchesData;
+};
+
 export type StatsData = {
   seasons: SeasonOption[];
+  bySeason: Record<string, SeasonData>;
   statCards: { season: StatCards; history: StatCards };
   clubGoals: { season: BarData; history: BarData };
   clubPerformance: { season: ClubPerfData; history: ClubPerfData };
@@ -50,11 +59,22 @@ export default function StatsTabs({ data }: { data: StatsData }) {
   const [tab, setTab] = useState<Tab>("season");
   const [seasonId, setSeasonId] = useState<string>("all");
 
-  const cards = tab === "season" ? data.statCards.season : data.statCards.history;
-  const goals = tab === "season" ? data.clubGoals.season : data.clubGoals.history;
-  const perf = tab === "season" ? data.clubPerformance.season : data.clubPerformance.history;
-  const summary = tab === "season" ? data.summary.season : data.summary.history;
-  const matches = tab === "season" ? data.recentMatches.season : data.recentMatches.history;
+  const seasonData =
+    seasonId !== "all" && data.bySeason[seasonId]
+      ? data.bySeason[seasonId]
+      : {
+          statCards: data.statCards.season,
+          clubGoals: data.clubGoals.season,
+          clubPerformance: data.clubPerformance.season,
+          summary: data.summary.season,
+          recentMatches: data.recentMatches.season,
+        };
+
+  const cards = tab === "season" ? seasonData.statCards : data.statCards.history;
+  const goals = tab === "season" ? seasonData.clubGoals : data.clubGoals.history;
+  const perf = tab === "season" ? seasonData.clubPerformance : data.clubPerformance.history;
+  const summary = tab === "season" ? seasonData.summary : data.summary.history;
+  const matches = tab === "season" ? seasonData.recentMatches : data.recentMatches.history;
 
   const maxGoals = Math.max(...goals.map((g) => g.value), 1);
 

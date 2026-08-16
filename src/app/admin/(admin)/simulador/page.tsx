@@ -56,7 +56,7 @@ export default function AdminSimulador() {
   };
 
   const comp = competitions.find((c) => c.id === selectedComp);
-  const scheduledMatches = matches.filter((m) => m.status === "finished" === false);
+  const scheduledMatches = matches.filter((m) => m.status !== "finished");
   const finishedMatches = matches.filter((m) => m.status === "finished");
 
   const rounds = [...new Set(scheduledMatches.map((m) => m.round))].sort((a, b) =>

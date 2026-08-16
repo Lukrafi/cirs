@@ -15,8 +15,7 @@ export default async function Home() {
     topScorers,
     topAssists,
     topGKs,
-    latestNews,
-    topEvents
+    latestNews
   ] = await Promise.all([
     prisma.match.findMany({
       where: { status: "scheduled", isSimulated: false },
@@ -40,14 +39,13 @@ export default async function Home() {
         match: { isSimulated: false },
         goals: { gt: 0 },
       },
-      _count: { goals: true },
-      orderBy: { _count: { goals: "desc" } },
+      _sum: { goals: true },
+      orderBy: { _sum: { goals: "desc" } },
       take: 5,
     }),
-    prisma.$queryRawUnsafe(`SELECT "playerId", COUNT(*) as assists FROM "MatchStat" WHERE assists > 0 AND "matchId" IN (SELECT id FROM "Match" WHERE "isSimulated" = false) GROUP BY "playerId" ORDER BY assists DESC LIMIT 5`),
-    prisma.$queryRawUnsafe(`SELECT "playerId", COUNT(*) as gk FROM "MatchStat" WHERE saves > 0 AND "matchId" IN (SELECT id FROM "Match" WHERE "isSimulated" = false) GROUP BY "playerId" ORDER BY gk DESC LIMIT 5`),
+    prisma.$queryRawUnsafe(`SELECT "playerId", SUM("assists") as assists FROM "MatchStat" WHERE "assists" > 0 AND "matchId" IN (SELECT id FROM "Match" WHERE "isSimulated" = false) GROUP BY "playerId" ORDER BY assists DESC LIMIT 5`),
+    prisma.$queryRawUnsafe(`SELECT "playerId", SUM("saves") as saves FROM "MatchStat" WHERE "saves" > 0 AND "matchId" IN (SELECT id FROM "Match" WHERE "isSimulated" = false) GROUP BY "playerId" ORDER BY saves DESC LIMIT 5`),
     prisma.news.findMany({ where: { published: true }, orderBy: { createdAt: "desc" }, take: 3 }),
-    prisma.matchReport.findMany({ orderBy: { createdAt: "desc" }, take: 3 }),
   ]);
 
   const stats = [
@@ -57,10 +55,20 @@ export default async function Home() {
     { label: "Campeonatos", value: competitionCount, icon: "🏆" },
   ];
 
-  const topScorerIds = topScorers.map((s: any) => s.playerId);
-  const topPlayers = topScorerIds.length > 0
-    ? await prisma.player.findMany({ where: { id: { in: topScorerIds } } })
+  type RankRow = { playerId: string; goals?: number; assists?: number; saves?: number };
+  const assistsList = (topAssists as RankRow[]) || [];
+  const gksList = (topGKs as RankRow[]) || [];
+
+  const rankIds = [
+    ...topScorers.map((s) => s.playerId),
+    ...assistsList.map((s) => s.playerId),
+    ...gksList.map((s) => s.playerId),
+  ].filter((id): id is string => id != null);
+  const topPlayers = rankIds.length > 0
+    ? await prisma.player.findMany({ where: { id: { in: rankIds } } })
     : [];
+  const playerName = (id: string | null) =>
+    topPlayers.find((p) => p.id === id)?.name || "Jogador";
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -167,7 +175,7 @@ export default async function Home() {
             </div>
 
             {/* Rankings */}
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-3 gap-6">
               <div>
                 <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
                   <span className="text-gold text-sm">⚽</span>
@@ -177,29 +185,52 @@ export default async function Home() {
                   {topScorers.length === 0 ? (
                     <p className="text-xs text-muted text-center p-3">Nenhum dado ainda.</p>
                   ) : (
-                    topScorers.map((s: any, i: number) => {
-                      const player = topPlayers.find((p: any) => p.id === s.playerId);
-                      return (
-                        <div key={i} className="flex items-center gap-2 p-2 rounded-lg hover:bg-white/5 transition-colors">
-                          <span className="w-5 text-center font-bold text-gold text-xs">{i + 1}.</span>
-                          <span className="flex-1 text-sm">{player?.name || "Jogador"}</span>
-                          <span className="text-xs text-muted">{s._count.goals} gol</span>
-                        </div>
-                      );
-                    })
+                    topScorers.map((s, i: number) => (
+                      <div key={i} className="flex items-center gap-2 p-2 rounded-lg hover:bg-white/5 transition-colors">
+                        <span className="w-5 text-center font-bold text-gold text-xs">{i + 1}.</span>
+                        <span className="flex-1 text-sm">{playerName(s.playerId)}</span>
+                        <span className="text-xs text-muted">{s._sum.goals} gol</span>
+                      </div>
+                    ))
                   )}
                 </div>
               </div>
-              <div className="space-y-6">
-                {/* Goleiros */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                    <span className="text-gold text-sm">🧤</span>
-                    <span className="gold-text">Goleiros</span>
-                  </h3>
-                  <div className="flex gap-2 text-xs text-muted">
-                    <span>Clean Sheets</span>
-                  </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                  <span className="text-gold text-sm">🅰️</span>
+                  <span className="gold-text">Assistências</span>
+                </h3>
+                <div className="glass rounded-xl p-3 space-y-1.5">
+                  {assistsList.length === 0 ? (
+                    <p className="text-xs text-muted text-center p-3">Nenhum dado ainda.</p>
+                  ) : (
+                    assistsList.map((s, i: number) => (
+                      <div key={i} className="flex items-center gap-2 p-2 rounded-lg hover:bg-white/5 transition-colors">
+                        <span className="w-5 text-center font-bold text-gold text-xs">{i + 1}.</span>
+                        <span className="flex-1 text-sm">{playerName(s.playerId)}</span>
+                        <span className="text-xs text-muted">{Number(s.assists) || 0} assist.</span>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                  <span className="text-gold text-sm">🧤</span>
+                  <span className="gold-text">Goleiros</span>
+                </h3>
+                <div className="glass rounded-xl p-3 space-y-1.5">
+                  {gksList.length === 0 ? (
+                    <p className="text-xs text-muted text-center p-3">Nenhum dado ainda.</p>
+                  ) : (
+                    gksList.map((s, i: number) => (
+                      <div key={i} className="flex items-center gap-2 p-2 rounded-lg hover:bg-white/5 transition-colors">
+                        <span className="w-5 text-center font-bold text-gold text-xs">{i + 1}.</span>
+                        <span className="flex-1 text-sm">{playerName(s.playerId)}</span>
+                        <span className="text-xs text-muted">{Number(s.saves) || 0} defesas</span>
+                      </div>
+                    ))
+                  )}
                 </div>
               </div>
             </div>

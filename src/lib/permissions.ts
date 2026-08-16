@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { prisma } from "./prisma";
+import { parseSignedSession } from "./session";
 
 export type Role = "admin" | "moderator" | "user";
 
@@ -91,10 +92,10 @@ export async function getPermissions(): Promise<Permissions> {
 
   const adminCookie = cookieStore.get("cirs_admin_session");
   if (adminCookie) {
-    const [id, username] = adminCookie.value.split(":");
-    if (id && username) {
-      const admin = await prisma.admin.findUnique({ where: { id } });
-      if (admin && admin.username === username) {
+    const parsed = parseSignedSession(adminCookie.value);
+    if (parsed) {
+      const admin = await prisma.admin.findUnique({ where: { id: parsed.id } });
+      if (admin && admin.username === parsed.username) {
         return ADMIN_PERMISSIONS;
       }
     }
@@ -117,10 +118,10 @@ export async function getUserSession(): Promise<{ id: string; username: string; 
 
   const adminCookie = cookieStore.get("cirs_admin_session");
   if (adminCookie) {
-    const [id, username] = adminCookie.value.split(":");
-    if (id && username) {
-      const admin = await prisma.admin.findUnique({ where: { id } });
-      if (admin && admin.username === username) {
+    const parsed = parseSignedSession(adminCookie.value);
+    if (parsed) {
+      const admin = await prisma.admin.findUnique({ where: { id: parsed.id } });
+      if (admin && admin.username === parsed.username) {
         return { id: admin.id, username: admin.username, role: "admin" };
       }
     }

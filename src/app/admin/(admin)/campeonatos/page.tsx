@@ -211,7 +211,7 @@ export default function AdminCampeonatos() {
                     <td className="p-3 text-muted">{String(comp.format ?? "round-robin")}</td>
                     <td className="p-3">{String(comp.numTeams ?? 0)}</td>
                     <td className="p-3 text-muted">
-                      {comp.seasonId ? String((comp as Record<string, unknown>).seasonName || comp.seasonId || "—") : "—"}
+                      {(comp.season as { name?: string } | undefined)?.name || "—"}
                     </td>
                     <td className="p-3 text-right space-x-2">
                       <button onClick={() => handleEdit(comp)} className="text-gold hover:underline text-xs">

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPermissions } from "@/lib/permissions";
+import { getUserSession } from "@/lib/permissions";
 import { prisma } from "@/lib/prisma";
 import { LEAGUE_DATAPACKS, Datapack } from "@/lib/datapacks";
 import { createSyncLog } from "@/lib/syncService";
@@ -37,8 +37,8 @@ async function downloadImage(imageUrl: string, filename: string, subdir: string)
 }
 
 export async function POST(req: NextRequest) {
-  const perms = await getPermissions();
-  if (!perms.canSyncData) {
+  const adminUser = await getUserSession();
+  if (!adminUser || adminUser.role !== "admin") {
     return NextResponse.json({ error: "Apenas administradores" }, { status: 403 });
   }
 
@@ -95,7 +95,7 @@ export async function POST(req: NextRequest) {
         },
       });
     } else {
-      const u: any = {};
+      const u: { countryId?: string; confederationId?: string } = {};
       if (!league.countryId) u.countryId = country.id;
       if (!league.confederationId) u.confederationId = confederation.id;
       if (Object.keys(u).length > 0) await prisma.league.update({ where: { id: league.id }, data: u });
@@ -165,7 +165,7 @@ export async function POST(req: NextRequest) {
             clubsCreated++;
           } else {
             club = existing;
-            const fix: any = {};
+            const fix: { countryId?: string; divisionId?: string } = {};
             if (!club.countryId) fix.countryId = country.id;
             if (!club.divisionId) fix.divisionId = division.id;
             if (Object.keys(fix).length > 0) {
@@ -191,8 +191,8 @@ export async function POST(req: NextRequest) {
               emblemsDownloaded++;
             }
           }
-        } catch (e: any) {
-          errors.push(`Club [${extClub.name}]: ${e.message}`);
+        } catch (e) {
+          errors.push(`Club [${extClub.name}]: ${e instanceof Error ? e.message : String(e)}`);
         }
       }
     }
@@ -223,12 +223,13 @@ export async function POST(req: NextRequest) {
     await createSyncLog({
       ...result,
       level: "datapack",
-      adminUsername: "admin",
+      adminUsername: adminUser.username,
       entity: dp.name,
     });
 
     return NextResponse.json(result);
-  } catch (e: any) {
-    return NextResponse.json({ error: e.message, clubsCreated: 0, clubsUpdated: 0, competitionsCreated: 0, emblemsDownloaded: 0, flagsDownloaded: 0, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors: [e.message] }, { status: 500 });
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ error: msg, clubsCreated: 0, clubsUpdated: 0, competitionsCreated: 0, emblemsDownloaded: 0, flagsDownloaded: 0, stadiumsUpdated: 0, elapsedMs: Date.now() - start, errors: [msg] }, { status: 500 });
   }
 }

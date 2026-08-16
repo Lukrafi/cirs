@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/apiAuth";
+import { readJsonBody } from "@/lib/readBody";
 
 export const dynamic = "force-dynamic";
 
@@ -15,8 +16,11 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const auth = await requireAdmin();
   if ("error" in auth) return auth.error;
-  const body = await req.json();
-  const year = body.year || parseInt(body.name) || new Date().getFullYear();
+  const body = await readJsonBody(req);
+  if (body instanceof NextResponse) return body;
+
+  const yearRaw = Number(body.year ?? parseInt(String(body.name), 10));
+  const year = Number.isFinite(yearRaw) && yearRaw > 0 ? Math.floor(yearRaw) : new Date().getFullYear();
 
   const existing = await prisma.season.findFirst({ where: { year } });
   if (existing) {
@@ -27,7 +31,7 @@ export async function POST(req: NextRequest) {
     data: {
       name: String(year),
       year,
-      leagueId: body.leagueId || null,
+      leagueId: typeof body.leagueId === "string" ? body.leagueId : null,
     },
   });
 
@@ -66,8 +70,12 @@ export async function POST(req: NextRequest) {
 export async function PUT(req: NextRequest) {
   const auth = await requireAdmin();
   if ("error" in auth) return auth.error;
-  const body = await req.json();
+  const body = await readJsonBody(req);
+  if (body instanceof NextResponse) return body;
   const { id, ...data } = body;
+  if (typeof id !== "string" || !id) {
+    return NextResponse.json({ error: "ID required" }, { status: 400 });
+  }
   const season = await prisma.season.update({ where: { id }, data });
   return NextResponse.json(season);
 }

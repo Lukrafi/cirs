@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-require-imports */
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
@@ -49,11 +50,15 @@ try {
   console.log("Seed ja existe ou nao foi necessario.");
 }
 
-// Seed Mundial
-try {
-  run("Seed Mundial", "npx tsx prisma/seed-world.ts");
-} catch (e) {
-  console.log("Seed mundial ja executado ou falhou.");
+// Seed Mundial — executa apenas se SKIP_SEED_WORLD nao estiver definido
+if (process.env.SKIP_SEED_WORLD === "1" || process.env.SKIP_SEED === "1") {
+  console.log("> Seed Mundial: PULADO (SKIP_SEED_WORLD=1)");
+} else {
+  try {
+    run("Seed Mundial", "npx tsx prisma/seed-world.ts");
+  } catch (e) {
+    console.log("Seed mundial ja executado ou falhou.");
+  }
 }
 
 // Seed de Clubes — executado via API /api/sync/seed-clubs (uma confederação por vez)

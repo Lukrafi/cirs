@@ -1,7 +1,12 @@
+import { Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
 import { getDataSource, listAvailableSources, ExternalImage, ExternalClub, ExternalCompetition } from "./dataSources";
 import fs from "fs";
 import path from "path";
+
+function errMsg(e: unknown): string {
+  return e instanceof Error ? e.message : String(e);
+}
 
 export interface SyncResult {
   source: string;
@@ -101,8 +106,8 @@ export async function syncFlags(sourceName?: string): Promise<SyncResult> {
         });
         result.flagsDownloaded++;
       }
-    } catch (e: any) {
-      result.errors.push(`Flag [${c.code}]: ${e.message}`);
+    } catch (e) {
+      result.errors.push(`Flag [${c.code}]: ${errMsg(e)}`);
     }
   }
 
@@ -115,7 +120,7 @@ export async function syncEmblems(confederationCode?: string): Promise<SyncResul
   const source = getDataSource();
   const result = makeResult("wikidata");
 
-  const where: any = {};
+  const where: Prisma.ClubWhereInput = {};
   if (confederationCode) {
     where.country = { confederation: { code: confederationCode } };
   }
@@ -140,8 +145,8 @@ export async function syncEmblems(confederationCode?: string): Promise<SyncResul
         });
         result.emblemsDownloaded++;
       }
-    } catch (e: any) {
-      result.errors.push(`Emblem [${club.name}]: ${e.message}`);
+    } catch (e) {
+      result.errors.push(`Emblem [${club.name}]: ${errMsg(e)}`);
     }
   }
 
@@ -186,8 +191,8 @@ export async function syncStadiums(): Promise<SyncResult> {
         });
       }
       result.stadiumsUpdated++;
-    } catch (e: any) {
-      result.errors.push(`Stadium [${club.name}]: ${e.message}`);
+    } catch (e) {
+      result.errors.push(`Stadium [${club.name}]: ${errMsg(e)}`);
     }
   }
 
@@ -266,12 +271,12 @@ export async function syncCompetition(competitionId: string, sourceName?: string
             result.emblemsDownloaded++;
           }
         }
-      } catch (e: any) {
-        result.errors.push(`Club sync [${clubId}]: ${e.message}`);
+      } catch (e) {
+        result.errors.push(`Club sync [${clubId}]: ${errMsg(e)}`);
       }
     }
-  } catch (e: any) {
-    result.errors.push(`Sync error: ${e.message}`);
+  } catch (e) {
+    result.errors.push(`Sync error: ${errMsg(e)}`);
   }
 
   result.elapsedMs = Date.now() - start;
@@ -308,8 +313,8 @@ export async function syncConfederation(confederationId: string, sourceName?: st
           result.flagsDownloaded++;
         }
       }
-    } catch (e: any) {
-      result.errors.push(`[${country.name}]: ${e.message}`);
+    } catch (e) {
+      result.errors.push(`[${country.name}]: ${errMsg(e)}`);
     }
   }
 
@@ -445,7 +450,7 @@ export async function syncByLink(url: string): Promise<SyncResult> {
         },
       });
     } else {
-      const updateData: any = {};
+      const updateData: { countryId?: string; confederationId?: string } = {};
       if (country && !league.countryId) updateData.countryId = country.id;
       if (confederation && !league.confederationId) updateData.confederationId = confederation.id;
       if (Object.keys(updateData).length > 0) {
@@ -504,7 +509,7 @@ export async function syncByLink(url: string): Promise<SyncResult> {
       });
     }
 
-    let division = country
+    const division = country
       ? await prisma.division.findFirst({ where: { countryId: country.id, level: 1 } })
       : null;
 
@@ -570,8 +575,8 @@ export async function syncByLink(url: string): Promise<SyncResult> {
               result.emblemsDownloaded++;
             }
           }
-        } catch (e: any) {
-          result.errors.push(`Club [${extClub.name}]: ${e.message}`);
+        } catch (e) {
+          result.errors.push(`Club [${extClub.name}]: ${errMsg(e)}`);
         }
       }
     }
@@ -591,8 +596,8 @@ export async function syncByLink(url: string): Promise<SyncResult> {
       }
     }
 
-  } catch (e: any) {
-    result.errors.push(`Erro na sincronizacao por link: ${e.message}`);
+  } catch (e) {
+    result.errors.push(`Erro na sincronizacao por link: ${errMsg(e)}`);
   }
 
   result.elapsedMs = Date.now() - start;

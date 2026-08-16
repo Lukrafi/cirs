@@ -20,8 +20,8 @@ export default function SyncDataButton({ competitionId }: { competitionId: strin
           `Sincronizado: ${data.flagsUpdated} bandeiras, ${data.emblemsUpdated} escudos, ${data.competitionsUpdated} formatos`
         );
       }
-    } catch (e: any) {
-      setResult("Erro: " + e.message);
+    } catch (e) {
+      setResult("Erro: " + (e instanceof Error ? e.message : String(e)));
     } finally {
       setSyncing(false);
     }

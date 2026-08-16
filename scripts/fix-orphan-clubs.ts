@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Prisma } from "@prisma/client";
 import worldData from "../src/lib/world-data.json";
 
 const p = new PrismaClient();
@@ -21,7 +21,7 @@ interface JsonConfederation {
   countries: JsonCountry[];
 }
 
-const confederations = (worldData as any).confederations as JsonConfederation[];
+const confederations = (worldData as { confederations: JsonConfederation[] }).confederations;
 
 function buildClubMap(): Map<string, { countryName: string; countryCode: string; divisionLevel: number | null }> {
   const map = new Map<string, { countryName: string; countryCode: string; divisionLevel: number | null }>();
@@ -118,7 +118,7 @@ async function main() {
       }
     }
 
-    const updateData: any = { countryId };
+    const updateData: Prisma.ClubUncheckedUpdateInput = { countryId };
     if (divisionId) {
       updateData.divisionId = divisionId;
     }
