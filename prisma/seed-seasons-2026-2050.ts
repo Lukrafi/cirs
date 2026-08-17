@@ -5,97 +5,89 @@ const prisma = new PrismaClient();
 const START_YEAR = 2026;
 const END_YEAR = 2050;
 
-// ----- TORNEIOS QUADRIENAIS (a cada 4 anos) -----
-// Copa do Mundo: 2026, 2030, 2034, 2038, 2042, 2046
-// Copa América + Eurocopa: 2028, 2032, 2036, 2040, 2044, 2048
-// Copa da Ásia: 2027, 2031, 2035, 2039, 2043, 2047
-// Finalíssima: 2029, 2033, 2037, 2041, 2045, 2049
-// OFC Nations Cup: 2028, 2032, 2036, 2040, 2044, 2048
 const QUADRIENNIAL: Record<string, number> = {
-  "FIFA World Cup": 2026,
-  "FIFA Club World Cup": 2029,
-  "Copa América": 2028,
-  "Eurocopa": 2028,
-  "Copa da Ásia": 2027,
-  "Finalíssima": 2029,
-  "OFC Nations Cup": 2028,
+  "FIFA World Cup": 2026, "FIFA Club World Cup": 2029,
+  "Copa América": 2028, "Eurocopa": 2028, "Copa da Ásia": 2027,
+  "Finalíssima": 2029, "OFC Nations Cup": 2028,
 };
-
-// ----- TORNEIOS BIENAIS (a cada 2 anos) -----
-// Gold Cup: 2025, 2027, 2029, 2031, 2033, 2035, 2037, 2039, 2041, 2043, 2045, 2047, 2049
-// Copa Africana de Nações: 2025, 2027, 2029, 2031, 2033, 2035, 2037, 2039, 2041, 2043, 2045, 2047, 2049
-// African Nations Championship: 2026, 2028, 2030, 2032, 2034, 2036, 2038, 2040, 2042, 2044, 2046, 2048, 2050
 const BIENNIAL: Record<string, number> = {
-  "Gold Cup": 2025,
-  "Copa Africana de Nações": 2025,
+  "Gold Cup": 2025, "Copa Africana de Nações": 2025,
   "African Nations Championship": 2026,
 };
 
 function shouldInclude(name: string, year: number): boolean {
   if (name in QUADRIENNIAL) return (year - QUADRIENNIAL[name]) % 4 === 0;
   if (name in BIENNIAL) return (year - BIENNIAL[name]) % 2 === 0;
-  return true; // anual
+  return true;
+}
+
+function cuid(): string {
+  return "c" + Math.random().toString(36).slice(2, 12) + Date.now().toString(36);
 }
 
 async function main() {
-  console.log("=== Seed Seasons 2026-2050 ===");
+  console.log("=== Seed Seasons 2026-2050 (batch) ===");
 
-  // Verifica se já existem seasons no formato correto
-  const existingCount = await prisma.season.count();
-  const existingWithLeague = await prisma.season.count({ where: { leagueId: { not: null } } });
+  // Verifica anos já criados
+  const existing = await prisma.season.groupBy({ by: ["year"], _count: true });
+  const doneYears = new Set(existing.filter((s) => s._count >= 600).map((s) => s.year));
+  const pending = Array.from({ length: END_YEAR - START_YEAR + 1 }, (_, i) => START_YEAR + i).filter((y) => !doneYears.has(y));
 
-  if (existingCount === 25 && existingWithLeague === 0) {
-    console.log("Seasons já estão no formato correto (25 seasons, sem leagueId). Pulando.");
+  if (pending.length === 0) {
+    console.log("Todos os anos já criados. Pulando.");
     return;
   }
 
-  // Se existem seasons no formato antigo, limpa tudo
-  if (existingCount > 0) {
-    console.log(`Limpando ${existingCount} seasons antigas...`);
+  console.log(`Anos pendentes: ${pending.join(", ")}`);
+
+  // Só limpa se nada existir
+  if (doneYears.size === 0) {
+    console.log("Limpando...");
+    await prisma.matchStat.deleteMany({});
+    await prisma.match.deleteMany({});
+    await prisma.standing.deleteMany({});
+    await prisma.group.deleteMany({});
     await prisma.competition.deleteMany({});
     await prisma.season.deleteMany({});
   }
 
-  const leagues = await prisma.league.findMany({ select: { id: true, name: true } });
-  console.log(`${leagues.length} ligas encontradas`);
+  const leagues = await prisma.league.findMany({
+    where: { countryId: { not: null } },
+    select: { id: true, name: true, countryId: true },
+  });
+  console.log(`${leagues.length} ligas`);
 
-  let totalSeasons = 0;
-  let totalComps = 0;
+  let totalS = 0, totalC = 0;
 
-  for (let year = START_YEAR; year <= END_YEAR; year++) {
-    const season = await prisma.season.create({
-      data: {
-        name: String(year),
-        year,
-        startDate: new Date(`${year}-01-01`),
-        endDate: new Date(`${year}-12-31`),
-      },
-    });
-    totalSeasons++;
+  for (const year of pending) {
+    const dateStart = new Date(`${year}-01-01`);
+    const dateEnd = new Date(`${year}-12-31`);
 
-    let compCount = 0;
-    for (const league of leagues) {
-      if (!shouldInclude(league.name, year)) continue;
-      await prisma.competition.create({
-        data: {
-          name: league.name,
-          type: "liga",
-          seasonId: season.id,
-          format: "round-robin",
-          numTurns: 2,
-        },
-      });
-      compCount++;
-    }
-    totalComps += compCount;
-    console.log(`${year}: ${compCount} competições`);
+    // Batch seasons
+    const seasonData = leagues.map((l) => ({
+      id: cuid(), name: String(year), year, leagueId: l.id,
+      startDate: dateStart, endDate: dateEnd,
+    }));
+    await prisma.season.createMany({ data: seasonData });
+    const seasonMap: Record<string, string> = {};
+    leagues.forEach((l, i) => { seasonMap[l.id] = seasonData[i].id; });
+
+    // Batch competições
+    const eligible = leagues.filter((l) => shouldInclude(l.name, year));
+    const compData = eligible.map((l) => ({
+      id: cuid(), name: l.name, type: "liga", seasonId: seasonMap[l.id],
+      format: "round-robin", numTurns: 2, isSimulated: true,
+    }));
+    if (compData.length > 0) await prisma.competition.createMany({ data: compData });
+
+    totalS += seasonData.length;
+    totalC += compData.length;
+    console.log(`${year}: ${seasonData.length} seasons, ${compData.length} comps`);
   }
 
-  console.log(`\nConcluído: ${totalSeasons} seasons, ${totalComps} competitions`);
+  console.log(`\nTotal: ${totalS} seasons, ${totalC} competitions`);
 }
 
 main()
-  .catch((e) => {
-    console.error("Seed seasons falhou:", e);
-  })
+  .catch((e) => { console.error("Seed falhou:", e); })
   .finally(() => prisma.$disconnect());
