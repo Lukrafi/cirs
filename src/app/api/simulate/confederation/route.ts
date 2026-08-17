@@ -34,9 +34,10 @@ export async function POST(req: NextRequest) {
   });
   const leagueIds = leagues.map((l) => l.id);
 
-  // Busca seasons destas ligas
+  // Busca seasons destas ligas (apenas ano atual)
+  const currentYear = new Date().getFullYear();
   const seasons = await prisma.season.findMany({
-    where: { leagueId: { in: leagueIds } },
+    where: { leagueId: { in: leagueIds }, year: currentYear },
     select: { id: true },
   });
   const seasonIds = seasons.map((s) => s.id);
@@ -51,11 +52,12 @@ export async function POST(req: NextRequest) {
     select: { id: true, name: true },
   });
 
-  // Também busca competições internacionais desta confederação
+  // Também busca competições internacionais desta confederação (ano atual)
   const intlCompetitions = await prisma.competition.findMany({
     where: {
       isSimulated: true,
       name: { contains: confederation.name },
+      season: { year: currentYear },
       groups: { some: { matches: { some: { status: "scheduled" } } } },
     },
     select: { id: true, name: true },

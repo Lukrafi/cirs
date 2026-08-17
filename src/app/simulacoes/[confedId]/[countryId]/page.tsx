@@ -26,15 +26,17 @@ export default async function CountryPage({
 
   if (!country || country.confederationId !== confedId) notFound();
 
+  const currentYear = new Date().getFullYear();
+
   const competitions = await prisma.competition.findMany({
     where: {
-      season: { league: { countryId: countryId } },
+      season: { league: { countryId: countryId }, year: currentYear },
     },
     include: {
       season: { include: { league: true } },
       groups: { include: { matches: { where: { isSimulated: true } } } },
     },
-    orderBy: { createdAt: "desc" },
+    orderBy: { name: "asc" },
   });
 
   return (

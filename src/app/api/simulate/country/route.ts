@@ -29,9 +29,10 @@ export async function POST(req: NextRequest) {
   });
   const leagueIds = leagues.map((l) => l.id);
 
-  // Busca seasons destas ligas
+  // Busca seasons destas ligas (apenas ano atual)
+  const currentYear = new Date().getFullYear();
   const seasons = await prisma.season.findMany({
-    where: { leagueId: { in: leagueIds } },
+    where: { leagueId: { in: leagueIds }, year: currentYear },
     select: { id: true },
   });
   const seasonIds = seasons.map((s) => s.id);

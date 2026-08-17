@@ -77,7 +77,7 @@ async function main() {
     select: { id: true, name: true, countryId: true },
   });
   const leagueMap: Record<string, string> = {};
-  leagues.forEach((l) => { leagueMap[l.name] = l.countryId; });
+  leagues.forEach((l) => { if (l.countryId) leagueMap[l.name] = l.countryId; });
 
   // Competições do ano
   const comps = await prisma.competition.findMany({
@@ -86,9 +86,10 @@ async function main() {
   });
 
   // Clubes por país
-  const clubsByCountry: Record<string, { id: string }[]> = {};
+  const clubsByCountry: Record<string, { id: string; strength: number }[]> = {};
   const allClubs = await prisma.club.findMany({ select: { id: true, countryId: true, strength: true } });
   allClubs.forEach((c) => {
+    if (!c.countryId) return;
     if (!clubsByCountry[c.countryId]) clubsByCountry[c.countryId] = [];
     clubsByCountry[c.countryId].push(c);
   });
