@@ -397,18 +397,10 @@ const confCompetitions: Record<string, [string, string, number][]> = {
 };
 
 async function main() {
-  const existing = await prisma.confederation.count();
-  if (existing > 0) {
-    console.log("Seed já executado anteriormente. Limpando dados antigos...");
-    await prisma.competition.deleteMany();
-    await prisma.league.deleteMany();
-    await prisma.division.deleteMany();
-    await prisma.nationalTeam.deleteMany();
-    await prisma.nationalAssociation.deleteMany();
-    await prisma.country.deleteMany();
-    await prisma.confederation.deleteMany();
-    await prisma.club.deleteMany();
-    console.log("Dados antigos limpos. Reesemeando...");
+  const existing = await prisma.league.count();
+  if (existing > 500) {
+    console.log(`${existing} ligas já existem. Seed mundial pulado.`);
+    return;
   }
 
   console.log("=== SEED MUNDIAL CIRS ===");
