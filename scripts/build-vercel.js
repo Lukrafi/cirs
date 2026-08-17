@@ -100,6 +100,13 @@ try {
   console.log("Seed de seasons falhou, continuando...");
 }
 
+// Seed de Partidas do Ano Atual (ligas e copas nacionais)
+try {
+  run("Seed Partidas Ano Atual", "npx tsx prisma/seed-matches-current-year.ts");
+} catch {
+  console.log("Seed de partidas falhou, continuando...");
+}
+
 // Build
 run("Next Build", "npx next build");
 
