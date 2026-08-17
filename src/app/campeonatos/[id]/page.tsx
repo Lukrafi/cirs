@@ -36,20 +36,6 @@ export default async function CompetitionDetailPage({ params }: { params: Promis
 
   const formatLabel = formatLabels[competition.format] || competition.format;
 
-  const numTurns = competition.numTurns || 2;
-  const roundsPerTurn = competition.numTeams > 1 ? competition.numTeams - 1 : 9;
-
-  const formatRound = (round: string | null) => {
-    if (!round) return "";
-    const roundNum = parseInt(round, 10);
-    if (isNaN(roundNum)) return `Rod. ${round}`;
-    if (numTurns <= 1) return `Rod. ${roundNum}`;
-    const turn = Math.ceil(roundNum / roundsPerTurn);
-    const roundInTurn = roundNum - (turn - 1) * roundsPerTurn;
-    const turnLabel = turn === 1 ? "Ida" : "Volta";
-    return `Rod. ${roundInTurn} (${turnLabel})`;
-  };
-
   return (
     <div className="pt-20 min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="flex items-center gap-4 mb-2">
@@ -150,7 +136,7 @@ export default async function CompetitionDetailPage({ params }: { params: Promis
                       {m.status === "finished" ? `${m.homeScore} - ${m.awayScore}` : "vs"}
                     </span>
                     <span className="flex-1">{m.awayTeam?.name || "—"}</span>
-                    <span className="ml-3 text-xs text-muted min-w-[80px] text-right">{formatRound(m.round)}</span>
+                    <span className="ml-3 text-xs text-muted min-w-[60px] text-right">Rod. {m.round}</span>
                   </div>
                 ))}
               </div>
