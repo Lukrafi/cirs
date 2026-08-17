@@ -93,11 +93,11 @@ try {
   console.log("Seed de logos de ligas falhou, continuando...");
 }
 
-// Seed de Seasons 2026-2050 (1 season por ano com todas as competições)
+// Seed de Season do Ano Atual
 try {
-  run("Seed Seasons 2026-2050", "npx tsx prisma/seed-seasons-2026-2050.ts");
+  run("Seed Season Atual", "npx tsx prisma/seed-seasons-2026-2050.ts");
 } catch {
-  console.log("Seed de seasons falhou, continuando...");
+  console.log("Seed de season falhou, continuando...");
 }
 
 // Seed de Partidas do Ano Atual (ligas e copas nacionais)
