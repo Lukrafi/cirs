@@ -8,10 +8,13 @@ export const dynamic = "force-dynamic";
 export default async function LeaguePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
 
+  const currentYear = new Date().getFullYear();
+
   const league = await prisma.league.findUnique({
     where: { id },
     include: {
       seasons: {
+        where: { year: currentYear },
         include: {
           competitions: { include: { groups: true } },
           stats: true,
