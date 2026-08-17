@@ -76,7 +76,7 @@ async function main() {
     const eligible = leagues.filter((l) => shouldInclude(l.name, year));
     const compData = eligible.map((l) => ({
       id: cuid(), name: l.name, type: "liga", seasonId: seasonMap[l.id],
-      format: "round-robin", numTurns: 2, isSimulated: true,
+      format: "round-robin", numTurns: 2, isSimulated: false,
     }));
     if (compData.length > 0) await prisma.competition.createMany({ data: compData });
 
